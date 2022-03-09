@@ -1,0 +1,819 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>TutorialLesson04-01-01</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=TutorialLesson04-01-01" title="TutorialLesson04-01-01">TutorialLesson04-01-01</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">TutorialLesson04-01-01</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14082">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14082">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14082">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14082">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14082">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14082">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=vitorsouza">vitorsouza</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 03, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14082&originalId=23219">view change</A>)
+                      <SPAN id="show" class="inline-control-link"><A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=TutorialLesson04-01-01" onclick="showComment(); return false;">show comment</A></SPAN>
+        <SPAN id="hide" class="inline-control-link" style="display:none;"><A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=TutorialLesson04-01-01" onclick="hideComment(); return false;">hide comment</A></SPAN>
+          <DIV id="versionComment" class="noteMacro" style="display:none; padding: 5px;">
+      <B>Comment:</B>
+      <BR>
+<BR>
+Update parent page<BR>
+      <SPAN class="smalltext"><A href="http://cwiki.apache.org/confluence/pages/viewpreviouspageversions.action?pageId=14082">View page history</A></SPAN>
+  </DIV>
+
+    <SCRIPT>
+      var show = document.getElementById('show');
+      var hide = document.getElementById('hide');
+      var versionComment = document.getElementById('versionComment');
+
+      function showComment(){
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+        versionComment.style.display = 'block';
+      }
+
+      function hideComment(){
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+        versionComment.style.display = 'none';
+      }
+
+    </SCRIPT>
+    
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<H1><A name="TutorialLesson04-01-01-Lesson4.1.1%3AWebWorkUITags"></A>Lesson 4.1.1: WebWork UI Tags</H1>
+
+<P>In WebWork, the UI tags wrap generic HTML controls while providing tight integration with the core framework. The tags have been designed to minimize the amount of logic in compiled code and delegate the actual rendering of HTML to a template system. The UI tags attempt to cover the most common scenarios, while providing a Component Tag for creating custom components. The UI tags also provide built-in support for displaying inline error messages.</P>
+
+<P>This lesson tries to explain how to take advantage of the UI tags to build forms and other graphical controls and, by explaining how the template system works, teaches you how to change the look of existing components and create your own UI components.</P>
+
+<H2><A name="TutorialLesson04-01-01-Buildingforms%3A"></A>Building forms:</H2>
+
+<P>WebWork comes with ready-to-use tags to construct forms. Some of these tags relate directly to HTML tags that are used to make forms and you probably can figure them out by their names: <TT>&lt;ww:checkbox /&gt;</TT>, <TT>&lt;ww:file /&gt;</TT>, <TT>&lt;ww:form /&gt;</TT>, <TT>&lt;ww:hidden /&gt;</TT>, <TT>&lt;ww:label /&gt;</TT>, <TT>&lt;ww:password /&gt;</TT>, <TT>&lt;ww:radio /&gt;</TT>, <TT>&lt;ww:select /&gt;</TT>, <TT>&lt;ww:submit /&gt;</TT>, <TT>&lt;ww:textarea /&gt;</TT> and <TT>&lt;ww:textfield /&gt;</TT>.</P>
+
+<P>To build forms with these tags, place them in your page as you would do with the HTML tags. The only difference is that the parameters should be enclosed in double quotes and single quotes (<TT>key=&quot;&apos;value&apos;&quot;</TT>). That&apos;s because names that are not single-quoted are evaluated against the Value Stack.</P>
+
+<P>Let&apos;s check out an example:</P>
+
+<H3><A name="TutorialLesson04-01-01-ex01index.jsp%3A"></A>ex01-index.jsp:</H3>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;%@ taglib uri=<SPAN class="code-quote">&quot;webwork&quot;</SPAN> prefix=<SPAN class="code-quote">&quot;ww&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+<SPAN class="code-tag">&lt;title&gt;</SPAN>WebWork Tutorial - Lesson 4.1.1 - Example 1<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;meta http-equiv=<SPAN class="code-quote">&quot;Content-Type&quot;</SPAN> content=<SPAN class="code-quote">&quot;text/html; charset=iso-8859-1&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;style type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN>&gt;</SPAN>
+	.errorMessage { color: red; }
+<SPAN class="code-tag">&lt;/style&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN>UI Form Tags Example:<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;ww:form action=<SPAN class="code-quote">&quot;&apos;formProcessing.action&apos;&quot;</SPAN> method=<SPAN class="code-quote">&quot;&apos;post&apos;&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;ww:checkbox name=<SPAN class="code-quote">&quot;&apos;checkbox&apos;&quot;</SPAN> label=<SPAN class="code-quote">&quot;&apos;A checkbox&apos;&quot;</SPAN> fieldValue=<SPAN class="code-quote">&quot;&apos;checkbox_value&apos;&quot;</SPAN> /&gt;</SPAN>
+	<SPAN class="code-tag">&lt;ww:file name=<SPAN class="code-quote">&quot;&apos;file&apos;&quot;</SPAN> label=<SPAN class="code-quote">&quot;&apos;A file field&apos;&quot;</SPAN> /&gt;</SPAN>
+	<SPAN class="code-tag">&lt;ww:hidden name=<SPAN class="code-quote">&quot;&apos;hidden&apos;&quot;</SPAN> value=<SPAN class="code-quote">&quot;&apos;hidden_value&apos;&quot;</SPAN> /&gt;</SPAN>
+	<SPAN class="code-tag">&lt;ww:label label=<SPAN class="code-quote">&quot;&apos;A label&apos;&quot;</SPAN> /&gt;</SPAN>
+	<SPAN class="code-tag">&lt;ww:password name=<SPAN class="code-quote">&quot;&apos;password&apos;&quot;</SPAN> label=<SPAN class="code-quote">&quot;&apos;A password field&apos;&quot;</SPAN> /&gt;</SPAN>
+	<SPAN class="code-tag">&lt;ww:radio name=<SPAN class="code-quote">&quot;&apos;radio&apos;&quot;</SPAN> label=<SPAN class="code-quote">&quot;&apos;Radio buttons&apos;&quot;</SPAN> list=<SPAN class="code-quote">&quot;{&apos;One&apos;, &apos;Two&apos;, &apos;Three&apos;}&quot;</SPAN> /&gt;</SPAN>
+	&lt;ww:select name=<SPAN class="code-quote">&quot;&apos;select&apos;&quot;</SPAN> label=<SPAN class="code-quote">&quot;&apos;A select list&apos;&quot;</SPAN> list=<SPAN class="code-quote">&quot;{&apos;One&apos;, &apos;Two&apos;, &apos;Three&apos;}&quot;</SPAN>
+		emptyOption=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;
+	<SPAN class="code-tag">&lt;ww:textarea name=<SPAN class="code-quote">&quot;&apos;textarea&apos;&quot;</SPAN> label=<SPAN class="code-quote">&quot;&apos;A text area&apos;&quot;</SPAN> rows=<SPAN class="code-quote">&quot;&apos;3&apos;&quot;</SPAN> cols=<SPAN class="code-quote">&quot;&apos;40&apos;&quot;</SPAN> /&gt;</SPAN>
+	<SPAN class="code-tag">&lt;ww:textfield name=<SPAN class="code-quote">&quot;&apos;textfield&apos;&quot;</SPAN> label=<SPAN class="code-quote">&quot;&apos;A text field&apos;&quot;</SPAN> /&gt;</SPAN>
+	<SPAN class="code-tag">&lt;ww:submit value=<SPAN class="code-quote">&quot;&apos;Send Form&apos;&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ww:form&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="TutorialLesson04-01-01-HTMLresultafterprocessingex01index.jsp%3A"></A>HTML result after processing ex01-index.jsp:</H3>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+<SPAN class="code-tag">&lt;title&gt;</SPAN>WebWork Tutorial - Lesson 4.1.1 - Example 1<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;style type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN>&gt;</SPAN>
+  .errorMessage { color: red; }
+<SPAN class="code-tag">&lt;/style&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN>UI Form Tags Example:<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;table&gt;</SPAN>
+&lt;form
+action=<SPAN class="code-quote">&quot;formProcessing.action&quot;</SPAN> method=<SPAN class="code-quote">&quot;post&quot;</SPAN> &gt;
+
+
+
+
+<SPAN class="code-tag">&lt;tr&gt;</SPAN>
+<SPAN class="code-tag">&lt;td valign=<SPAN class="code-quote">&quot;top&quot;</SPAN> colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;table width=<SPAN class="code-quote">&quot;100%&quot;</SPAN> border=<SPAN class="code-quote">&quot;0&quot;</SPAN> cellpadding=<SPAN class="code-quote">&quot;0&quot;</SPAN> cellspacing=<SPAN class="code-quote">&quot;0&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;tr&gt;</SPAN><SPAN class="code-tag">&lt;td valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;</SPAN>
+&lt;input type=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN>
+name=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN>
+value=<SPAN class="code-quote">&quot;checkbox_value&quot;</SPAN>
+/&gt;
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;td width=<SPAN class="code-quote">&quot;100%&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;span class=<SPAN class="code-quote">&quot;checkboxLabel&quot;</SPAN>&gt;</SPAN>
+A checkbox
+<SPAN class="code-tag">&lt;/span&gt;</SPAN>
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+<SPAN class="code-tag">&lt;/table&gt;</SPAN>
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+
+
+
+
+
+<SPAN class="code-tag">&lt;tr&gt;</SPAN>
+<SPAN class="code-tag">&lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;span class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;</SPAN>
+
+A file field:
+<SPAN class="code-tag">&lt;/span&gt;</SPAN>
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;td&gt;</SPAN>
+
+&lt;input type=<SPAN class="code-quote">&quot;file&quot;</SPAN>
+name=<SPAN class="code-quote">&quot;file&quot;</SPAN>
+/&gt;
+
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+
+  &lt;input
+type=<SPAN class="code-quote">&quot;hidden&quot;</SPAN>
+name=<SPAN class="code-quote">&quot;hidden&quot;</SPAN> value=<SPAN class="code-quote">&quot;hidden_value&quot;</SPAN> /&gt;
+
+
+
+
+<SPAN class="code-tag">&lt;tr&gt;</SPAN>
+<SPAN class="code-tag">&lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;span class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;</SPAN>
+
+A label:
+<SPAN class="code-tag">&lt;/span&gt;</SPAN>
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;td&gt;</SPAN>
+<SPAN class="code-tag">&lt;label&gt;</SPAN> <SPAN class="code-tag">&lt;/label&gt;</SPAN>
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+
+
+
+
+
+
+<SPAN class="code-tag">&lt;tr&gt;</SPAN>
+<SPAN class="code-tag">&lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;span class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;</SPAN>
+
+A password field:
+<SPAN class="code-tag">&lt;/span&gt;</SPAN>
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;td&gt;</SPAN>
+
+&lt;input type=<SPAN class="code-quote">&quot;password&quot;</SPAN>
+name=<SPAN class="code-quote">&quot;password&quot;</SPAN>
+
+
+/&gt;
+
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+
+
+
+
+
+<SPAN class="code-tag">&lt;tr&gt;</SPAN>
+<SPAN class="code-tag">&lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;span class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;</SPAN>
+
+Radio buttons:
+<SPAN class="code-tag">&lt;/span&gt;</SPAN>
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;td&gt;</SPAN>
+
+
+
+
+
+&lt;input
+type=<SPAN class="code-quote">&quot;radio&quot;</SPAN>
+name=<SPAN class="code-quote">&quot;radio&quot;</SPAN>
+id=<SPAN class="code-quote">&quot;radioOne&quot;</SPAN>
+value=<SPAN class="code-quote">&quot;One&quot;</SPAN> /&gt;
+<SPAN class="code-tag">&lt;label for=<SPAN class="code-quote">&quot;radioOne&quot;</SPAN>&gt;</SPAN>One<SPAN class="code-tag">&lt;/label&gt;</SPAN>
+
+
+
+
+
+&lt;input
+type=<SPAN class="code-quote">&quot;radio&quot;</SPAN>
+name=<SPAN class="code-quote">&quot;radio&quot;</SPAN>
+id=<SPAN class="code-quote">&quot;radioTwo&quot;</SPAN>
+value=<SPAN class="code-quote">&quot;Two&quot;</SPAN> /&gt;
+<SPAN class="code-tag">&lt;label for=<SPAN class="code-quote">&quot;radioTwo&quot;</SPAN>&gt;</SPAN>Two<SPAN class="code-tag">&lt;/label&gt;</SPAN>
+
+
+
+
+
+&lt;input
+type=<SPAN class="code-quote">&quot;radio&quot;</SPAN>
+name=<SPAN class="code-quote">&quot;radio&quot;</SPAN>
+id=<SPAN class="code-quote">&quot;radioThree&quot;</SPAN>
+value=<SPAN class="code-quote">&quot;Three&quot;</SPAN> /&gt;
+<SPAN class="code-tag">&lt;label for=<SPAN class="code-quote">&quot;radioThree&quot;</SPAN>&gt;</SPAN>Three<SPAN class="code-tag">&lt;/label&gt;</SPAN>
+
+
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+
+
+
+
+
+<SPAN class="code-tag">&lt;tr&gt;</SPAN>
+<SPAN class="code-tag">&lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;span class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;</SPAN>
+
+A select list:
+<SPAN class="code-tag">&lt;/span&gt;</SPAN>
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;td&gt;</SPAN>
+
+&lt;select name=<SPAN class="code-quote">&quot;select&quot;</SPAN>
+&gt;
+
+
+<SPAN class="code-tag">&lt;option value=&quot;&quot;&gt;</SPAN><SPAN class="code-tag">&lt;/option&gt;</SPAN>
+
+
+
+
+
+&lt;option value=<SPAN class="code-quote">&quot;One&quot;</SPAN>
+&gt;One<SPAN class="code-tag">&lt;/option&gt;</SPAN>
+
+
+
+
+
+&lt;option value=<SPAN class="code-quote">&quot;Two&quot;</SPAN>
+&gt;Two<SPAN class="code-tag">&lt;/option&gt;</SPAN>
+
+
+
+
+
+&lt;option value=<SPAN class="code-quote">&quot;Three&quot;</SPAN>
+&gt;Three<SPAN class="code-tag">&lt;/option&gt;</SPAN>
+
+
+<SPAN class="code-tag">&lt;/select&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+
+
+
+
+
+<SPAN class="code-tag">&lt;tr&gt;</SPAN>
+<SPAN class="code-tag">&lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;span class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;</SPAN>
+
+A text area:
+<SPAN class="code-tag">&lt;/span&gt;</SPAN>
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;td&gt;</SPAN>
+
+&lt;textarea name=<SPAN class="code-quote">&quot;textarea&quot;</SPAN>
+cols=<SPAN class="code-quote">&quot;40&quot;</SPAN>
+rows=<SPAN class="code-quote">&quot;3&quot;</SPAN>
+&gt;<SPAN class="code-tag">&lt;/textarea&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+
+
+
+
+
+<SPAN class="code-tag">&lt;tr&gt;</SPAN>
+<SPAN class="code-tag">&lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;span class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;</SPAN>
+
+A text field:
+<SPAN class="code-tag">&lt;/span&gt;</SPAN>
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;td&gt;</SPAN>
+
+&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN>
+name=<SPAN class="code-quote">&quot;textfield&quot;</SPAN>
+/&gt;
+
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;tr&gt;</SPAN>
+<SPAN class="code-tag">&lt;td colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;</SPAN>&lt;div
+align=<SPAN class="code-quote">&quot;right&quot;</SPAN> &gt;&lt;input
+type=<SPAN class="code-quote">&quot;submit&quot;</SPAN>
+value=<SPAN class="code-quote">&quot;Send Form&quot;</SPAN> /&gt;<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+<SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+<SPAN class="code-tag">&lt;/table&gt;</SPAN>
+
+
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="TutorialLesson04-01-01-xwork.xml%3A"></A>xwork.xml:</H3>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">&lt;!DOCTYPE xwork PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork 1.0//EN&quot;</SPAN>
+<SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-1.0.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;xwork&gt;</SPAN>
+	<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Include webwork defaults (from WebWork JAR). --&gt;</SPAN></SPAN>
+	<SPAN class="code-tag">&lt;include file=<SPAN class="code-quote">&quot;webwork-default.xml&quot;</SPAN> /&gt;</SPAN>
+
+	<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Configuration for the default package. --&gt;</SPAN></SPAN>
+	<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;webwork-default&quot;</SPAN>&gt;</SPAN>
+		<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;formProcessing&quot;</SPAN> class=<SPAN class="code-quote">&quot;lesson04_01_01.FormProcessingAction&quot;</SPAN>&gt;</SPAN>
+			<SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>ex01-index.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+			<SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>ex01-success.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+			<SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validationWorkflowStack&quot;</SPAN> /&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/xwork&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="TutorialLesson04-01-01-FormProcessingAction.java%3A"></A>FormProcessingAction.java:</H3>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> lesson04_01_01;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionSupport;
+
+<SPAN class="code-keyword">public</SPAN> class FormProcessingAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> checkbox;
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> file;
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> hidden;
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> password;
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> radio;
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> select;
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> textarea;
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> textfield;
+
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getCheckbox() { <SPAN class="code-keyword">return</SPAN> checkbox; }
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getFile() { <SPAN class="code-keyword">return</SPAN> file; }
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getHidden() { <SPAN class="code-keyword">return</SPAN> hidden; }
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getPassword() { <SPAN class="code-keyword">return</SPAN> password; }
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getRadio() { <SPAN class="code-keyword">return</SPAN> radio; }
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getSelect() { <SPAN class="code-keyword">return</SPAN> select; }
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getTextarea() { <SPAN class="code-keyword">return</SPAN> textarea; }
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getTextfield() { <SPAN class="code-keyword">return</SPAN> textfield; }
+
+	<SPAN class="code-keyword">public</SPAN> void setCheckbox(<SPAN class="code-object">String</SPAN> checkbox) { <SPAN class="code-keyword">this</SPAN>.checkbox = checkbox; }
+	<SPAN class="code-keyword">public</SPAN> void setFile(<SPAN class="code-object">String</SPAN> file) { <SPAN class="code-keyword">this</SPAN>.file = file; }
+	<SPAN class="code-keyword">public</SPAN> void setHidden(<SPAN class="code-object">String</SPAN> hidden) { <SPAN class="code-keyword">this</SPAN>.hidden = hidden; }
+	<SPAN class="code-keyword">public</SPAN> void setPassword(<SPAN class="code-object">String</SPAN> password) { <SPAN class="code-keyword">this</SPAN>.password = password; }
+	<SPAN class="code-keyword">public</SPAN> void setRadio(<SPAN class="code-object">String</SPAN> radio) { <SPAN class="code-keyword">this</SPAN>.radio = radio; }
+	<SPAN class="code-keyword">public</SPAN> void setSelect(<SPAN class="code-object">String</SPAN> select) { <SPAN class="code-keyword">this</SPAN>.select = select; }
+	<SPAN class="code-keyword">public</SPAN> void setTextarea(<SPAN class="code-object">String</SPAN> textarea) { <SPAN class="code-keyword">this</SPAN>.textarea = textarea; }
+	<SPAN class="code-keyword">public</SPAN> void setTextfield(<SPAN class="code-object">String</SPAN> textfield) { <SPAN class="code-keyword">this</SPAN>.textfield = textfield; }
+
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+		<SPAN class="code-keyword">return</SPAN> SUCCESS;
+	}
+}</PRE>
+</DIV></DIV>
+
+<H3><A name="TutorialLesson04-01-01-FormProcessingActionvalidation.xml%3A"></A>FormProcessingAction-validation.xml:</H3>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">&lt;!DOCTYPE validators PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork Validator 1.0//EN&quot;</SPAN>
+<SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-validator-1.0.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;validators&gt;</SPAN>
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;message&gt;</SPAN>Please, check the checkbox.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;file&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;message&gt;</SPAN>Please select a file.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;password&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;message&gt;</SPAN>Please type something in the password field.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;radio&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;message&gt;</SPAN>Please select a radio button.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;select&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;message&gt;</SPAN>Please select an option from the list.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;textarea&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;message&gt;</SPAN>Please type something in the text area.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;textfield&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;message&gt;</SPAN>Please type something in the text field.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validators&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="TutorialLesson04-01-01-ex01success.jsp%3A"></A>ex01-success.jsp:</H3>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;%@ taglib uri=<SPAN class="code-quote">&quot;webwork&quot;</SPAN> prefix=<SPAN class="code-quote">&quot;ww&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+<SPAN class="code-tag">&lt;title&gt;</SPAN>WebWork Tutorial - Lesson 4.1.1 - Example 1<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN>UI Form Tags Example result:<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;ul&gt;</SPAN>
+  <SPAN class="code-tag">&lt;li&gt;</SPAN>checkbox: <SPAN class="code-tag">&lt;ww:property value=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+  <SPAN class="code-tag">&lt;li&gt;</SPAN>file: <SPAN class="code-tag">&lt;ww:property value=<SPAN class="code-quote">&quot;file&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+  <SPAN class="code-tag">&lt;li&gt;</SPAN>hidden: <SPAN class="code-tag">&lt;ww:property value=<SPAN class="code-quote">&quot;hidden&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+  <SPAN class="code-tag">&lt;li&gt;</SPAN>password: <SPAN class="code-tag">&lt;ww:property value=<SPAN class="code-quote">&quot;password&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+  <SPAN class="code-tag">&lt;li&gt;</SPAN>radio: <SPAN class="code-tag">&lt;ww:property value=<SPAN class="code-quote">&quot;radio&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+  <SPAN class="code-tag">&lt;li&gt;</SPAN>select: <SPAN class="code-tag">&lt;ww:property value=<SPAN class="code-quote">&quot;select&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+  <SPAN class="code-tag">&lt;li&gt;</SPAN>textarea: <SPAN class="code-tag">&lt;ww:property value=<SPAN class="code-quote">&quot;textarea&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+  <SPAN class="code-tag">&lt;li&gt;</SPAN>textfield: <SPAN class="code-tag">&lt;ww:property value=<SPAN class="code-quote">&quot;textfield&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ul&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>Notice how much cleaner <TT>ex01-index.jsp</TT> is, compared to its HTML result. The default layout of the form components is a table layout, with the label on the left column and the field to the right. You can learn how to create your own layouts when we explain the template system, below.</P>
+
+<P>Another thing to notice is the reference to the <TT>validationWorkflowStack</TT> in the action&apos;s configuration. This makes WebWork validate the parameters that are sent to our actions according to a configuration file we place in the same location as the action class - in our case, <TT>FormProcessingAction-validation.xml</TT> (see <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Validation&linkCreation=true&fromPageId=14082" title="Create Page: Validation" class="createlink">Validation<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>). In case something is not valid, it prevents the action from executing and dispatches the request to the input result with error messages attached to each field (using the method <TT>addFieldError(String fieldName, String errorMessage)</TT>).</P>
+
+<P>But don&apos;t worry about how the validation framework works for now. Run the example and try leaving some fields blank. You will see that the UI tags provide error messages that integrate with the validation framework and that&apos;s what we want do demonstrate here. This separation of concerns can help programmers and designers concentrate more on their part of the work.</P>
+<BLOCKQUOTE><P><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=TutorialExamples&linkCreation=true&fromPageId=14082" title="Create Page: TutorialExamples" class="createlink">Try the example&#33;<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></P></BLOCKQUOTE>
+<H2><A name="TutorialLesson04-01-01-OtherUIControls%3A"></A>Other UI Controls:</H2>
+
+<P>Besides the standard form controls that HTML designers are already familiar with, WebWork provides some other controls and also the ability to create a custom control. Let&apos;s take a look at the custom controls that are already provided by WebWork:</P>
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd"> <TT><B>&lt;ww:checkboxlist /&gt;</B></TT> </TD>
+<TD class="confluenceTd"> Works just like the <TT>&lt;ww:radio /&gt;</TT> tag, but with check boxes instead of radio buttons. It gets the keys and values from a collection and creates a list of checkboxes, all with the same name. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT><B>&lt;ww:combobox /&gt;</B></TT> </TD>
+<TD class="confluenceTd"> Simulates a combo box, which is a control that mixes a selection list with a text field. It does this by placing a text field with a <TT>&lt;select /&gt;</TT> list right below it and a JavaScript code that fills the text field with the selection of the list every time it changes. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT><B>&lt;ww:tabbedpane /&gt;</B></TT> </TD>
+<TD class="confluenceTd"> <EM>Help needed here.</EM> </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <TT><B>&lt;ww:token /&gt;</B></TT> </TD>
+<TD class="confluenceTd"> <EM>Help needed here.</EM> </TD>
+</TR>
+</TBODY></TABLE>
+
+<H2><A name="TutorialLesson04-01-01-TheTemplateSystem%3A"></A>The Template System:</H2>
+
+<P>WebWork uses the Velocity template system to render the actual HTML output for all UI tags. A default implementation of all templates has been included with the core distribution allowing users to use WebWork&apos;s UI tags &quot;out of the box&quot;. Templates can be edited individually or replaced entirely allowing for complete customization of the resulting HTML output. In addition, the default template can be overridden on a per tag basis allowing for a very fine level of control. The default templates are located in the <TT>webwork-2.1.1.jar</TT> file under <TT>/template/xhtml</TT>.</P>
+
+<P>If you unpack <TT>webwork-2.1.1.jar</TT> and look under the <TT>/template/xhtml</TT> directory you will see a bunch of velocity templates. Most of them correspond to a specific UI Tag, and those have the name of the tag they render. If you&apos;re familiar with Velocity, I recommend you analyse the template files to see what you&apos;re capable of doing with them. Since version 2.1, there&apos;s also a <TT>/template/simple</TT> directory, which is a simpler version of the HTML form controls (just the control, no table or label).</P>
+
+<P>If you want do display your UI components in a different layout than the one that comes with WebWork, you can:</P>
+<UL>
+	<LI>Edit and replace the files in <TT>/template/xhtml</TT> (repack the JAR or create the same directory structure somewhere else and make sure your container looks that path before the JAR);</LI>
+</UL>
+
+
+<UL>
+	<LI>Change the location of the templates by editing the <TT>webwork.ui.theme</TT> property in <TT>webwork.properties</TT> (file that should be placed in the root of your classpath);</LI>
+</UL>
+
+
+<UL>
+	<LI>Specifying the location of the templates for each tag individually using the theme or the template property. The former allows you to specify the directory where all templates are (thus, WebWork looks for templates with the same name as the ones in <TT>/template/xhtml</TT>), while the latter allows you to indicate the exact template to be used for that component.
+<BLOCKQUOTE><P>Read more: <A href="themes-and-templates.html" title="Themes and Templates">Themes and Templates</A></P></BLOCKQUOTE>
+<P>The third approach is demonstrated in the example below. Note that, by default, the specified theme directory should be under <TT>/template</TT> and the specified template file should be under <TT>/template/xhtml</TT>.</P></LI>
+</UL>
+
+
+<H3><A name="TutorialLesson04-01-01-ex02.jsp%3A"></A>ex02.jsp:</H3>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;%@ taglib uri=<SPAN class="code-quote">&quot;webwork&quot;</SPAN> prefix=<SPAN class="code-quote">&quot;ww&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+<SPAN class="code-tag">&lt;title&gt;</SPAN>WebWork Tutorial - Lesson 4.1.1 - Example 2<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN>Template Change Example:<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;ww:checkbox name=<SPAN class="code-quote">&quot;&apos;checkbox&apos;&quot;</SPAN> label=<SPAN class="code-quote">&quot;&apos;A checkbox&apos;&quot;</SPAN> fieldValue=<SPAN class="code-quote">&quot;&apos;checkbox_value&apos;&quot;</SPAN> theme=<SPAN class="code-quote">&quot;&apos;mytheme&apos;&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;ww:textfield name=<SPAN class="code-quote">&quot;&apos;textfield&apos;&quot;</SPAN> label=<SPAN class="code-quote">&quot;&apos;A text field&apos;&quot;</SPAN> template=<SPAN class="code-quote">&quot;mytextfield.vm&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="TutorialLesson04-01-01-%2Ftemplate%2Fmytheme%2Fcheckbox.vm%3A"></A>/template/mytheme/checkbox.vm:</H3>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;div align=<SPAN class="code-quote">&quot;center&quot;</SPAN>&gt;</SPAN>
+	&lt;input type=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN>
+		name=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.name)&quot;</SPAN>
+		value=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.fieldValue)&quot;</SPAN>
+	#if ($parameters.nameValue) checked=<SPAN class="code-quote">&quot;checked&quot;</SPAN> #end
+	#if ($parameters.disabled == true) disabled=<SPAN class="code-quote">&quot;disabled&quot;</SPAN> #end
+	#if ($parameters.tabindex) tabindex=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.tabindex)&quot;</SPAN> #end
+	#if ($parameters.onchange) onchange=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.onchange)&quot;</SPAN> #end
+	#if ($parameters.id) id=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.id)&quot;</SPAN> #end
+	/&gt;<SPAN class="code-tag">&lt;br /&gt;</SPAN>
+	$!webwork.htmlEncode($parameters.label)
+<SPAN class="code-tag">&lt;/div&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="TutorialLesson04-01-01-%2Ftemplate%2Fxhtml%2Fmytextfield.vm%3A"></A>/template/xhtml/mytextfield.vm:</H3>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;div align=<SPAN class="code-quote">&quot;center&quot;</SPAN>&gt;</SPAN>
+	&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN>
+		name=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.name)&quot;</SPAN>
+	#if ($parameters.size) size=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.size)&quot;</SPAN> #end
+	#if ($parameters.maxlength) maxlength=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.maxlength)&quot;</SPAN> #end
+	#if ($parameters.nameValue) value=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.nameValue)&quot;</SPAN> #end
+	#if ($parameters.disabled == true) disabled=<SPAN class="code-quote">&quot;disabled&quot;</SPAN> #end
+	#if ($parameters.readonly) readonly=<SPAN class="code-quote">&quot;readonly&quot;</SPAN> #end
+	#if ($parameters.onkeyup) onkeyup=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.onkeyup)&quot;</SPAN> #end
+	#if ($parameters.tabindex) tabindex=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.tabindex)&quot;</SPAN> #end
+	#if ($parameters.onchange) onchange=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.onchange)&quot;</SPAN> #end
+	#if ($parameters.id) id=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.id)&quot;</SPAN> #end
+	/&gt;<SPAN class="code-tag">&lt;br /&gt;</SPAN>
+	$!webwork.htmlEncode($parameters.label)
+<SPAN class="code-tag">&lt;/div&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="TutorialLesson04-01-01-HTMLresultafterprocessingex02.jsp%3A"></A>HTML result after processing ex02.jsp:</H3>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+<SPAN class="code-tag">&lt;title&gt;</SPAN>WebWork Tutorial - Lesson 4.1.1 - Example 2<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN>Template Change Example:<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;div align=<SPAN class="code-quote">&quot;center&quot;</SPAN>&gt;</SPAN>
+  &lt;input type=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN>
+         name=<SPAN class="code-quote">&quot;checkbox&quot;</SPAN>
+         value=<SPAN class="code-quote">&quot;checkbox_value&quot;</SPAN>
+            /&gt;<SPAN class="code-tag">&lt;br /&gt;</SPAN>
+  A checkbox
+<SPAN class="code-tag">&lt;/div&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;div align=<SPAN class="code-quote">&quot;center&quot;</SPAN>&gt;</SPAN>
+  &lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN>
+                                     name=<SPAN class="code-quote">&quot;textfield&quot;</SPAN>
+                    /&gt;<SPAN class="code-tag">&lt;br /&gt;</SPAN>
+  A text field
+<SPAN class="code-tag">&lt;/div&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+<BLOCKQUOTE><P><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=TutorialExamples&linkCreation=true&fromPageId=14082" title="Create Page: TutorialExamples" class="createlink">Try the example&#33;<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></P></BLOCKQUOTE>
+<H2><A name="TutorialLesson04-01-01-BuildingCustomizedUIComponents%3A"></A>Building Customized UI Components:</H2>
+
+<P>There are some situations in which none of the UI Components that come bundled with WebWork fit your requirements. In this case, the recommended approach would be to create your own custom component. In this way, you keep your web page clean of layout and error-checking issues and also promote component reuse.</P>
+
+<P>To create a custom component, just create a Velocity template for it, just like the ones that already exist. To place it in a web page, use the <TT>&lt;ww:component /&gt;</TT> tag and specify the location of the template in its <TT>template</TT> parameter.</P>
+
+<P>To pass parameters to be used by your template, use the <TT>&lt;ww:param /&gt;</TT> tag (see <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=TutorialLesson04-01&linkCreation=true&fromPageId=14082" title="Create Page: TutorialLesson04-01" class="createlink">lesson 4.1<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>). The example below demonstrates the creation of a custom date field.</P>
+
+<H3><A name="TutorialLesson04-01-01-ex03.jsp%3A"></A>ex03.jsp:</H3>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;%@ taglib uri=<SPAN class="code-quote">&quot;webwork&quot;</SPAN> prefix=<SPAN class="code-quote">&quot;ww&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+<SPAN class="code-tag">&lt;title&gt;</SPAN>WebWork Tutorial - Lesson 4.1.1 - Example 3<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+<SPAN class="code-tag">&lt;p&gt;</SPAN>Custom Component Example:<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN>
+<SPAN class="code-tag">&lt;ww:component template=<SPAN class="code-quote">&quot;datefield.vm&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;ww:param name=<SPAN class="code-quote">&quot;&apos;label&apos;&quot;</SPAN> value=<SPAN class="code-quote">&quot;&apos;Date&apos;&quot;</SPAN> /&gt;</SPAN>
+	<SPAN class="code-tag">&lt;ww:param name=<SPAN class="code-quote">&quot;&apos;name&apos;&quot;</SPAN> value=<SPAN class="code-quote">&quot;&apos;mydatefield&apos;&quot;</SPAN> /&gt;</SPAN>
+	<SPAN class="code-tag">&lt;ww:param name=<SPAN class="code-quote">&quot;&apos;size&apos;&quot;</SPAN> value=<SPAN class="code-quote">&quot;3&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ww:component&gt;</SPAN>
+<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="TutorialLesson04-01-01-%2Ftemplate%2Fxhtml%2Fdatefield.vm%3A"></A>/template/xhtml/datefield.vm:</H3>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html">#set ($name = $parameters.get(&apos;name&apos;))
+#set ($size = $parameters.get(&apos;size&apos;))
+#set ($yearSize = $size * 2)
+
+$parameters.get(&apos;label&apos;):
+<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;${name}.day&quot;</SPAN> size=<SPAN class="code-quote">&quot;$size&quot;</SPAN> /&gt;</SPAN> /
+<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;${name}.month&quot;</SPAN> size=<SPAN class="code-quote">&quot;$size&quot;</SPAN> /&gt;</SPAN> /
+<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;${name}.year&quot;</SPAN> size=<SPAN class="code-quote">&quot;$yearSize&quot;</SPAN> /&gt;</SPAN> (dd/mm/yyyy)</PRE>
+</DIV></DIV>
+
+<H3><A name="TutorialLesson04-01-01-HTMLresultafterprocessingex03.jsp%3A"></A>HTML result after processing ex03.jsp:</H3>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+<SPAN class="code-tag">&lt;title&gt;</SPAN>WebWork Tutorial - Lesson 4.1.1 - Example 3<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+<SPAN class="code-tag">&lt;p&gt;</SPAN>Custom Component Example:<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN>
+Date:
+<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;mydatefield.day&quot;</SPAN> size=<SPAN class="code-quote">&quot;3&quot;</SPAN> /&gt;</SPAN> /
+<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;mydatefield.month&quot;</SPAN> size=<SPAN class="code-quote">&quot;3&quot;</SPAN> /&gt;</SPAN> /
+<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;mydatefield.year&quot;</SPAN> size=<SPAN class="code-quote">&quot;6&quot;</SPAN> /&gt;</SPAN> (dd/mm/yyyy)
+<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+<BLOCKQUOTE><P><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=TutorialExamples&linkCreation=true&fromPageId=14082" title="Create Page: TutorialExamples" class="createlink">Try the example&#33;<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></P></BLOCKQUOTE>
+
+<HR>
+<P><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=TutorialLesson04-01&linkCreation=true&fromPageId=14082" title="Create Page: TutorialLesson04-01" class="createlink">Previous Lesson<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#124; <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=TutorialLesson04-02&linkCreation=true&fromPageId=14082" title="Create Page: TutorialLesson04-02" class="createlink">Next Lesson<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

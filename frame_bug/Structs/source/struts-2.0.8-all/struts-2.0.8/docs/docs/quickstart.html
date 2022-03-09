@@ -1,0 +1,302 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>QuickStart</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="related-tools.html" title="Related Tools">Related Tools</A>&nbsp;&gt;&nbsp;<A href="" title="QuickStart">QuickStart</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">QuickStart</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14039">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14039">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14039">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14039">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14039">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14039">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=plightbo">Patrick Lightbody</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 03, 2006
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14039&originalId=22864">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>Today, most web development still follows a strict <TT>code/compile/deploy/review</TT> development cycle. In practice, the <TT>deploy</TT> steps often means stopping and starting the web server, which can steal a significant amount of development time.The QuickStart feature is designed to reduce or eliminate restarting the server after changes to source code or configuration files. The goal is to allow developers to work interactively with an application as it is being developed, so that we can write better code faster. Essentially, QuickStart is a combination of technologies and conventions.</P>
+
+<H2><A name="QuickStart-QuickStart"></A>QuickStart</H2>
+
+<P>The best way to get started with any new technology can be to just jump in and try it out. If you agree, <A href="home.html#Home-Distributions" title="Distributions on Home">download a distribution</A> and take the <A href="" title="QuickStart">WW:QuickStart</A> feature for a spin.</P>
+<DIV class="panel"><DIV class="panelHeader"><B>QuickStart Quick Start</B></DIV><DIV class="panelContent">
+<UL>
+	<LI><A href="home.html#Home-Distributions" title="Distributions on Home">Download</A> and extract a distribution</LI>
+	<LI>Open a command prompt to the root directory of the distribution</LI>
+	<LI>Using a Java 5 JDK, execute:
+	<UL>
+		<LI><TT>java &#45;jar struts2-core.jar quickstart:showcase</TT></LI>
+	</UL>
+	</LI>
+	<LI>Open your browser to the URL:
+	<UL>
+		<LI><TT><SPAN class="nobr"><A href="http://localhost:8080/showcase" title="Visit page outside Confluence" rel="nofollow">http://localhost:8080/showcase<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TT></LI>
+	</UL>
+	</LI>
+	<LI>Feel free to edit any of the sources (.java, .jsp) in:
+	<UL>
+		<LI><TT>webapps/showcase</TT></LI>
+	</UL>
+	</LI>
+	<LI>Reload your browser to see the changes right away</LI>
+</UL>
+</DIV></DIV>
+
+<H2><A name="QuickStart-UsingQuickStart"></A>Using QuickStart</H2>
+
+<P>QuickStart is included in the framework distribution. Launch it opening a command window on the distribution root and running</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&gt; java \-jar struts2-core.jar quickstart:mywebapp</PRE>
+</DIV></DIV>
+<P>With QuickStart running, you can fire up a web browser, open <TT><SPAN class="nobr"><A href="http://localhost:8080/mywebapp" title="Visit page outside Confluence" rel="nofollow">http://localhost:8080/mywebapp<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TT>, and begin developing your application.</P>
+
+<P><IMG class="emoticon" src="http://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" height="16" width="16" align="absmiddle" alt="" border="0"> QuickStart requires Java 1.5.</P>
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">java.net.BindException: Address already in use</B><BR>
+<P>Out of the box, QuickStart is set to use port 8080. If another service is already running at 8080 (say, Tomcat), you should stop that service before starting QuickStart.</P></TD></TR></TABLE>
+<P>There is a little more to using QuickStart effectively. But not much more. QuickStart assumes the a specific directory structure.</P>
+<DIV class="panel"><DIV class="panelHeader"><B>QuickStart Directory Structure</B></DIV><DIV class="panelContent">
+<UL>
+	<LI>struts2
+	<UL>
+		<LI>lib - all your required libs, usually the ones you would put in <TT>WEB-INF/lib</TT></LI>
+		<LI>webapps
+		<UL>
+			<LI>mywebapp
+			<UL>
+				<LI>src
+				<UL>
+					<LI>java - your Java sources that would normally be compiled to <TT>WEB-INF/classes</TT></LI>
+					<LI>webapp
+					<UL>
+						<LI>WEB-INF
+						<UL>
+							<LI>classes - any additional configuration if you'd like</LI>
+							<LI>web.xml</LI>
+						</UL>
+						</LI>
+					</UL>
+					</LI>
+				</UL>
+				</LI>
+			</UL>
+			</LI>
+		</UL>
+		</LI>
+		<LI>struts2-core.jar</LI>
+		<LI>launcher.jar</LI>
+	</UL>
+	</LI>
+</UL>
+</DIV></DIV>
+<P>You can quickly get started by copying one of the existing webapps from the distribution.</P>
+
+<P>Once you have a starter application up and running, you are free to change your classes, JSPs, template files, and other resources on the fly - all without compiling or redeploying. Some files, such as <TT>web.xml</TT>, will require that you restart QuickStart for the changes to take affect. Similarly, some frameworks, such as Hibernate, do not offer the full class-reloading support that Struts does. Your mileage may vary, but we think no matter what you'll love developing in QuickStart.</P>
+
+<H2><A name="QuickStart-AdvancedDeployment"></A>Advanced Deployment</H2>
+
+<P>Don't have a directory structure like the one laid out? Want to use a port other than 8080? No problem&#33; There are two options for you:</P>
+<UL>
+	<LI>Apply additional command-line options</LI>
+	<LI>Use a <B>quickstart.xml</B> configuration file</LI>
+</UL>
+
+
+<H3><A name="QuickStart-AdditionalCommandlineOptions"></A>Additional Command-line Options</H3>
+
+<P>While the <EM>quickstart:xxx</EM> shorthand is nice, it often doesn't work for many people beyond the initial distribution packaging. So QuickStart allows you to specify three options from the command line:</P>
+<UL>
+	<LI>Context</LI>
+	<LI>Webapp directory</LI>
+	<LI>Source directory</LI>
+</UL>
+
+
+<P>Suppose your project layout is the following:</P>
+<DIV class="panel"><DIV class="panelHeader"><B>Sample Project Layout</B></DIV><DIV class="panelContent">
+<UL>
+	<LI>project
+	<UL>
+		<LI>lib - all your required libs, usually the ones you would put in <TT>WEB-INF/lib</TT>&#42;*&#42; src
+		<UL>
+			<LI>
+			<UL>
+				<LI>java - your Java sources that would normally be compiled to <TT>WEB-INF/classes</TT></LI>
+				<LI>webapp
+				<UL>
+					<LI>WEB-INF
+					<UL>
+						<LI>classes - any additional configuration if you'd like</LI>
+						<LI>web.xml</LI>
+					</UL>
+					</LI>
+				</UL>
+				</LI>
+			</UL>
+			</LI>
+		</UL>
+		</LI>
+	</UL>
+	</LI>
+</UL>
+</DIV></DIV>
+<P>You could launch your application using QuickStart by executing the command:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&gt; java \-jar lib/struts2-core.jar quickstart /project src/webapp src/java</PRE>
+</DIV></DIV>
+
+<H3><A name="QuickStart-Usingthe%7B%7Bquickstart.xml%7D%7DFile"></A>Using the <TT>quickstart.xml</TT> File</H3>
+
+<P>Sometimes the command line options still aren't enough. For whatever reasons, port 8080 might not be enough, or you may need to extend other configurations. Or perhaps your JARs are not in your project but instead are in some other directory (very common if you use Maven to build your project). To help out, QuickStart provides a configuration file that let's you tweak how the deployment happens and how it is configured as much as you'd like. Consider the sample <TT>quickstart.xml</TT> file:</P>
+<DIV class="error"><SPAN class="error">Error formatting macro: snippet: java.lang.IllegalArgumentException: Invalid url: must begin with a configured prefix.</SPAN> </DIV>
+<P>If you use this deployment technique, <B>you must remember</B> that <TT>quickstart.xml</TT> must be in the same working directory in which you execute the <TT>java &#45;jar webwork.jar quickstart</TT> command. You don't need to pass any additional command line arguments to QuickStart, but you must have this file in your working directory.</P>
+
+<H2><A name="QuickStart-HowItWorks"></A>How It Works</H2>
+
+<P>QuickStart combines Struts 2 with an embedded Jetty server, some advanced class loading, and the Eclipse Java compiler. (Don't worry, the Eclipse IDE is not required&#33;)</P>
+
+<P>Running <TT>struts2-core.jar</TT> bootstraps the classpath and includes every JAR found in the <TT>lib</TT> directory. It also includes <TT>struts2-core.jar</TT>, of course. The procss then invokes the QuickStart application. This, in turn, starts a Jetty server that is configured to the web application specified in the <TT>quickstart:xxx</TT> argument.</P>
+
+<P>The Jetty server's context ClassLoader is specified as a custom ClassLoader that looks at the source files in <TT>webapps/xxx/src/java</TT> and compiles them on the fly. These classes are also reloaded whenever a change is detected.</P>
+
+<P>Because the framework creates a new Action on every request, reloading the classes works great. You are free to change the entire class schema (methods, fields, inheritance, and so forth). Because none of the objects are cached or stored in long-term storage, you usually won't run into any problems here.</P>
+
+<H2><A name="QuickStart-RunninginYourIDE"></A>Running in Your IDE</H2>
+
+<P>Running QuickStart from your IDE is no different than running it from the command line. The only difference is that you need to set up the structure and classpath in your IDE properly. It doesn't really matter what is in the <EM>classpath</EM> as long the <TT>struts2-core.jar</TT> is included. Pay close attention to your <EM>working directory</EM>.</P>
+
+<P>An example of what IntelliJ IDEA looks like when launching QuickStart from within the Struts project is included for reference (click for a larger view):</P>
+
+<P><A href="quickstart.data/idea.png" target="idea.png" onclick="window.open(&quot;http://cwiki.apache.org/confluence/download/attachments/14039/idea.png&quot;, &quot;idea.png&quot;, &quot;height=755,width=830,menubar=no,status=no,toolbar=no&quot;); return false;"><IMG src="quickstart.data/idea.png.jpeg" align="absmiddle" border="0"></A></P>
+
+<H2><A name="QuickStart-CommonPitfalls"></A>Common Pitfalls</H2>
+
+<P>While the framework is pretty good about making class reloading in QuickStart easy, other libraries and code are not. As a general rule of thumb, if any objects have long term state (singleton, session scope, etc), they will <EM>not</EM> be reloaded. The reloaded classes will <EM>only</EM> take affect after a new instance has been created with the <EM>new</EM> keyword or through reflection.</P>
+
+<P>For example, Hibernate has been found to store references to the objects it persists for long periods of time because of it's caching mechanism. It also happens to hold a reference to the Class instance itself. This makes it very difficult, if not impossible, to allow you to change your models on the fly.</P>
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="warningMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">ClassCastException</B><BR>
+<P>Most problems will manifest themselves through a ClassCastException, or some other weird class-related error. You may even find yourself banging your head against the wall because some Foo instance can't be cast to the Foo class. This is the biggest challenge with using QuickStart and can best be mitigated by using libraries and code that share very little state.</P></TD></TR></TABLE>
+
+<H3><A name="QuickStart-ToQuickstartornottoQuickstart%3F"></A>To Quickstart or not to Quickstart?</H3>
+
+<P>Quickstart is a handy tool for development of your applications. We recommend that you give QuickStart a try, to see if it meets your development needs. However, QuickStart is not meant to be your sole environment for web application development. QuickStart is meant to help you rapidily create proof-of-concepts and so that you can see the result. We recommend you always at least test your work under other applications servers, such as Tomcat, Resin, or even the standard, standalone version of Jetty.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,183 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>DHTML and XmlHttpRequest References</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="overview.html" title="Overview">Overview</A>&nbsp;&gt;&nbsp;<A href="whiteboard.html" title="Whiteboard">Whiteboard</A>&nbsp;&gt;&nbsp;<A href="" title="DHTML and XmlHttpRequest References">DHTML and XmlHttpRequest References</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">DHTML and XmlHttpRequest References</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14171">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14171">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14171">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14171">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14171">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14171">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=jcarreira">jcarreira</A>, last edited by     <A href="../~husted/index.html">Ted Husted</A> on Jun 08, 2006
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14171&originalId=17783">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<H2><A name="DHTMLandXmlHttpRequestReferences-JavascriptReferences"></A>Javascript References</H2>
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.cs.rit.edu/~atk/JavaScript/manuals/jsobj/" title="Visit page outside Confluence" rel="nofollow">Object Hierarchy and Inheritance in JavaScript<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - the best description of the OO nature of Javascript and inheritance in Javascript we've found</LI>
+</UL>
+
+
+<H2><A name="DHTMLandXmlHttpRequestReferences-Opensourcelibraries%2Fframeworks"></A>Opensource libraries / frameworks</H2>
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.dojotoolkit.org/" title="Visit page outside Confluence" rel="nofollow">Dojo Toolkit<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> An ambitious project started by the authors of several previous JS libraries. It aims to provide core utilities for XmlHttpRequest handling, event handling, accessibility / usability with back and forward button handling, etc. in addition to a set of rich UI widgets.</LI>
+	<LI><SPAN class="nobr"><A href="http://www.getahead.ltd.uk/dwr/" title="Visit page outside Confluence" rel="nofollow">DWR<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> Direct Web Remoting - provides data binding and serialization between Java and Javascript</LI>
+	<LI><SPAN class="nobr"><A href="http://trimpath.com/project/wiki/JavaScriptTemplates" title="Visit page outside Confluence" rel="nofollow">Javascript Templates<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - allows you to define a text template much like Velocity, but in Javascript, then pass it the data to generate some text (HTML). Trimpath also has some other very cool stuff, but it's all GPL, whereas the JS Templates has been dual-licensed as Apache 2.0 as well.</LI>
+	<LI><SPAN class="nobr"><A href="http://oss.metaparadigm.com/jsonrpc/" title="Visit page outside Confluence" rel="nofollow">JSON-RPC<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> Exposes Java objects for simple XmlHttpRequest remote invocation.</LI>
+	<LI><SPAN class="nobr"><A href="http://jsolait.net/doc/tutorial.xhtml" title="Visit page outside Confluence" rel="nofollow">Jsolait<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> An OO framework for Javascript</LI>
+	<LI><SPAN class="nobr"><A href="http://tool-man.org/examples/" title="Visit page outside Confluence" rel="nofollow">Tool-man examples<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - Great examples including drag-n-drop sorting and edit in place.</LI>
+</UL>
+
+
+<H2><A name="DHTMLandXmlHttpRequestReferences-Examples%2FSources"></A>Examples / Sources</H2>
+<UL>
+	<LI><SPAN class="nobr"><A href="http://209.61.157.8:8080/taglibs/" title="Visit page outside Confluence" rel="nofollow">The Ultimate JSP Tabs<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - Todd Ditchendorf's JSP taglib for tabbed panels and wizards</LI>
+	<LI><SPAN class="nobr"><A href="http://pro.html.it/esempio/nifty/" title="Visit page outside Confluence" rel="nofollow">Nifty Corners<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - very cool DHTML combination of CSS and Javascript to produce rounded corners without graphics. Also see <SPAN class="nobr"><A href="http://pro.html.it/articoli/id_599/idcat_31/pag_3/pag.html" title="Visit page outside Confluence" rel="nofollow">More Nifty Corners<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>.</LI>
+	<LI><SPAN class="nobr"><A href="http://jibbering.com/2002/4/httprequest.html" title="Visit page outside Confluence" rel="nofollow">Using the XmlHttpRequest Object<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - one of the original articles on using XHR.</LI>
+	<LI><SPAN class="nobr"><A href="http://developer.apple.com/internet/webcontent/xmlhttpreq.html" title="Visit page outside Confluence" rel="nofollow">Dynamic HTML and XML<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> Another article on XHR from Apple</LI>
+	<LI><SPAN class="nobr"><A href="http://jpspan.sourceforge.net/wiki/doku.php?id=javascript:xmlhttprequest:snippets:callback" title="Visit page outside Confluence" rel="nofollow">Registering callbacks<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - examples of how to register callbacks for XmlHttpRequests</LI>
+	<LI><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Colorizing%20Java%20sources%20using%20Javascript%20and%20CSS&linkCreation=true&fromPageId=14171" title="Create Page: Colorizing Java sources using Javascript and CSS" class="createlink">Colorizing Java sources using Javascript and CSS<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - Interesting example of using Javascript and CSS to modify page content</LI>
+	<LI><SPAN class="nobr"><A href="http://www.axentric.com/posts/default/7" title="Visit page outside Confluence" rel="nofollow">Fade Anything Technique<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> Highlight changed items on a page with a colored background which fades away. See also the original <SPAN class="nobr"><A href="http://www.37signals.com/svn/archives/000558.php" title="Visit page outside Confluence" rel="nofollow">Yellow Fade Technique<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>.</LI>
+</UL>
+
+
+
+<H2><A name="DHTMLandXmlHttpRequestReferences-ToolsandUtilities"></A>Tools and Utilities</H2>
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.squarefree.com/shell/" title="Visit page outside Confluence" rel="nofollow">Javascript Shell<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - a command line interface for Javascript and DOM</LI>
+	<LI><SPAN class="nobr"><A href="http://www.mozilla.org/projects/venkman/" title="Visit page outside Confluence" rel="nofollow">Venkmann Javascript Debugger<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - Nice Javascript debugger for Mozilla / Firefox</LI>
+	<LI><SPAN class="nobr"><A href="http://selenium.thoughtworks.com/index.html" title="Visit page outside Confluence" rel="nofollow">Selenium<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> Javascript testing framework</LI>
+</UL>
+
+
+<H2><A name="DHTMLandXmlHttpRequestReferences-WebSites%2FArticles"></A>Web Sites / Articles</H2>
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.ajaxian.com/" title="Visit page outside Confluence" rel="nofollow">Ajaxian<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> Frequently updated AJAX blog</LI>
+	<LI><SPAN class="nobr"><A href="http://www.ajaxmatters.com/" title="Visit page outside Confluence" rel="nofollow">Ajax Matters<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> AJAX blog and news aggregator</LI>
+</UL>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

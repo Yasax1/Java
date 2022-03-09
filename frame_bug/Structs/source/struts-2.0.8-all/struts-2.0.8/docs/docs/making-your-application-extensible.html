@@ -1,0 +1,219 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Making your application extensible</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="" title="Making your application extensible">Making your application extensible</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Making your application extensible</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=51021">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=51021">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=51021">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=51021">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=51021">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=51021">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=musachy">Musachy Barroso</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=musachy">Musachy Barroso</A> on Apr 06, 2007
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=51021&originalId=51023">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>On this tutorial we will show how easily your application can be made extensible using Struts 2 plugins mechanism. </P>
+
+<H2><A name="Makingyourapplicationextensible-TheInterface"></A>The Interface</H2>
+
+<P>First thing we have to do is define an interface that our plugins will implement. This interface must be available to both your web application and the plugins, so keeping it on a separate jar is a good idea. </P>
+
+<DIV class="code"><DIV class="codeHeader"><B>IMyPlugin.java</B></DIV><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> example;
+
+<SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">interface</SPAN> IMyPlugIn {
+   <SPAN class="code-object">String</SPAN> saySomething();
+}</PRE>
+</DIV></DIV>
+
+<H2><A name="Makingyourapplicationextensible-ThePlugin"></A>The Plugin</H2>
+
+<P>Now lets create an Struts 2 plugin. Creating a plugin is a simple task, all you need to do is build a jar with your classes, and a file called <EM>struts-plugin.xml</EM> on its root. First, the class implementing the interface defined on the first step.</P>
+
+<DIV class="code"><DIV class="codeHeader"><B>MyPlugin.java</B></DIV><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> example.impl;
+
+<SPAN class="code-keyword">import</SPAN> example.IMyPlugin; 
+
+<SPAN class="code-keyword">public</SPAN> class MyPlugin <SPAN class="code-keyword">implements</SPAN> IMyPlugin {
+   <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> saySomething() {
+       <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;We don't need no education&quot;</SPAN>; <SPAN class="code-comment">//Sorry, I couldn't help it :)
+</SPAN>   }
+}</PRE>
+</DIV></DIV>
+
+<P>Now, <EM>struts-plugin.xml</EM></P>
+
+<DIV class="code"><DIV class="codeHeader"><B>struts-default.xml</B></DIV><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN> ?&gt;</SPAN>
+
+&lt;!DOCTYPE struts PUBLIC
+    <SPAN class="code-quote">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</SPAN>
+    <SPAN class="code-quote">&quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+    <SPAN class="code-tag">&lt;bean type=<SPAN class="code-quote">&quot;example.IMyInterface&quot;</SPAN> class=<SPAN class="code-quote">&quot;example.impl.MyPlugin&quot;</SPAN> name=<SPAN class="code-quote">&quot;myplugin&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>To install the plugin into your application, just drop the jar file under WEB-INF/lib.</P>
+
+<H2><A name="Makingyourapplicationextensible-TheAction"></A>The Action</H2>
+
+<P>Now, lets get Struts 2 inject an instance of <EM>com.opensymphony.xwork2.inject.Container</EM> into our action, which we will use to discover available plugins at runtime. </P>
+
+<DIV class="code"><DIV class="codeHeader"><B>MyAction.java</B></DIV><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> example.actions;
+
+<SPAN class="code-keyword">import</SPAN> example.IMyPlugin;
+
+<SPAN class="code-keyword">public</SPAN> class MyAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+    Set&lt;IMyPlugin&gt; plugins;
+
+    @Inject
+    <SPAN class="code-keyword">public</SPAN> void setContainer(Container container) {
+        Set&lt;<SPAN class="code-object">String</SPAN>&gt;  names = container.getInstanceNames(IMyPlugin.class);
+        plugins = <SPAN class="code-keyword">new</SPAN> HashSet&lt;IMyPlugin&gt;();
+        <SPAN class="code-keyword">for</SPAN>(<SPAN class="code-object">String</SPAN> name : names) {
+            plugins.add(container.getInstance(IMyPlugin.class, name));
+        }
+    } 
+
+    <SPAN class="code-keyword">public</SPAN> Set&lt;IMyPlugin&gt; getPlugins() {
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">this</SPAN>.plugins;
+    }
+}</PRE>
+</DIV></DIV>
+
+<H2><A name="Makingyourapplicationextensible-TheJSP"></A>The JSP</H2>
+
+<P>Let's do something with those plugins:</P>
+
+<DIV class="code"><DIV class="codeHeader"><B>Page.jsp</B></DIV><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;s:iterator id=<SPAN class="code-quote">&quot;plugin&quot;</SPAN> value=<SPAN class="code-quote">&quot;plugins&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;#plugin.saySomething()&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:iterator&gt;</SPAN></PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

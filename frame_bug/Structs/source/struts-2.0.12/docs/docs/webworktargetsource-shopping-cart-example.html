@@ -1,0 +1,290 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>WebWorkTargetSource Shopping Cart Example</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="../S2PLUGINS/struts-2-plugin-registry.html" title="Apache Struts 2 Plugins">Apache Struts 2 Plugins</A>&nbsp;&gt;&nbsp;<A href="../S2PLUGINS/struts-2-plugin-registry.html" title="Struts 2 Plugin Registry">Struts 2 Plugin Registry</A>&nbsp;&gt;&nbsp;<A href="../S2PLUGINS/spring-plugin.html" title="Spring Plugin">Spring Plugin</A>&nbsp;&gt;&nbsp;<A href="../S2PLUGINS/spring-session-components-workarounds.html" title="Spring Session Components Workarounds">Spring Session Components Workarounds</A>&nbsp;&gt;&nbsp;<A href="" title="WebWorkTargetSource Shopping Cart Example">WebWorkTargetSource Shopping Cart Example</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">WebWorkTargetSource Shopping Cart Example</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14325">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14325">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14325">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14325">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14325">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14325">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=emolitor">emolitor</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=mrdon">Don Brown</A> on Dec 29, 2006
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14325&originalId=33408">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+
+<H1><A name="WebWorkTargetSourceShoppingCartExample-WebWorkTargetSourceShoppingCartExample"></A>WebWorkTargetSource Shopping Cart Example</H1>
+
+<P>Here is a modified version of the shopping cart example which uses the WebWorkTargetSource. Its a quick hack to show how the WebWorkTargetSource and not as a complete solution or template for usage. If my documentation is unclear (probable) or none of this makes sense (quite possible too) then just replace the existing versions of DefaultCart.java and applicationContext.xml with these versions and fire up the example.</P>
+
+<H2><A name="WebWorkTargetSourceShoppingCartExample-DefaultCartModifications"></A>DefaultCart Modifications</H2>
+
+<P>Two modifications to DefaultCart.java are necessary in order to make the autowiring work. When spring goes to look for beans to autowire it will see two ShoppingCarts and barf as for autowiring to work it needs to see only one. To avoid this the DefaultCart has been modified to not implement the ShoppingCart interface. However there is a fun inner class and inner interface that makes this change a bit more complex. In order to make the DefaultCart compile (and still work) all references to CartEntry need to be changed to ShoppingCart.CartEntry.</P>
+
+
+<DIV class="code" style="border-style: solid; "><DIV class="codeHeader" style="border-bottom-style: solid; "><B>DefaultCart.java</B></DIV><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.opensymphony.webwork.example.ajax.cart;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.webwork.example.ajax.catalog.Product;
+
+<SPAN class="code-keyword">import</SPAN> java.util.HashMap;
+<SPAN class="code-keyword">import</SPAN> java.util.HashSet;
+<SPAN class="code-keyword">import</SPAN> java.util.Map;
+<SPAN class="code-keyword">import</SPAN> java.util.Set;
+
+<SPAN class="code-keyword">import</SPAN> sun.reflect.Reflection;
+
+/**
+ * DefaultCart - Poorly Modified by Eric Molitor &lt;eric@tuxbot.com&gt;
+ *
+ * @author Jason Carreira &lt;jcarreira@eplus.com&gt;
+ */
+<SPAN class="code-keyword">public</SPAN> class DefaultCart {
+    Map contents = <SPAN class="code-keyword">new</SPAN> HashMap();
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">static</SPAN> DefaultCart getCart() {
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">new</SPAN> DefaultCart();
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void addToCart(<SPAN class="code-object">int</SPAN> quantity, Product product) {
+        ShoppingCart.CartEntry entry = (ShoppingCart.CartEntry) contents.get(product);
+        <SPAN class="code-keyword">if</SPAN> (entry == <SPAN class="code-keyword">null</SPAN>) {
+            entry = <SPAN class="code-keyword">new</SPAN> DefaultCartEntry(quantity, product);
+            contents.put(product, entry);
+        } <SPAN class="code-keyword">else</SPAN> {
+            entry.setQuantity(entry.getQuantity() + quantity);
+        }
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setQuantity(<SPAN class="code-object">int</SPAN> quantity, Product product) {
+        <SPAN class="code-keyword">if</SPAN> (quantity &lt;= 0) {
+            contents.remove(product);
+            <SPAN class="code-keyword">return</SPAN>;
+        }
+        ShoppingCart.CartEntry entry = (ShoppingCart.CartEntry ) contents.get(product);
+        <SPAN class="code-keyword">if</SPAN> (entry == <SPAN class="code-keyword">null</SPAN>) {
+            entry = <SPAN class="code-keyword">new</SPAN> DefaultCartEntry(quantity, product);
+            contents.put(product, entry);
+        } <SPAN class="code-keyword">else</SPAN> {
+            entry.setQuantity(quantity+entry.getQuantity());
+        }
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void removeFromCart(Product product) {
+        contents.remove(product);
+    }
+
+    <SPAN class="code-keyword">public</SPAN> Set getContents() {
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">new</SPAN> HashSet(contents.values());
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">int</SPAN> getQuantityForProduct(Product product) {
+        ShoppingCart.CartEntry entry = (ShoppingCart.CartEntry) contents.get(product);
+        <SPAN class="code-keyword">if</SPAN> (entry == <SPAN class="code-keyword">null</SPAN>) {
+            <SPAN class="code-keyword">return</SPAN> 0;
+        }
+        <SPAN class="code-keyword">return</SPAN> entry.getQuantity();
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> toString() {
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;DefaultCart{&quot;</SPAN> +
+                <SPAN class="code-quote">&quot;contents=&quot;</SPAN> + contents +
+                <SPAN class="code-quote">&quot;}&quot;</SPAN>;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-object">Object</SPAN> getBean() {
+
+       <SPAN class="code-object">System</SPAN>.out.println(<SPAN class="code-quote">&quot;!!!!!!!!!!!! Parent is:&quot;</SPAN> + Reflection.getCallerClass(1));
+        <SPAN class="code-keyword">new</SPAN> Exception(<SPAN class="code-quote">&quot;poo&quot;</SPAN>).printStackTrace();
+       <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">new</SPAN> DefaultCart();
+    }
+
+    class DefaultCartEntry <SPAN class="code-keyword">implements</SPAN> ShoppingCart.CartEntry {
+        <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">int</SPAN> quantity;
+        <SPAN class="code-keyword">private</SPAN> Product product;
+
+        <SPAN class="code-keyword">public</SPAN> DefaultCartEntry(<SPAN class="code-object">int</SPAN> quantity, Product product) {
+            <SPAN class="code-keyword">this</SPAN>.quantity = quantity;
+            <SPAN class="code-keyword">this</SPAN>.product = product;
+        }
+
+        <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">int</SPAN> getQuantity() {
+            <SPAN class="code-keyword">return</SPAN> quantity;
+        }
+
+        <SPAN class="code-keyword">public</SPAN> void setQuantity(<SPAN class="code-object">int</SPAN> quantity) {
+            <SPAN class="code-keyword">this</SPAN>.quantity = quantity;
+        }
+
+        <SPAN class="code-keyword">public</SPAN> Product getProduct() {
+            <SPAN class="code-keyword">return</SPAN> product;
+        }
+    }
+}</PRE>
+</DIV></DIV>
+
+
+<H2><A name="WebWorkTargetSourceShoppingCartExample-applicationContext.xmlModifications"></A>applicationContext.xml Modifications</H2>
+
+<P>In order to get a session specific shopping cart we need to modify the actionContext to call our WebWorkTargetSource. We do this by using a ProxyFactory which creates an object based on our interface (ShoppingCart) and uses the targetSource to invoke our custom TargetSource (WebWorkTargetSource). WebWorkTargetSource however needs to know the underlying implementation in order to fetch and create new instances. We pass a reference to the new shoppingCartTarget bean definition which just references our new DefaultCart. In order to keep things from getting confused we're set both beans to autowire by name.</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>?&gt;</SPAN>
+<SPAN class="code-tag">&lt;!DOCTYPE beans PUBLIC <SPAN class="code-quote">&quot;-//SPRING//DTD BEAN//EN&quot;</SPAN> <SPAN class="code-quote">&quot;http://www.springframework.org/dtd/spring-beans.dtd&quot;</SPAN>&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;beans default-autowire=<SPAN class="code-quote">&quot;autodetect&quot;</SPAN>&gt;</SPAN>
+
+    &lt;bean id=<SPAN class="code-quote">&quot;catalog&quot;</SPAN>
+          singleton=<SPAN class="code-quote">&quot;true&quot;</SPAN>
+          class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.example.ajax.catalog.TestCatalog&quot;</SPAN>/&gt;
+
+    <SPAN class="code-tag">&lt;bean id=<SPAN class="code-quote">&quot;shoppingCart&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.springframework.aop.framework.ProxyFactoryBean&quot;</SPAN> autowire=<SPAN class="code-quote">&quot;byName&quot;</SPAN>&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;proxyTargetClass&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;value&gt;</SPAN>true<SPAN class="code-tag">&lt;/value&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/property&gt;</SPAN>
+        <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;proxyInterfaces&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;list&gt;</SPAN>
+                <SPAN class="code-tag">&lt;value&gt;</SPAN>com.opensymphony.webwork.example.ajax.cart.ShoppingCart<SPAN class="code-tag">&lt;/value&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/list&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/property&gt;</SPAN>
+        <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;targetSource&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;bean class=<SPAN class="code-quote">&quot;org.tuxbot.webwork.spring.WebWorkTargetSource&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;property name=<SPAN class="code-quote">&quot;targetBeanName&quot;</SPAN>&gt;</SPAN>
+                    <SPAN class="code-tag">&lt;value&gt;</SPAN>shoppingCartTarget<SPAN class="code-tag">&lt;/value&gt;</SPAN>
+                <SPAN class="code-tag">&lt;/property&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/bean&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/property&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/bean&gt;</SPAN>
+
+    &lt;bean id=<SPAN class="code-quote">&quot;shoppingCartTarget&quot;</SPAN>
+          class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.example.ajax.cart.DefaultCart&quot;</SPAN>
+          singleton=<SPAN class="code-quote">&quot;false&quot;</SPAN> autowire=<SPAN class="code-quote">&quot;byName&quot;</SPAN>&gt;
+    <SPAN class="code-tag">&lt;/bean&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/beans&gt;</SPAN></PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,229 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Velocity Tags - Old</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Velocity%20Tags%20-%20Old" title="Velocity Tags - Old">Velocity Tags - Old</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Velocity Tags - Old</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13869">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13869">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13869">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13869">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13869">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13869">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=mnrsiat">mnrsiat</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 02, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=13869&originalId=22040">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+
+<P>[Note: this page is being actively worked on as of June 15 2005.  I&apos;ll remove this notice when it&apos;s complete enough to be depended on.]</P>
+
+<P>WebWork&apos;s Velocity tags correspond nearly exactly to the <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=JSP%20Tags&linkCreation=true&fromPageId=13869" title="Create Page: JSP Tags" class="createlink">JSP Tags<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>.  The syntax is, of course, very different, but the functionality is the same.  This page is a reference for the Velocity syntax, but does not attempt to discuss the functionality in any detail.  If you are unfamiliar with the tags, please read the <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=JSP%20Tags&linkCreation=true&fromPageId=13869" title="Create Page: JSP Tags" class="createlink">JSP Tags<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> page first for a solid discussion of the available features.</P>
+
+<P>Much of this information is available elsewhere on the wiki, but it is all mixed in with the JSP discussion and not well labelled.</P>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Name </TH>
+<TH class="confluenceTh"> Tag </TH>
+<TH class="confluenceTh"> Description </TH>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Checkbox%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Checkbox tag" class="createlink">Checkbox tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> </TD>
+<TD class="confluenceTd"> #tag( Checkbox ) </TD>
+<TD class="confluenceTd"> render a checkbox input field </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Checkboxlist%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Checkboxlist tag" class="createlink">Checkboxlist tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> </TD>
+<TD class="confluenceTd"> #tag( Checkboxlist ) </TD>
+<TD class="confluenceTd"> render a list of checkboxes  </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Combobox%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Combobox tag" class="createlink">Combobox tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #tag( ComboBox ) </TD>
+<TD class="confluenceTd"> widget that fills a text box from a select  </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Component%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Component tag" class="createlink">Component tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #tag( Component ) OR #bodytag( Component ) #end </TD>
+<TD class="confluenceTd"> render a custom ui widget </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=File%20tag&linkCreation=true&fromPageId=13869" title="Create Page: File tag" class="createlink">File tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #tag( File ) </TD>
+<TD class="confluenceTd"> renders a file select input field </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Form%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Form tag" class="createlink">Form tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #bodytag( Form ) #end </TD>
+<TD class="confluenceTd"> defines an input form </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Hidden%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Hidden tag" class="createlink">Hidden tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #tag( Hidden ) </TD>
+<TD class="confluenceTd"> render a hidden field </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Label%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Label tag" class="createlink">Label tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #tag( Label ) </TD>
+<TD class="confluenceTd"> render a label that displays read-only information </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Password%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Password tag" class="createlink">Password tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #tag( Password ) </TD>
+<TD class="confluenceTd"> render a password input field </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Radio%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Radio tag" class="createlink">Radio tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #tag( Radio ) </TD>
+<TD class="confluenceTd"> renders a radio button input field </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Select%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Select tag" class="createlink">Select tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #tag( Select ) </TD>
+<TD class="confluenceTd"> renders a select element </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Submit%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Submit tag" class="createlink">Submit tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #tag( Submit ) </TD>
+<TD class="confluenceTd"> renders a submit button </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Table%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Table tag" class="createlink">Table tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #tag( Table ) OR #bodytag( Table) #end </TD>
+<TD class="confluenceTd"> renders a table </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Tabbedpane%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Tabbedpane tag" class="createlink">Tabbedpane tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #tag( Tabbedpane ) </TD>
+<TD class="confluenceTd"> renders a tabbedpane </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Textarea%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Textarea tag" class="createlink">Textarea tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #tag( Textarea ) </TD>
+<TD class="confluenceTd"> renders a text area input field </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Textfield%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Textfield tag" class="createlink">Textfield tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #tag( TextField ) </TD>
+<TD class="confluenceTd"> renders an input field of type text </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Token%20tag&linkCreation=true&fromPageId=13869" title="Create Page: Token tag" class="createlink">Token tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD>
+<TD class="confluenceTd"> #tag( Token ) </TD>
+<TD class="confluenceTd"> stop double-submission of forms </TD>
+</TR>
+</TBODY></TABLE>
+
+
+<P>You&apos;ll notice that some of the tags use a #tag( Name ) syntax, and others use a #bodytag( Name ) #end syntax.  Tags that are parameterizable must use the second, which allows for body content.  In general, the syntax is:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">#bodytag( Name )
+      #param( <SPAN class="code-quote">&quot;name&quot;</SPAN> <SPAN class="code-quote">&quot;value&quot;</SPAN> )
+  #end</PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

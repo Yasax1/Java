@@ -1,0 +1,495 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Guides</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="" title="Guides">Guides</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Guides</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14237">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14237">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14237">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14237">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14237">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14237">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on May 28, 2007
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14237&originalId=55484">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>Our in-depth guides focus on specific areas of the framework, such as Views, the Core framework, and Third-party Extensions.</P>
+
+<H2><A name="Guides-CoreDevelopersGuide"></A><A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A></H2>
+
+<IMG class="emoticon" src="http://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> In processing a request, the framework utilizes three key class types: Actions, Interceptors, and Results, which are configured using one or more XML documents (or Java 5 annotations).
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd"><UL>
+	<LI><A href="tutorials.html" title="Tutorials">Tutorials</A> - Read me first!</LI>
+	<LI>Overview
+	<UL>
+		<LI><A href="nutshell.html" title="Nutshell">Nutshell</A></LI>
+		<LI><A href="ajax.html" title="AJAX">AJAX</A></LI>
+		<LI><A href="dependency-injection.html" title="Dependency Injection">Dependency Injection</A></LI>
+		<LI><A href="profiling.html" title="Profiling">Profiling</A></LI>
+		<LI><A href="debugging.html" title="Debugging">Debugging</A></LI>
+	</UL>
+	</LI>
+	<LI>Configuration
+	<UL>
+		<LI><A href="zero-configuration.html" title="Zero Configuration">Zero Configuration</A></LI>
+		<LI><A href="annotations.html" title="Annotations">Annotations</A></LI>
+		<LI><A href="configuration-elements.html" title="Configuration Elements">Configuration Elements</A></LI>
+		<LI><A href="configuration-files.html" title="Configuration Files">Configuration Files</A>
+		<UL>
+			<LI><A href="webxml.html" title="web.xml">web.xml</A></LI>
+			<LI><A href="strutsxml.html" title="struts.xml">struts.xml</A></LI>
+			<LI><A href="strutsproperties.html" title="struts.properties">struts.properties</A></LI>
+			<LI><A href="struts-defaultxml.html" title="struts-default.xml">struts&#45;default.xml</A></LI>
+			<LI><A href="velocityproperties.html" title="velocity.properties">velocity.properties</A></LI>
+			<LI><A href="struts-defaultvm.html" title="struts-default.vm">struts&#45;default.vm</A></LI>
+		</UL>
+		</LI>
+		<LI><A href="wildcard-mappings.html" title="Wildcard Mappings">Wildcard Mappings</A></LI>
+		<LI><A href="performance-tuning.html" title="Performance Tuning">Performance Tuning</A> <IMG class="emoticon" src="http://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"></LI>
+		<LI><A href="application-servers.html" title="Application Servers">Application Servers</A></LI>
+	</UL>
+	</LI>
+	<LI>Localization
+	<UL>
+		<LI><A href="localization.html" title="Localization">Localization</A></LI>
+	</UL>
+	</LI>
+</UL>
+</TD>
+<TD class="confluenceTd"><UL>
+	<LI>Validation
+	<UL>
+		<LI><A href="validation.html" title="Validation">Validation</A></LI>
+	</UL>
+	</LI>
+	<LI>Type Conversion
+	<UL>
+		<LI><A href="type-conversion.html" title="Type Conversion">Type Conversion</A></LI>
+	</UL>
+	</LI>
+	<LI>Interceptors
+	<UL>
+		<LI><A href="interceptors.html" title="Interceptors">Interceptors</A></LI>
+		<LI><A href="writing-interceptors.html" title="Writing Interceptors">Writing Interceptors</A></LI>
+	</UL>
+	</LI>
+	<LI>Actions
+	<UL>
+		<LI><A href="action-chaining.html" title="Action Chaining">Action Chaining</A></LI>
+	</UL>
+	</LI>
+	<LI>Results
+	<UL>
+		<LI><A href="result-types.html" title="Result Types">Result Types</A></LI>
+		<LI><A href="dispatcherlistener.html" title="DispatcherListener">DispatcherListener</A></LI>
+		<LI><A href="preresultlistener.html" title="PreResultListener">PreResultListener</A></LI>
+	</UL>
+	</LI>
+	<LI>Portlets
+	<UL>
+		<LI><A href="portlet-tutorial-webwork-22.html" title="Portlet Tutorial (WebWork 2.2)">tutorial</A></LI>
+		<LI><A href="portlet-configuration.html" title="Portlet Configuration">configuration</A></LI>
+	</UL>
+	</LI>
+	<LI><A href="faqs.html" title="FAQs">FAQs</A></LI>
+</UL>
+</TD>
+</TR>
+</TBODY></TABLE>
+
+<H2><A name="Guides-TagDevelopersGuide"></A><A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A></H2>
+
+The framework offers a flexible view layer that supports multiple view technologies, including JSP, FreeMaker, and Velocity. 
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd"><UL>
+	<LI><A href="struts-tags.html" title="Struts Tags">Struts Tags</A>
+	<UL>
+		<LI><A href="generic-tags.html" title="Generic Tags">Generic Tags</A></LI>
+		<LI><A href="ui-tags.html" title="UI Tags">UI Tags</A></LI>
+		<LI><A href="themes-and-templates.html" title="Themes and Templates">Themes and Templates</A></LI>
+		<LI><A href="tag-reference.html" title="Tag Reference">Tag Reference</A></LI>
+		<LI><A href="ajax-tags.html" title="Ajax Tags">Ajax Tags</A>
+		<UL>
+			<LI><A href="ajax-and-javascript-recipes.html" title="Ajax and JavaScript Recipes">Ajax and JavaScript Recipes</A></LI>
+		</UL>
+		</LI>
+	</UL>
+	</LI>
+	<LI><A href="ognl.html" title="OGNL">OGNL</A></LI>
+	<LI><A href="tag-syntax.html" title="Tag Syntax">Tag Syntax</A></LI>
+</UL>
+</TD>
+<TD class="confluenceTd"><UL>
+	<LI><A href="jsp.html" title="JSP">JSP</A>
+	<UL>
+		<LI><A href="jsp-tags.html" title="JSP Tags">specific tags</A></LI>
+	</UL>
+	</LI>
+	<LI><A href="freemarker.html" title="FreeMarker">Freemarker</A>
+	<UL>
+		<LI><A href="freemarker-tags.html" title="FreeMarker Tags">specific tags</A></LI>
+	</UL>
+	</LI>
+	<LI><A href="velocity.html" title="Velocity">Velocity</A>
+	<UL>
+		<LI><A href="velocity-tags.html" title="Velocity Tags">specific tags</A></LI>
+	</UL>
+	</LI>
+</UL>
+</TD>
+</TR>
+</TBODY></TABLE>
+
+<H2><A name="Guides-PluginDevelopersGuide"></A><A href="plugin-developers-guide.html" title="Plugin Developers Guide">Plugin Developers Guide</A></H2>
+
+Apache Struts 2 provides a simple <A href="plugins.html" title="Plugins">plugin architecture</A> so that developers can extend the framework just by adding a JAR to the application's classpath. Since plugins are contained in a JAR, they are easy to share with others. Several plugins are bundled with the framework, and others are available from third-party sources. 
+
+<UL>
+	<LI><A href="plugins.html" title="Plugins">Writing Plugins</A></LI>
+</UL>
+
+
+<H3><A name="Guides-BundledPlugins"></A>Bundled Plugins</H3>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd"><UL>
+	<LI><A href="codebehind-plugin.html" title="Codebehind Plugin">Codebehind Plugin</A></LI>
+	<LI><A href="config-browser-plugin.html" title="Config Browser Plugin">Config Browser Plugin</A></LI>
+	<LI><A href="jasperreports-plugin.html" title="JasperReports Plugin">JasperReports Plugin</A></LI>
+	<LI><A href="jfreechart-plugin.html" title="JFreeChart Plugin">JFreeChart Plugin</A></LI>
+	<LI><A href="jsf-plugin.html" title="JSF Plugin">JSF Plugin</A></LI>
+	<LI><A href="plexus-plugin.html" title="Plexus Plugin">Plexus Plugin</A></LI>
+</UL>
+</TD>
+<TD class="confluenceTd"><UL>
+	<LI><A href="sitegraph-plugin.html" title="SiteGraph Plugin">SiteGraph Plugin</A></LI>
+	<LI><A href="sitemesh-plugin.html" title="SiteMesh Plugin">Sitemesh Plugin</A></LI>
+	<LI><A href="spring-plugin.html" title="Spring Plugin">Spring Plugin</A></LI>
+	<LI><A href="struts-1-plugin.html" title="Struts 1 Plugin">Struts 1 Plugin</A></LI>
+	<LI><A href="tiles-plugin.html" title="Tiles Plugin">Tiles Plugin</A></LI>
+</UL>
+</TD>
+</TR>
+</TBODY></TABLE>
+
+<P><IMG class="emoticon" src="http://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" height="16" width="16" align="absmiddle" alt="" border="0"> For a complete list of bundled and third-party plugins, visit the <SPAN class="nobr"><A href="http://cwiki.apache.org/S2PLUGINS/home.html" title="Visit page outside Confluence" rel="nofollow">Plugin Registry.<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>.</P>
+
+<H2><A name="Guides-ArchitectsGuide"></A><A href="architects-guide.html" title="Architects Guide">Architects Guide</A></H2>
+
+<UL>
+	<LI><A href="big-picture.html" title="Big Picture">Big Picture</A>
+	<UL>
+		<LI><A href="objectfactory.html" title="ObjectFactory">ObjectFactory</A></LI>
+		<LI><A href="actionmapper.html" title="ActionMapper">ActionMapper</A></LI>
+		<LI><A href="action-proxy-actionproxy-factory.html" title="Action Proxy & ActionProxy Factory">Action Proxy &amp; ActionProxy Factory</A></LI>
+		<LI><A href="configuration-provider-configuration.html" title="Configuration Provider & Configuration">Configuration Provider &amp; Configuration</A></LI>
+	</UL>
+	</LI>
+</UL>
+
+
+<H2><A name="Guides-MigrationGuide"></A><A href="migration-guide.html" title="Migration Guide">Migration Guide</A></H2>
+
+Getting here from there.
+
+<H3><A name="Guides-ReleaseNotes2.1.x"></A>Release Notes 2.1.x</H3>
+
+<UL>
+	<LI><A href="release-notes-210.html" title="Release Notes 2.1.0">Release Notes 2.1.0</A></LI>
+</UL>
+
+
+<H3><A name="Guides-ReleaseNotes2.0.x"></A>Release Notes 2.0.x</H3>
+
+<UL>
+	<LI><A href="release-notes-208.html" title="Release Notes 2.0.8">Release Notes 2.0.8</A></LI>
+	<LI><A href="release-notes-207.html" title="Release Notes 2.0.7">Release Notes 2.0.7</A></LI>
+	<LI><A href="release-notes-206.html" title="Release Notes 2.0.6">Release Notes 2.0.6</A></LI>
+	<LI><A href="release-notes-205.html" title="Release Notes 2.0.5">Release Notes 2.0.5</A></LI>
+	<LI><A href="release-notes-204.html" title="Release Notes 2.0.4">Release Notes 2.0.4</A></LI>
+	<LI><A href="release-notes-203.html" title="Release Notes 2.0.3">Release Notes 2.0.3</A></LI>
+	<LI><A href="release-notes-202.html" title="Release Notes 2.0.2">Release Notes 2.0.2</A></LI>
+	<LI><A href="release-notes-201.html" title="Release Notes 2.0.1">Release Notes 2.0.1</A></LI>
+	<LI><A href="release-notes-200.html" title="Release Notes 2.0.0">Release Notes 2.0.0</A></LI>
+</UL>
+
+
+<H3><A name="Guides-Struts1toStruts2"></A>Struts 1 to Struts 2</H3>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"><A href="comparing-struts-1-and-2.html" title="Comparing Struts 1 and 2">Comparing Struts 1 and 2</A> </TH>
+<TD class="confluenceTd"> How are Struts 1 and Struts 2 alike? How are they different? </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"><A href="struts-1-solutions.html" title="Struts 1 Solutions">Struts 1 Solutions</A>   </TH>
+<TD class="confluenceTd"> Various issues (and hopefully their solutions!) encountered during migrations to Struts 2. </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"><A href="migration-strategies.html" title="Migration Strategies">Migration Strategies</A> </TH>
+<TD class="confluenceTd"> Steps and overall strategies for migrating Struts 1 applications to Struts 2. </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"><A href="migration-tools.html" title="Migration Tools">Migration Tools</A>      </TH>
+<TD class="confluenceTd">  Development tools to help aid the migration process. </TD>
+</TR>
+</TBODY></TABLE>
+
+<H4><A name="Guides-Tutorials"></A>Tutorials </H4>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"><SPAN class="nobr"><A href="http://www.StrutsUniversity.org/Migrating%20Tutorial" title="Visit page outside Confluence" rel="nofollow">Migrating to Struts 2<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> </TH>
+<TD class="confluenceTd"> A three-hour workshop by Ted Husted (Oct 2006) </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"><SPAN class="nobr"><A href="http://www.infoq.com/news/migrating-struts2" title="Visit page outside Confluence" rel="nofollow">Migrating Applications to Struts 2 <SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> </TH>
+<TD class="confluenceTd"> A three-part series by Ian Roughley (Sep 2006) </TD>
+</TR>
+</TBODY></TABLE>
+
+<H4><A name="Guides-Roadmap"></A>Roadmap</H4>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"><SPAN class="nobr"><A href="http://struts.apache.org/roadmap.html#new" title="Visit page outside Confluence" rel="nofollow">Roadmap FAQ<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> </TH>
+<TD class="confluenceTd"> What's in store for Struts 2? </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"><SPAN class="nobr"><A href="http://www.oreillynet.com/onjava/blog/2006/10/my_history_of_struts_2.html" title="Visit page outside Confluence" rel="nofollow">A History of Struts 2<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TH>
+<TD class="confluenceTd"> Don Brown's summary of events </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"><SPAN class="nobr"><A href="http://opensource.atlassian.com/confluence/oss/display/STRUTS2/Home" title="Visit page outside Confluence" rel="nofollow">Struts Reloaded<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> </TH>
+<TD class="confluenceTd"> An archive of the development discussions leading to Struts 2 </TD>
+</TR>
+</TBODY></TABLE>
+
+
+<H3><A name="Guides-Webwork2.2toStruts2"></A>Webwork 2.2 to Struts 2</H3>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"><A href="key-changes-from-webwork-2.html" title="Key Changes From WebWork 2">Key Changes From WebWork 2</A></TH>
+<TD class="confluenceTd"> What has been removed or changed from WebWork 2.2 to Struts 2 </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"><A href="webwork-2-migration-strategies.html" title="WebWork 2 Migration Strategies">WebWork 2 Migration Strategies</A>   </TH>
+<TD class="confluenceTd"> Steps and overall strategies for migrating WebWork 2 applications to Struts 2. </TD>
+</TR>
+</TBODY></TABLE>
+
+<H2><A name="Guides-ContributorsGuide"></A><A href="contributors-guide.html" title="Contributors Guide">Contributors Guide</A> </H2>
+
+<H3><A name="Guides-Source"></A>Source </H3>
+<UL>
+	<LI><A href="building-the-framework-from-source.html" title="Building the Framework from Source">Building the Framework from Source</A>
+	<UL>
+		<LI><A href="building-with-maven.html" title="Building with Maven">Building with Maven</A></LI>
+	</UL>
+	</LI>
+	<LI><A href="creating-and-signing-a-distribution.html" title="Creating and Signing a Distribution">Creating and Signing a Distribution</A></LI>
+	<LI><A href="requirements.html" title="Requirements">Requirements</A> and <A href="use-cases.html" title="Use Cases">Use Cases</A> &ndash; <IMG class="emoticon" src="http://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> <EM>under construction</EM></LI>
+	<LI><A href="precise-error-reporting.html" title="Precise Error Reporting">Precise Error Reporting</A></LI>
+	<LI><A href="obtaining-an-idea-license.html" title="Obtaining an IDEA license">Obtaining an IDEA license</A></LI>
+	<LI><SPAN class="nobr"><A href="http://java.sun.com/j2se/javadoc/writingdoccomments/" title="Visit page outside Confluence" rel="nofollow">How to Write Doc Comments for the Javadoc Tool<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> (Sun)</LI>
+</UL>
+
+
+<H3><A name="Guides-Documentation"></A>Documentation</H3>
+<UL>
+	<LI><A href="editing-the-documentation.html" title="Editing the Documentation">Editing the Documentation</A></LI>
+	<LI><A href="colophon.html" title="Colophon">Documentation Colophon</A></LI>
+	<LI><A href="documentation-style-guide.html" title="Documentation Style Guide">Documentation Style Guide</A></LI>
+</UL>
+
+
+<H4><A name="Guides-CoreGuideTODOs"></A>Core Guide TODOs</H4>
+
+<UL>
+	<LI>Creating Resources</LI>
+	<LI>Writing Validators</LI>
+	<LI>Writing Type Converters</LI>
+	<LI>Actions</LI>
+	<LI>Writing Actions</LI>
+	<LI>Writing Results</LI>
+</UL>
+
+
+<H3><A name="Guides-Tools"></A>Tools</H3>
+
+<UL>
+	<LI><SPAN class="nobr"><A href="https://issues.apache.org/struts/secure/admin/cleancommentspam.jsp" title="Visit page outside Confluence" rel="nofollow">Clean JIRA Comment Spam<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<H3><A name="Guides-LicensingandCopyright"></A>Licensing and Copyright</H3>
+<UL>
+	<LI><SPAN class="nobr"><A href="http://people.apache.org/~cliffs/3party.html" title="Visit page outside Confluence" rel="nofollow">Third Party Licensing Policy RFC<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="http://www.apache.org/legal/src-headers.html" title="Visit page outside Confluence" rel="nofollow">ASF Source Header and Copyright Notice Policy<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="http://tinyurl.com/mw7t6" title="Visit page outside Confluence" rel="nofollow">Author Tags<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+ 
+
+<H2><A name="Guides-Errata%3F"></A>Errata?</H2>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="tipMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>To suggest a change or a correction to any part of the documentation, log in and leave a comment on the appropriate page. We are always looking for <SPAN class="nobr"><A href="http://struts.apache.org/2.x/docs/contributors-guide.html" title="Visit page outside Confluence" rel="nofollow">help with the documentation!<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD></TR></TABLE>
+
+<H2><A name="Guides-Next%3AFAQs"></A>Next: <A href="faqs.html" title="FAQs">FAQs</A></H2>
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="migration-guide.html" title="Migration Guide">Migration Guide</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="contributors-guide.html" title="Contributors Guide">Contributors Guide</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="plugin-developers-guide.html" title="Plugin Developers Guide">Plugin Developers Guide</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="user-guide.html" title="User Guide">User Guide</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="architects-guide.html" title="Architects Guide">Architects Guide</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

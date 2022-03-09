@@ -1,0 +1,1022 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  
+<!-- Mirrored from cwiki.apache.org/WW/submit.html by HTTrack Website Copier/3.x [XR&CO'2005], Tue, 10 Oct 2006 21:21:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('../confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>submit</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A>&nbsp;&gt;&nbsp;<A href="struts-tags.html" title="Struts Tags">Struts Tags</A>&nbsp;&gt;&nbsp;<A href="tag-reference.html" title="Tag Reference">Tag Reference</A>&nbsp;&gt;&nbsp;<A href="ui-tag-reference.html" title="UI Tag Reference">UI Tag Reference</A>&nbsp;&gt;&nbsp;<A href="#" title="submit">submit</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">submit</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14054">
+            <IMG src="../confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14054">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="../confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;fromPageId=14054">
+            <IMG src="../confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;fromPageId=14054">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&amp;fromPageId=14054">
+            <IMG src="../confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&amp;fromPageId=14054">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=digi9ten">digi9ten</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 02, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14054&amp;originalId=22344">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="../confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>
+<P>Please make sure you have read the <A href="tag-syntax.html" title="Tag Syntax">Tag Syntax</A> document and understand how tag attribute syntax works.</P></TD></TR></TABLE>
+
+<H2><A name="submit-Description"></A>Description</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=javadoc&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fcomponents%2FSubmit.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P>Render a submit button. The submit tag is used together with the form tag to provide asynchronous form submissions.
+The submit can have three different types of rendering:
+<UL>
+<LI>input: renders as html &lt;input type=&quot;submit&quot;...&gt;</LI>
+<LI>image: renders as html &lt;input type=&quot;image&quot;...&gt;</LI>
+<LI>button: renders as html &lt;button type=&quot;submit&quot;...&gt;</LI>
+</UL>
+Please note that the button type has advantages by adding the possibility to seperate the submitted value from the
+text shown on the button face, but has issues with Microsoft Internet Explorer at least up to 6.0</P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=ajaxJavadoc&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fcomponents%2FSubmit.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P><B>THE FOLLOWING IS ONLY VALID WHEN AJAX IS CONFIGURED</B>
+<UL>
+		<LI>resultDivId</LI>
+		<LI>notifyTopics</LI>
+		<LI>onLoadJS</LI>
+		<LI>preInvokeJS</LI>
+</UL>
+The remote form has three basic modes of use, using the resultDivId, 
+the notifyTopics, or the onLoadJS. You can mix and match any combination of 
+them to get your desired result. All of these examples are contained in the 
+Ajax example webapp. Lets go through some scenarios to see how you might use it:</P></TD></TR></TABLE>
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="../confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>
+<P>This tag works with all themes, but has special importance when combined with the <A href="form.html" title="form">form</A> tag in the <A href="ajax-theme.html" title="ajax theme">ajax theme</A>. Please read up on the <A href="ajax-theme.html" title="ajax theme">ajax theme</A> for more information.</P></TD></TR></TABLE>
+
+<H2><A name="submit-Parameters"></A>Parameters</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=tagattributes&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fdocs%2Ftags%2FSubmit.html">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P><TABLE width="100%">
+<TR></P>
+
+<P><TH align="left" valign="top"><H4>Name</H4></TH>
+<TH align="left" valign="top"><H4>Required</H4></TH>
+<TH align="left" valign="top"><H4>Default</H4></TH>
+<TH align="left" valign="top"><H4>Type</H4></TH>
+<TH align="left" valign="top"><H4>Description</H4></TH></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">resultDivId</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">The id of the HTML element to place the result (this can the the form&apos;s id or any id on the page.</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">onLoadJS</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Javascript code that will be executed after the form has been submitted. The format is onLoadJS=&apos;yourMethodName(data,type)&apos;. NOTE: the words data and type must be left like that if you want the event type and the returned data.</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">notifyTopics</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Topic names to post an event to after the form has been submitted.</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">listenTopics</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set listenTopics attribute.</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">preInvokeJS</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Javascript code that will be executed before invokation. The format is preInvokeJS=&apos;yourMethodName(data,type)&apos;.</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">label</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Supply a submit button text apart from submit value. Will have no effect for <I>input</I> type submit, since button text will always be the value parameter. For the type <I>image</I>, alt parameter will be set to this value.</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">src</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Supply an image src for <I>image</I> type submit button. Will have no effect for types <I>input</I> and <I>button</I>.</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">action</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set action attribute.</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">method</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set method attribute.</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">align</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">HTML align attribute.</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">type</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">input</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">The type of submit to use. Valid values are <I>input</I>, <I>button</I> and <I>image</I>.</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">templateDir</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">The template directory.</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">theme</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">The theme (other than default) to use for rendering the element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">template</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">The template (other than default) to use for rendering the element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">cssClass</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">The css class to use for element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">cssStyle</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">The css style definitions for element ro use</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">title</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html title attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">disabled</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html disabled attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">labelposition</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">define label position of form element (top/left)</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">requiredposition</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">define required position of required form element (left|right)</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">name</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">The name to set for element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">required</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Boolean</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">If set to true, the rendered element will indicate that input is required</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">tabindex</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html tabindex attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">value</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Preset the value of input element.</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">onclick</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html onclick attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">ondblclick</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html ondblclick attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">onmousedown</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html onmousedown attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">onmouseup</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html onmouseup attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">onmouseover</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html onmouseover attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">onmousemove</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html onmousemove attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">onmouseout</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html onmouseout attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">onfocus</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html onfocus attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">onblur</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html onblur attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">onkeypress</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html onkeypress attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">onkeydown</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html onkeydown attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">onkeyup</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html onkeyup attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">onselect</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html onselect attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">onchange</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html onchange attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">accesskey</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the html accesskey attribute on rendered html element</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">tooltip</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top"></TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the tooltip of this particular component</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">tooltipConfig</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top"></TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">Set the tooltip configuration</TD></P>
+
+<P></TR></P>
+
+<P><TR>
+<!-- Attribute name -->
+<TD align="left" valign="top">id</TD></P>
+
+<P><!-- Required -->
+<TD align="left" valign="top">false</TD></P>
+
+<P><!-- Default -->
+<TD align="left" valign="top">&nbsp;</TD></P>
+
+<P><!-- Type -->
+<TD align="left" valign="top">Object/String</TD></P>
+
+<P><!-- Description -->
+<TD align="left" valign="top">id for referencing element. For UI and form tags it will be used as HTML id attribute</TD></P>
+
+<P></TR></P>
+
+<P></TABLE></P></TD></TR></TABLE>
+
+<H2><A name="submit-Examples"></A>Examples</H2>
+
+
+<H3><A name="submit-Example1"></A>Example 1</H3>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=example&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fcomponents%2FSubmit.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;%{&apos;Submit&apos;}&quot;</SPAN> /&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+
+<H3><A name="submit-Example2"></A>Example 2</H3>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=example2&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fcomponents%2FSubmit.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">Render an image submit:
+<SPAN class="code-tag">&lt;s:submit type=<SPAN class="code-quote">&quot;image&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{&apos;Submit&apos;}&quot;</SPAN> label=<SPAN class="code-quote">&quot;Submit the form&quot;</SPAN> src=<SPAN class="code-quote">&quot;submit.gif&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+
+<H3><A name="submit-Example3"></A>Example 3</H3>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=example3&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fcomponents%2FSubmit.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">Render an button submit:
+<SPAN class="code-tag">&lt;s:submit type=<SPAN class="code-quote">&quot;button&quot;</SPAN> value=<SPAN class="code-quote">&quot;%{&apos;Submit&apos;}&quot;</SPAN> label=<SPAN class="code-quote">&quot;Submit the form&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+
+<H3><A name="submit-Example4"></A>Example 4</H3>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=ajxExDescription1&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fcomponents%2FSubmit.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P>Show the results in another div. If you want your results to be shown in 
+a div, use the resultDivId where the id is the id of the div you want them 
+shown in. This is an inner HTML approah. Your results get jammed into 
+the div for you. Here is a sample of this approach:</P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=ajxExample1&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fcomponents%2FSubmit.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">Remote form replacing another div:
+<SPAN class="code-tag">&lt;div id=&apos;two&apos; style=<SPAN class="code-quote">&quot;border: 1px solid yellow;&quot;</SPAN>&gt;</SPAN>Initial content<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+&lt;s:form
+      id=&apos;theForm2&apos;
+      cssStyle=<SPAN class="code-quote">&quot;border: 1px solid green;&quot;</SPAN>
+      action=&apos;/AjaxRemoteForm.action&apos;
+      method=&apos;post&apos;
+      theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN>&gt;
+
+  <SPAN class="code-tag">&lt;input type=&apos;text&apos; name=&apos;data&apos; value=&apos;Struts User&apos; /&gt;</SPAN>
+  <SPAN class="code-tag">&lt;s:submit value=<SPAN class="code-quote">&quot;GO2&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> resultDivId=<SPAN class="code-quote">&quot;two&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/s:form &gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+
+<H3><A name="submit-Example5"></A>Example 5</H3>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=ajxExDescription2&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fcomponents%2FSubmit.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P>Notify other controls(divs) of a change. Using an pub-sub model you can 
+notify others that your control changed and they can take the appropriate action. 
+Most likely they will execute some action to refresh. The notifyTopics does this 
+for you. You can have many topic names in a comma delimited list. 
+eg: notifyTopics=&quot;newPerson, dataChanged&quot; .
+Here is an example of this approach:</P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=ajxExample2&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fcomponents%2FSubmit.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;s:form id=<SPAN class="code-quote">&quot;frm1&quot;</SPAN> action=<SPAN class="code-quote">&quot;newPersonWithXMLResult&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN>  &gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:textfield label=<SPAN class="code-quote">&quot;Name&quot;</SPAN> name=<SPAN class="code-quote">&quot;person.name&quot;</SPAN> value=<SPAN class="code-quote">&quot;person.name&quot;</SPAN> size=<SPAN class="code-quote">&quot;20&quot;</SPAN> required=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:submit id=<SPAN class="code-quote">&quot;submitBtn&quot;</SPAN> value=<SPAN class="code-quote">&quot;Save&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN>  cssClass=<SPAN class="code-quote">&quot;primary&quot;</SPAN>  notifyTopics=<SPAN class="code-quote">&quot;personUpdated, systemWorking&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:form &gt;</SPAN>
+
+&lt;s:div href=<SPAN class="code-quote">&quot;/listPeople.action&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> errorText=<SPAN class="code-quote">&quot;error opps&quot;</SPAN>
+        loadingText=<SPAN class="code-quote">&quot;loading...&quot;</SPAN> id=<SPAN class="code-quote">&quot;cart-body&quot;</SPAN> &gt;
+    <SPAN class="code-tag">&lt;s:action namespace=<SPAN class="code-quote">&quot;&quot; name=&quot;</SPAN>listPeople<SPAN class="code-quote">&quot; executeResult=&quot;</SPAN>true&quot; /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:div&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+
+<H3><A name="submit-Example6"></A>Example 6</H3>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=ajxExDescription3&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fcomponents%2FSubmit.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P>Massage the results with JavaScript. Say that your result returns some h
+appy XML and you want to parse it and do lots of cool things with it. 
+The way to do this is with a onLoadJS handler. Here you provide the name of
+a JavaScript function to be called back with the result and the event type.
+The only key is that you must use the variable names &apos;data&apos; and &apos;type&apos; when 
+defining the callback. For example: onLoadJS=&quot;myFancyDancyFunction(data, type)&quot;.
+While I talked about XML in this example, your not limited to XML, the data in 
+the callback will be exactly whats returned as your result.
+Here is an example of this approach:</P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=ajxExample3&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fcomponents%2FSubmit.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;script language=<SPAN class="code-quote">&quot;JavaScript&quot;</SPAN> type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+    function doGreatThings(data, type) {
+        //Do whatever with your returned fragment... 
+        //Perhapps.... if xml...
+              var xml = dojo.xml.domUtil.createDocumentFromText(data);
+              var people = xml.getElementsByTagName(<SPAN class="code-quote">&quot;person&quot;</SPAN>);
+              for(var i = 0;i &lt; people.length; i ++){
+                  var person = people[i];
+                  var name = person.getAttribute(<SPAN class="code-quote">&quot;name&quot;</SPAN>)
+                  var id = person.getAttribute(<SPAN class="code-quote">&quot;id&quot;</SPAN>)
+                  alert(&apos;Thanks dude. Person: &apos; + name + &apos; saved great!!!&apos;);
+              }
+
+    }
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:form id=<SPAN class="code-quote">&quot;frm1&quot;</SPAN> action=<SPAN class="code-quote">&quot;newPersonWithXMLResult&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN>  &gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:textfield label=<SPAN class="code-quote">&quot;Name&quot;</SPAN> name=<SPAN class="code-quote">&quot;person.name&quot;</SPAN> value=<SPAN class="code-quote">&quot;person.name&quot;</SPAN> size=<SPAN class="code-quote">&quot;20&quot;</SPAN> required=<SPAN class="code-quote">&quot;true&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:submit id=<SPAN class="code-quote">&quot;submitBtn&quot;</SPAN> value=<SPAN class="code-quote">&quot;Save&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN>  cssClass=<SPAN class="code-quote">&quot;primary&quot;</SPAN>  onLoadJS=<SPAN class="code-quote">&quot;doGreatThings(data, type)&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+
+<!-- Mirrored from cwiki.apache.org/WW/submit.html by HTTrack Website Copier/3.x [XR&CO'2005], Tue, 10 Oct 2006 21:21:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</HTML>

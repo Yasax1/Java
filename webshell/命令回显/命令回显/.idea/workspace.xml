@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="594036c1-5a83-4d29-bf1b-02884a546f67" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\env\maven\address" />
+        <option name="mavenHome" value="D:/env/maven" />
+        <option name="userSettingsFile" value="D:\env\maven\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="vmOptions" value="-DarchetypeCatalog=local" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1zGmv23ohPOQiuIOPVFlN20qruu" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="defineClass" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.MyClassLoader">
+    <configuration name="MyClassLoader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="defineClass.MyClassLoader" />
+      <module name="命令回显" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReadFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ReadFile.ReadFile" />
+      <module name="命令回显" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ReadFile.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="defineClass.Run" />
+      <module name="命令回显" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WriteFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WriteFile.WriteFile" />
+      <module name="命令回显" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="WriteFile.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="readFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Reader.readFile" />
+      <module name="命令回显" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Reader.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MyClassLoader" />
+        <item itemvalue="Application.Run" />
+        <item itemvalue="Application.readFile" />
+        <item itemvalue="Application.WriteFile" />
+        <item itemvalue="Application.ReadFile" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="594036c1-5a83-4d29-bf1b-02884a546f67" name="Default Changelist" comment="" />
+      <created>1633783025519</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633783025519</updated>
+      <workItem from="1633783029829" duration="1459000" />
+      <workItem from="1633832357861" duration="11211000" />
+      <workItem from="1633869094844" duration="5854000" />
+      <workItem from="1633925064036" duration="9099000" />
+      <workItem from="1633959944638" duration="1477000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="322" y="91" key="#Project_Structure" timestamp="1633783038891">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state x="322" y="91" key="#Project_Structure/0.0.1458.864@0.0.1458.864" timestamp="1633783038891" />
+    <state x="93" y="93" width="1272" height="678" key="DiffContextDialog" timestamp="1633832885865">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state x="93" y="93" width="1272" height="678" key="DiffContextDialog/0.0.1458.864@0.0.1458.864" timestamp="1633832885865" />
+    <state width="1415" height="207" key="GridCell.Tab.0.bottom" timestamp="1633959852319">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state width="1415" height="207" key="GridCell.Tab.0.bottom/0.0.1458.864/1920.0.1920.1050@0.0.1458.864" timestamp="1633959852319" />
+    <state width="1415" height="207" key="GridCell.Tab.0.bottom/0.0.1458.864@0.0.1458.864" timestamp="1633845080299" />
+    <state width="1415" height="207" key="GridCell.Tab.0.center" timestamp="1633959852318">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state width="1415" height="207" key="GridCell.Tab.0.center/0.0.1458.864/1920.0.1920.1050@0.0.1458.864" timestamp="1633959852318" />
+    <state width="1415" height="207" key="GridCell.Tab.0.center/0.0.1458.864@0.0.1458.864" timestamp="1633845080299" />
+    <state width="1415" height="207" key="GridCell.Tab.0.left" timestamp="1633959852318">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state width="1415" height="207" key="GridCell.Tab.0.left/0.0.1458.864/1920.0.1920.1050@0.0.1458.864" timestamp="1633959852318" />
+    <state width="1415" height="207" key="GridCell.Tab.0.left/0.0.1458.864@0.0.1458.864" timestamp="1633845080298" />
+    <state width="1415" height="207" key="GridCell.Tab.0.right" timestamp="1633959852318">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state width="1415" height="207" key="GridCell.Tab.0.right/0.0.1458.864/1920.0.1920.1050@0.0.1458.864" timestamp="1633959852318" />
+    <state width="1415" height="207" key="GridCell.Tab.0.right/0.0.1458.864@0.0.1458.864" timestamp="1633845080299" />
+    <state width="1415" height="171" key="GridCell.Tab.1.bottom" timestamp="1633959852303">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state width="1415" height="171" key="GridCell.Tab.1.bottom/0.0.1458.864/1920.0.1920.1050@0.0.1458.864" timestamp="1633959852303" />
+    <state width="1415" height="260" key="GridCell.Tab.1.bottom/0.0.1458.864@0.0.1458.864" timestamp="1633845021375" />
+    <state width="1415" height="171" key="GridCell.Tab.1.center" timestamp="1633959852302">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state width="1415" height="171" key="GridCell.Tab.1.center/0.0.1458.864/1920.0.1920.1050@0.0.1458.864" timestamp="1633959852302" />
+    <state width="1415" height="260" key="GridCell.Tab.1.center/0.0.1458.864@0.0.1458.864" timestamp="1633845021375" />
+    <state width="1415" height="171" key="GridCell.Tab.1.left" timestamp="1633959852302">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state width="1415" height="171" key="GridCell.Tab.1.left/0.0.1458.864/1920.0.1920.1050@0.0.1458.864" timestamp="1633959852302" />
+    <state width="1415" height="260" key="GridCell.Tab.1.left/0.0.1458.864@0.0.1458.864" timestamp="1633845021375" />
+    <state width="1415" height="171" key="GridCell.Tab.1.right" timestamp="1633959852303">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state width="1415" height="171" key="GridCell.Tab.1.right/0.0.1458.864/1920.0.1920.1050@0.0.1458.864" timestamp="1633959852303" />
+    <state width="1415" height="260" key="GridCell.Tab.1.right/0.0.1458.864@0.0.1458.864" timestamp="1633845021375" />
+    <state x="139" y="10" key="new project wizard" timestamp="1633960096486">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state x="139" y="10" key="new project wizard/0.0.1458.864/1920.0.1920.1050@0.0.1458.864" timestamp="1633960096486" />
+    <state x="392" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1633955222573">
+      <screen x="0" y="0" width="1458" height="864" />
+    </state>
+    <state x="392" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1458.864/1920.0.1920.1050@0.0.1458.864" timestamp="1633955222573" />
+    <state x="392" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1458.864@0.0.1458.864" timestamp="1633843673709" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Return1.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Return1.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ReadFile/ReadFile.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ReadFile/ReadFile.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ReadFile/ReadFile.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Return1.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/defineClass/MyClassLoader.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

@@ -1,0 +1,318 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Rest Plugin something</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="plugin-developers-guide.html" title="Plugin Developers Guide">Plugin Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Rest Plugin something">Rest Plugin something</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Rest Plugin something</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=70699">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=70699">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=70699">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=70699">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=70699">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=70699">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=mrdon">Don Brown</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=mrdon">Don Brown</A> on Nov 13, 2007
+                      
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <H2><A name="RestPluginsomething-Overview"></A>Overview</H2>
+
+<P>The Rest Plugin simplifies Rest-style resources to be consumed by both human and machine clients.  The goals are to 100% follow Ruby on Rails-style Rest URL conventions and enable XML-free resource development. It builds on the <A href="codebehind-plugin.html" title="Codebehind Plugin">Codebehind Plugin</A> to support automatic configuration of both actions and results.</P>
+
+An error occurred: http://svn.apache.org/repos/asf/struts/sandbox/trunk/struts2-rest-plugin/src/main/java/org/apache/struts2/rest/RestActionMapper.java. The system administrator has been notified.
+
+<P>Or, expressed as a table: </P>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> HTTP method </TH>
+<TH class="confluenceTh"> URI                  </TH>
+<TH class="confluenceTh"> Class.method  </TH>
+<TH class="confluenceTh"> parameters </TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> GET          </TD>
+<TD class="confluenceTd"> /movie                </TD>
+<TD class="confluenceTd"> Movie.index   </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> POST         </TD>
+<TD class="confluenceTd"> /movie                </TD>
+<TD class="confluenceTd"> Movie.create  </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> PUT          </TD>
+<TD class="confluenceTd"> /movie/Thrillers      </TD>
+<TD class="confluenceTd"> Movie.update  </TD>
+<TD class="confluenceTd"> id=&quot;Thrillers&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> DELETE       </TD>
+<TD class="confluenceTd"> /movie/Thrillers      </TD>
+<TD class="confluenceTd"> Movie.destroy </TD>
+<TD class="confluenceTd"> id=&quot;Thrillers&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> GET          </TD>
+<TD class="confluenceTd"> /movie/Thrillers      </TD>
+<TD class="confluenceTd"> Movie.show    </TD>
+<TD class="confluenceTd"> id=&quot;Thrillers&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> GET          </TD>
+<TD class="confluenceTd"> /movie/Thrillers/edit </TD>
+<TD class="confluenceTd"> Movie.edit    </TD>
+<TD class="confluenceTd"> id=&quot;Thrillers&quot; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> GET          </TD>
+<TD class="confluenceTd"> /movie/new            </TD>
+<TD class="confluenceTd"> Movie.editNew </TD>
+</TR>
+</TBODY></TABLE>
+
+<P>In addition to being a Rest-style URL mapper, this plugin provides built-in support for multiple content types, switchable through the URL extension. In this way, a single resource can be exposed as multiple content types without any extra work.</P>
+
+<P>For example, by exposing an &quot;orders&quot; resource, clients can immediately access it via:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">http:<SPAN class="code-comment">//my.company.com/myapp/orders/1
+</SPAN>http:<SPAN class="code-comment">//my.company.com/myapp/orders/1.xml
+</SPAN>http:<SPAN class="code-comment">//my.company.com/myapp/orders/1.xhtml
+</SPAN>http:<SPAN class="code-comment">//my.company.com/myapp/orders/1.json</SPAN></PRE>
+</DIV></DIV>
+
+<P>and the framework handles the serialization and deserialization automatically.</P>
+
+<H2><A name="RestPluginsomething-Features"></A>Features</H2>
+
+<UL>
+	<LI>Fully implements Ruby-On-Rails Rest-style URLs</LI>
+	<LI>Supports XML-free development, without requiring annotations</LI>
+	<LI>Built-in serialization support for XML and JSON</LI>
+	<LI>Automatic handling of errors</LI>
+	<LI>Type-safe configuration of the HTTP response</LI>
+	<LI>Automatic conditional GET support</LI>
+</UL>
+
+
+<H2><A name="RestPluginsomething-Usage"></A>Usage</H2>
+
+<P>As with the <A href="codebehind-plugin.html" title="Codebehind Plugin">Codebehind Plugin</A>, the first step is to tell the plugin where to find your resource action classes.  Modify the configuration of your Struts 2 filter in <TT>web.xml</TT> and add the 'actionPackages' init-param like so:</P>
+
+An error occurred: http://svn.apache.org/repos/asf/struts/sandbox/trunk/struts2-rest-plugin/showcase/src/main/webapp/WEB-INF/web.xml. The system administrator has been notified. 
+
+<P>Next, create Java objects ending in &quot;Resource&quot; in the configured package.  The &quot;Resource&quot; suffix is used to distinguish Rest action resources from regular Struts 2 actions, although it is completely optional and they are functionally the same.  Now, add in methods to handle the various requests.  For example, the following resource action will support <TT>/orders/34</TT> GET and PUT requests:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> org.apache.struts2.<SPAN class="code-keyword">rest</SPAN>.example;
+
+<SPAN class="code-keyword">public</SPAN> class OrdersResource <SPAN class="code-keyword">implements</SPAN> ModelDriven&lt;Order&gt; {
+
+    <SPAN class="code-keyword">private</SPAN> OrderManager orderManager;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> id;
+    <SPAN class="code-keyword">private</SPAN> Order model;
+   
+    <SPAN class="code-comment">// Handles /orders/{id} GET requests
+</SPAN>    <SPAN class="code-keyword">public</SPAN> RestInfo show() {
+        model = orderManager.findOrder(id);
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">new</SPAN> DefaultRestInfo()
+            .renderResult(<SPAN class="code-quote">&quot;show&quot;</SPAN>)
+            .withETag(model.getUniqueStamp())
+            .lastModified(model.getLastModified());
+    }
+
+    <SPAN class="code-comment">// Handles /orders/{id} PUT requests
+</SPAN>    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> update() {
+        orderManager.updateOrder(model);
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;update&quot;</SPAN>;
+    }
+
+    <SPAN class="code-comment">// getters and setters
+</SPAN>}</PRE>
+</DIV></DIV>
+
+<P>In this example, the <TT>ModelDriven</TT> interface is used to ensure that only my model, the Order object in this case, is returned to the client, otherwise, the whole <TT>OrdersResource</TT> object would be serialized.</P>
+
+<P>You may wonder why the <TT>show()</TT> method returns a <TT>RestInfo</TT> object and the <TT>update()</TT> method returns the expected result code String.  Well, the Rest Plugin adds in support for action methods that return <TT>RestInfo</TT> objects as a way for the action to have more control over the response.  In this example, we wanted to ensure the response included the ETag header and a last modified date so that the information will be cached properly by the client.  The <TT>RestInfo</TT> object is a convenient way to control the response in a type-safe way.</P>
+
+<P>Also, notice we aren't returning the usual &quot;success&quot; result code in either method.  This allows us to use the special features of the <A href="codebehind-plugin.html" title="Codebehind Plugin">Codebehind Plugin</A> to intuitively select the result template to process when this resource is accessed with the <TT>.xhtml</TT> extension.  In this case, we can provide a customized XHTML view of the resource by creating <TT>/orders-show.jsp</TT> and <TT>/orders-update.jsp</TT> for the respective methods.</P>
+
+<H4><A name="RestPluginsomething-CustomContentTypeHandlers"></A>Custom ContentTypeHandlers</H4>
+
+<P>If you need to handle extensions that aren't supported by the default handlers, you can create your own <TT>ContentTypeHandler</TT> implementation and define it in your <TT>struts.xml</TT>:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;bean name=<SPAN class="code-quote">&quot;yaml&quot;</SPAN> type=<SPAN class="code-quote">&quot;org.apache.struts2.rest.handler.ContentTypeHandler&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.mycompany.MyYamlContentHandler&quot;</SPAN> /&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>If the built-in content type handlers don't do what you need, you can override the handling of any extension by providing an alternate handler.  First, define your own <TT>ContentTypeHandler</TT> and declare with its own alias. For example:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;bean name=<SPAN class="code-quote">&quot;myXml&quot;</SPAN> type=<SPAN class="code-quote">&quot;org.apache.struts2.rest.handler.ContentTypeHandler&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.mycompany.MyXmlContentHandler&quot;</SPAN> /&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>Then, tell the Rest Plugin to override the handler for the desired extension with yours.  In <TT>struts.properties</TT>, it would look like this:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">struts.<SPAN class="code-keyword">rest</SPAN>.handlerOverride.xml=myXml</PRE>
+</DIV></DIV>
+
+<H2><A name="RestPluginsomething-Example"></A>Example</H2>
+
+<P>The plugin ships with a <TT>struts2-rest-showcase</TT> application that demonstrates a simple Rest web program.</P>
+
+<H2><A name="RestPluginsomething-Settings"></A>Settings</H2>
+
+<P>The following settings can be customized.  See the <SPAN class="nobr"><A href="configuration-files.html" title="Visit page outside Confluence" rel="nofollow">developer guide<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>.</P>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">Setting</TH>
+<TH class="confluenceTh">Description</TH>
+<TH class="confluenceTh">Default</TH>
+<TH class="confluenceTh">Possible Values</TH>
+</TR>
+<TR>
+<TD class="confluenceTd"><TT>struts.rest.handlerOverride.EXTENSION</TT></TD>
+<TD class="confluenceTd">The alias for the <TT>ContentTypeHandler</TT> implementation that handles the EXTENSION value</TD>
+<TD class="confluenceTd">N/A</TD>
+<TD class="confluenceTd">Any declared alias for a <TT>ContentTypeHandler</TT> implementation</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><TT>struts.rest.defaultHandlerName</TT></TD>
+<TD class="confluenceTd">The default extension to use when non is explicitly specified in the request</TD>
+<TD class="confluenceTd"><TT>xml</TT></TD>
+<TD class="confluenceTd">Any extension</TD>
+</TR>
+</TBODY></TABLE>
+
+<H2><A name="RestPluginsomething-Installation"></A>Installation</H2>
+
+<P>This plugin can be installed by copying the plugin jar into your application's <TT>/WEB-INF/lib</TT> directory.  It does depend on the <A href="codebehind-plugin.html" title="Codebehind Plugin">Codebehind Plugin</A>, so if aren't using a build system that supports transitive dependencies like Maven 2, you will need to add that plugin as well.</P>
+
+<H2><A name="RestPluginsomething-Resources"></A>Resources </H2>
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.b-simple.de/documents" title="Visit page outside Confluence" rel="nofollow">http://www.b-simple.de/documents<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - Short RESTful rails PDF in multiple languages</LI>
+	<LI><SPAN class="nobr"><A href="http://www.amazon.com/RESTful-Web-Services-Leonard-Richardson/dp/0596529260" title="Visit page outside Confluence" rel="nofollow">Restful Web Services<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - Highly recommend book from O'Reilly</LI>
+</UL>
+
+
+<H2><A name="RestPluginsomething-VersionHistory"></A>Version History</H2>
+
+<P>From Struts 2.1.1+</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

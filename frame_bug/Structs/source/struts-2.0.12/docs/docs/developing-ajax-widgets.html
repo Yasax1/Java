@@ -1,0 +1,229 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Developing Ajax Widgets</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="overview.html" title="Overview">Overview</A>&nbsp;&gt;&nbsp;<A href="whiteboard.html" title="Whiteboard">Whiteboard</A>&nbsp;&gt;&nbsp;<A href="" title="Developing Ajax Widgets">Developing Ajax Widgets</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Developing Ajax Widgets</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13948">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13948">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13948">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13948">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13948">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13948">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=botah">botah</A>, last edited by     <A href="../~husted/index.html">Ted Husted</A> on Jun 05, 2006
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=13948&originalId=14521">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<P><IMG class="emoticon" src="http://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"> This page is intended for framework developers rather than application developers. </P>
+
+<P>The ajax/dhtml components use the DOJO Toolkit for both javascript event handling and AJAX calls.</P>
+
+<P>To understand the widget framework this page is a must read:<BR>
+<SPAN class="nobr"><A href="http://dojotoolkit.org/docs/fast_widget_authoring.html" title="Visit page outside Confluence" rel="nofollow">http://dojotoolkit.org/docs/fast_widget_authoring.html<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></P>
+
+<P>To understand the dojo event framework which is used extensively by the widget framework read this:<BR>
+<SPAN class="nobr"><A href="http://dojotoolkit.org/docs/dojo_event_system.html" title="Visit page outside Confluence" rel="nofollow">http://dojotoolkit.org/docs/dojo_event_system.html<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></P>
+
+<P>OK Great so your smart on DOJO Widgets and DOJO Events lets see how we use these.</P>
+
+<H3><A name="DevelopingAjaxWidgets-TagCode"></A>Tag Code</H3>
+
+<P>Lets start with looking at what a user of WW would include in their page, a JSP in this case:</P>
+<DIV class="code"><DIV class="codeHeader"><B>SomeFile.jsp</B></DIV><DIV class="codeContent">
+<PRE class="code-java">&lt;saf:a
+        id=<SPAN class="code-quote">&quot;link1&quot;</SPAN>
+        theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN>
+        href=<SPAN class="code-quote">&quot;/AjaxRemoteLink.action&quot;</SPAN>
+        showErrorTransportText=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>
+        errorText=<SPAN class="code-quote">&quot;An Error ocurred&quot;</SPAN>&gt;Update&lt;/ww:a&gt;</PRE>
+</DIV></DIV>
+<P>This is just a standard framework component. All the attributes defined here must map to a component class thats defined in the taglib.tld.  Were not going to go into how the componets work in this discussion, just be assured that nothing different happens here.  </P>
+
+<H3><A name="DevelopingAjaxWidgets-ComponentTemplateCode"></A>Component Template Code</H3>
+
+<P>The framework via the component system will read in the ajax/a.ftl file to determine how to generate the following html file. Again this is standard Component processing so we'll breeze over this.</P>
+
+<H3><A name="DevelopingAjaxWidgets-GeneratedCode"></A>Generated Code</H3>
+<P>Now lets look at what this snippet of code would generate for us in html:</P>
+<DIV class="code"><DIV class="codeHeader"><B>_Generated_SomeFile.html</B></DIV><DIV class="codeContent">
+<PRE class="code-java">&lt;a dojoType=<SPAN class="code-quote">&quot;BindAnchor&quot;</SPAN> evalResult=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN> id=<SPAN class="code-quote">&quot;link1&quot;</SPAN> href=<SPAN class="code-quote">&quot;/ajax/AjaxRemoteLink.action&quot;</SPAN> errorHtml=<SPAN class="code-quote">&quot;An Error ocurred&quot;</SPAN> showTransportError=<SPAN class="code-quote">&quot;<SPAN class="code-keyword">true</SPAN>&quot;</SPAN>&gt;Update&lt;/a&gt;</PRE>
+</DIV></DIV>
+<P>Lets review this file. The dojoType type tells the dojo parser what to do with this tag.  This is going to need to correspont to a call in our widge file like:<BR>
+dojo.widget.tags.addParseTreeHandler(&quot;dojo:BindAnchor&quot;);<BR>
+All the other attributes are basically passthrough from our component code to our widget code. No real magic happening w/ them.</P>
+
+<H3><A name="DevelopingAjaxWidgets-DojoWidgetFile"></A>Dojo Widget File</H3>
+<P>Next up lets look at some snippets of the widget file:</P>
+<DIV class="code"><DIV class="codeHeader"><B>BindAnchor.js</B></DIV><DIV class="codeContent">
+<PRE class="code-java">webwork.widgets.HTMLBindAnchor = function() {
+<SPAN class="code-comment">//lots removed <SPAN class="code-keyword">for</SPAN> clarity
+</SPAN>	<SPAN class="code-keyword">this</SPAN>.widgetType = <SPAN class="code-quote">&quot;BindAnchor&quot;</SPAN>;
+	<SPAN class="code-keyword">this</SPAN>.templatePath = dojo.uri.dojoUri(<SPAN class="code-quote">&quot;webwork/widgets/BindAnchor.html&quot;</SPAN>);
+
+	<SPAN class="code-comment">// the template anchor instance
+</SPAN>	<SPAN class="code-keyword">this</SPAN>.anchor = <SPAN class="code-keyword">null</SPAN>;
+<SPAN class="code-comment">//lots removed
+</SPAN>		self.anchor.href = <SPAN class="code-quote">&quot;javascript:{}&quot;</SPAN>;
+
+		dojo.event.kwConnect({
+			srcObj: self.anchor,
+			srcFunc: <SPAN class="code-quote">&quot;onclick&quot;</SPAN>,
+			adviceObj: self,
+			adviceFunc: <SPAN class="code-quote">&quot;bind&quot;</SPAN>,
+			adviceType: 'before'
+		});
+		
+<SPAN class="code-comment">//snippet removed		
+</SPAN>    }
+
+}
+
+
+<SPAN class="code-comment">// make it a tag
+</SPAN>dojo.widget.tags.addParseTreeHandler(<SPAN class="code-quote">&quot;dojo:BindAnchor&quot;</SPAN>);</PRE>
+</DIV></DIV>
+
+<P>There are three aspects in this code snippet that are worth review. The declaration of the templatePath. This defines to DOJO where the prototype for its component lives. DOJO is going to read this component to determine what event binding needs to happen (TODO: a better description here).  Were going to look at this template file in a moment, this file is where the real magic happens. The second aspect of this file is the kwConnect call... this is the ajax call to the remote source.  I removed the snippet that happens afterwards but its not important here.  And the final aspect worth understanding now is the last line. This tells dojo that this widget is registered as the name BindAchor... recall the dojoType=&quot;BindAnchor&quot; in the above HTML snippet.</P>
+
+<H3><A name="DevelopingAjaxWidgets-DojoTemplateFile"></A>Dojo Template File</H3>
+<P>Now lets review the template file... BindAnchor.html... Understanding the template files were the big realization moment for me.</P>
+<DIV class="code"><DIV class="codeHeader"><B>BindAnchor.html</B></DIV><DIV class="codeContent">
+<PRE class="code-java">&lt;a dojoAttachPoint=<SPAN class="code-quote">&quot;anchor&quot;</SPAN>&gt;&lt;/a&gt;</PRE>
+</DIV></DIV>
+<P>This template simply tells dojo one thing. the dojoAttachPoint. This attribute dojoAttachPoint is the javascript variable in the widget file to attach thid DOM object to.  If you review the above widget code you will see a variable declaration called this.anchor = null;  Dojo will plug this DOM object into that variable so its availabe in the widget JS. COOL.  </P>
+
+<P>OK... lets look at a more complex template file.</P>
+
+<DIV class="code"><DIV class="codeHeader"><B>BindButton.html</B></DIV><DIV class="codeContent">
+<PRE class="code-java">&lt;input dojoAttachPoint=<SPAN class="code-quote">&quot;attachBtn&quot;</SPAN> dojoAttachEvent=<SPAN class="code-quote">&quot;onClick: bind&quot;</SPAN> type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</PRE>
+</DIV></DIV>
+<P>This is the code for the button template.  Again its got the dojoAttachPoint attribute, but its also got dojoAttachEvent. This is based on the DOJO event system.  the dojoAttachEvent  property gives us a mapping between what the DOM Node's event name is (onClick) and what logical action to take as a result (bind).  This is how the the dojo widget code <EM>itercepts</EM> the button click code and calls the bind function.  </P>
+
+<P>Ok so now you can see how dojo intercepts calls to the real button click, and calls the bind funciton in your widget code. You could do most anything in this method. But in this case the bind function is defined in Bind.js which is the super JS inherited file to BindButton.js.</P>
+
+
+<P>Hopefully this combined with the DOJO references is enough to get you up to speed.</P>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

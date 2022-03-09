@@ -1,0 +1,247 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Home</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="" title="Home">Home</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Home</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14153">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14153">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14153">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14153">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14153">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14153">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=savaki">savaki</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=delmanboy@naver.com">james</A> on Aug 21, 2008
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14153&originalId=95347">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd"> <SPAN class="nobr"><A href="http://opensource.atlassian.com/confluence/oss/display/BOOKS/ISBN-978-1-4303-2033-3" title="Visit page outside Confluence" rel="nofollow"><IMG src="http://struts.apache.org/images/starting-struts2.jpg" width="93" height="140" align="absmiddle" border="0"><SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>  </TD>
+<TD class="confluenceTd"> Apache Struts 2 is an elegant, extensible framework for building enterprise-ready Java web applications. <SPAN class="nobr"><A href="http://struts.apache.org/downloads.html" title="Visit page outside Confluence" rel="nofollow">Distributions of Struts 2<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> are available as a free download under the Apache License. 
+<UL>
+	<LI>For more about the Apache Struts project, visit the <SPAN class="nobr"><A href="http://struts.apache.org/" title="Visit page outside Confluence" rel="nofollow">project web site<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>.</LI>
+	<LI>For more about Struts Plugins, visit the <SPAN class="nobr"><A href="http://cwiki.apache.org/S2PLUGINS/home.html" title="Visit page outside Confluence" rel="nofollow">Struts 2 Plugin Registry<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>.</LI>
+	<LI>For a free copy of &quot;Starting Struts 2&quot;, visit <SPAN class="nobr"><A href="http://opensource.atlassian.com/confluence/oss/display/BOOKS/ISBN-978-1-4303-2033-3" title="Visit page outside Confluence" rel="nofollow">InfoQ<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>.</LI>
+	<LI>For more books, articles, and presentations about Struts, visit <B><A href="other-resources.html" title="Other Resources">Other Resources</A></B>.</LI>
+	<LI>For other community-supported Struts resources, visit the <SPAN class="nobr"><A href="http://cwiki.apache.org/S2WIKI/home.html" title="Visit page outside Confluence" rel="nofollow">Struts 2 Wiki<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>.</LI>
+</UL>
+</TD>
+</TR>
+</TBODY></TABLE>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="tipMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>To help keep the content up-to-date, we maintain the Struts 2 Documentation as a Confluence space, which is automatically exported to plain HTML. We serve the HTML version online and bundle it with the distribution. But don't let the wiki format fool you! There are over 600 pages of documentation in this space, easily the equivalent of a full length book. (Of course, actual <A href="#Home-Books" title="Books on Home">books</A> are also available!)</TD></TR></TABLE>
+
+<H2><A name="Home-GettingStarted"></A>Getting Started</H2>
+
+<P>The documentation is grouped into four areas. </P>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> <A href="tutorials.html" title="Tutorials">Tutorials</A> </TH>
+<TD class="confluenceTd"> Our tutorials are designed to help you get started with the framework ASAP. We offer an all-purpose &quot;Bootstrap&quot; tutorial as well as specialty tutorials on portlets and database access. </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="guides.html" title="Guides">Guides</A> </TH>
+<TD class="confluenceTd"> Our in-depth technical guides focus on specific components of the framework, such as the Core framework, Struts Tags, and optional Extensions, as well as migrating from Struts 1 or WebWork 2. </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="faqs.html" title="FAQs">FAQs</A> and <A href="cookbook.html" title="Cookbook">Cookbook</A> </TH>
+<TD class="confluenceTd"> Our FAQs and Cookbook examples provide a wide range of rapid-fire &quot;HOWTOs&quot; in question-and-answer format. </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <A href="security-bulletins.html" title="Security Bulletins">Security Bulletins</A> </TH>
+<TD class="confluenceTd"> Our security bulletins explain any security issues and their solutions </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> <IMG class="emoticon" src="http://cwiki.apache.org/confluence/images/icons/emoticons/star_yellow.gif" height="16" width="16" align="absmiddle" alt="" border="0"> <A href="other-resources.html" title="Other Resources">Other Resources</A> </TH>
+<TD class="confluenceTd"> Books, articles, and presentations about Struts 2.  </TD>
+</TR>
+</TBODY></TABLE>
+
+
+
+<H2><A name="Home-CommunityWiki"></A>Community Wiki </H2>
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://cwiki.apache.org/S2WIKI/home.html" title="Visit page outside Confluence" rel="nofollow">Struts 2 Wiki<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - The Struts 2 Wiki is a community-supported resource. To contribute to the wiki space, simply create an Confluence account. The wiki space is not bundled with the Struts 2 distribution, but it is still an exciting and valuable community resource!</LI>
+</UL>
+
+
+<H2><A name="Home-QuickLinks"></A>Quick Links </H2>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd"><UL>
+	<LI><SPAN class="nobr"><A href="http://struts.apache.org/" title="Visit page outside Confluence" rel="nofollow">Apache Struts Home<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="http://struts.apache.org/downloads.html" title="Visit page outside Confluence" rel="nofollow">Distributions<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="http://struts.apache.org/faqs.html" title="Visit page outside Confluence" rel="nofollow">Project FAQ<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="http://struts.apache.org/mail.html" title="Visit page outside Confluence" rel="nofollow">Mailing lists<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="http://issues.apache.org/struts/secure/Dashboard.jspa" title="Visit page outside Confluence" rel="nofollow">Issue Tracking (JIRA)<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+</TD>
+<TD class="confluenceTd"><UL>
+	<LI><A href="../S2WIKI/welcome-to-apache-struts2.html" title="Welcome to Apache Struts2">Struts 2 Wiki space</A></LI>
+	<LI><SPAN class="nobr"><A href="http://www.PlanetStruts.org/" title="Visit page outside Confluence" rel="nofollow">Planet Struts<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="http://www.ApacheBookstore.com/" title="Visit page outside Confluence" rel="nofollow">Apache Bookstore<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="http://husted.com/central/" title="Visit page outside Confluence" rel="nofollow">Struts Central<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="http://wiki.javascud.org/display/ww2cndoc/WebWork" title="Visit page outside Confluence" rel="nofollow">WebWork wiki in Chinese <SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+</TD>
+</TR>
+</TBODY></TABLE>
+
+<H2><A name="Home-Errata%3F"></A>Errata?</H2>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="tipMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>To suggest a change or a correction to any part of the documentation, <SPAN class="nobr"><A href="" title="Visit page outside Confluence" rel="nofollow">log in<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> and leave a comment on the appropriate page. We are always looking for <A href="editing-the-documentation.html" title="Editing the Documentation">help with the documentation!</A></TD></TR></TABLE>
+
+
+<H2><A name="Home-Next%3ATutorials"></A>Next: <A href="tutorials.html" title="Tutorials">Tutorials</A></H2>
+
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="tutorials.html" title="Tutorials">Tutorials</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="overview.html" title="Overview">Overview</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="faqs.html" title="FAQs">FAQs</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="guides.html" title="Guides">Guides</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="security-bulletins.html" title="Security Bulletins">Security Bulletins</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="other-resources.html" title="Other Resources">Other Resources</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

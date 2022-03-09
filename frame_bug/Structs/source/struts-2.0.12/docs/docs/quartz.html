@@ -1,0 +1,195 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Quartz</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="extension-guide.html" title="Extension Guide">Extension Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Quartz">Quartz</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Quartz</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13892">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13892">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13892">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13892">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13892">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13892">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=ctran">ctran</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 02, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=13892&originalId=21419">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="infoMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">About Quartz</B><BR><SPAN class="nobr"><A href="http://www.opensymphony.com/quartz/" title="Visit page outside Confluence" rel="nofollow">Quartz<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> is a full-featured, open source job scheduling system that can be integrated with, or used along side virtually any J2EE or J2SE application. Quartz can be used to create simple or complex schedules for executing tens, hundreds, or even tens-of-thousands of jobs; jobs whose tasks are defined as standard Java components or EJBs.</TD></TR></TABLE>
+
+<UL>
+	<LI>Integrating Quartz with the framework requires some glue code.</LI>
+</UL>
+
+
+<H2><A name="Quartz-CodingaQuartzActionJob"></A>Coding a Quartz ActionJob</H2>
+
+<DIV class="code"><DIV class="codeHeader"><B>ActionJob.java</B></DIV><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.trantek.sit.action;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionProxy;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionProxyFactory;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.interceptor.component.ComponentInterceptor;
+<SPAN class="code-keyword">import</SPAN> org.quartz.Job;
+<SPAN class="code-keyword">import</SPAN> org.quartz.JobExecutionContext;
+<SPAN class="code-keyword">import</SPAN> org.quartz.JobExecutionException;
+<SPAN class="code-keyword">import</SPAN> java.util.HashMap;
+
+<SPAN class="code-keyword">public</SPAN> class ActionJob <SPAN class="code-keyword">implements</SPAN> Job
+{
+    <SPAN class="code-keyword">public</SPAN> void execute(JobExecutionContext context) <SPAN class="code-keyword">throws</SPAN> JobExecutionException
+    {
+        <SPAN class="code-keyword">try</SPAN>
+        {
+            HashMap ctx = <SPAN class="code-keyword">new</SPAN> HashMap();
+            ctx.put(ActionContext.PARAMETERS, context.getJobDetail().getJobDataMap());
+            ctx.put(ComponentInterceptor.COMPONENT_MANAGER, ???);
+            ctx.put(???, ???)
+            ServletDispatcher.createContextMap()
+            ActionProxy proxy = ActionProxyFactory.getFactory().
+                    createActionProxy(&quot;&quot;, context.getJobDetail().getName(), ctx);
+
+            proxy.execute();
+        }
+        <SPAN class="code-keyword">catch</SPAN> (Exception e)
+        {
+            <SPAN class="code-keyword">throw</SPAN> <SPAN class="code-keyword">new</SPAN> JobExecutionException(e);
+        }
+    }
+}</PRE>
+</DIV></DIV>
+<P>To schedule Actions to be run by Quartz, create a Job where</P>
+<UL>
+	<LI>The name of your job is the name of the Action to execute (no &quot;.action&quot; equivalent suffix).</LI>
+	<LI>All the parameters being sent to the Action are provided by the JobDataMap of the JobDetail object.
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="infoMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>According to the Javadocs of <TT>org.quartz.ee.servlet.QuartzInitializerServlet</TT>, the Quartz scheduler is setup as a servlet.</TD></TR></TABLE></LI>
+</UL>
+
+
+<H2><A name="Quartz-SampleQuartzEmailAction"></A>Sample Quartz Email Action</H2>
+
+<P>The following code schedules an e-mail action:</P>
+<DIV class="code"><DIV class="codeHeader"><B>Scheduling an Email Alert</B></DIV><DIV class="codeContent">
+<PRE class="code-java">Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
+
+JobDetail jobDetail = <SPAN class="code-keyword">new</SPAN> JobDetail(<SPAN class="code-quote">&quot;email.send&quot;</SPAN>,
+                                     scheduler.DEFAULT_GROUP, WebWorkJob.class);
+
+Map m = jobDetail.getJobDataMap();
+m.put(<SPAN class="code-quote">&quot;to&quot;</SPAN>, <SPAN class="code-quote">&quot;me@bogusdomain.com&quot;</SPAN>);
+m.put(<SPAN class="code-quote">&quot;subject&quot;</SPAN>, <SPAN class="code-quote">&quot;quartz test&quot;</SPAN>);
+m.put(<SPAN class="code-quote">&quot;body&quot;</SPAN>, <SPAN class="code-quote">&quot;This is a quartz test, Hey ho&quot;</SPAN>);
+m.put(<SPAN class="code-quote">&quot;smtpServer&quot;</SPAN>, <SPAN class="code-quote">&quot;smtp.bogusdomain.com&quot;</SPAN>);
+m.put(<SPAN class="code-quote">&quot;from&quot;</SPAN>, <SPAN class="code-quote">&quot;quartz@bogusdomain.com&quot;</SPAN>);
+
+SimpleTrigger trigger = <SPAN class="code-keyword">new</SPAN> SimpleTrigger(<SPAN class="code-quote">&quot;myTrigger&quot;</SPAN>,
+                                          scheduler.DEFAULT_GROUP,
+                                          <SPAN class="code-keyword">new</SPAN> Date(), <SPAN class="code-keyword">null</SPAN>, 0, 0L);
+
+scheduler.deleteJob(<SPAN class="code-quote">&quot;email.send&quot;</SPAN>, scheduler.DEFAULT_GROUP);
+scheduler.scheduleJob(jobDetail, trigger);</PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="ysoserial">
+    <CLASSES>
+      <root url="jar://D:/exp/ysoserial.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://D:/exp/ysoserial.jar!/" />
+    </SOURCES>
+  </library>
+</component>

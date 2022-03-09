@@ -1,0 +1,403 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Themes</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Themes" title="Themes">Themes</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Themes</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13931">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13931">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13931">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13931">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13931">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13931">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=casey">casey</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 03, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=13931&originalId=23074">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+
+<P>A Theme is a set of <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Templates&linkCreation=true&fromPageId=13931" title="Create Page: Templates" class="createlink">Templates<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> used to customize web page development with UI tags.  They provide a powerful mechanism to help web developers spice up the UI with a mixture of styles (colors, fonts, etc).  For example, you may want half your form textfields to have a blue background and half a white background.   A couple of notes:</P>
+
+<UL>
+	<LI>Webwork comes with 2 pre-defined themes; &quot;simple&quot; and &quot;xhtml&quot; (default).  The default location webwork looks for themes in your web application is <TT>/template</TT>.  The default theme is <TT>xhtml</TT>.  Default, meaning that it will be used if you don&apos;t specify a theme attribute in your UI tag.  <INS>Note:</INS> The default values can be overridden in your <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=struts.properties&linkCreation=true&fromPageId=13931" title="Create Page: struts.properties" class="createlink">struts.properties<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> file with <TT>webwork.ui.theme=</TT>  and <TT>webwork.ui.templateDir=</TT>.</LI>
+</UL>
+
+
+<UL>
+	<LI>Custom themes can also be created to tailor your own needs.  We recommend you consult the pre-defined templates as a starting point before you create your own.</LI>
+</UL>
+
+
+<UL>
+	<LI>Every time a UI tag is used, the tag is rendered into html by referencing a template.  So they play a key role in how fields look and are positioned in a page.  Currently, only velocity templates are supported out of the box.  However, expect to see more support for creating JSP templates in future releases.</LI>
+</UL>
+
+
+<P><INS>Note:</INS> Before moving forward, it is recommended that you review how the webwork template system works.  (see <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Templates&linkCreation=true&fromPageId=13931" title="Create Page: Templates" class="createlink">Templates<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>)</P>
+
+<H3><A name="Themes-xhtml"></A>xhtml</H3>
+
+<P><TT>xhtml</TT> comes configured as the default theme for Webwork.  It extends the simple theme providing built in functionality for error reporting, table positioning, and labeling.  Lets look at one of the most common UI tags used, <TT>textfield</TT>, and show the proper way to write your views with the xhtml theme.</P>
+
+<P>As you may already know, the default UI template used for the textfield tag is text.vm located under the directory /template/xhtml.</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">#*
+   -- text.vm
+*#
+## notice the re-use of the simple theme template text.vm
+#parse(<SPAN class="code-quote">&quot;/template/xhtml/controlheader.vm&quot;</SPAN>)
+#parse(<SPAN class="code-quote">&quot;/template/simple/text.vm&quot;</SPAN>)
+#parse(<SPAN class="code-quote">&quot;/template/xhtml/controlfooter.vm&quot;</SPAN>)</PRE>
+</DIV></DIV>
+<P>When this template is loaded, it will first parse and render the /template/xhtml/controlheader.vm.  Within controlheader.vm you will notice functionlity for error reporting, labeling and table positioning.  If ActionSupport is returning with some errors, they are rendered into html using this this template.  Also you will notice how it grabs the parameter.label value and positions it with the textfield using the table elements tr and td.</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">#*
+   -- controlheader.vm
+*#
+## Only show message if errors are available.
+## This will be done if ActionSupport is used.
+
+#if( $fieldErrors.get($parameters.name) )
+  #set ($hasFieldErrors = $fieldErrors.get($parameters.name))
+  #foreach ($error in $fieldErrors.get($parameters.name))
+    <SPAN class="code-tag">&lt;tr&gt;</SPAN>
+        #if ($parameters.labelposition == &apos;top&apos;)
+            <SPAN class="code-tag">&lt;td align=<SPAN class="code-quote">&quot;left&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN> colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;</SPAN>
+        #else
+            <SPAN class="code-tag">&lt;td align=<SPAN class="code-quote">&quot;center&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN> colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;</SPAN>
+        #end
+            <SPAN class="code-tag">&lt;span class=<SPAN class="code-quote">&quot;errorMessage&quot;</SPAN>&gt;</SPAN>$!webwork.htmlEncode($error)<SPAN class="code-tag">&lt;/span&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/td&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+  #end
+#end
+
+## Provides alignment behavior with table tags
+## if the label position is top,
+## then give the label it&apos;s own row in the table
+## otherwise, display the label to the left on same row
+
+<SPAN class="code-tag">&lt;tr&gt;</SPAN>
+    #if ($parameters.labelposition == &apos;top&apos;)
+        <SPAN class="code-tag">&lt;td align=<SPAN class="code-quote">&quot;left&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN> colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;</SPAN>
+    #else
+        <SPAN class="code-tag">&lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;</SPAN>
+    #end
+
+        #if ($hasFieldErrors)
+            <SPAN class="code-tag">&lt;span class=<SPAN class="code-quote">&quot;errorLabel&quot;</SPAN>&gt;</SPAN>
+        #else
+            <SPAN class="code-tag">&lt;span class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;</SPAN>
+        #end
+
+## If you want to mark required form fields with an asterisk, 
+## you can set the required attribute
+## Ex. <SPAN class="code-tag">&lt;ui:textfield label=<SPAN class="code-quote">&quot;&apos;mylabel&apos;&quot;</SPAN> name=<SPAN class="code-quote">&quot;&apos;myname&apos;&quot;</SPAN> required=<SPAN class="code-quote">&quot;&apos;true&apos;&quot;</SPAN> /&gt;</SPAN> 
+        #if ($parameters.label)
+            #if ($parameters.required) <SPAN class="code-tag">&lt;span class=<SPAN class="code-quote">&quot;required&quot;</SPAN>&gt;</SPAN>*<SPAN class="code-tag">&lt;/span&gt;</SPAN> #end 
+               $!webwork.htmlEncode($parameters.label):
+        #end
+            <SPAN class="code-tag">&lt;/span&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/td&gt;</SPAN>
+
+## add the extra row
+#if ($parameters.labelposition == &apos;top&apos;)
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+<SPAN class="code-tag">&lt;tr&gt;</SPAN>
+#end
+    <SPAN class="code-tag">&lt;td&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>The next template being parsed in /template/xhtml/text.vm is /template/simple/text.vm.  Here you see the actual html input text tag being rendered and how the parameters are passed in.</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">#*
+  -- text.vm
+  --
+  -- Required Parameters:
+  --   * label      - The description that will be used to identfy the control.
+  --   * name       - The name of the attribute to put and pull the result from.
+  --                  Equates to the NAME parameter of the HTML INPUT tag.
+  --
+  -- Optional Parameters:
+  --   * labelposition   - determines were the label will be place in relation
+  --                       to the control.  Default is to the left of the control.
+  --   * size       - SIZE parameter of the HTML INPUT tag.
+  --   * maxlength  - MAXLENGTH parameter of the HTML INPUT tag.
+  --   * disabled   - DISABLED parameter of the HTML INPUT tag.
+  --   * readonly   - READONLY parameter of the HTML INPUT tag.
+  --   * onkeyup    - onkeyup parameter of the HTML INPUT tag.
+  --   * tabindex  - tabindex parameter of the HTML INPUT tag.
+  --   * onchange  - onkeyup parameter of the HTML INPUT tag.
+  --
+    *#
+&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN>
+                                   name=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.name)&quot;</SPAN>
+#if ($parameters.size)             size=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.size)&quot;</SPAN>            #end
+#if ($parameters.maxlength)        maxlength=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.maxlength)&quot;</SPAN>  #end
+#if ($parameters.nameValue)        value=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.nameValue)&quot;</SPAN>      #end
+#if ($parameters.disabled == true) disabled=<SPAN class="code-quote">&quot;disabled&quot;</SPAN>                                      #end
+#if ($parameters.readonly)         readonly=<SPAN class="code-quote">&quot;readonly&quot;</SPAN>                                      #end
+#if ($parameters.onkeyup)          onkeyup=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.onkeyup)&quot;</SPAN>      #end
+#if ($parameters.tabindex)         tabindex=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.tabindex)&quot;</SPAN>    #end
+#if ($parameters.onchange)         onchange=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.onchange)&quot;</SPAN>    #end
+#if ($parameters.id)               id=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.id)&quot;</SPAN>                #end
+#if ($parameters.cssClass)         class=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.cssClass)&quot;</SPAN>       #end
+#if ($parameters.cssStyle)         style=<SPAN class="code-quote">&quot;$!webwork.htmlEncode($parameters.cssStyle)&quot;</SPAN>       #end
+/&gt;</PRE>
+</DIV></DIV> 
+<P>And finally, the controlfooter.vm is parsed to close up the td and tr tags that were previously opened in controlheader.vm</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">#*
+   -- controlheader.vm
+*#
+
+  <SPAN class="code-tag">&lt;/td&gt;</SPAN>
+<SPAN class="code-tag">&lt;/tr&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>In our view, since the tr and td elements are already created for us, we can simply wrap them with table elements.  For the sake of learning, we will just use normal html table objects, but feel free to look into how the table.vm tag gets rendered and possibly use that.</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;%@ taglib uri=<SPAN class="code-quote">&quot;webwork&quot;</SPAN> prefix=<SPAN class="code-quote">&quot;ui&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;link rel =<SPAN class="code-quote">&quot;stylesheet&quot;</SPAN> type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN> href=<SPAN class="code-quote">&quot;template/xhtml/styles.css&quot;</SPAN> title=<SPAN class="code-quote">&quot;Style&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN><SPAN class="code-tag">&lt;title&gt;</SPAN>JSP PAGE<SPAN class="code-tag">&lt;/title&gt;</SPAN><SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+<SPAN class="code-tag">&lt;form&gt;</SPAN>
+  <SPAN class="code-tag">&lt;table&gt;</SPAN>
+	&lt;!-- we can set the required attribute to true if we want to 
+	     display and asterisk next to required form fields
+	 --&gt;
+
+	<SPAN class="code-tag">&lt;ui:textfield label=<SPAN class="code-quote">&quot;&apos;Username&apos;&quot;</SPAN> required=<SPAN class="code-quote">&quot;&apos;true&apos;&quot;</SPAN> name=<SPAN class="code-quote">&quot;&apos;user&apos;&quot;</SPAN> /&gt;</SPAN> 
+	<SPAN class="code-tag">&lt;ui:textfield label=<SPAN class="code-quote">&quot;&apos;Email&apos;&quot;</SPAN> name=<SPAN class="code-quote">&quot;&apos;email&apos;&quot;</SPAN>/&gt;</SPAN> 
+  <SPAN class="code-tag">&lt;/table&gt;</SPAN>
+<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;link rel =<SPAN class="code-quote">&quot;stylesheet&quot;</SPAN> type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN> href=<SPAN class="code-quote">&quot;template/xhtml/styles.css&quot;</SPAN> title=<SPAN class="code-quote">&quot;Style&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN><SPAN class="code-tag">&lt;title&gt;</SPAN>VM PAGE<SPAN class="code-tag">&lt;/title&gt;</SPAN><SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+<SPAN class="code-tag">&lt;form&gt;</SPAN>
+  <SPAN class="code-tag">&lt;table&gt;</SPAN>
+    #tag( TextField <SPAN class="code-quote">&quot;label=&apos;Username&apos;&quot;</SPAN> <SPAN class="code-quote">&quot;name=&apos;user&apos;&quot;</SPAN> )<SPAN class="code-tag">&lt;br&gt;</SPAN>
+    #tag( TextField <SPAN class="code-quote">&quot;label=&apos;Email&apos;&quot;</SPAN> <SPAN class="code-quote">&quot;name=&apos;email&apos;&quot;</SPAN> )<SPAN class="code-tag">&lt;br&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/table&gt;</SPAN>
+<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="Themes-cssxhtml"></A>css_xhtml</H3>
+<P>The css_xhtml theme is a theme based entirely on css and thus avoids the dependency on tables.  <BR>
+Lets review the code to see how this theme works.</P>
+<DIV class="code"><DIV class="codeHeader"><B>Generated HTML code</B></DIV><DIV class="codeContent">
+<PRE class="code-java">&lt;div&gt;
+&lt;p&gt;
+&lt;label <SPAN class="code-keyword">for</SPAN>=<SPAN class="code-quote">&quot;frm1_caseBean.title&quot;</SPAN> class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;&lt;span class=<SPAN class="code-quote">&quot;required&quot;</SPAN>&gt;*&lt;/span&gt;Title:&lt;/label&gt;
+&lt;input name=<SPAN class="code-quote">&quot;caseBean.title&quot;</SPAN> size=<SPAN class="code-quote">&quot;70&quot;</SPAN> id=<SPAN class="code-quote">&quot;frm1__caseBean.title&quot;</SPAN> onblur=<SPAN class="code-quote">&quot;validate(<SPAN class="code-keyword">this</SPAN>);&quot;</SPAN> type=<SPAN class="code-quote">&quot;text&quot;</SPAN>&gt;
+&lt;/p&gt;
+&lt;/div&gt;</PRE>
+</DIV></DIV>
+<P>The first thing of note is the containing DIV tag. This is the container element that will be filled with Field Validation errors.   The second element is the P, this is a block element and will thusly but both the lable and the control on its own line.  notice how we use the &apos;for&apos; attribute of the label tag? That helps to identify that this label is for a control. This feature is uber cool for checkboxes as it extends the clickable range of the checkbox to the label as well!!! </P>
+
+<P>You might also have noticed the CSS class attributes... lets review these:</P>
+<DIV class="preformatted"><DIV class="preformattedContent">
+<PRE>.label {
+    font-style:italic;
+    float:left;
+    width:30%
+}
+.errorLabel {font-style:italic; color:red; }
+.errorMessage {font-weight:bold; text-align: center; color:red; }
+.checkboxLabel {}
+.checkboxErrorLabel {color:red; }
+.required {color:red;}
+</PRE>
+</DIV></DIV>
+
+<P>This style sheet is included in the WW2.2 packaging.  All you need to do to take advantage of it is include this line in your header:<BR>
+&lt;link href=&quot;&lt;%=request.getContextPath()%&gt;/webwork/template/css_xhtml/styles.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;</P>
+
+<P>If you want to customize any attribute of these CSS rules.. just put your deltas into your own css file and include it AFTER the above css include.</P>
+
+
+<P>Some interesting things about the theme are how it supports both standard validation and DWR validation.  Lets review the structure of some generated code to understand how the css_xhtml theme does validation.  </P>
+<DIV class="preformatted"><DIV class="preformattedContent">
+<PRE>&lt;div&gt;
+
+&lt;p&gt;
+
+&lt;div errorfor=&quot;frm1_bo.emailAddress&quot; classname=&quot;errorMessage&quot; class=&quot;errorMessage&quot;&gt;Incorrect Email&lt;/div&gt;&lt;label classname=&quot;errorLabel&quot; for=&quot;frm1_bo.emailAddress&quot; class=&quot;errorLabel&quot;&gt;&lt;span class=&quot;required&quot;&gt;*&lt;/span&gt;Email:&lt;/label&gt;
+        
+&lt;input name=&quot;bo.emailAddress&quot; size=&quot;20&quot; value=&quot;not_yet_d@efined.com&quot; id=&quot;frm1_bo.emailAddress&quot; onblur=&quot;validate(this);&quot; type=&quot;text&quot;&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+</PRE>
+</DIV></DIV>
+<P>The validation gets inserted into the structure for you by either the validation.js script if your using the DWR Client Side validator or server side template if your using standard validation.  </P>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="warningMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">No Orientation Support</B><BR>
+<P>Some themes support label orientation... ie:either top or bottom... this theme does not.</P></TD></TR></TABLE>
+<H3><A name="Themes-simple"></A>simple</H3>
+
+<P>The <TT>simple</TT> theme provides no additional functionality from HTML tags (similiar to struts).  This theme is considered the low end of the structure and can be re-used (extended) like xhtml to add additional functionality or behavior.  You can easily create your own theme and extend this one to create complex pages that fit your own needs.<BR>
+To use the pre-defined theme <TT>simple</TT></P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;%@ taglib uri=<SPAN class="code-quote">&quot;webwork&quot;</SPAN> prefix=<SPAN class="code-quote">&quot;ui&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;link rel =<SPAN class="code-quote">&quot;stylesheet&quot;</SPAN> type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN> href=<SPAN class="code-quote">&quot;template/xhtml/styles.css&quot;</SPAN> title=<SPAN class="code-quote">&quot;Style&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN><SPAN class="code-tag">&lt;title&gt;</SPAN>JSP PAGE<SPAN class="code-tag">&lt;/title&gt;</SPAN><SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+  <SPAN class="code-tag">&lt;form&gt;</SPAN>
+	<SPAN class="code-tag">&lt;ui:label name=<SPAN class="code-quote">&quot;&apos;userlabel&apos;&quot;</SPAN> label=<SPAN class="code-quote">&quot;&apos;user&quot;</SPAN> theme=<SPAN class="code-quote">&quot;&apos;simple&apos;&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;ui:textfield name=<SPAN class="code-quote">&quot;&apos;user&apos;&quot;</SPAN> theme=<SPAN class="code-quote">&quot;&apos;simple&apos;&quot;</SPAN>/&gt;</SPAN>
+
+	<SPAN class="code-tag">&lt;ui:label name=<SPAN class="code-quote">&quot;&apos;emaillabel&apos;&quot;</SPAN> label=<SPAN class="code-quote">&quot;&apos;user&quot;</SPAN> theme=<SPAN class="code-quote">&quot;&apos;simple&apos;&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;ui:textfield name=<SPAN class="code-quote">&quot;&apos;email&apos;&quot;</SPAN> theme=<SPAN class="code-quote">&quot;&apos;simple&apos;&quot;</SPAN>/&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/form&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;link rel =<SPAN class="code-quote">&quot;stylesheet&quot;</SPAN> type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN> href=<SPAN class="code-quote">&quot;template/xhtml/styles.css&quot;</SPAN> title=<SPAN class="code-quote">&quot;Style&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN><SPAN class="code-tag">&lt;title&gt;</SPAN>VM PAGE<SPAN class="code-tag">&lt;/title&gt;</SPAN><SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+  <SPAN class="code-tag">&lt;form&gt;</SPAN>
+#tag( Label  <SPAN class="code-quote">&quot;name=&apos;userlabel&apos;&quot;</SPAN> <SPAN class="code-quote">&quot;label=&apos;user&apos;&quot;</SPAN> <SPAN class="code-quote">&quot;theme=&apos;simple&apos;&quot;</SPAN> )
+#tag( TextField  <SPAN class="code-quote">&quot;name=&apos;user&apos;&quot;</SPAN> <SPAN class="code-quote">&quot;theme=&apos;simple&apos;&quot;</SPAN> )<SPAN class="code-tag">&lt;br&gt;</SPAN>
+
+#tag( Label  <SPAN class="code-quote">&quot;name=&apos;emaillabel&apos;&quot;</SPAN> <SPAN class="code-quote">&quot;label=&apos;email&apos;&quot;</SPAN> <SPAN class="code-quote">&quot;theme=&apos;simple&apos;&quot;</SPAN> )
+#tag( TextField  <SPAN class="code-quote">&quot;name=&apos;email&apos;&quot;</SPAN> <SPAN class="code-quote">&quot;theme=&apos;simple&apos;&quot;</SPAN> )<SPAN class="code-tag">&lt;br&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/form&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="Themes-Creatingyourowntheme"></A>Creating your own theme <A name="Themes-custom"></A></H3>
+
+<P>Creating  themes is quite simple and can save valuable time enabling you to minimize UI code when it comes to creating complex UI pages.  It is recommended you understand webwork templates before you continue (see <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Templates&linkCreation=true&fromPageId=13931" title="Create Page: Templates" class="createlink">Templates<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>).  The steps required to use a theme.</P>
+<OL>
+	<LI>Define a name for your theme by creating a subdirectory under /template directory.  The name of the subdirectory you create will be the same as the value you specify in your UI tag theme attribute.
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">/template/myTheme</PRE>
+</DIV></DIV>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;ui:textfield label=<SPAN class="code-quote">&quot;&apos;foo&apos;&quot;</SPAN> name=<SPAN class="code-quote">&quot;&apos;bar&apos;&quot;</SPAN> theme=<SPAN class="code-quote">&quot;&apos;myTheme&apos;&quot;</SPAN> /&gt;</SPAN></PRE>
+</DIV></DIV></LI>
+	<LI>Create a velocity template for every UI tag that you want to use with your theme.  For example, if you have forms with only textfields and nothing else, then all you need in your subdirectory is a text.vm template.  Note: if you create a text.vm and reference another template with the parse tag, then you must make sure these templates are defined as well(ex. controlheader.vm).</LI>
+	<LI>If you want your new theme to be the default so you don&apos;t have to specify the theme attribute every time in the UI tag, then modify the webwork.ui.theme value in your webwork.properties file.  Otherwise, you can just specify the theme attribute in all your UI tags.</LI>
+</OL>
+
+
+
+<P>As a good starting point, a good idea is to copy the contents of xhtml into a new subdirectory.  Therefore, you can modify the templates and still refer back to the originals as a reference point.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

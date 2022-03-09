@@ -1,0 +1,225 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>IoC Configuration</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=IoC%20Configuration" title="IoC Configuration">IoC Configuration</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">IoC Configuration</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14117">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14117">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14117">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14117">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14117">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14117">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=gjz22">gjz22</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Feb 04, 2007
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14117&originalId=44241">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>These documents are out of date. As of WebWork 2.2, the WebWork IoC container has been deprecated (though not removed) and the WebWork team recommends you use <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Spring%20Plugin&linkCreation=true&fromPageId=14117" title="Create Page: Spring Plugin" class="createlink">Spring Plugin<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> for all your IoC needs</TD></TR></TABLE>
+
+<H2><A name="IoCConfiguration-Configurationweb.xml"></A>Configuration - web.xml</H2>
+
+<P>To configure WebWork's component management, the following lines must be added in the appropriate places to web.xml:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;filter&gt;</SPAN>
+    <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>container<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+    <SPAN class="code-tag">&lt;filter-class&gt;</SPAN>com.opensymphony.webwork.lifecycle.RequestLifecycleFilter<SPAN class="code-tag">&lt;/filter-class&gt;</SPAN>
+<SPAN class="code-tag">&lt;/filter&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;filter-mapping&gt;</SPAN>
+   <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>container<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+   <SPAN class="code-tag">&lt;url-pattern&gt;</SPAN>*.action<SPAN class="code-tag">&lt;/url-pattern&gt;</SPAN> <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- modify appropriately --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;/filter-mapping&gt;</SPAN>
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Optionally you may instead apply the filter to EVERY URI instead of just *.action.  --&gt;</SPAN></SPAN> 
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- You might want to do this for example:  --&gt;</SPAN></SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- * your page flow goes to a jsp directly (as opposed to only *.action URIs) --&gt;</SPAN></SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- * the jsp has an action in it to be run with the ww:action tag --&gt;</SPAN></SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- * the action in the jsp implements any enabler interfaces to get components served to it --&gt;</SPAN></SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- The reason: (Per Patrick Lightbody) --&gt;</SPAN></SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- &quot;The components work by looking for a ComponentManager in the request --&gt;</SPAN></SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- attributes. It gets placed there by a filter. If it is on *.action and a --&gt;</SPAN></SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- request comes in through a JSP, the filter won't be applied and it will --&gt;</SPAN></SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- never work.&quot; --&gt;</SPAN></SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- The overhead in doing this is small, so don't worry overly much about the  --&gt;</SPAN></SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- performance of this. --&gt;</SPAN></SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- &lt;filter-mapping&gt;</SPAN> --&gt;</SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!--    &lt;filter-name&gt;</SPAN>container<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN> --&gt;</SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!--    &lt;url-pattern&gt;</SPAN>*<SPAN class="code-tag">&lt;/url-pattern&gt;</SPAN>  --&gt;</SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- &lt;/filter-mapping&gt;</SPAN> --&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;listener&gt;</SPAN>
+    <SPAN class="code-tag">&lt;listener-class&gt;</SPAN>com.opensymphony.webwork.lifecycle.SessionLifecycleListener<SPAN class="code-tag">&lt;/listener-class&gt;</SPAN>
+<SPAN class="code-tag">&lt;/listener&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;listener&gt;</SPAN>
+    <SPAN class="code-tag">&lt;listener-class&gt;</SPAN>com.opensymphony.webwork.lifecycle.ApplicationLifecycleListener<SPAN class="code-tag">&lt;/listener-class&gt;</SPAN>
+<SPAN class="code-tag">&lt;/listener&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>These settings allow WebWork to manage components across the application, session and request scopes. Note that even if one or more of the scopes are not required by your application, all three scopes need to be specified in web.xml for WebWork's component management to function correctly.</P>
+
+<H2><A name="IoCConfiguration-Configurationxwork.xml"></A>Configuration - xwork.xml</H2>
+
+<P>The ComponentInterceptor class is used to apply the IoC pattern to XWork actions (ie, to supply components to actions). The ComponentInterceptor should be declared in the &lt;interceptors&gt; block of xwork.xml as follows:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">&lt;interceptor name=<SPAN class="code-quote">&quot;component&quot;</SPAN>
+        class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.component.ComponentInterceptor&quot;</SPAN>/&gt;</PRE>
+</DIV></DIV>
+
+<P>You should ensure that any actions that are to be supplied with components have this interceptor applied. (See OS:XWork Interceptors for information on how to apply interceptors to actions.)<BR>
+If you want to apply IoC to objects other than actions or other components, you will need to use the ComponentManager object directly.</P>
+
+<P>Note too, that the ComponentInterceptor is applied as part of the webwork defaultStack. Thus, if you are applying the defaultStack to the action, you would include the ComponentInterceptor.</P>
+
+<H2><A name="IoCConfiguration-Configurationcomponents.xml"></A>Configuration - components.xml</H2>
+
+<P>The components.xml file is used to specify the components that are to be available. The components specified here are loaded into XWork's ComponentManager and are then made available to any actions that are an instance of the specified enabler. The components.xml file must be placed in the root of the classpath (ie, in the WEB-INF/classes directory).<BR>
+Here is an example components.xml file that configures a Counter component. The Counter object will live in session scope, and will be passed to any objects that are enabled due to their implementing the CounterAware interface:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;components&gt;</SPAN>
+    <SPAN class="code-tag">&lt;component&gt;</SPAN>
+        <SPAN class="code-tag">&lt;scope&gt;</SPAN>session<SPAN class="code-tag">&lt;/scope&gt;</SPAN>
+        <SPAN class="code-tag">&lt;class&gt;</SPAN>com.opensymphony.webwork.example.counter.Counter<SPAN class="code-tag">&lt;/class&gt;</SPAN>
+        <SPAN class="code-tag">&lt;enabler&gt;</SPAN>com.opensymphony.webwork.example.counter.CounterAware<SPAN class="code-tag">&lt;/enabler&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/component&gt;</SPAN>
+<SPAN class="code-tag">&lt;/components&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>Each component must have the following three attributes:</P>
+
+<UL>
+	<LI><EM>scope</EM>: Valid values are <EM>application</EM>, <EM>session</EM> and <EM>request</EM>. This determines the component's lifetime. Application scope components will be created when the webapp starts up, and they will survive for the whole lifetime of the webapp. Session scoped components exist for the duration of a user session, while components in request scope only last for the duration of a single client request.</LI>
+	<LI><EM>class</EM>: This specifies the component's class. An instance of this object will live for the duration of the specified scope, and will be made available to any actions (or other code) as required. Note that components are lazy-loaded, so if nothing makes use of the component during its lifetime, the component will never actually be instantiated. At the moment components must have a zero argument constructor.</LI>
+	<LI><EM>enabler</EM>: Any actions that are an instanceof the enabler class or interface will be passed an instance of the component.</LI>
+</UL>
+
+
+
+<P>Note that while components are allowed to have dependencies on other components they must not depend on another component that is of a narrower scope. So for example, a session component cannot depend on a component that is only of request scope.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

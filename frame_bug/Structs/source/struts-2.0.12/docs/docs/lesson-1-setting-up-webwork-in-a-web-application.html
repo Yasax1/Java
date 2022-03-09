@@ -1,0 +1,286 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Lesson 1 - Setting up webwork in a web application</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Lesson%201%20-%20Setting%20up%20webwork%20in%20a%20web%20application" title="Lesson 1 - Setting up webwork in a web application">Lesson 1 - Setting up webwork in a web application</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Lesson 1 - Setting up webwork in a web application</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14010">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14010">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14010">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14010">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14010">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14010">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=vitorsouza">vitorsouza</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 03, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14010&originalId=23220">view change</A>)
+                      <SPAN id="show" class="inline-control-link"><A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Lesson%201%20-%20Setting%20up%20webwork%20in%20a%20web%20application" onclick="showComment(); return false;">show comment</A></SPAN>
+        <SPAN id="hide" class="inline-control-link" style="display:none;"><A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Lesson%201%20-%20Setting%20up%20webwork%20in%20a%20web%20application" onclick="hideComment(); return false;">hide comment</A></SPAN>
+          <DIV id="versionComment" class="noteMacro" style="display:none; padding: 5px;">
+      <B>Comment:</B>
+      <BR>
+<BR>
+Update parent page<BR>
+      <SPAN class="smalltext"><A href="http://cwiki.apache.org/confluence/pages/viewpreviouspageversions.action?pageId=14010">View page history</A></SPAN>
+  </DIV>
+
+    <SCRIPT>
+      var show = document.getElementById('show');
+      var hide = document.getElementById('hide');
+      var versionComment = document.getElementById('versionComment');
+
+      function showComment(){
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+        versionComment.style.display = 'block';
+      }
+
+      function hideComment(){
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+        versionComment.style.display = 'none';
+      }
+
+    </SCRIPT>
+    
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<H1><A name="Lesson1-Settingupwebworkinawebapplication-Lesson1%3ASettingupwebworkinawebapplication"></A>Lesson 1: Setting up webwork in a web application</H1>
+
+<P>For this lesson, you need to have a Servlet container set up and know how to create a web application. If you don&apos;t, we suggest you learn about <SPAN class="nobr"><A href="http://jakarta.apache.org/tomcat/" title="Visit page outside Confluence" rel="nofollow">Apache Tomcat<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>, which is a free Servlet container from the Apache Jakarta Project, or Resin, from <SPAN class="nobr"><A href="http://www.caucho.com/" title="Visit page outside Confluence" rel="nofollow">Caucho Technology<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>, which is free for noncommercial use.</P>
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="infoMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">Notation</B><BR>
+<P>Throughout these lessons, we&apos;ll assume that your web application root is the directory [webapp], and that your Java source files are kept in [src].</P></TD></TR></TABLE>
+<P>To install WebWork in a web application:</P>
+<OL>
+	<LI>Download WebWork. The current version can be found at <SPAN class="nobr"><A href="http://www.opensymphony.com/webwork/" title="Visit page outside Confluence" rel="nofollow">WebWork&apos;s home page<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>. This tutorial is based on version 2.1.7.</LI>
+	<LI>Set up an empty web application. For example, if you are using Tomcat, this will have something like the following directories (the directory &quot;webwork-lessons&quot; is referred to as [webapp] in these lessons):
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">[the tomcat root directory]
+\|_webapps
+  \|_webwork-lessons
+    \|_WEB-INF
+      \|_classes
+      \|_lib</PRE>
+</DIV></DIV></LI>
+	<LI>Copy the required WebWork libraries to your web application:</LI>
+</OL>
+
+
+<UL class="alternate" type="square">
+	<LI>copy <TT>webwork-2.1.7.jar</TT> to <TT>[webapp]/WEB-INF/lib</TT> ,</LI>
+	<LI>copy <TT>lib/core/*.jar</TT> to <TT>[webapp]/WEB-INF/lib</TT> (not to <TT>[webapp]/WEB-INF/lib/core</TT>).</LI>
+</UL>
+
+
+<OL>
+	<LI>Configure <TT>[webapp]/WEB-INF/web.xml</TT>, and create <TT>[webapp]/WEB-INF/classes/xwork.xml</TT> and <TT>[webapp]/WEB-INF/classes/validators.xml</TT>, as described below.
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="warningMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">WebWork jar name</B><BR>
+<P>If you have a later version of WebWork than 2.1.7, the WebWork jar will not be named webwork-2.1.7.jar. Be sure to replace all occurrences of this jar&apos;s name below with the name of the jar you are using.</P></TD></TR></TABLE></LI>
+</OL>
+
+
+<H3><A name="Lesson1-Settingupwebworkinawebapplication-web.xml%3A"></A>web.xml:</H3>
+
+<P>Create the following <TT>web.xml</TT> file in <TT>[webapp]/WEB-INF</TT>. If you already have a <TT>web.xml</TT> file, just add the content of the &lt;web-app&gt; tag below to your existing &lt;web-app&gt; tag.</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN>?&gt;</SPAN>
+&lt;!DOCTYPE web-app PUBLIC <SPAN class="code-quote">&quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</SPAN>
+<SPAN class="code-quote">&quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;web-app&gt;</SPAN>
+	<SPAN class="code-tag">&lt;display-name&gt;</SPAN>My WebWork Application<SPAN class="code-tag">&lt;/display-name&gt;</SPAN>
+	<SPAN class="code-tag">&lt;servlet&gt;</SPAN>
+		<SPAN class="code-tag">&lt;servlet-name&gt;</SPAN>webwork<SPAN class="code-tag">&lt;/servlet-name&gt;</SPAN>
+		<SPAN class="code-tag">&lt;servlet-class&gt;</SPAN>com.opensymphony.webwork.dispatcher.ServletDispatcher<SPAN class="code-tag">&lt;/servlet-class&gt;</SPAN>
+		<SPAN class="code-tag">&lt;load-on-startup&gt;</SPAN>1<SPAN class="code-tag">&lt;/load-on-startup&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/servlet&gt;</SPAN>
+	<SPAN class="code-tag">&lt;servlet-mapping&gt;</SPAN>
+		<SPAN class="code-tag">&lt;servlet-name&gt;</SPAN>webwork<SPAN class="code-tag">&lt;/servlet-name&gt;</SPAN>
+		<SPAN class="code-tag">&lt;url-pattern&gt;</SPAN>*.action<SPAN class="code-tag">&lt;/url-pattern&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/servlet-mapping&gt;</SPAN>
+	<SPAN class="code-tag">&lt;taglib&gt;</SPAN>
+		<SPAN class="code-tag">&lt;taglib-uri&gt;</SPAN>webwork<SPAN class="code-tag">&lt;/taglib-uri&gt;</SPAN>
+		<SPAN class="code-tag">&lt;taglib-location&gt;</SPAN>/WEB-INF/lib/webwork-2.1.7.jar<SPAN class="code-tag">&lt;/taglib-location&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/taglib&gt;</SPAN>
+<SPAN class="code-tag">&lt;/web-app&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>This registers <TT>ServletDispatcher</TT> as a servlet, and maps it to the suffix <TT>&#42;.action</TT>. We will go into this more in the section on Actions in the <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Lesson%203%20-%20An%20html%20form%20with%20data&linkCreation=true&fromPageId=14010" title="Create Page: Lesson 3 - An html form with data" class="createlink">next lesson<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>. WebWork&apos;s taglib descriptor allows WebWork tags to be used (see <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=TutorialLesson04-01&linkCreation=true&fromPageId=14010" title="Create Page: TutorialLesson04-01" class="createlink">lesson 4.1<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>).</P>
+<BLOCKQUOTE><P>Read more: <A href="webxml.html" title="web.xml">web.xml</A></P></BLOCKQUOTE>
+<H3><A name="Lesson1-Settingupwebworkinawebapplication-xwork.xml%3A"></A>xwork.xml:</H3>
+
+<P>Create the following file <TT>xwork.xml</TT> in <TT>[webapp]/WEB-INF/classes/</TT>.</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">&lt;!DOCTYPE xwork PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork 1.0//EN&quot;</SPAN>
+<SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-1.0.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;xwork&gt;</SPAN>
+	<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Include webwork defaults (from WebWork JAR). --&gt;</SPAN></SPAN>
+	<SPAN class="code-tag">&lt;include file=<SPAN class="code-quote">&quot;webwork-default.xml&quot;</SPAN> /&gt;</SPAN>
+
+	<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Configuration for the default package. --&gt;</SPAN></SPAN>
+	<SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;webwork-default&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/xwork&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>For now, this xwork.xml does only two things:</P>
+<UL>
+	<LI>It informs WebWork that it should import the configuration information from <TT>webwork-default.xml</TT>. (This file is located at the root of the <TT>webwork-2.1.7.jar</TT>, so it is sure to be found.)</LI>
+</UL>
+
+
+<UL>
+	<LI>It defines a default package (with the &lt;package&gt; section) where WebWork elements like actions, results and interceptors are registered.
+<BLOCKQUOTE><P>Read more: <A href="strutsxml.html" title="struts.xml">struts.xml</A></P></BLOCKQUOTE>
+<H3><A name="Lesson1-Settingupwebworkinawebapplication-validators.xml%3A"></A>validators.xml:</H3></LI>
+</UL>
+
+
+<P>Create a file <TT>validators.xml</TT> in <TT>[webapp]/WEB-INF/classes/</TT> with the following content:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;validators&gt;</SPAN>
+	&lt;validator name=<SPAN class="code-quote">&quot;required&quot;</SPAN>
+		class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.RequiredFieldValidator&quot;</SPAN>/&gt;
+	&lt;validator name=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>
+		class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.RequiredStringValidator&quot;</SPAN>/&gt;
+	&lt;validator name=<SPAN class="code-quote">&quot;int&quot;</SPAN>
+		class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.IntRangeFieldValidator&quot;</SPAN>/&gt;
+	&lt;validator name=<SPAN class="code-quote">&quot;date&quot;</SPAN>
+		class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.DateRangeFieldValidator&quot;</SPAN>/&gt;
+	&lt;validator name=<SPAN class="code-quote">&quot;expression&quot;</SPAN>
+		class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.ExpressionValidator&quot;</SPAN>/&gt;
+	&lt;validator name=<SPAN class="code-quote">&quot;fieldexpression&quot;</SPAN>
+		class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.FieldExpressionValidator&quot;</SPAN>/&gt;
+	&lt;validator name=<SPAN class="code-quote">&quot;email&quot;</SPAN>
+		class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.EmailValidator&quot;</SPAN>/&gt;
+	&lt;validator name=<SPAN class="code-quote">&quot;url&quot;</SPAN>
+		class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.URLValidator&quot;</SPAN>/&gt;
+	&lt;validator name=<SPAN class="code-quote">&quot;visitor&quot;</SPAN>
+		class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.VisitorFieldValidator&quot;</SPAN>/&gt;
+	&lt;validator name=<SPAN class="code-quote">&quot;conversion&quot;</SPAN>
+		class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.ConversionErrorFieldValidator&quot;</SPAN>/&gt;
+<SPAN class="code-tag">&lt;/validators&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>This file defines the validators used, for example, for validating html form fields.</P>
+<BLOCKQUOTE><P>Read more: <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Validation&linkCreation=true&fromPageId=14010" title="Create Page: Validation" class="createlink">Validation<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></P></BLOCKQUOTE>
+<H2><A name="Lesson1-Settingupwebworkinawebapplication-AllSetUp%5C%21"></A>All Set Up&#33;</H2>
+
+<P>Restart your servlet container (for example, restart Tomcat), and your webapp should be ready for use as a skeleton WebWork application.</P>
+
+<P>To test whether everything is working, create <TT>[webapp]/test.jsp</TT>:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;html&gt;
+&lt;body&gt;
+Hello html world
+&lt;hr/&gt;
+&lt;%
+  out.println(<SPAN class="code-quote">&quot;Hello jsp world.&quot;</SPAN>);
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</PRE>
+</DIV></DIV>
+<P>If you can load this file in your browser and see the two Hello messages, your web application is working.</P>
+
+<HR>
+<P><SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Lesson%202%20-%20An%20html%20form%20with%20no%20data&linkCreation=true&fromPageId=14010" title="Create Page: Lesson 2 - An html form with no data" class="createlink">Next Lesson<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

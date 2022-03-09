@@ -1,0 +1,531 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Understanding Interceptors</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="step-by-step.html" title="Step by Step">Step by Step</A>&nbsp;&gt;&nbsp;<A href="" title="Understanding Interceptors">Understanding Interceptors</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Understanding Interceptors</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13941">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13941">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13941">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13941">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13941">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13941">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=victorsosa">victorsosa</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 04, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=13941&originalId=23348">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<P>Many Actions share common concerns. Some Actions need input validated. Other Actions may need a file upload to be pre-processed. Another Action might need protection from a double submit. Many Actions need drop-down lists and other controls pre-populated before the page displays.</P>
+
+<P>The Struts Action Framework makes it easy to share solutions to these concerns using an &quot;Interceptor&quot; strategy. When you request a resource that maps to an &quot;action&quot;, the framework invokes the Action object. But, before the Action is executed, the invocation can be intercepted by another object. After the Action executes, the invocation could be intercepted again. Unsurprisingly, we call these objects &quot;Interceptors.&quot;</P>
+
+<P>Interceptors can execute code before and after an Action is invoked. Most of the framework&apos;s core functionality is implemented as Interceptors. Features like double-submit guards, type conversion, object population, validation, file upload, page preparation, and more, are all implemented with the help of Interceptors. Each and every Interceptor is pluggable, so you can decide exactly which features an Action needs to support.</P>
+
+<P>Interceptors can be configured on a per-action basis. Your own custom Interceptors can be mixed-and-matched with the Interceptors bundled with the framework. Interceptors &quot;set the stage&quot; for the Action classes, doing much of the &quot;heavy lifting&quot; before the Action executes.</P>
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Action Lifecyle </TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> <IMG src="understanding-interceptors.data/overview.png" align="absmiddle" border="0"> </TD>
+</TR>
+</TBODY></TABLE>
+<P>In some cases, an Interceptor might keep an Action from firing, because of a double-submit or because validation failed. Interceptors can also change the state of an Action before it executes.</P>
+
+<P>The Interceptors are defined in a stack that specifies the execution order. In some cases, the order of the Interceptors on the stack can be very important.</P>
+
+<H2><A name="UnderstandingInterceptors-ConfiguringInterceptors"></A>Configuring Interceptors</H2>
+
+<DIV class="code"><DIV class="codeHeader"><B>struts.xml</B></DIV><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;interceptors&gt;</SPAN>
+       <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;timer&quot;</SPAN> class=<SPAN class="code-quote">&quot;..&quot;</SPAN>/&gt;</SPAN>
+       <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;logger&quot;</SPAN> class=<SPAN class="code-quote">&quot;..&quot;</SPAN>/&gt;</SPAN>
+   <SPAN class="code-tag">&lt;/interceptors&gt;</SPAN>
+
+   &lt;action name=<SPAN class="code-quote">&quot;login&quot;</SPAN>
+      class=<SPAN class="code-quote">&quot;tutorial.Login&quot;</SPAN>&gt;
+        <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;timer&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;logger&quot;</SPAN>/&gt;</SPAN>
+         <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>login.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+         &lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>
+            type=<SPAN class="code-quote">&quot;redirect-action&quot;</SPAN>&gt;/secure/home<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+   <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+<SPAN class="code-tag">&lt;/package&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H2><A name="UnderstandingInterceptors-StackingInterceptors"></A>Stacking Interceptors</H2>
+
+<P>With most web applications, we find ourselves wanting to apply the same set of Interceptors over and over again. Rather than reiterate the same list of Interceptors, we can bundle these Interceptors together using an Interceptor Stack.</P>
+<DIV class="code"><DIV class="codeHeader"><B>struts.xml</B></DIV><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;interceptors&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;timer&quot;</SPAN> class=<SPAN class="code-quote">&quot;..&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;logger&quot;</SPAN> class=<SPAN class="code-quote">&quot;..&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;myStack&quot;</SPAN>&gt;</SPAN>
+           <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;timer&quot;</SPAN>/&gt;</SPAN>
+           <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;logger&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/interceptors&gt;</SPAN>
+
+&lt;action name=<SPAN class="code-quote">&quot;login&quot;</SPAN>
+     class=<SPAN class="code-quote">&quot;tutuorial.Login&quot;</SPAN>&gt;
+         <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;myStack&quot;</SPAN>/&gt;</SPAN>
+         <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>login.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+         &lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>
+             type=<SPAN class="code-quote">&quot;redirect-action&quot;</SPAN>&gt;/secure/home<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+<SPAN class="code-tag">&lt;/package&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>Looking inside <TT>struts-default.xml</TT>, we can see how it&apos;s done.</P>
+
+<H3><A name="UnderstandingInterceptors-TheDefaultConfiguration"></A>The Default Configuration</H3>
+
+<DIV class="code"><DIV class="codeHeader"><B>struts.xml</B></DIV><DIV class="codeContent">
+<PRE class="code-xml">&lt;!DOCTYPE struts PUBLIC
+    <SPAN class="code-quote">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</SPAN>
+    <SPAN class="code-quote">&quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- // START SNIPPET: struts-default --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+    <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;result-types&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;chain&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.ActionChainResult&quot;</SPAN>/&gt;</SPAN>
+            &lt;result-type name=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.action2.dispatcher.ServletDispatcherResult&quot;</SPAN>
+                         default=<SPAN class="code-quote">&quot;true&quot;</SPAN>/&gt;
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;freemarker&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.action2.views.freemarker.FreemarkerResult&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;httpheader&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.action2.dispatcher.HttpHeaderResult&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;jasper&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.action2.views.jasperreports.JasperReportsResult&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;redirect&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.action2.dispatcher.ServletRedirectResult&quot;</SPAN>/&gt;</SPAN>
+            &lt;result-type name=<SPAN class="code-quote">&quot;redirect-action&quot;</SPAN>
+                         class=<SPAN class="code-quote">&quot;org.apache.struts.action2.dispatcher.ServletActionRedirectResult&quot;</SPAN>/&gt;
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;stream&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.action2.dispatcher.StreamResult&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;velocity&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.action2.dispatcher.VelocityResult&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;xslt&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.action2.views.xslt.XSLTResult&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/result-types&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;interceptors&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;alias&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.AliasInterceptor&quot;</SPAN>/&gt;</SPAN>
+            &lt;interceptor name=<SPAN class="code-quote">&quot;autowiring&quot;</SPAN>
+                         class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.spring.interceptor.ActionAutowiringInterceptor&quot;</SPAN>/&gt;
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;chain&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.ChainingInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;component&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.component.ComponentInterceptor&quot;</SPAN>/&gt;</SPAN>
+            &lt;interceptor name=<SPAN class="code-quote">&quot;conversionError&quot;</SPAN>
+                         class=<SPAN class="code-quote">&quot;org.apache.struts.action2.interceptor.WebWorkConversionErrorInterceptor&quot;</SPAN>/&gt;
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;external-ref&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.ExternalReferencesInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;execAndWait&quot;</SPAN> class=<SPAN class="code-quote">&quot;corg.apache.struts.action2.interceptor.ExecuteAndWaitInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;exception&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.ExceptionMappingInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;fileUpload&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.interceptor.FileUploadInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;i18n&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.I18nInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;logger&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.LoggingInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;model-driven&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.ModelDrivenInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;params&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.ParametersInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;prepare&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.PrepareInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;static-params&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.StaticParametersInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;servlet-config&quot;</SPAN> class=<SPAN class="code-quote">&quot;org.apache.struts.action2.interceptor.ServletConfigInterceptor&quot;</SPAN>/&gt;</SPAN>
+            &lt;interceptor name=<SPAN class="code-quote">&quot;sessionAutowiring&quot;</SPAN>
+                         class=<SPAN class="code-quote">&quot;org.apache.struts.action2.spring.interceptor.SessionContextAutowiringInterceptor&quot;</SPAN>/&gt;
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;timer&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.TimerInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;token&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.interceptor.TokenInterceptor&quot;</SPAN>/&gt;</SPAN>
+            &lt;interceptor name=<SPAN class="code-quote">&quot;token-session&quot;</SPAN>
+                         class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.interceptor.TokenSessionStoreInterceptor&quot;</SPAN>/&gt;
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;validation&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.ValidationInterceptor&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;workflow&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.interceptor.DefaultWorkflowInterceptor&quot;</SPAN>/&gt;</SPAN>
+
+            <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Basic stack --&gt;</SPAN></SPAN>
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;exception&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;servlet-config&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;prepare&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;static-params&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;params&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;conversionError&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Sample validation and workflow stack --&gt;</SPAN></SPAN>
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;validationWorkflowStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validation&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;workflow&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Sample file upload stack --&gt;</SPAN></SPAN>
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;fileUploadStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;fileUpload&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            &lt;!-- Sample WebWork Inversion of Control stack
+                 Note: WebWork&apos;s IoC is deprecated - please
+                 look at alternatives such as Sprint --&gt;
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;componentStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;component&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Sample model-driven stack  --&gt;</SPAN></SPAN>
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;modelDrivenStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;model-driven&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Sample action chaining stack --&gt;</SPAN></SPAN>
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;chainStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;chain&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Sample i18n stack --&gt;</SPAN></SPAN>
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;chainStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;i18n&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            &lt;!-- Sample execute and wait stack.
+                 Note: execAndWait should always be the *last* interceptor. --&gt;
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;executeAndWaitStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;execAndWait&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            &lt;!-- A complete stack with all the common interceptors in place.
+                 Generally, this stack should be the one you use, though it
+                 may process additional stuff you don&apos;t need, which could
+                 lead to some performance problems. Also, the ordering can be
+                 switched around (ex: if you wish to have your components
+                 before prepare() is called, you&apos;d need to move the component
+                 interceptor up --&gt;
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;exception&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;alias&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;prepare&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;servlet-config&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;i18n&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;chain&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;model-driven&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;fileUpload&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;static-params&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;params&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;conversionError&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validation&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;workflow&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+
+            &lt;!-- The completeStack is here for backwards compatibility for
+                 applications that still refer to the defaultStack by the
+                 old name --&gt;
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;completeStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/interceptors&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;default-interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/xwork&gt;</SPAN>
+<SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- // END SNIPPET: struts-default --&gt;</SPAN></SPAN></PRE>
+</DIV></DIV>
+<P>Since we included <TT>struts-default.xml</TT> in our <TT>struts.xml</TT>, all the predefined interceptors and stacks are available for us to use in our actions.</P>
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd"> <B>timer</B> </TD>
+<TD class="confluenceTd"> clocks how long the action (including nested interceptors and view) takes to execute </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>logger</B> </TD>
+<TD class="confluenceTd"> logs the action being executed </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>chain</B> </TD>
+<TD class="confluenceTd"> makes the previous action&apos;s properties available to the current action. Used to make action chaining (reference: <A href="result-types.html" title="Result Types">Result Types</A>) </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>static-params</B> </TD>
+<TD class="confluenceTd"> sets the parameters defined in <TT>struts.xml</TT> onto the action. These are the <TT>&lt;param /&gt;</TT> tags that are direct children of the <TT>&lt;action /&gt;</TT> tag </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>params</B> </TD>
+<TD class="confluenceTd"> sets the request (POST and GET) parameters onto the action class. We have seen an example of this in <B>TODO</B> </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>model-driven</B> </TD>
+<TD class="confluenceTd"> if the action implements <TT>ModelDriven</TT>, pushes the <TT>getModel()</TT> result onto the Value Stack </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>component</B> </TD>
+<TD class="confluenceTd"> enables and makes registered components available to the actions. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>token</B> </TD>
+<TD class="confluenceTd"> checks for valid token presence in action, prevents duplicate form submission </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>token-session</B> </TD>
+<TD class="confluenceTd"> same as above, but storing the submitted data in session when handed an invalid token; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>validation</B> </TD>
+<TD class="confluenceTd"> performs validation using the validators defined in {<TT>Action}-validation.xml</TT> (reference: <A href="validation.html" title="Validation">Validation</A>). </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>workflow</B> </TD>
+<TD class="confluenceTd"> calls the validate method in your action class. If action errors created then it returns the <TT>INPUT</TT> view. Good to use together with the validation interceptor (reference: <A href="validation.html" title="Validation">Validation</A>) </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>servlet-config</B> </TD>
+<TD class="confluenceTd"> give access to <TT>HttpServletRequest</TT> and <TT>HttpServletResponse</TT> (think twice before using this since this ties you to the Servlet API) </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>prepare</B> </TD>
+<TD class="confluenceTd"> allows you to programmatic access to your Action class before the parameters are set on it. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>conversionError</B> </TD>
+<TD class="confluenceTd"> Adds field errors if any type-conversion errors occurred\ </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>execAndWait</B> </TD>
+<TD class="confluenceTd"> Spawns a separate thread to execute the action </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <B>fileUpload</B> </TD>
+<TD class="confluenceTd"> Sets uploaded files as action files (File objects) </TD>
+</TR>
+</TBODY></TABLE>
+<P>In addition to the prepackaged Interceptors, <TT>struts-default.xml</TT> includes prepackaged combinations in named Interceptor Stacks.</P>
+
+<H2><A name="UnderstandingInterceptors-BuildingYourOwnInterceptor"></A>Building Your Own Interceptor</H2>
+
+<P>If the stock Interceptors aren&apos;t enough, you can implement custom Interceptors to solve a new problem or and old problem differently.</P>
+
+<P>Suppose several pages in an application would like to to display a greeting that changes according to the time of day. A good way to solve this use case is to use an Interceptor to place the greeting in the session on each request. As soon as the time of day changes, so would the greeting. As an Interceptor, the greeting can be created automatically, so that the Actions need not be bothered.</P>
+
+<H3><A name="UnderstandingInterceptors-ImplementingaGreetingInterceptor"></A>Implementing a Greeting Interceptor</H3>
+
+<OL>
+	<LI>Create an Interceptor class by implementing the <TT>com.opensymphony.xwork.interceptor.Interceptor</TT> interface (bundled in the <TT>xwork-1.1.jar</TT> provided with the framework distribution).</LI>
+	<LI>Declare the class in your XML configuration file (<TT>struts.xml</TT>) using the element <TT>&lt;interceptor /&gt;</TT> nested within <TT>&lt;interceptors /&gt;</TT>.</LI>
+	<LI>Create stacks of Interceptors, using the <TT>&lt;interceptor-stack /&gt;</TT> element (<EM>optional</EM>).</LI>
+	<LI>Determine which Interceptors are used by which mapping, using <TT>&lt;interceptor-ref /&gt;</TT> or <TT>&lt;default-interceptor-ref /&gt;</TT>. The <TT>&lt;interceptor-ref&gt;</TT> defines the interceptors to be used in a specific action. The <TT>&lt;default-interceptor-ref /&gt;</TT> determines the default interceptor stack to be used by all actions that do not specify their own <TT>&lt;interceptor-ref /&gt;</TT>.</LI>
+</OL>
+
+
+<H3><A name="UnderstandingInterceptors-CodingtheInterceptorclass"></A>Coding the Interceptor class</H3>
+
+<DIV class="code"><DIV class="codeHeader"><B>GreetingInterceptor.java</B></DIV><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> tutorial;
+
+<SPAN class="code-keyword">import</SPAN> java.util.Calendar;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.interceptor.Interceptor;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionInvocation;
+
+<SPAN class="code-keyword">public</SPAN> class GreetingInterceptor <SPAN class="code-keyword">implements</SPAN> Interceptor {
+  <SPAN class="code-keyword">public</SPAN> void init() { }
+  <SPAN class="code-keyword">public</SPAN> void destroy() { }
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> intercept(ActionInvocation invocation) <SPAN class="code-keyword">throws</SPAN> Exception {
+    Calendar calendar = Calendar.getInstance();
+    <SPAN class="code-object">int</SPAN> hour = calendar.get(Calendar.HOUR_OF_DAY);
+    <SPAN class="code-object">String</SPAN> greeting = (hour &lt; 6) ? <SPAN class="code-quote">&quot;Good evening&quot;</SPAN> :
+        ((hour &lt; 12) ? <SPAN class="code-quote">&quot;Good morning&quot;</SPAN>:
+    ((hour &lt; 18) ? <SPAN class="code-quote">&quot;Good afternoon&quot;</SPAN>: <SPAN class="code-quote">&quot;Good evening&quot;</SPAN>));
+
+     invocation.getInvocationContext().getSession().put(<SPAN class="code-quote">&quot;greeting&quot;</SPAN>, greeting);
+
+     <SPAN class="code-object">String</SPAN> result = invocation.invoke();
+
+     <SPAN class="code-keyword">return</SPAN> result;
+  }
+}</PRE>
+</DIV></DIV>
+
+<H3><A name="UnderstandingInterceptors-Codingtheconfiguration"></A>Coding the configuration</H3>
+
+<DIV class="code"><DIV class="codeHeader"><B>struts.xml</B></DIV><DIV class="codeContent">
+<PRE class="code-xml">&lt;!DOCTYPE struts PUBLIC
+    <SPAN class="code-quote">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</SPAN>
+    <SPAN class="code-quote">&quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+  <SPAN class="code-tag">&lt;include file=<SPAN class="code-quote">&quot;struts-default.xml&quot;</SPAN> /&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+     <SPAN class="code-tag">&lt;interceptors&gt;</SPAN>
+       <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;greeting&quot;</SPAN> class=<SPAN class="code-quote">&quot;tutorial.GreetingInterceptor&quot;</SPAN> /&gt;</SPAN>
+     <SPAN class="code-tag">&lt;/interceptors&gt;</SPAN>
+
+     <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;greeting&quot;</SPAN> class=<SPAN class="code-quote">&quot;tutorial.GreetingAction&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;greeting&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;velocity&quot;</SPAN>&gt;</SPAN>greeting.vm<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+      <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- other action mappings --&gt;</SPAN></SPAN>
+
+   <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+ <SPAN class="code-tag">&lt;/struts&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="UnderstandingInterceptors-CodingtheActionclass"></A>Coding the Action class</H3>
+
+<DIV class="code"><DIV class="codeHeader"><B>GreetingAction.java</B></DIV><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> tutorial;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionSupport;
+
+<SPAN class="code-keyword">public</SPAN> class GreetingAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception
+  {
+    <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}</PRE>
+</DIV></DIV>
+
+<H3><A name="UnderstandingInterceptors-Codingtheresultpage"></A>Coding the result page</H3>
+
+<DIV class="code"><DIV class="codeHeader"><B>Understanding Interceptors</B></DIV><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;html&gt;</SPAN>
+  <SPAN class="code-tag">&lt;head&gt;</SPAN>
+    <SPAN class="code-tag">&lt;title&gt;</SPAN>Understanding Interceptors<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+   <SPAN class="code-tag">&lt;/head&gt;</SPAN>
+   <SPAN class="code-tag">&lt;body&gt;</SPAN>
+     #set ($ses = $req.getSession())
+     <SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;b&gt;</SPAN>${ses.getAttribute(&apos;greeting&apos;)}!<SPAN class="code-tag">&lt;/b&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+   <SPAN class="code-tag">&lt;/body&gt;</SPAN>
+ <SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="UnderstandingInterceptors-Howthecodeworks"></A>How the code works</H3>
+
+<P>Let&apos;s take a look at our Interceptor class first. An Interceptor must implement <TT>com.opensymphony.xwork.interceptor.Interceptor</TT> which expects three methods.</P>
+<UL>
+	<LI><TT>init()</TT> is called during interceptor initialization,</LI>
+	<LI><TT>destroy()</TT> is called during destruction, and most importantly,
+	<UL>
+		<LI><TT>intercept(ActionInvocation invocation)</TT> is where we place the code that does the work.</LI>
+	</UL>
+	</LI>
+</UL>
+
+
+<P>The Greeting Interceptor returns the result from <TT>invocation.invoke</TT>. The <TT>invoke</TT>method executes the next Interceptor in the stack or, if this is the last Interceptor, the appropriate method of the Action class. The <TT>invoke</TT>method grants the Interceptor the power to short-circuiting the Action Invocation. Instead of calling <TT>invoke</TT>, the Interceptor can return a result String and bypass any remaining Interceptors on the stack and the Action&apos;s <TT>execute</TT> method.</P>
+
+<P>An Interceptor can also execute code <B>after</B> the Action method executes. Just place more code <EM>after</EM> the <TT>invocation.invoke</TT> call. Control returns to each Interceptor on the stack in reverse order. When the call to <TT>invoke</TT> returns, you can continue processing.</P>
+
+<P>Many Interceptors execute code only before or after the Action, but some do execute code in both places. To make coding Interceptors a little easier, the framework provides an abstract class that implements the &quot;before and after&quot; behaviour. Instead of calling <TT>invoke}] itself, an Interceptor can extend  {{com.opensymphony.xwork.interceptor.AroundInterceptor</TT> and implement the methods <TT>before(ActionInvocation invocation)</TT> and <TT>after(ActionInvocation dispatcher, String result)</TT>.</P>
+
+<H2><A name="UnderstandingInterceptors-Summary"></A>Summary</H2>
+
+<P>The Interceptor strategy promotes reusability and simplicity. Interceptors make it easier to separate concerns, so that we can solve one problem at a time. The best part is that each application, and each Action, controls exactly what Interceptors are used in what order.</P>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Next </TH>
+<TD class="confluenceTd"> Onward to <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Understanding%20Validation&linkCreation=true&fromPageId=13941" title="Create Page: Understanding Validation" class="createlink">Understanding Validation<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Prev </TH>
+<TD class="confluenceTd"> Return to <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Selecting%20Results&linkCreation=true&fromPageId=13941" title="Create Page: Selecting Results" class="createlink">Selecting Results<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> </TD>
+</TR>
+</TBODY></TABLE>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,439 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Quick Start Guide</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Quick%20Start%20Guide" title="Quick Start Guide">Quick Start Guide</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Quick Start Guide</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14157">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14157">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14157">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14157">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14157">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14157">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=matt_dowell">matt_dowell</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Feb 12, 2007
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14157&originalId=45392">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+
+<P>WebWork is a popular, easy-to-use MVC framework, for more information on the WebWork project, please visit <A href="home.html" title="Home">Home</A>. This guide should be helpful to seasoned Java developers with previous experience in MVC frameworks. We will briefly cover the three main components on a WebWork2 based application, the configuration the action classes, and the views.</P>
+
+<H2><A name="QuickStartGuide-GETTINGSTARTED"></A>GETTING STARTED</H2>
+<P>To use WebWork as your framework for writing Java-based web applications, you need to start by installing the various libraries (these are all available in the <SPAN class="nobr"><A href="https://webwork.dev.java.net/servlets/ProjectDocumentList" title="Visit page outside Confluence" rel="nofollow">webwork 2.x distribution<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>):</P>
+
+<H3><A name="QuickStartGuide-CoreJARfiles"></A>Core JAR files</H3>
+<UL>
+	<LI><SPAN class="nobr"><A href="https://webwork.dev.java.net/servlets/ProjectDocumentList" title="Visit page outside Confluence" rel="nofollow">webwork-2.1.5.jar<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="https://xwork.dev.java.net/servlets/ProjectDocumentList" title="Visit page outside Confluence" rel="nofollow">xwork-1.0.3.jar<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI>ognl-2.6.5.jar</LI>
+	<LI>commons-logging.jar</LI>
+	<LI>oscore-2.2.4.jar</LI>
+	<LI>velocity-dep-1.3.1.jar</LI>
+</UL>
+
+
+<H3><A name="QuickStartGuide-OptionalJARfiles"></A>Optional JAR files</H3>
+<UL>
+	<LI>jstl.jar (needed for Standard Tag Libraries)</LI>
+	<LI>cos-multipart.jar</LI>
+	<LI>pell-multipart.jar</LI>
+	<LI>standard.jar</LI>
+	<LI>mail.jar</LI>
+</UL>
+
+
+<H2><A name="QuickStartGuide-CONFIGURATION"></A>CONFIGURATION</H2>
+<P>WebWork is built upon the Xwork framework. Xwork handles the translation requests to commands execution, but let's not worry about that right now. You need to know this information in case you were curious about the xwork JAR file, and if you want to learn some of the more advanced features of the WebWork command structure, you can visit the <SPAN class="error">&#91;XW:XWork&#93;</SPAN> site.</P>
+
+<H3><A name="QuickStartGuide-Exampleweb.xmlfile%28UsingServletDispatcher%29"></A>Example web.xml file (Using ServletDispatcher)</H3>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;ISO-8859-1&quot;</SPAN>?&gt;</SPAN>
+&lt;!DOCTYPE web-app 
+          PUBLIC 
+          <SPAN class="code-quote">&quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</SPAN> 
+          <SPAN class="code-quote">&quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot;</SPAN>&gt;
+<SPAN class="code-tag">&lt;web-app&gt;</SPAN>
+    <SPAN class="code-tag">&lt;display-name&gt;</SPAN>WebWork 2.0 Quick Start<SPAN class="code-tag">&lt;/display-name&gt;</SPAN>
+    <SPAN class="code-tag">&lt;servlet&gt;</SPAN>
+        <SPAN class="code-tag">&lt;servlet-name&gt;</SPAN>webwork<SPAN class="code-tag">&lt;/servlet-name&gt;</SPAN>
+          <SPAN class="code-tag">&lt;servlet-class&gt;</SPAN>com.opensymphony.webwork.dispatcher.ServletDispatcher<SPAN class="code-tag">&lt;/servlet-class&gt;</SPAN>                                            
+    <SPAN class="code-tag">&lt;/servlet&gt;</SPAN>
+
+
+    <SPAN class="code-tag">&lt;servlet-mapping&gt;</SPAN>
+        <SPAN class="code-tag">&lt;servlet-name&gt;</SPAN>webwork<SPAN class="code-tag">&lt;/servlet-name&gt;</SPAN>
+	<SPAN class="code-tag">&lt;url-pattern&gt;</SPAN>*.action<SPAN class="code-tag">&lt;/url-pattern&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/servlet-mapping&gt;</SPAN>
+
+
+    <SPAN class="code-tag">&lt;welcome-file-list&gt;</SPAN>
+        <SPAN class="code-tag">&lt;welcome-file&gt;</SPAN>index.jsp<SPAN class="code-tag">&lt;/welcome-file&gt;</SPAN>
+        <SPAN class="code-tag">&lt;welcome-file&gt;</SPAN>index.html<SPAN class="code-tag">&lt;/welcome-file&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/welcome-file-list&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;taglib&gt;</SPAN> 
+        <SPAN class="code-tag">&lt;taglib-uri&gt;</SPAN>webwork<SPAN class="code-tag">&lt;/taglib-uri&gt;</SPAN> 
+        <SPAN class="code-tag">&lt;taglib-location&gt;</SPAN>/WEB-INF/lib/webwork-2.1.5.jar<SPAN class="code-tag">&lt;/taglib-location&gt;</SPAN> 
+    <SPAN class="code-tag">&lt;/taglib&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/web-app&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="QuickStartGuide-Servletmappings"></A>Servlet mappings</H3>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;servlet-mapping&gt;</SPAN>
+    <SPAN class="code-tag">&lt;servlet-name&gt;</SPAN>webwork<SPAN class="code-tag">&lt;/servlet-name&gt;</SPAN>
+    <SPAN class="code-tag">&lt;url-pattern&gt;</SPAN>*.action<SPAN class="code-tag">&lt;/url-pattern&gt;</SPAN>
+<SPAN class="code-tag">&lt;/servlet-mapping&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>The above section will map ANY servlet called with an extension of <B>.action</B> to the WebWork base servlet, and assume it is a WebWork action class.</P>
+
+<P><B>Note:</B><BR>
+As of Webwork 2.2, the use of ServletDispatcher is being deprecated but instead replaced with FilterDispatcher. The above mapping could be done as follows using FilterDispatcher.</P>
+
+<H3><A name="QuickStartGuide-Exampleweb.xmlfile%28UsingFilterDispatcher%29"></A>Example web.xml file (Using FilterDispatcher)</H3>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;ISO-8859-1&quot;</SPAN>?&gt;</SPAN>
+&lt;!DOCTYPE web-app 
+          PUBLIC 
+          <SPAN class="code-quote">&quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</SPAN> 
+          <SPAN class="code-quote">&quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot;</SPAN>&gt;
+<SPAN class="code-tag">&lt;web-app&gt;</SPAN>
+    <SPAN class="code-tag">&lt;display-name&gt;</SPAN>WebWork 2.0 Quick Start<SPAN class="code-tag">&lt;/display-name&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;filter&gt;</SPAN>
+       <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>webwork<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+       <SPAN class="code-tag">&lt;filter-class&gt;</SPAN>com.opensymphony.webwork.dispatcher.FilterDispatcher<SPAN class="code-tag">&lt;/filter-class&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/filter&gt;</SPAN>
+    
+    <SPAN class="code-tag">&lt;filter-mapping&gt;</SPAN>
+       <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>webwork<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+       <SPAN class="code-tag">&lt;url-pattern&gt;</SPAN>/*<SPAN class="code-tag">&lt;/url-pattern&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/filter-mapping&gt;</SPAN>    
+
+    <SPAN class="code-tag">&lt;welcome-file-list&gt;</SPAN>
+        <SPAN class="code-tag">&lt;welcome-file&gt;</SPAN>index.jsp<SPAN class="code-tag">&lt;/welcome-file&gt;</SPAN>
+        <SPAN class="code-tag">&lt;welcome-file&gt;</SPAN>index.html<SPAN class="code-tag">&lt;/welcome-file&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/welcome-file-list&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;taglib&gt;</SPAN> 
+        <SPAN class="code-tag">&lt;taglib-uri&gt;</SPAN>webwork<SPAN class="code-tag">&lt;/taglib-uri&gt;</SPAN> 
+        <SPAN class="code-tag">&lt;taglib-location&gt;</SPAN>/WEB-INF/lib/webwork-2.1.5.jar<SPAN class="code-tag">&lt;/taglib-location&gt;</SPAN> 
+    <SPAN class="code-tag">&lt;/taglib&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/web-app&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="QuickStartGuide-Filtermappings"></A>Filter mappings</H3>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;filter-mapping&gt;</SPAN>
+       <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>webwork<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+       <SPAN class="code-tag">&lt;url-pattern&gt;</SPAN>/*<SPAN class="code-tag">&lt;/url-pattern&gt;</SPAN>
+<SPAN class="code-tag">&lt;/filter-mapping&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>The above will map any url request in the particular context path to the Webwork's FilterDispatcher. Webwork knows that url with *.action are webwork action through the combination of 'webwork.action.extension' and 'webwork.mapper.class' defined in webwork.properties.  </P>
+
+
+<H3><A name="QuickStartGuide-Taglibs"></A>Taglibs</H3>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;taglib&gt;</SPAN> 
+  <SPAN class="code-tag">&lt;taglib-uri&gt;</SPAN>webwork<SPAN class="code-tag">&lt;/taglib-uri&gt;</SPAN> 
+  <SPAN class="code-tag">&lt;taglib-location&gt;</SPAN>/WEB-INF/lib/webwork-2.1.5.jar<SPAN class="code-tag">&lt;/taglib-location&gt;</SPAN> 
+<SPAN class="code-tag">&lt;/taglib&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>The above section will load the standard WebWork tag libraries.  This is required for JSP 1.1 compatible containers. To load more or different libraries, add more <B>&lt;taglib&gt;</B> calls.</P>
+
+<H3><A name="QuickStartGuide-ExampleXworkconfigfile%28xwork.xml%29"></A>Example Xwork config file (xwork.xml)</H3>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;ISO-8859-1&quot;</SPAN>?&gt;</SPAN>
+&lt;!DOCTYPE xwork 
+          PUBLIC 
+          <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork 1.0//EN&quot;</SPAN> 
+          <SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-1.0.dtd&quot;</SPAN>&gt;
+<SPAN class="code-tag">&lt;xwork&gt;</SPAN>
+    <SPAN class="code-tag">&lt;include file=<SPAN class="code-quote">&quot;webwork-default.xml&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;webwork-default&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptors&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;security&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.acme.LoginCheck&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/interceptors&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;default-interceptor-ref name=<SPAN class="code-quote">&quot;security&quot;</SPAN>/&gt;</SPAN>
+       
+        <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;showForm&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.acme.FormAction&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;location&quot;</SPAN>&gt;</SPAN>/form.jsp<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;saveForm&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.acme.FormAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;processForm&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;location&quot;</SPAN>&gt;</SPAN>/form.jsp<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/result&gt;</SPAN>
+             <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;missing-data&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;location&quot;</SPAN>&gt;</SPAN>/form.jsp<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;security&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/xwork&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H2><A name="QuickStartGuide-ACTIONS"></A>ACTIONS</H2>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;saveForm&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.acme.FormAction&quot;</SPAN> method=<SPAN class="code-quote">&quot;processForm&quot;</SPAN>&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>Actions are the basic &quot;unit-of-work&quot; in WebWork, they define, well, actions. An action will usually be a request, (and usually a button click, or form submit). The main action element (tag is too synonymous with JSP) has two parts, the friendly name (referenced in the URL, i.e. <B>saveForm.action</B>) and the corresponding &quot;handler&quot; class.</P>
+
+<P>The method parameter tells WebWork which method to call based upon this action. If you leave the method parameter blank, WebWork will call the method <B>execute()</B> from the Action Interface by default. Since every Action must implment the Action Interface, this method will always be available.</P>
+
+<H2><A name="QuickStartGuide-RESULTS"></A>RESULTS</H2>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;missing-data&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;location&quot;</SPAN>&gt;</SPAN>/form.jsp<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>Result tags tell WebWork what to do next after the action has been called. There are a standard set of result codes built-in to WebWork, (in the Action interface) they include:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-object">String</SPAN> SUCCESS = <SPAN class="code-quote">&quot;success&quot;</SPAN>;
+<SPAN class="code-object">String</SPAN> NONE    = <SPAN class="code-quote">&quot;none&quot;</SPAN>;
+<SPAN class="code-object">String</SPAN> ERROR   = <SPAN class="code-quote">&quot;error&quot;</SPAN>;
+<SPAN class="code-object">String</SPAN> INPUT   = <SPAN class="code-quote">&quot;input&quot;</SPAN>;
+<SPAN class="code-object">String</SPAN> LOGIN   = <SPAN class="code-quote">&quot;login&quot;</SPAN>;</PRE>
+</DIV></DIV>
+
+<P>You can extend these as you see fit. Most of the time you will have either <B>SUCCESS</B> or <B>ERROR</B>, with <B>SUCCESS</B> moving on to the next page in your application;</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;location&quot;</SPAN>&gt;</SPAN>/thank_you.jsp<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>...and <B>ERROR</B> moving on to an error page, or the preceding page;</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;location&quot;</SPAN>&gt;</SPAN>/error.jsp<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/result&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>You can stack as many result tags within a single action tag as you wish.</P>
+
+<P>For further reading on Result types, see <A href="result-types.html" title="Result Types">Result Types</A>.</P>
+
+
+<H2><A name="QuickStartGuide-INTERCEPTORS"></A>INTERCEPTORS</H2>
+<P>Interceptors allow you to define code to be executed before and/or after the execution of an action. Interceptors can be a powerful tool when writing web applications. Some of the most common implementations of an Interceptor might be:</P>
+
+<UL>
+	<LI>Security Checking (ensuring the user is logged in)</LI>
+	<LI>Trace Logging (logging every action)</LI>
+	<LI>Bottleneck Checking (start a timer before and after every action, to check bottlenecks in your application)</LI>
+</UL>
+
+
+<P>You can also group Interceptors together to create &quot;stacks&quot;. If you wanted to do a login check, security check, and logging all before an Action call, this could easily be done with an interceptor stack.</P>
+
+<P>For further Reading on Interceptors, see <SPAN class="error">&#91;XW:Interceptors&#93;</SPAN><BR clear="all">
+For further Reading on Xwork configuration files, see <SPAN class="error">&#91;XW:Configuration&#93;</SPAN></P>
+
+<H2><A name="QuickStartGuide-ACTIONCLASSES"></A>ACTION CLASSES</H2>
+<P>The action classes do what they say, they handle the action. They are called by the actions specified in the <B>xwork.xml</B> file and initiated by the user in the &quot;views&quot;.  To turn your class into an action class, you simply need to extend the class <B>ActionSupport</B> or implement the <B>Action</B> interface. </P>
+
+<P>Here is what our <B>saveForm</B> action looks like in its Java form (NOTE: If you look in the <B>xwork.xml</B> file above, we've overridden the action to call the <B>processForm</B> method):</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.acme;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.*;
+
+<SPAN class="code-keyword">public</SPAN> class FormAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+    
+    <SPAN class="code-keyword">private</SPAN> FormBean myFormBean = <SPAN class="code-keyword">new</SPAN> FormBean();
+
+    <SPAN class="code-keyword">public</SPAN> void setFormBean(FormBean inBean) {
+        myFormBean = inBean;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> FormBean getFormBean() {
+        <SPAN class="code-keyword">return</SPAN> myFormBean;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> processForm() {
+
+        FormParameters formParams = <SPAN class="code-keyword">this</SPAN>.getFormBean();
+        checkBizRules(formParams);
+        <SPAN class="code-keyword">this</SPAN>.saveParamsToDb(formParams);
+
+        <SPAN class="code-keyword">return</SPAN> SUCCESS;
+    }
+...
+}</PRE>
+</DIV></DIV>
+
+<H2><A name="QuickStartGuide-VIEWS"></A>VIEWS</H2>
+<P>WebWork supports JSP, Velocity, and FreeMarker for your application presentation layer. For this example, we will use a JSP file.  The appropriate presentation layer is denoted by the result type specified.  For JSPs, the result type is the name mapped to the <B>com.opensymphony.webwork.dispatcher.ServletDispatcherResult</B>.  Typically, this is &quot;dispatcher&quot;.</P>
+
+<P>WebWork comes packaged with a tag library (taglibs). You can use these taglibs as components in your JSP file. Here is an section of our <B>form.jsp</B> page:</P>
+<DIV class="code"><DIV class="codeContent">
+<DIV class="error"><SPAN class="error">Unable to find source-code formatter for language: jsp.</SPAN> Available languages are: actionscript, html, java, javascript, none, sql, xhtml, xml</DIV><PRE class="code-jsp">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;ww&quot;</SPAN> uri=<SPAN class="code-quote">&quot;webwork&quot;</SPAN> %&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Webwork Form Example&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+
+&lt;ww:form name=<SPAN class="code-quote">&quot;'myForm'&quot;</SPAN> action=<SPAN class="code-quote">&quot;'saveForm.action'&quot;</SPAN> method=<SPAN class="code-quote">&quot;'POST'&quot;</SPAN>&gt;
+    &lt;table&gt;
+
+    &lt;ww:textfield label=<SPAN class="code-quote">&quot;'First Name'&quot;</SPAN> name=<SPAN class="code-quote">&quot;'formBean.firstName'&quot;</SPAN> value=<SPAN class="code-quote">&quot;formBean.firstName&quot;</SPAN>/&gt;
+    &lt;ww:textfield label=<SPAN class="code-quote">&quot;'Last Name'&quot;</SPAN> name=<SPAN class="code-quote">&quot;'formBean.lastName'&quot;</SPAN> value=<SPAN class="code-quote">&quot;formBean.lastName&quot;</SPAN>/&gt;
+
+    &lt;/table&gt;
+    &lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Save Form&quot;</SPAN>/&gt;
+&lt;/ww:form&gt;
+&lt;/body&gt;</PRE>
+</DIV></DIV>
+
+<P>The process of events will go as follows:</P>
+<OL>
+	<LI>WebWork will take notice since the URI ends in <B>.action</B> (defined in our <B>web.xml</B> files)</LI>
+	<LI>WebWork will look up the action <B>saveForm</B> in its action hierarchy and call any Interceptors that we might have defined.</LI>
+	<LI>WebWork will translate <B>saveForm</B> and decide we would like to call the method <B>processForm</B> in our class <B>com.acme.FormAction</B> as defined in our <B>xwork.xml</B> file.</LI>
+	<LI>Our method will process successfully and give WebWork the <B>SUCCESS</B> return parameter.</LI>
+	<LI>WebWork will translate the <B>SUCCESS</B> return parameter into the location <B>thank_you.jsp</B> (as defined in <B>xwork.xml</B>) and redirect us accordingly.</LI>
+</OL>
+
+
+<H2><A name="QuickStartGuide-SUMMARY"></A>SUMMARY</H2>
+<P>The purpose of this guide is to provide the user with a quick-and-dirty understanding of WebWork2. I hope we successfully briefed you on the three most important components of any WebWork based application, the configuration (including <B>web.xml</B> and <B>xwork.xml</B>), the action classes, and the views. This information should give you a starting point to experiment and become more familiar with the rising star of the open source, Model2, web frameworks.</P>
+
+<H2><A name="QuickStartGuide-MiscellaneousNotes"></A>Miscellaneous Notes</H2>
+<P>It is not necessary to map and load the WebWorkVelocityServlet in in the <B>web.xml</B> in order to use Velocity rendered pages.  WebWork  includes a built-in Velocity result type.  Using the result type should be faster than sending the result to the servlet dispatcher which then delegates to the servlet mapping for WebWorkVelocityServlet.</P>
+
+
+<P>Originally by:<BR>
+Matt Dowell<BR clear="all">
+matt.dowell@notiva.com<BR clear="all">
+September 15, 2003</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

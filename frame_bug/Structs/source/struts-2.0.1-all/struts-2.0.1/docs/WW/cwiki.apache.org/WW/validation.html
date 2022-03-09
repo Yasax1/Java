@@ -1,0 +1,661 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  
+<!-- Mirrored from cwiki.apache.org/WW/validation.html by HTTrack Website Copier/3.x [XR&CO'2005], Tue, 10 Oct 2006 21:20:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('../confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Validation</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="#" title="Validation">Validation</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Validation</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14292">
+            <IMG src="../confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14292">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="../confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;fromPageId=14292">
+            <IMG src="../confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;fromPageId=14292">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&amp;fromPageId=14292">
+            <IMG src="../confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&amp;fromPageId=14292">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=ctran">ctran</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 10, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14292&amp;originalId=23762">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>Struts Action 2 relies on a validation framework provided by [XWork] to enable the application of input validation rules to your Actions before they are executed.  This section only provides the bare minimum to get you started and focuses on our extension of the XWork validators to support client-side validation.</P>
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="../confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>There is also an option for Client Side (Javascript and/or AJAX) based validation, please see <A href="client-side-validation.html" title="Client Side Validation">Client Side Validation</A> for more information.</TD></TR></TABLE>
+
+<H2><A name="Validation-Examples"></A>Examples</H2>
+
+<OL>
+	<LI><A href="basic-validation.html" title="Basic Validation">Basic Validation</A></LI>
+	<LI><A href="client-validation.html" title="Client Validation">Client Validation</A></LI>
+	<LI><A href="ajax-validation.html" title="AJAX Validation">AJAX Validation</A></LI>
+	<LI><A href="using-field-validators.html" title="Using Field Validators">Using Field Validators</A></LI>
+	<LI><A href="using-non-field-validators.html" title="Using Non Field Validators">Using Non Field Validators</A></LI>
+	<LI><A href="using-visitor-field-validator.html" title="Using Visitor Field Validator">Using Visitor Field Validator</A></LI>
+</OL>
+
+
+<H2><A name="Validation-BundledValidators"></A>Bundled Validators</H2>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="../confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">Note</B><BR>
+<P>When using a Field Validator, Field Validator Syntax is ALWAYS preferable than using the Plain Validator Syntax as it facilitates grouping of field-validators according to fields. This is very handy especially if a field needs to have many field-validators which is almost always the case. Examples: <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;title=validatortypes&amp;linkCreation=true&amp;fromPageId=14292" title="Create Page: validatortypes" class="createlink">validatortypes<SUP><IMG class="rendericon" src="../confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></P></TD></TR></TABLE>
+<OL>
+	<LI><A href="required-validator.html" title="required validator">required validator</A></LI>
+	<LI><A href="requiredstring-validator.html" title="requiredstring validator">requiredstring validator</A></LI>
+	<LI><A href="int-validator.html" title="int validator">int validator</A></LI>
+	<LI><A href="date-validator.html" title="date validator">date validator</A></LI>
+	<LI><A href="expression-validator.html" title="expression validator">expression validator</A></LI>
+	<LI><A href="fieldexpression-validator.html" title="fieldexpression validator">fieldexpression validator</A></LI>
+	<LI><A href="email-validator.html" title="email validator">email validator</A></LI>
+	<LI><A href="url-validator.html" title="url validator">url validator</A></LI>
+	<LI><A href="visitor-validator.html" title="visitor validator">visitor validator</A></LI>
+	<LI><A href="conversion-validator.html" title="conversion validator">conversion validator</A></LI>
+	<LI><A href="stringlength-validator.html" title="stringlength validator">stringlength validator</A></LI>
+	<LI><A href="regex-validator.html" title="regex validator">regex validator</A></LI>
+</OL>
+
+
+<H2><A name="Validation-RegisteringValidators"></A>Registering Validators</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=javadoc&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidatorFactory.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P>Validation rules are handled by validators, which must be registered with 
+the ValidatorFactory (using the registerValidator method). The simplest way to do so is to add a file name 
+validators.xml in the root of the classpath (/WEB-INF/classes) that declares 
+all the validators you intend to use. </P></TD></TR></TABLE>
+<P>This list declares all the validators that comes with the framework.</P>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=validators-default&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2Fvalidators%2Fdefault.xml%3Fcontent-type%3Dtext%252Fplain">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;validators&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;required&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.RequiredFieldValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.RequiredStringValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;int&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.IntRangeFieldValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;double&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.DoubleRangeFieldValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;date&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.DateRangeFieldValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;expression&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.ExpressionValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;fieldexpression&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.FieldExpressionValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;email&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.EmailValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;url&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.URLValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;visitor&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.VisitorFieldValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;conversion&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.ConversionErrorFieldValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;stringlength&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.StringLengthFieldValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;regex&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.RegexFieldValidator&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validators&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="../confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">Note</B><BR>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=information&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidatorFactory.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P>validators.xml if being defined should be available in the classpath. However 
+this is not necessary, if no custom validator is needed. Webwork will automatically 
+picked up a predefined sets of validators defined in 
+com/opensymphony/xwork/validator/validators/default.xml packaged together 
+in xwork jar file that comes with webwork distribution. See ValidatorFactory 
+static block for details.</P></TD></TR></TABLE></TD></TR></TABLE>
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="warningMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="../confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">Warning</B><BR>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=warning&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidatorFactory.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P>If custom validator is being defined and a validators.xml is created and 
+place in the classpath, do remember to copy all the other pre-defined validators 
+that is needed into the validators.xml as if not they will not be registered. 
+Once a validators.xml is detected in the classpath, the default one 
+(com/opensymphony/xwork/validator/validators/default.xml) will not be loaded. 
+It is only loaded when a custom validators.xml cannot be found in the classpath.
+ Be careful.</P></TD></TR></TABLE></TD></TR></TABLE>
+
+<H2><A name="Validation-TurningonValidation"></A>Turning on Validation</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=turningOnValidators&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidatorFactory.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P>The default validationWorkflowStack already includes this.<BR>
+All that is required to enable validation for an Action is to put the 
+ValidationInterceptor in the interceptor refs of the action (see xwork.xml) like so:</P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=exTurnOnValidators&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidatorFactory.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;validator&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.ValidationInterceptor&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+<P>Note: The default <B>validationWorkflowStack</B> already includes this.</P>
+
+<H2><A name="Validation-ValidatorScopes"></A>Validator Scopes</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=fieldValidators&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidatorFactory.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P>Field validators, as the name indicate, act on single fields accessible through an action. 
+A validator, in contrast, is more generic and can do validations in the full action context, 
+involving more than one field (or even no field at all) in validation rule.
+Most validations can be defined on per field basis. This should be preferred over 
+non-field validation whereever possible, as field validator messages are bound to the 
+related field and will be presented next to the corresponding input element in the 
+respecting view.</P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=nonFieldValidators&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidatorFactory.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P>Non-field validators only add action level messages. Non-field validators 
+are mostly domain specific and therefore often custom implementations. 
+The most important standard non-field validator provided by XWork/WebWork 
+is ExpressionValidator.</P></TD></TR></TABLE>
+
+<H3><A name="Validation-Notes"></A>Notes</H3>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=validatorsNote&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidatorFactory.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P>Non-field validators takes precedence over field validators 
+regardless of the order they are defined in *-validation.xml. If a non-field 
+validator is short-circuited, it will causes its non-field validator to not 
+being executed. See validation framework documentation for more info.</P></TD></TR></TABLE>
+
+<H2><A name="Validation-DefiningValidationRules"></A>Defining Validation Rules</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=validationRules1&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidatorFactory.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P>Validation rules can be specified:
+<OL>
+ <LI> Per Action class: in a file named ActionName-validation.xml</LI>
+ <LI> Per Action alias: in a file named ActionName-alias-validation.xml</LI>
+ <LI> Inheritance hierarchy and interfaces implemented by Action class: 
+ WebWork searches up the inheritance tree of the action to find default 
+ validations for parent classes of the Action and interfaces implemented</LI>
+</OL>
+Here is an example for SimpleAction-validation.xml:</P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=exValidationRules1&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidatorFactory.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">&lt;!DOCTYPE validators PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork Validator 1.0.2//EN&quot;</SPAN>
+       <SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd&quot;</SPAN>&gt;
+<SPAN class="code-tag">&lt;validators&gt;</SPAN>
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;bar&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;required&quot;</SPAN>&gt;</SPAN>
+          <SPAN class="code-tag">&lt;message&gt;</SPAN>You must enter a value for bar.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+      <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;int&quot;</SPAN>&gt;</SPAN>
+          <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;min&quot;</SPAN>&gt;</SPAN>6<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+          <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;max&quot;</SPAN>&gt;</SPAN>10<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+          <SPAN class="code-tag">&lt;message&gt;</SPAN>bar must be between ${min} and ${max}, current value is ${bar}.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;bar2&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;regex&quot;</SPAN>&gt;</SPAN>
+          <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;regex&quot;</SPAN>&gt;</SPAN>[0-9],[0-9]<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+          <SPAN class="code-tag">&lt;message&gt;</SPAN>The value of bar2 must be in the format <SPAN class="code-quote">&quot;x, y&quot;</SPAN>, where x and y are between 0 and 9<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+     <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;date&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;date&quot;</SPAN>&gt;</SPAN>
+          <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;min&quot;</SPAN>&gt;</SPAN>12/22/2002<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+          <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;max&quot;</SPAN>&gt;</SPAN>12/25/2002<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+          <SPAN class="code-tag">&lt;message&gt;</SPAN>The date must be between 12-22-2002 and 12-25-2002.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;foo&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;int&quot;</SPAN>&gt;</SPAN>
+          <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;min&quot;</SPAN>&gt;</SPAN>0<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+          <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;max&quot;</SPAN>&gt;</SPAN>100<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+          <SPAN class="code-tag">&lt;message key=<SPAN class="code-quote">&quot;foo.range&quot;</SPAN>&gt;</SPAN>Could not find foo.range!<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+  <SPAN class="code-tag">&lt;validator type=<SPAN class="code-quote">&quot;expression&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;expression&quot;</SPAN>&gt;</SPAN>foo lt bar <SPAN class="code-tag">&lt;/param&gt;</SPAN>
+      <SPAN class="code-tag">&lt;message&gt;</SPAN>Foo must be greater than Bar. Foo = ${foo}, Bar = ${bar}.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/validator&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validators&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=validationRules2&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidatorFactory.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P>Here we can see the configuration of validators for the SimpleAction class. 
+Validators (and field-validators) must have a type attribute, which refers 
+to a name of an Validator registered with the ValidatorFactory as above. 
+Validator elements may also have &lt;param&gt; elements with name and value attributes 
+to set arbitrary parameters into the Validator instance. See below for discussion 
+of the message element.</P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=validationRules3&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidatorFactory.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P><P>Each Validator or Field-Validator element must define one message element inside 
+the validator element body. The message element has 1 attributes, key which is not 
+required. The body of the message tag is taken as the default message which should 
+be added to the Action if the validator fails.Key gives a message key to look up 
+in the Action&apos;s ResourceBundles using getText() from LocaleAware if the Action 
+implements that interface (as ActionSupport does). This provides for Localized 
+messages based on the Locale of the user making the request (or whatever Locale 
+you&apos;ve set into the LocaleAware Action). After either retrieving the message from 
+the ResourceBundle using the Key value, or using the Default message, the current 
+Validator is pushed onto the ValueStack, then the message is parsed for \${...} 
+sections which are replaced with the evaluated value of the string between the 
+\${ and }. This allows you to parameterize your messages with values from the 
+Validator, the Action, or both.</P></P>
+
+
+<P><P>If the validator fails, the validator is pushed onto the ValueStack and the 
+message ��� either the default or the locale-specific one if the key attribute is 
+defined (and such a message exists) ��� is parsed for ${...} sections which are 
+replaced with the evaluated value of the string between the ${ and }. This 
+allows you to parameterize your messages with values from the validator, the 
+Action, or both. </P></P>
+
+<P><P><B>NOTE:</B>Since validation rules are in an XML file, you must make sure 
+you escape special characters. For example, notice that in the expression 
+validator rule above we use &quot;&gt;&quot; instead of &quot;&gt;&quot;. Consult a resource on XML 
+for the full list of characters that must be escaped. The most commonly used 
+characters that must be escaped are: &amp; (use &amp;), &gt; (user &gt;), and &lt; (use &lt;).</P></P>
+
+<P><P>Here is an example of a parameterized message:</P>
+<P>This will pull the min and max parameters from the IntRangeFieldValidator and 
+the value of bar from the Action.</P></P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=exValidationRules3&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidatorFactory.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">bar must be between ${min} and ${max}, current value is ${bar}.</PRE>
+</DIV></DIV></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=validationRules&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P><P>To define validation rules for an Action, create a file named ActionName-validation.xml 
+in the same package as the Action. You may also create alias-specific validation rules which 
+add to the default validation rules defined in ActionName-validation.xml by creating 
+another file in the same directory named ActionName-aliasName-validation.xml. In both 
+cases, ActionName is the name of the Action class, and aliasName is the name of the 
+Action alias defined in the xwork.xml configuration for the Action.</P></P>
+
+<P><P>The framework will also search up the inheritance tree of the Action to 
+find validation rules for directly implemented interfaces and parent classes of the Action. 
+This is particularly powerful when combined with ModelDriven Actions and the VisitorFieldValidator. 
+Here&apos;s an example of how validation rules are discovered. Given the following class structure:</P></P>
+
+<P><UL>
+  <LI>interface Animal;</LI>
+  <LI>interface Quadraped extends Animal;</LI>
+  <LI>class AnimalImpl implements Animal;</LI>
+  <LI>class QuadrapedImpl extends AnimalImpl implements Quadraped;</LI>
+  <LI>class Dog extends QuadrapedImpl;</LI>
+</UL></P>
+
+<P><P>The framework method will look for the following config files if Dog is to be validated:</P></P>
+
+<P><UL>
+  <LI>Animal</LI>
+  <LI>Animal-aliasname</LI>
+  <LI>AnimalImpl</LI>
+	 <LI>AnimalImpl-aliasname</LI>
+  <LI>Quadraped</LI>
+  <LI>Quadraped-aliasname</LI>
+  <LI>QuadrapedImpl</LI>
+  <LI>QuadrapedImpl-aliasname</LI>
+  <LI>Dog</LI>
+  <LI>Dog-aliasname</LI>
+</UL></P>
+
+<P><P>While this process is similar to what the XW:Localization framework does 
+when finding messages, there are some subtle differences. The most important 
+difference is that validation rules are discovered from the parent downwards.
+</P></P>
+
+<P><P><B>NOTE:</B>Child&apos;s *-validation.xml will override parent&apos;s *-validation.xml 
+according to the class hierarchi defined above.</P></P></TD></TR></TABLE>
+
+<H2><A name="Validation-ValidatorFlavour"></A>Validator Flavour</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=validatorFlavours&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P><P>The validators supplied by the Xwork distribution (and any validators you 
+might write yourself) come in two different flavors:</P></P>
+
+<P><OL>
+ <LI> Plain Validators / Non-Field validators </LI>
+ <LI> FieldValidators </LI>
+</OL></P>
+
+<P><P>Plain Validators (such as the ExpressionValidator) perform validation checks 
+that are not inherently tied to a single specified field. When you declare a 
+plain Validator in your -validation.xml file you do not associate a fieldname 
+attribute with it. (You should avoid using plain Validators within the 
+<FIELD-VALIDATOR> syntax described below.)</P></P>
+
+<P><P>FieldValidators (such as the EmailValidator) are designed to perform 
+validation checks on a single field. They require that you specify a fieldname 
+attribute in your -validation.xml file. There are two different (but equivalent) 
+XML syntaxes you can use to declare FieldValidators (see &quot;<VALIDATOR> vs. 
+<FIELD-VALIDATOR> syntax&quot; below).</P></P>
+
+<P><P>There are two places where the differences between the two validator flavors 
+are important to keep in mind:</P></P>
+
+<P><OL>
+  <LI> when choosing the xml syntax used for declaring a validator 
+      (either <VALIDATOR> or <FIELD-VALIDATOR>)</LI>
+  <LI> when using the short-circuit capability</LI>
+</OL></P>
+
+<P><P><B>NOTE:</B>Note that you do not declare what &quot;flavor&quot; of validator you are 
+using in your -validation.xml file, you just declare the name of the validator 
+to use and WebWork will know whether it&apos;s a &quot;plain Validator&quot; or a &quot;FieldValidator&quot; 
+by looking at the validation class that the validator&apos;s programmer chose 
+to implement.</P></P></TD></TR></TABLE>
+
+<H2><A name="Validation-NonFieldValidatorVsFieldValidator"></A>Non-Field Validator Vs Field-Validator <A name="Validation-validatortypes"></A></H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=validatorVsFieldValidators1&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P><P>There are two ways you can define validators in your -validation.xml file:</P>
+<OL>
+ <LI> &lt;validator&gt; </LI>
+ <LI> &lt;field-validator&gt; </LI>
+</OL>
+<P>Keep the following in mind when using either syntax:</P></P>
+
+<P><P><B>Non-Field-Validator</B>
+The &lt;validator&gt; element allows you to declare both types of validators 
+(either a plain Validator a field-specific FieldValidator).</P></P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=nonFieldValidatorUsingValidatorSyntax&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Declaring a plain Validator using the &lt;validator&gt;</SPAN> syntax: --&gt;</SPAN>
+
+   <SPAN class="code-tag">&lt;validator type=&quot;expression&gt;</SPAN>
+         <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;expression&quot;</SPAN>&gt;</SPAN>foo gt bar<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+         <SPAN class="code-tag">&lt;message&gt;</SPAN>foo must be great than bar.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+   <SPAN class="code-tag">&lt;/validator&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=fieldValidatorUsingValidatorSyntax&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Declaring a field validator using the &lt;validator&gt;</SPAN> syntax; --&gt;</SPAN>
+
+   <SPAN class="code-tag">&lt;validator type=<SPAN class="code-quote">&quot;required&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;fieldName&quot;</SPAN>&gt;</SPAN>bar<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+        <SPAN class="code-tag">&lt;message&gt;</SPAN>You must enter a value for bar.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+   &amp;lt/validator&gt;</PRE>
+</DIV></DIV></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=validatorVsFieldValidators2&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P><P><B>field-validator</B>
+The &lt;field-validator&gt; elements are basically the same as the &lt;validator&gt; elements 
+except that they inherit the fieldName attribute from the enclosing &lt;field&gt; element. 
+FieldValidators defined within a &lt;field-validator&gt; element will have their fieldName 
+automatically filled with the value of the parent &lt;field&gt; element&apos;s fieldName 
+attribute. The reason for this structure is to conveniently group the validators 
+for a particular field under one element, otherwise the fieldName attribute 
+would have to be repeated, over and over, for each individual &lt;validator&gt;.</P></P>
+
+<P><P><B>HINT:</B>
+It is always better to defined field-validator inside a &lt;field&gt; tag instead of 
+using a &lt;validator&gt; tag and supplying fieldName as its param as the xml code itself 
+is clearer (grouping of field is clearer)</P></P>
+
+<P><P><B>NOTE:</B>
+Note that you should only use FieldValidators (not plain Validators) within a 
+<FIELD-VALIDATOR> block. A plain Validator inside a &lt;field&gt; will not be 
+allowed and would generate error when parsing the xml, as it is not allowed in 
+the defined dtd (xwork-validator-1.0.2.dtd)</P></P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=fieldValidatorUsingFieldValidatorSyntax&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">Declaring a FieldValidator using the <SPAN class="code-tag">&lt;field-validator&gt;</SPAN> syntax:
+
+<SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;email_address&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;required&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;message&gt;</SPAN>You cannot leave the email address field empty.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;email&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;message&gt;</SPAN>The email address you entered is not valid.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+<SPAN class="code-tag">&lt;/field&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=validatorVsFieldValidators3&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P><P>The choice is yours. It&apos;s perfectly legal to only use <VALIDATOR> elements 
+without the <FIELD> elements and set the fieldName attribute for each of them. 
+The following are effectively equal:</P></P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=similarVaidatorDeclaredInDiffSyntax&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;email_address&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;required&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;message&gt;</SPAN>You cannot leave the email address field empty.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;email&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;message&gt;</SPAN>The email address you entered is not valid.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+<SPAN class="code-tag">&lt;/field&gt;</SPAN>
+
+
+<SPAN class="code-tag">&lt;validator type=<SPAN class="code-quote">&quot;required&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;fieldName&quot;</SPAN>&gt;</SPAN>email_address<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;message&gt;</SPAN>You cannot leave the email address field empty.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validator&gt;</SPAN>
+<SPAN class="code-tag">&lt;validator type=<SPAN class="code-quote">&quot;email&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;fieldName&quot;</SPAN>&gt;</SPAN>email_address<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;message&gt;</SPAN>The email address you entered is not valid.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validator&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+
+<H2><A name="Validation-ShortCircuitingValidator"></A>Short-Circuiting Validator</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=shortCircuitingValidators1&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P><P>Beginning with XWork 1.0.1 (bundled with WebWork 2.1), it is possible 
+to short-circuit a stack of validators. Here is another sample config file 
+containing validation rules from the Xwork test cases: Notice that some of the 
+&lt;field-validator&gt; and &lt;validator&gt; elements have the short-circuit 
+attribute set to true.</P></P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=exShortCircuitingValidators&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">&lt;!DOCTYPE validators PUBLIC 
+        <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork Validator 1.0.2//EN&quot;</SPAN> 
+        <SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd&quot;</SPAN>&gt;
+<SPAN class="code-tag">&lt;validators&gt;</SPAN>
+  <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Field Validators for email field --&gt;</SPAN></SPAN>
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;email&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;required&quot;</SPAN> short-circuit=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+          <SPAN class="code-tag">&lt;message&gt;</SPAN>You must enter a value for email.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+      <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;email&quot;</SPAN> short-circuit=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+          <SPAN class="code-tag">&lt;message&gt;</SPAN>Not a valid e-mail.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+  <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Field Validators for email2 field --&gt;</SPAN></SPAN>
+  <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;email2&quot;</SPAN>&gt;</SPAN>
+     <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;required&quot;</SPAN>&gt;</SPAN>
+          <SPAN class="code-tag">&lt;message&gt;</SPAN>You must enter a value for email2.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+     <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;email&quot;</SPAN>&gt;</SPAN>
+          <SPAN class="code-tag">&lt;message&gt;</SPAN>Not a valid e-mail2.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+  <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Plain Validator 1 --&gt;</SPAN></SPAN>
+  <SPAN class="code-tag">&lt;validator type=<SPAN class="code-quote">&quot;expression&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;expression&quot;</SPAN>&gt;</SPAN>email.equals(email2)<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+      <SPAN class="code-tag">&lt;message&gt;</SPAN>Email not the same as email2<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/validator&gt;</SPAN>
+  <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Plain Validator 2 --&gt;</SPAN></SPAN>
+  <SPAN class="code-tag">&lt;validator type=<SPAN class="code-quote">&quot;expression&quot;</SPAN> short-circuit=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;expression&quot;</SPAN>&gt;</SPAN>email.startsWith(&apos;mark&apos;)<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+      <SPAN class="code-tag">&lt;message&gt;</SPAN>Email does not start with mark<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/validator&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validators&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=shortCircuitingValidators2&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P><P><B>short-circuiting and Validator flavors</B></P>
+<P>Plain validator takes precedence over field-validator. They get validated 
+first in the order they are defined and then the field-validator in the order 
+they are defined. Failure of a particular validator marked as short-circuit 
+will prevent the evaluation of subsequent validators and an error (action 
+error or field error depending on the type of validator) will be added to 
+the ValidationContext of the object being validated.</P></P>
+
+<P><P>In the example above, the actual execution of validator would be as follows:</P></P>
+
+<P><OL>
+ <LI> Plain Validator 1</LI>
+ <LI> Plain Validator 2</LI>
+ <LI> Field Validators for email field</LI>
+ <LI> Field Validators for email2 field</LI>
+</OL></P>
+
+<P><P>Since Field Validator 2 is short-circuited, if its validation failed, 
+it will causes Field validators for email field and Field validators for email2 
+field to not be validated as well.</P></P>
+
+<P><P><B>Usefull Information:</B>
+More complecated validation should probably be done in the validate() 
+method on the action itself (assuming the action implements Validatable 
+interface which ActionSupport already does).</P></P>
+
+<P><P>
+A plain Validator (non FieldValidator) that gets short-circuited will 
+completely break out of the validation stack ��� no other validators will be 
+evaluated and plain validator takes precedence over field validator meaning 
+that they get evaluated in the order they are defined before field validator 
+gets a chance to be evaludated again according to their order defined.
+</P></P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=scAndValidatorFlavours1&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P><P><B>Short cuircuiting and validator flavours</B></P>
+<P>A FieldValidator that gets short-circuited will only prevent other 
+FieldValidators for the same field from being evaluated. Note that this 
+&quot;same field&quot; behavior applies regardless of whether the <VALIDATOR> or 
+<FIELD-VALIDATOR> syntax was used to declare the validation rule. 
+By way of example, given this -validation.xml file:</P></P></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=exScAndValidatorFlavours&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;validator type=<SPAN class="code-quote">&quot;required&quot;</SPAN> short-circuit=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;fieldName&quot;</SPAN>&gt;</SPAN>bar<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;message&gt;</SPAN>You must enter a value for bar.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validator&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;validator type=<SPAN class="code-quote">&quot;expression&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;expression&quot;</SPAN>&gt;</SPAN>foo gt bar<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+  <SPAN class="code-tag">&lt;message&gt;</SPAN>foo must be great than bar.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validator&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=scAndValidatorFlavours2&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P><P>both validators will be run, even if the &quot;required&quot; validator short-circuits.
+&quot;required&quot; validators are FieldValidator&apos;s and will not short-circuit the plain 
+ExpressionValidator because FieldValidators only short-circuit other checks on 
+that same field. Since the plain Validator is not field specific, it is 
+not short-circuited.</P></P></TD></TR></TABLE>
+
+<H2><A name="Validation-HowValidatorsofanActionareFound"></A>How Validators of an Action are Found</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=howXworkFindsValidatorForAction&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Fbranches%2Fxwork_1-2%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork%2Fvalidator%2FValidator.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><P><P>As mentioned above, the framework will also search up the inheritance tree 
+of the action to find default validations for interfaces and parent classes of 
+the Action. If you are using the short-circuit attribute and relying on 
+default validators higher up in the inheritance tree, make sure you don&apos;t 
+accidentally short-circuit things higher in the tree that you really want!</P></P></TD></TR></TABLE>
+
+<H2><A name="Validation-Resources"></A>Resources </H2>
+
+<P><SPAN class="nobr"><A href="http://today.java.net/pub/a/today/2006/01/19/webwork-validation.html" title="Visit page outside Confluence" rel="nofollow">WebWork Validation<SUP><IMG class="rendericon" src="../confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></P>
+
+<H2><A name="Validation-Next%3ALocalizationLocalization"></A>Next: <A href="localization.html" title="Localization">Localization</A></H2>
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="client-validation.html" title="Client Validation">Client Validation</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="email-validator.html" title="email validator">email validator</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="using-visitor-field-validator.html" title="Using Visitor Field Validator">Using Visitor Field Validator</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="stringlength-validator.html" title="stringlength validator">stringlength validator</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="fieldexpression-validator.html" title="fieldexpression validator">fieldexpression validator</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="client-side-validation.html" title="Client Side Validation">Client Side Validation</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="using-field-validators.html" title="Using Field Validators">Using Field Validators</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="url-validator.html" title="url validator">url validator</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="date-validator.html" title="date validator">date validator</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="required-validator.html" title="required validator">required validator</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="visitor-validator.html" title="visitor validator">visitor validator</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="basic-validation.html" title="Basic Validation">Basic Validation</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="expression-validator.html" title="expression validator">expression validator</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="conversion-validator.html" title="conversion validator">conversion validator</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="int-validator.html" title="int validator">int validator</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="regex-validator.html" title="regex validator">regex validator</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="using-non-field-validators.html" title="Using Non Field Validators">Using Non Field Validators</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="requiredstring-validator.html" title="requiredstring validator">requiredstring validator</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+
+<!-- Mirrored from cwiki.apache.org/WW/validation.html by HTTrack Website Copier/3.x [XR&CO'2005], Tue, 10 Oct 2006 21:20:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</HTML>

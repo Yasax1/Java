@@ -1,0 +1,196 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Text tag</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Text%20tag" title="Text tag">Text tag</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Text tag</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14162">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14162">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14162">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14162">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14162">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14162">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=casey">casey</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 05, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14162&originalId=23501">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+
+<H3><A name="Texttag-%3Cww%3Atext%2F%3E"></A>&lt;ww:text /&gt;</H3>
+
+<P>Print out an internationalized string. It is used in conjuction with the i18n tag. The text tag gets a specific message from the bundle specified in the surrounding i18n tag. Values can be passed into the message for parsing, for instance to format a date or currency. If the text tag is not used in conjuction with a i18n tag, it will search through the class hierarchy. Please look at <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Localization&linkCreation=true&fromPageId=14162" title="Create Page: Localization" class="createlink">Localization<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> for more details.</P>
+
+<P><B>Attributes</B></P>
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">	Name			</TH>
+<TH class="confluenceTh">	Required	</TH>
+<TH class="confluenceTh">	Description	</TH>
+</TR>
+<TR>
+<TD class="confluenceTd">	name 			</TD>
+<TD class="confluenceTd">	<B>yes</B>		</TD>
+<TD class="confluenceTd">	Name of property to fetch	</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">	id 			</TD>
+<TD class="confluenceTd">	no		</TD>
+<TD class="confluenceTd">	When specified, causes output to be stored in the ActionContext using the id as the key rather than printing out the text	</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">	value0			</TD>
+<TD class="confluenceTd">	no			</TD>
+<TD class="confluenceTd">	Pass data to param 0 in message	</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">	value1			</TD>
+<TD class="confluenceTd">	no			</TD>
+<TD class="confluenceTd">	Pass data to param 1 in message	</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">	value2			</TD>
+<TD class="confluenceTd">	no			</TD>
+<TD class="confluenceTd">	Pass data to param 2 in message	</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">	value3			</TD>
+<TD class="confluenceTd">	no			</TD>
+<TD class="confluenceTd">	Pass data to param 3 in message	</TD>
+</TR>
+</TBODY></TABLE>
+
+<P><B>Sample Usages</B></P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">Accessing messages from a given bundle (the i18n Shop example bundle in this case)<SPAN class="code-tag">&lt;br&gt;</SPAN>
+<SPAN class="code-tag">&lt;ww:i18n name=<SPAN class="code-quote">&quot;&apos;webwork.action.test.i18n.Shop&apos;&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;ww:text name=<SPAN class="code-quote">&quot;&apos;main.title&apos;&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ww:i18n&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;ww:i18n id=<SPAN class="code-quote">&quot;foo&quot;</SPAN> name=<SPAN class="code-quote">&quot;&apos;webwork.action.test.i18n.Shop&apos;&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;ww:text name=<SPAN class="code-quote">&quot;&apos;main.title&apos;&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ww:i18n&gt;</SPAN>
+<SPAN class="code-tag">&lt;ww:property value=<SPAN class="code-quote">&quot;#foo&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>Note that instead of using value0..value4, you may also:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;ww:text name=<SPAN class="code-quote">&quot;&apos;someKey&apos;&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;ww:param value=<SPAN class="code-quote">&quot;&apos;Hello&apos;&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ww:text&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>OR</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;ww:text name=<SPAN class="code-quote">&quot;&apos;someKey&apos;&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;ww:param&gt;</SPAN>Hello<SPAN class="code-tag">&lt;/ww:param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ww:text&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<BLOCKQUOTE><P>The last format is particularly good when you are embedding HTML in to the message, since you don&apos;t need to worry about escaping the various quotes that might be there.</P></BLOCKQUOTE>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

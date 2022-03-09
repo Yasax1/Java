@@ -1,0 +1,738 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Validation Examples</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Validation%20Examples" title="Validation Examples">Validation Examples</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Validation Examples</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13852">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13852">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13852">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13852">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13852">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13852">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=jcarreira">jcarreira</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Feb 12, 2007
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=13852&originalId=45394">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+
+<P>Included in the <A href="home.html" title="Home">Home</A> example war file is an example of using the <SPAN class="error">&#91;XW:Validation Framework&#93;</SPAN> in WebWork2. This example consists of links which all use the same Action Class and view pages (Velocity, Freemarker and Jsp).</P>
+
+<H2><A name="ValidationExamples-Thesources"></A>The sources</H2>
+
+<P>First, I had to add the <B>validators.xml</B> file to the root of the source tree for the example app</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;validators&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;required&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.RequiredFieldValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.RequiredStringValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;int&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.IntRangeFieldValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;date&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.DateRangeFieldValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;expression&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.ExpressionValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;fieldexpression&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.FieldExpressionValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;email&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.EmailValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;url&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.URLValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;visitor&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.VisitorFieldValidator&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator name=<SPAN class="code-quote">&quot;regex&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.xwork.validator.validators.RegexFieldValidator&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validators&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>The Action class used by all of the validation examples is <B>ValidatedAction</B></P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.opensymphony.webwork.example;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionSupport;
+
+/**
+ * ValidatedAction
+ * @author Jason Carreira
+ * Created Sep 12, 2003 9:23:38 PM
+ */
+<SPAN class="code-keyword">public</SPAN> class ValidatedAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+    <SPAN class="code-keyword">private</SPAN> ValidatedBean bean = <SPAN class="code-keyword">new</SPAN> ValidatedBean();
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> name;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> validationAction = <SPAN class="code-quote">&quot;basicValidation.action&quot;</SPAN>;
+
+    <SPAN class="code-keyword">public</SPAN> ValidatedBean getBean() {
+        <SPAN class="code-keyword">return</SPAN> bean;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setBean(ValidatedBean bean) {
+        <SPAN class="code-keyword">this</SPAN>.bean = bean;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getName() {
+        <SPAN class="code-keyword">return</SPAN> name;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setName(<SPAN class="code-object">String</SPAN> name) {
+        <SPAN class="code-keyword">this</SPAN>.name = name;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getValidationAction() {
+        <SPAN class="code-keyword">return</SPAN> validationAction;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setValidationAction(<SPAN class="code-object">String</SPAN> validationAction) {
+        <SPAN class="code-keyword">this</SPAN>.validationAction = validationAction;
+    }
+}</PRE>
+</DIV></DIV>
+
+
+<P>The base validation file for the ValidatedAction is <B>ValidatedAction-validation.xml</B></P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;!DOCTYPE validators PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork Validator 1.0//EN&quot;</SPAN> <SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-validator-1.0.dtd&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;validators&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator type=<SPAN class="code-quote">&quot;expression&quot;</SPAN>&gt;</SPAN>
+	<SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;expression&quot;</SPAN>&gt;</SPAN><SPAN class="code-tag">&lt;![CDATA[(name!=null &amp;&amp; name.startsWith(<SPAN class="code-quote">&quot;A&quot;</SPAN>))]]&gt;</SPAN><SPAN class="code-tag">&lt;/param&gt;</SPAN>
+	<SPAN class="code-tag">&lt;message&gt;</SPAN>Name Must Not Be Null And Starts With A<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/validator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;name&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message&gt;</SPAN>You must enter a name.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validators&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>This and all other validation files are placed in the same package as the classes to which they apply.</P>
+
+<P>The form for this Action is <B>validationForm.vm</B></P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;html&gt;</SPAN>
+    <SPAN class="code-tag">&lt;head&gt;</SPAN><SPAN class="code-tag">&lt;title&gt;</SPAN>Webwork Validation Example<SPAN class="code-tag">&lt;/title&gt;</SPAN><SPAN class="code-tag">&lt;/head&gt;</SPAN>
+    <SPAN class="code-tag">&lt;body&gt;</SPAN>
+    #if( $actionErrors.size() &gt; 0 )
+      <SPAN class="code-tag">&lt;p&gt;</SPAN>
+        <SPAN class="code-tag">&lt;font color=<SPAN class="code-quote">&quot;red&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;b&gt;</SPAN>ERRORS:<SPAN class="code-tag">&lt;/b&gt;</SPAN><SPAN class="code-tag">&lt;br&gt;</SPAN>
+        <SPAN class="code-tag">&lt;ul&gt;</SPAN>
+           #foreach( $error in $actionErrors )
+               <SPAN class="code-tag">&lt;li&gt;</SPAN>$error<SPAN class="code-tag">&lt;/li&gt;</SPAN>
+           #end
+        <SPAN class="code-tag">&lt;/ul&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/font&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/p&gt;</SPAN>
+    #end
+      <SPAN class="code-tag">&lt;p&gt;</SPAN>
+      <SPAN class="code-tag">&lt;form name=<SPAN class="code-quote">&quot;myForm&quot;</SPAN> action=<SPAN class="code-quote">&quot;${validationAction}&quot;</SPAN> method=<SPAN class="code-quote">&quot;POST&quot;</SPAN>&gt;</SPAN>
+         <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;hidden&quot;</SPAN> name=<SPAN class="code-quote">&quot;validationAction&quot;</SPAN> value=<SPAN class="code-quote">&quot;${validationAction}&quot;</SPAN>/&gt;</SPAN>
+         Action Properties:
+         <SPAN class="code-tag">&lt;br&gt;</SPAN>
+         <SPAN class="code-tag">&lt;table&gt;</SPAN>
+            #tag( TextField <SPAN class="code-quote">&quot;label=Name&quot;</SPAN> <SPAN class="code-quote">&quot;name=name&quot;</SPAN> <SPAN class="code-quote">&quot;value=name&quot;</SPAN> )
+         <SPAN class="code-tag">&lt;/table&gt;</SPAN>
+            Bean Properties:
+            #if( $stack.findValue(<SPAN class="code-quote">&quot;fieldErrors&quot;</SPAN>) )
+               #set( $beanErrors = $stack.findValue(<SPAN class="code-quote">&quot;fieldErrors.get('bean')&quot;</SPAN>) )
+               #if( $beanErrors.size() &gt; 0 )
+                 <SPAN class="code-tag">&lt;br&gt;</SPAN>
+                 <SPAN class="code-tag">&lt;font color=<SPAN class="code-quote">&quot;red&quot;</SPAN>&gt;</SPAN>
+                 <SPAN class="code-tag">&lt;b&gt;</SPAN>Bean Errors:<SPAN class="code-tag">&lt;/b&gt;</SPAN><SPAN class="code-tag">&lt;br&gt;</SPAN>
+                 <SPAN class="code-tag">&lt;ul&gt;</SPAN>
+                 #foreach( $beanError in $beanErrors )
+                    <SPAN class="code-tag">&lt;li&gt;</SPAN>$beanError<SPAN class="code-tag">&lt;/li&gt;</SPAN>
+                 #end
+                 <SPAN class="code-tag">&lt;/ul&gt;</SPAN>
+                 <SPAN class="code-tag">&lt;/font&gt;</SPAN>
+               #end
+            #end
+         <SPAN class="code-tag">&lt;table&gt;</SPAN>
+            #tag( TextField <SPAN class="code-quote">&quot;label=Bean.Text&quot;</SPAN> <SPAN class="code-quote">&quot;name=bean.text&quot;</SPAN> <SPAN class="code-quote">&quot;value=bean.text&quot;</SPAN> )<SPAN class="code-tag">&lt;br&gt;</SPAN>
+            #tag( TextField <SPAN class="code-quote">&quot;label=Bean.Date&quot;</SPAN> <SPAN class="code-quote">&quot;name=bean.date&quot;</SPAN> <SPAN class="code-quote">&quot;value=bean.date&quot;</SPAN> )<SPAN class="code-tag">&lt;br&gt;</SPAN>
+            #tag( TextField <SPAN class="code-quote">&quot;label=Bean.Number&quot;</SPAN> <SPAN class="code-quote">&quot;name=bean.number&quot;</SPAN> <SPAN class="code-quote">&quot;value=bean.number&quot;</SPAN> )<SPAN class="code-tag">&lt;br&gt;</SPAN>
+            #tag( TextField <SPAN class="code-quote">&quot;label=Bean.Number2&quot;</SPAN> <SPAN class="code-quote">&quot;name=bean.number2&quot;</SPAN> <SPAN class="code-quote">&quot;value=bean.number2&quot;</SPAN> )<SPAN class="code-tag">&lt;br&gt;</SPAN>
+         <SPAN class="code-tag">&lt;/table&gt;</SPAN>
+         <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Test Validation&quot;</SPAN>/&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/form&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>The success page for these examples is a very simple page, <B>valid.vm</B></P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;html&gt;</SPAN>
+   <SPAN class="code-tag">&lt;head&gt;</SPAN><SPAN class="code-tag">&lt;title&gt;</SPAN>WebWork Validation Test: Valid<SPAN class="code-tag">&lt;/title&gt;</SPAN><SPAN class="code-tag">&lt;/head&gt;</SPAN>
+   <SPAN class="code-tag">&lt;body&gt;</SPAN>
+      Input was valid!
+    <SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>The form page in Freemarker syntax</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;html&gt;</SPAN>
+	<SPAN class="code-tag">&lt;head&gt;</SPAN><SPAN class="code-tag">&lt;title&gt;</SPAN>webwork validation<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+	<SPAN class="code-tag">&lt;body&gt;</SPAN>	
+		<SPAN class="code-tag">&lt;#if (actionErrors.size() &gt;</SPAN> 0)&gt;
+			<SPAN class="code-tag">&lt;p&gt;</SPAN>
+			<SPAN class="code-tag">&lt;font color=<SPAN class="code-quote">&quot;red&quot;</SPAN>&gt;</SPAN>
+			   <SPAN class="code-tag">&lt;b&gt;</SPAN>ERRORS:<SPAN class="code-tag">&lt;/b&gt;</SPAN><SPAN class="code-tag">&lt;br/&gt;</SPAN>
+			   <SPAN class="code-tag">&lt;ul&gt;</SPAN>
+				<SPAN class="code-tag">&lt;#list actionErrors as error&gt;</SPAN>
+					<SPAN class="code-tag">&lt;li&gt;</SPAN>${error}<SPAN class="code-tag">&lt;/li&gt;</SPAN>
+				<SPAN class="code-tag">&lt;/#list&gt;</SPAN>
+			   <SPAN class="code-tag">&lt;/ul&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/font&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/#if&gt;</SPAN>
+		<SPAN class="code-tag">&lt;p&gt;</SPAN>
+		<SPAN class="code-tag">&lt;form action=<SPAN class="code-quote">&quot;${validationAction}&quot;</SPAN> method=<SPAN class="code-quote">&quot;POST&quot;</SPAN>&gt;</SPAN>
+			<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;hidden&quot;</SPAN> name=<SPAN class="code-quote">&quot;validationAction&quot;</SPAN> value=<SPAN class="code-quote">&quot;${validationAction}&quot;</SPAN> /&gt;</SPAN>
+			<SPAN class="code-tag">&lt;#if (fieldErrors?keys?seq_contains(<SPAN class="code-quote">&quot;name&quot;</SPAN>))&gt;</SPAN>
+			   <SPAN class="code-tag">&lt;br/&gt;</SPAN>
+			   <SPAN class="code-tag">&lt;font color=<SPAN class="code-quote">&quot;red&quot;</SPAN>&gt;</SPAN>
+			      <SPAN class="code-tag">&lt;b&gt;</SPAN>Field Errors:<SPAN class="code-tag">&lt;/b&gt;</SPAN><SPAN class="code-tag">&lt;br/&gt;</SPAN>
+			      <SPAN class="code-tag">&lt;ul&gt;</SPAN>
+			      <SPAN class="code-tag">&lt;#list fieldErrors.name as fieldError&gt;</SPAN>
+			         <SPAN class="code-tag">&lt;li&gt;</SPAN>${fieldError}<SPAN class="code-tag">&lt;/li&gt;</SPAN>
+			      <SPAN class="code-tag">&lt;/#list&gt;</SPAN>
+			      <SPAN class="code-tag">&lt;/ul&gt;</SPAN>
+			   <SPAN class="code-tag">&lt;/font&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/#if&gt;</SPAN>
+			Action Properties:
+			<SPAN class="code-tag">&lt;br/&gt;</SPAN>
+			<SPAN class="code-tag">&lt;table&gt;</SPAN>
+				<SPAN class="code-tag">&lt;tr&gt;</SPAN><SPAN class="code-tag">&lt;td&gt;</SPAN>
+					Name:<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;name&quot;</SPAN> /&gt;</SPAN>
+				<SPAN class="code-tag">&lt;/td&gt;</SPAN><SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/table&gt;</SPAN>
+			Bean Properties:
+			&lt;#if ((fieldErrors?keys?seq_contains(<SPAN class="code-quote">&quot;bean.text&quot;</SPAN>)) || 
+			     (fieldErrors?keys?seq_contains(<SPAN class="code-quote">&quot;bean.date&quot;</SPAN>)) ||
+			     (fieldErrors?keys?seq_contains(<SPAN class="code-quote">&quot;bean.number&quot;</SPAN>)))&gt; 
+				<SPAN class="code-tag">&lt;br/&gt;</SPAN>
+				<SPAN class="code-tag">&lt;font color=<SPAN class="code-quote">&quot;red&quot;</SPAN>&gt;</SPAN>
+					<SPAN class="code-tag">&lt;b&gt;</SPAN>Bean Errors:<SPAN class="code-tag">&lt;/b&gt;</SPAN><SPAN class="code-tag">&lt;br/&gt;</SPAN>
+					<SPAN class="code-tag">&lt;ul&gt;</SPAN>
+					<SPAN class="code-tag">&lt;#if fieldErrors?keys?seq_contains(<SPAN class="code-quote">&quot;bean.text&quot;</SPAN>)&gt;</SPAN>
+				   	<SPAN class="code-tag">&lt;#list fieldErrors[<SPAN class="code-quote">&quot;bean.text&quot;</SPAN>] as beanTextError&gt;</SPAN>
+				   		<SPAN class="code-tag">&lt;li&gt;</SPAN>${beanTextError}<SPAN class="code-tag">&lt;/li&gt;</SPAN>
+				   	<SPAN class="code-tag">&lt;/#list&gt;</SPAN>
+				   	<SPAN class="code-tag">&lt;/#if&gt;</SPAN>
+				   	
+				   	<SPAN class="code-tag">&lt;#if fieldErrors?keys?seq_contains(<SPAN class="code-quote">&quot;bean.date&quot;</SPAN>)&gt;</SPAN>
+				   	<SPAN class="code-tag">&lt;#list fieldErrors[<SPAN class="code-quote">&quot;bean.date&quot;</SPAN>] as beanDateError&gt;</SPAN>
+				   	    <SPAN class="code-tag">&lt;li&gt;</SPAN>${beanDateError}<SPAN class="code-tag">&lt;/li&gt;</SPAN>
+				   	<SPAN class="code-tag">&lt;/#list&gt;</SPAN>
+				   	<SPAN class="code-tag">&lt;/#if&gt;</SPAN>
+				   	
+				   	<SPAN class="code-tag">&lt;#if fieldErrors?keys?seq_contains(<SPAN class="code-quote">&quot;bean.number&quot;</SPAN>)&gt;</SPAN>
+				   	<SPAN class="code-tag">&lt;#list fieldErrors[<SPAN class="code-quote">&quot;bean.number&quot;</SPAN>] as beanNumberError&gt;</SPAN>
+				   		<SPAN class="code-tag">&lt;li&gt;</SPAN>${beanNumberError}<SPAN class="code-tag">&lt;/li&gt;</SPAN>
+				   	<SPAN class="code-tag">&lt;/#list&gt;</SPAN>
+				   	<SPAN class="code-tag">&lt;/#if&gt;</SPAN>
+					<SPAN class="code-tag">&lt;/ul&gt;</SPAN>
+				<SPAN class="code-tag">&lt;/font&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/#if&gt;</SPAN>
+			<SPAN class="code-tag">&lt;table&gt;</SPAN>
+			   <SPAN class="code-tag">&lt;tr&gt;</SPAN><SPAN class="code-tag">&lt;td&gt;</SPAN>
+			   		Bean Text:<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;input&quot;</SPAN> name=<SPAN class="code-quote">&quot;bean.text&quot;</SPAN> /&gt;</SPAN>
+			   <SPAN class="code-tag">&lt;/td&gt;</SPAN><SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+			   <SPAN class="code-tag">&lt;tr&gt;</SPAN><SPAN class="code-tag">&lt;td&gt;</SPAN>
+			   		Bean Date:<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;input&quot;</SPAN> name=<SPAN class="code-quote">&quot;bean.date&quot;</SPAN> /&gt;</SPAN>
+			   <SPAN class="code-tag">&lt;/td&gt;</SPAN><SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+			   <SPAN class="code-tag">&lt;tr&gt;</SPAN><SPAN class="code-tag">&lt;td&gt;</SPAN>
+			   		Bean Number:<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;input&quot;</SPAN> name=<SPAN class="code-quote">&quot;bean.number&quot;</SPAN> /&gt;</SPAN>
+			   <SPAN class="code-tag">&lt;/td&gt;</SPAN><SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+			   <SPAN class="code-tag">&lt;tr&gt;</SPAN><SPAN class="code-tag">&lt;td&gt;</SPAN>
+			   		Bean Number2:<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;input&quot;</SPAN> name=<SPAN class="code-quote">&quot;bean.number2&quot;</SPAN> /&gt;</SPAN>
+			   <SPAN class="code-tag">&lt;/td&gt;</SPAN><SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/table&gt;</SPAN>
+			<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>The success page in Freemarker syntax</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;html&gt;</SPAN>
+	<SPAN class="code-tag">&lt;head&gt;</SPAN><SPAN class="code-tag">&lt;title&gt;</SPAN>webwork validation<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+	<SPAN class="code-tag">&lt;body&gt;</SPAN>	
+		Input was valid!
+	<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+
+<P>The form page in Jsp syntax</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;%@taglib prefix=<SPAN class="code-quote">&quot;ww&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/WEB-INF/webwork.tld&quot;</SPAN> %&gt;</SPAN>
+
+&lt;%@ page language=<SPAN class="code-quote">&quot;java&quot;</SPAN> contentType=<SPAN class="code-quote">&quot;text/html; charset=UTF-8&quot;</SPAN>
+    pageEncoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>%&gt;
+<SPAN class="code-tag">&lt;!DOCTYPE HTML PUBLIC <SPAN class="code-quote">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+<SPAN class="code-tag">&lt;meta http-equiv=<SPAN class="code-quote">&quot;Content-Type&quot;</SPAN> content=<SPAN class="code-quote">&quot;text/html; charset=UTF-8&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;title&gt;</SPAN>Webwork Validation<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;ww:if test=<SPAN class="code-quote">&quot;%{actionErrors.size &gt;</SPAN> 0}&quot;</SPAN>&gt;
+	<SPAN class="code-tag">&lt;p&gt;</SPAN>
+		<SPAN class="code-tag">&lt;font color=<SPAN class="code-quote">&quot;red&quot;</SPAN>&gt;</SPAN>
+		   <SPAN class="code-tag">&lt;b&gt;</SPAN>ERRORS:<SPAN class="code-tag">&lt;/b&gt;</SPAN><SPAN class="code-tag">&lt;br/&gt;</SPAN>
+		   <SPAN class="code-tag">&lt;ul&gt;</SPAN>
+		   	<SPAN class="code-tag">&lt;ww:iterator value=<SPAN class="code-quote">&quot;%{actionErrors}&quot;</SPAN>&gt;</SPAN>
+		   		<SPAN class="code-tag">&lt;li&gt;</SPAN><SPAN class="code-tag">&lt;ww:property /&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+		   	<SPAN class="code-tag">&lt;/ww:iterator&gt;</SPAN>
+		   <SPAN class="code-tag">&lt;/ul&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/font&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ww:if&gt;</SPAN>
+
+
+<SPAN class="code-tag">&lt;p&gt;</SPAN>
+	<SPAN class="code-tag">&lt;form action='&lt;ww:property value=<SPAN class="code-quote">&quot;%{validationAction}&quot;</SPAN>/&gt;</SPAN>' method=<SPAN class="code-quote">&quot;POST&quot;</SPAN>&gt;
+		<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;hidden&quot;</SPAN> name=<SPAN class="code-quote">&quot;validationAction&quot;</SPAN> value='&lt;ww:property value=<SPAN class="code-quote">&quot;%{validationAction}&quot;</SPAN> /&gt;</SPAN>' /&gt;
+		<SPAN class="code-tag">&lt;ww:if test=<SPAN class="code-quote">&quot;%{fieldErrors.get('name')!=null &amp;&amp; fieldErrors.get('name').size() &gt;</SPAN> 0}&quot;</SPAN>&gt;
+			<SPAN class="code-tag">&lt;br/&gt;</SPAN>
+			<SPAN class="code-tag">&lt;font color=<SPAN class="code-quote">&quot;red&quot;</SPAN>&gt;</SPAN>
+				<SPAN class="code-tag">&lt;b&gt;</SPAN>Field Errors:<SPAN class="code-tag">&lt;/b&gt;</SPAN><SPAN class="code-tag">&lt;br/&gt;</SPAN>
+				<SPAN class="code-tag">&lt;ul&gt;</SPAN>
+					<SPAN class="code-tag">&lt;ww:iterator value=<SPAN class="code-quote">&quot;%{fieldErrors.get('name')}&quot;</SPAN>&gt;</SPAN>
+						<SPAN class="code-tag">&lt;li&gt;</SPAN><SPAN class="code-tag">&lt;ww:property /&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+					<SPAN class="code-tag">&lt;/ww:iterator&gt;</SPAN>
+				<SPAN class="code-tag">&lt;/ul&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/font&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/ww:if&gt;</SPAN>
+		Action Properties:
+		<SPAN class="code-tag">&lt;br/&gt;</SPAN>
+		<SPAN class="code-tag">&lt;table&gt;</SPAN>
+			<SPAN class="code-tag">&lt;tr&gt;</SPAN><SPAN class="code-tag">&lt;td&gt;</SPAN>
+				Name:<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;name&quot;</SPAN> /&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/td&gt;</SPAN><SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/table&gt;</SPAN>
+		Bean Properties:	
+		<SPAN class="code-tag">&lt;ww:if test=&quot;%{ (fieldErrors.get('bean.text') != null &amp;&amp; fieldErrors.get('bean.text').size() &gt;</SPAN> 0) ||
+						(fieldErrors.get('bean.date') != null &amp;&amp; fieldErrors.get('bean.date').size() &gt; 0) ||
+						(fieldErrors.get('bean.number') != null &amp;&amp; fieldErrors.get('bean.number').size() &gt; 0)
+					 }&quot;&gt;
+			<SPAN class="code-tag">&lt;br/&gt;</SPAN>
+			<SPAN class="code-tag">&lt;font color=<SPAN class="code-quote">&quot;red&quot;</SPAN>&gt;</SPAN>
+				<SPAN class="code-tag">&lt;b&gt;</SPAN>Bean Errors:<SPAN class="code-tag">&lt;/b&gt;</SPAN><SPAN class="code-tag">&lt;br/&gt;</SPAN>
+				<SPAN class="code-tag">&lt;ul&gt;</SPAN>
+					<SPAN class="code-tag">&lt;ww:if test=<SPAN class="code-quote">&quot;%{fieldErrors.get('bean.text') != null &amp;&amp; fieldErrors.get('bean.text').size() &gt;</SPAN> 0}&quot;</SPAN>&gt;
+						<SPAN class="code-tag">&lt;ww:iterator value=<SPAN class="code-quote">&quot;%{fieldErrors.get('bean.text')}&quot;</SPAN>&gt;</SPAN>
+							<SPAN class="code-tag">&lt;li&gt;</SPAN><SPAN class="code-tag">&lt;ww:property /&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+						<SPAN class="code-tag">&lt;/ww:iterator&gt;</SPAN>
+					<SPAN class="code-tag">&lt;/ww:if&gt;</SPAN>
+					<SPAN class="code-tag">&lt;ww:if test=<SPAN class="code-quote">&quot;%{fieldErrors.get('bean.date') != null &amp;&amp; fieldErrors.get('bean.date').size() &gt;</SPAN> 0}&quot;</SPAN>&gt;
+						<SPAN class="code-tag">&lt;ww:iterator value=<SPAN class="code-quote">&quot;%{fieldErrors.get('bean.date')}&quot;</SPAN>&gt;</SPAN>
+							<SPAN class="code-tag">&lt;li&gt;</SPAN><SPAN class="code-tag">&lt;ww:property /&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+						<SPAN class="code-tag">&lt;/ww:iterator&gt;</SPAN>
+					<SPAN class="code-tag">&lt;/ww:if&gt;</SPAN>
+					<SPAN class="code-tag">&lt;ww:if test=<SPAN class="code-quote">&quot;%{fieldErrors.get('bean.number') != null &amp;&amp; fieldErrors.get('bean.number').size() &gt;</SPAN> 0}&quot;</SPAN>&gt;
+						<SPAN class="code-tag">&lt;ww:iterator value=<SPAN class="code-quote">&quot;%{fieldErrors.get('bean.number')}&quot;</SPAN>&gt;</SPAN>
+							<SPAN class="code-tag">&lt;li&gt;</SPAN><SPAN class="code-tag">&lt;ww:property /&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+						<SPAN class="code-tag">&lt;/ww:iterator&gt;</SPAN>
+					<SPAN class="code-tag">&lt;/ww:if&gt;</SPAN>
+				<SPAN class="code-tag">&lt;/ul&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/font&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/ww:if&gt;</SPAN>
+		<SPAN class="code-tag">&lt;table&gt;</SPAN>
+			<SPAN class="code-tag">&lt;tr&gt;</SPAN><SPAN class="code-tag">&lt;td&gt;</SPAN>
+			 		Bean Text:<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;input&quot;</SPAN> name=<SPAN class="code-quote">&quot;bean.text&quot;</SPAN> /&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/td&gt;</SPAN><SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+			<SPAN class="code-tag">&lt;tr&gt;</SPAN><SPAN class="code-tag">&lt;td&gt;</SPAN>
+			   		Bean Date:<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;input&quot;</SPAN> name=<SPAN class="code-quote">&quot;bean.date&quot;</SPAN> /&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/td&gt;</SPAN><SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+			<SPAN class="code-tag">&lt;tr&gt;</SPAN><SPAN class="code-tag">&lt;td&gt;</SPAN>
+			   		Bean Number:<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;input&quot;</SPAN> name=<SPAN class="code-quote">&quot;bean.number&quot;</SPAN> /&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/td&gt;</SPAN><SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+			<SPAN class="code-tag">&lt;tr&gt;</SPAN><SPAN class="code-tag">&lt;td&gt;</SPAN>
+			   		Bean Number2:<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;input&quot;</SPAN> name=<SPAN class="code-quote">&quot;bean.number2&quot;</SPAN> /&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/td&gt;</SPAN><SPAN class="code-tag">&lt;/tr&gt;</SPAN>
+			<SPAN class="code-tag">&lt;/table&gt;</SPAN>
+			<SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> /&gt;</SPAN>
+		<SPAN class="code-tag">&lt;/table&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/form&gt;</SPAN>
+<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+
+<P>The success page in Jsp Syntax</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;%@taglib prefix=<SPAN class="code-quote">&quot;ww&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/WEB-INF/webwork.tld&quot;</SPAN> %&gt;</SPAN>
+
+&lt;%@ page language=<SPAN class="code-quote">&quot;java&quot;</SPAN> contentType=<SPAN class="code-quote">&quot;text/html; charset=UTF-8&quot;</SPAN>
+    pageEncoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN>%&gt;
+<SPAN class="code-tag">&lt;!DOCTYPE HTML PUBLIC <SPAN class="code-quote">&quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+<SPAN class="code-tag">&lt;meta http-equiv=<SPAN class="code-quote">&quot;Content-Type&quot;</SPAN> content=<SPAN class="code-quote">&quot;text/html; charset=UTF-8&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;title&gt;</SPAN>Webwork Validation<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+   Input was valid!
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+
+
+
+<P>We'll look at any other example-specific configuration files as we get to them.</P>
+<H2><A name="ValidationExamples-BasicValidation"></A><A name="ValidationExamples-BasicValidation"></A> Basic Validation</H2>
+
+
+<P>The BasicValidation example is defined in the example <B>xwork.xml</B> file like this (for Velocity)</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;basicValidation&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.example.ValidatedAction&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validationWorkflowStack&quot;</SPAN>/&gt;</SPAN>
+
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;velocity&quot;</SPAN>&gt;</SPAN>valid.vm<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN> type=<SPAN class="code-quote">&quot;velocity&quot;</SPAN>&gt;</SPAN>validationForm.vm<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN> type=<SPAN class="code-quote">&quot;velocity&quot;</SPAN>&gt;</SPAN>validationForm.vm<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>The <B>xwork.xml</B> file if freemarker is used</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;basicValidation&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.example.ValidatedAction&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validationWorkflowStack&quot;</SPAN>/&gt;</SPAN>
+
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;freemarker&quot;</SPAN>&gt;</SPAN>valid.ftl<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN> type=<SPAN class="code-quote">&quot;freemarker&quot;</SPAN>&gt;</SPAN>validationForm.ftl<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN> type=<SPAN class="code-quote">&quot;freemarker&quot;</SPAN>&gt;</SPAN>validationForm.ftl<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN></PRE>
+</DIV></DIV>
+
+
+<P>The <B>xwork.xml</B> file if jsp is used</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;basicValidation&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.example.ValidatedAction&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validationWorkflowStack&quot;</SPAN>/&gt;</SPAN>
+
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>valid.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>validationForm.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>validationForm.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN></PRE>
+</DIV></DIV>
+
+
+
+<P>The <B>interceptor-ref</B> here, to <B>&quot;validationWorkflowStack&quot;</B>, is defined in webwork-default.xml and provides the parameter interceptors as well as the ValidationInterceptor (see <SPAN class="error">&#91;XW:Validation Framework&#93;</SPAN> and the DefaultWorkFlowInterceptor (see <SPAN class="error">&#91;XW:Interceptors#DefaultWorkflow&#93;</SPAN>). All of the parameters from the configuration file (there are none in this case) followed by the parameters from the request will be set onto the Action. Next, the validations will be run, and finally the DefaultWorkflow will be applied (see <SPAN class="error">&#91;XW:Interceptors#DefaultWorkflow&#93;</SPAN>).  </P>
+
+<P>This example is very simple, and the ValidatedAction-validation.xml file is the only set of Validations which will be applied. This means that the only validation done is that you enter some text for the name field. </P>
+<H2><A name="ValidationExamples-VisitorValidationExample"></A><A name="ValidationExamples-VisitorValidation"></A> Visitor Validation Example</H2>
+
+<P><EM>note: check out another <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=VisitorFieldValidatorExample&linkCreation=true&fromPageId=13852" title="Create Page: VisitorFieldValidatorExample" class="createlink">Visitor Field Validator Example <SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></EM>.</P>
+
+<P> The <B>ValidatedAction</B> holds a reference to a plain Java bean, <B>ValidatedBean</B>:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.opensymphony.webwork.example;
+
+<SPAN class="code-keyword">import</SPAN> java.util.Date;
+
+/**
+ * ValidatedBean
+ * @author Jason Carreira
+ * Created Sep 12, 2003 9:24:18 PM
+ */
+<SPAN class="code-keyword">public</SPAN> class ValidatedBean {
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> text;
+    <SPAN class="code-keyword">private</SPAN> Date date = <SPAN class="code-keyword">new</SPAN> Date(<SPAN class="code-object">System</SPAN>.currentTimeMillis());
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">int</SPAN> number;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">int</SPAN> number2;
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-keyword">final</SPAN> <SPAN class="code-object">int</SPAN> MAX_TOTAL = 12;
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getText() {
+        <SPAN class="code-keyword">return</SPAN> text;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setText(<SPAN class="code-object">String</SPAN> text) {
+        <SPAN class="code-keyword">this</SPAN>.text = text;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> Date getDate() {
+        <SPAN class="code-keyword">return</SPAN> date;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setDate(Date date) {
+        <SPAN class="code-keyword">this</SPAN>.date = date;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">int</SPAN> getNumber() {
+        <SPAN class="code-keyword">return</SPAN> number;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setNumber(<SPAN class="code-object">int</SPAN> number) {
+        <SPAN class="code-keyword">this</SPAN>.number = number;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">int</SPAN> getNumber2() {
+        <SPAN class="code-keyword">return</SPAN> number2;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setNumber2(<SPAN class="code-object">int</SPAN> number2) {
+        <SPAN class="code-keyword">this</SPAN>.number2 = number2;
+    }
+}</PRE>
+</DIV></DIV>
+
+<P>The base validation file for the ValidatedBean is <B>ValidatedBean-validation.xml</B></P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;!DOCTYPE validators PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork Validator 1.0//EN&quot;</SPAN> <SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-validator-1.0.dtd&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;validators&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;text&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message key=<SPAN class="code-quote">&quot;invalid.text&quot;</SPAN>&gt;</SPAN>Empty Text!<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;date&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;date&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;min&quot;</SPAN>&gt;</SPAN>01/01/1970<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message key=<SPAN class="code-quote">&quot;invalid.date&quot;</SPAN>&gt;</SPAN>Invalid Date!<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;number&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;int&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;min&quot;</SPAN>&gt;</SPAN>1<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+            <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;max&quot;</SPAN>&gt;</SPAN>10<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message key=<SPAN class="code-quote">&quot;invalid.number&quot;</SPAN>&gt;</SPAN>Invalid Number!<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validators&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>In the Visitor Validation Example, we add a <B>VisitorFieldValidator</B> to apply these validations to our <B>ValidatedBean</B>. The Action is defined in our <B>xwork.xml</B> file like this:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;visitorValidation&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.example.ValidatedAction&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validationWorkflowStack&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;validationAction&quot;</SPAN>&gt;</SPAN>visitorValidation.action<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>valid.vm<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>validationForm.vm<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN>&gt;</SPAN>validationForm.vm<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>Here we see a slight difference from the basic validation example above. I've added a static param to the Action which will be applied to the Action by the static-param interceptor. This parameter only sets the value for the action to post the form to for validation (see <B>validationForm.vm</B>). </P>
+
+<P>The Action name above, <EM>visitorValidation</EM> is mapped to another set of validations defined in the file <B>ValidatedAction-visitorValidation-validation.xml</B></P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;!DOCTYPE validators PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork Validator 1.0//EN&quot;</SPAN> <SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-validator-1.0.dtd&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;validators&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;bean&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;required&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message&gt;</SPAN>The bean must not be null.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;visitor&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message&gt;</SPAN>bean: <SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validators&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>This file is found automatically by the validation framework based on the class name (ValidatedAction), the action alias, which is used as the validation context (visitorValidation) and the standard suffix (-validation.xml) to form the filename <B>ValidatedAction-visitorValidation-validation.xml</B>.</P>
+
+<P>This file defines two validators for the &quot;bean&quot; field, a required validator which makes sure the bean is not null, and a VisitorFieldValidator. The VisitorFieldValidator will apply the validators for the <B>ValidatedBean</B> using the same validation context as is used in validating <B>ValidatedAction</B>, <EM>visitorValidation</EM>. It therefore looks for the validation files <B>ValidatedBean-validation.xml</B> (the default validations for the ValidatedBean) and <B>ValidatedBean-visitorValidation-validation.xml</B> (the validations specific to this validation context) , in that order.</P>
+
+<P>The <B>ValidatedBean-validation.xml</B> looks like this:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;!DOCTYPE validators PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork Validator 1.0//EN&quot;</SPAN> <SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-validator-1.0.dtd&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;validators&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;text&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;requiredstring&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message key=<SPAN class="code-quote">&quot;invalid.text&quot;</SPAN>&gt;</SPAN>Empty Text!<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;date&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;date&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;min&quot;</SPAN>&gt;</SPAN>01/01/1970<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message key=<SPAN class="code-quote">&quot;invalid.date&quot;</SPAN>&gt;</SPAN>Invalid Date!<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;number&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;int&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;min&quot;</SPAN>&gt;</SPAN>1<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+            <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;max&quot;</SPAN>&gt;</SPAN>10<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message key=<SPAN class="code-quote">&quot;invalid.number&quot;</SPAN>&gt;</SPAN>Invalid Number!<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validators&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>This file applies validations for three fields (text, date, and number) and gives message keys and default messages for each of them. These message keys will be used to look up messages from a resource bundle specific to the <B>ValidatedBean</B> class. In the same package as the <B>ValidatedBean</B> is a file named <B>ValidatedBean.properties</B></P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-none">invalid.date=You must enter a date after ${min}.
+invalid.text=You must enter some text.
+invalid.number=You must enter a number between ${min} and ${max}.
+invalid.total=The total of number and number2 must be less than $\{@com.opensymphony.webwork.example.ValidatedBean@MAX_TOTAL}.</PRE>
+</DIV></DIV>
+
+<P>These messages will be used for any errors added for the <B>ValidatedBean</B> using a message key. As you can see from the body of the messages, they can be parameterized with properties from the Bean, the Interceptor, and the Action (and they will be searched in that order). There is also an example of using a Static field <B>${@com.opensymphony.webwork.example.ValidatedBean@MAX_TOTAL}</B>.</P>
+
+<P>The <B>ValidatedBean-visitorValidation-validation.xml</B> file would define validations specific for the <EM>visitorValidation</EM> validation context, but it is not there, so it is ignored.</P>
+<H2><A name="ValidationExamples-VisitorValidationwiththeExpressionValidator"></A><A name="ValidationExamples-Expression"></A> Visitor Validation with the Expression Validator</H2>
+
+<P>The final example shows a similar setup to the previous visitor validation example. The <B>xwork.xml</B> configuration for this example is very similar to the <B>visitorValidation</B> example:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;expressionValidation&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.webwork.example.ValidatedAction&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;validationWorkflowStack&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;validationAction&quot;</SPAN>&gt;</SPAN>expressionValidation.action<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>valid.vm<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN>&gt;</SPAN>validationForm.vm<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN>&gt;</SPAN>validationForm.vm<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>The <B>ValidatedAction-expressionValidation-validation.xml</B> file defines the validations specific to this validation context:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;!DOCTYPE validators PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork Validator 1.0//EN&quot;</SPAN> <SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-validator-1.0.dtd&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;validators&gt;</SPAN>
+    <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;bean&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;required&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message&gt;</SPAN>The bean must not be null.<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+        <SPAN class="code-tag">&lt;field-validator type=<SPAN class="code-quote">&quot;visitor&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;context&quot;</SPAN>&gt;</SPAN>expression<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+            <SPAN class="code-tag">&lt;message&gt;</SPAN>bean: <SPAN class="code-tag">&lt;/message&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/field-validator&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/field&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validators&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>This is almost identical to the <B>ValidatedAction-visitorValidation-validation.xml</B> file, but shows an example of passing a context param to the <B>VisitorFieldValidator</B>. In this case, rather than using the same validation context as is used for the <B>ValidatedAction</B> (<EM>expressionValidation</EM>), it passes another context (<EM>expression</EM>) to be used instead. </P>
+
+<P>In this case, the validation context specific validations for the <B>ValidatedBean</B> is present, and it's named <B>ValidatedBean-expression-validation.xml</B></P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;!DOCTYPE validators PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork Validator 1.0//EN&quot;</SPAN> <SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-validator-1.0.dtd&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;validators&gt;</SPAN>
+    <SPAN class="code-tag">&lt;validator type=<SPAN class="code-quote">&quot;expression&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;expression&quot;</SPAN>&gt;</SPAN>@com.opensymphony.webwork.example.ValidatedBean@MAX_TOTAL &gt; (number + number2)<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+        <SPAN class="code-tag">&lt;message key=<SPAN class="code-quote">&quot;invalid.total&quot;</SPAN>&gt;</SPAN>Invalid total!<SPAN class="code-tag">&lt;/message&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/validator&gt;</SPAN>
+<SPAN class="code-tag">&lt;/validators&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>This adds an object-level (as opposed to field-level) ExpressionValidator which checks the total of the number and number2 fields against a static constant, and adds an error message if the total is more than the constant. </P>
+<H2><A name="ValidationExamples-AnoteabouterrormessageswiththeVisitorFieldValidator"></A><A name="ValidationExamples-ErrorMessages"></A> A note about error messages with the VisitorFieldValidator</H2>
+
+<P>With the VisitorFieldValidator, message field names are appended with the field name of the field in the Action. In this case, the fields &quot;<EM>text</EM>&quot;, &quot;<EM>date</EM>&quot;, and &quot;<EM>number</EM>&quot; in the <B>ValidatedBean</B> would be added as field error messages to the Action with field names &quot;<EM>bean.text</EM>&quot;, &quot;<EM>bean.date</EM>&quot;, and &quot;<EM>bean.number</EM>&quot;. The error messages added for the object-level ExpressionValidator applied in the last example will be added as field-level errors to the Action with the name &quot;<EM>bean</EM>&quot;.</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

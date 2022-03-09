@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?><project>
+  <parent>
+    <artifactId>struts-parent</artifactId>
+    <groupId>org.apache.struts</groupId>
+    <version>1.3.5</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.apache.struts</groupId>
+  <artifactId>struts-mailreader-dao</artifactId>
+  <name>Struts Mailreader DAO</name>
+  <version>1.3.5</version>
+  <description>Apache Struts</description>
+  <url>http://struts.apache.org</url>
+  <issueManagement>
+    <system>JIRA</system>
+    <url>http://issues.apache.org/struts/</url>
+  </issueManagement>
+  <ciManagement />
+  <inceptionYear>2000</inceptionYear>
+  <mailingLists>
+    <mailingList>
+      <name>Struts User List</name>
+      <subscribe>user-subscribe@struts.apache.org</subscribe>
+      <unsubscribe>user-unsubscribe@struts.apache.org</unsubscribe>
+      <post>user@struts.apache.org</post>
+      <archive>http://mail-archives.apache.org/mod_mbox/struts-user/</archive>
+      <otherArchives>
+        <otherArchive>http://struts.apache.org/mail.html#Archives</otherArchive>
+      </otherArchives>
+    </mailingList>
+    <mailingList>
+      <name>Struts Developer List</name>
+      <subscribe>dev-subscribe@struts.apache.org</subscribe>
+      <unsubscribe>dev-unsubscribe@struts.apache.org</unsubscribe>
+      <post>dev@struts.apache.org</post>
+      <archive>http://mail-archives.apache.org/mod_mbox/struts-dev/</archive>
+      <otherArchives>
+        <otherArchive>http://struts.apache.org/mail.html#Archives</otherArchive>
+      </otherArchives>
+    </mailingList>
+    <mailingList>
+      <name>Struts Commits List</name>
+      <subscribe>commits-subscribe@struts.apache.org</subscribe>
+      <unsubscribe>commits-unsubscribe@struts.apache.org</unsubscribe>
+      <archive>http://mail-archives.apache.org/mod_mbox/struts-commits/</archive>
+      <otherArchives>
+        <otherArchive>http://struts.apache.org/mail.html#Archives</otherArchive>
+      </otherArchives>
+    </mailingList>
+    <mailingList>
+      <name>Struts Issues List</name>
+      <subscribe>issues-subscribe@struts.apache.org</subscribe>
+      <unsubscribe>issues-unsubscribe@struts.apache.org</unsubscribe>
+      <archive>http://mail-archives.apache.org/mod_mbox/struts-issues/</archive>
+      <otherArchives>
+        <otherArchive>http://struts.apache.org/mail.html#Archives</otherArchive>
+      </otherArchives>
+    </mailingList>
+  </mailingLists>
+  <developers>
+    <developer>
+      <id>craigmcc</id>
+      <name>Craig R. McClanahan</name>
+      <email>craigmcc at apache.org</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>husted</id>
+      <name>Ted Husted</name>
+      <email>husted at apache.org</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>cedric</id>
+      <name>Cedric Dumoulin</name>
+      <email>cedric.dumoulin at lifl.fr</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>martinc</id>
+      <name>Martin Cooper</name>
+      <email>martinc at apache.org</email>
+      <roles>
+        <role>PMC Chair</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>jholmes</id>
+      <name>James Holmes</name>
+      <email>jholmes at apache.org</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>dmkarr</id>
+      <name>David M. Karr</name>
+      <email>dmkarr at apache.org</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>ekbush</id>
+      <name>Eddie Bush</name>
+      <email>ekbush at apache.org</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>dgraham</id>
+      <name>David Graham</name>
+      <email>dgraham at apache.org</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>jmitchell</id>
+      <name>James Mitchell</name>
+      <email>jmitchell at apache.org</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>mrdon</id>
+      <name>Don Brown</name>
+      <email>mrdon at apache.org</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>germuska</id>
+      <name>Joe Germuska</name>
+      <email>germuska at apache.org</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>niallp</id>
+      <name>Niall Pemberton</name>
+      <email>niallp at apache.org</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>hrabago</id>
+      <name>Hubert Rabago</name>
+      <email>hrabago at apache.org</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>dgeary</id>
+      <name>David Geary</name>
+      <email>dgeary at apache.org</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>wsmoak</id>
+      <name>Wendy Smoak</name>
+      <email>wsmoak at apache.org</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>gvanmatre</id>
+      <name>Gary VanMatre</name>
+      <email>gvanmatre at apache.org</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>schof</id>
+      <name>Sean Schofield</name>
+      <email>schof at apache.org</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>greddin</id>
+      <name>Greg Reddin</name>
+      <email>greddin at apache.org</email>
+      <roles>
+        <role>PMC Member</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>laurieh</id>
+      <name>Laurie Harper</name>
+      <email>laurieh at apache.org</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>rich</id>
+      <name>Richard Feit</name>
+      <email>rich at apache.org</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>jcarreira</id>
+      <name>Jason Carreira</name>
+      <email>jcarreira at apache.org</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>plightbo</id>
+      <name>Patrick Lightbody</name>
+      <email>plightbo at apache.org</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>apopescu</id>
+      <name>Alexandru Popescu</name>
+      <email>apopescu at apache.org</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>rgielen</id>
+      <name>Rene Gielen</name>
+      <email>rgielen at apache.org</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>hermanns</id>
+      <name>Rainer Hermanns</name>
+      <email>hermanns at apache.org</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>tmjee</id>
+      <name>Toby Jee</name>
+      <email>tmjee at apache.org</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>roughley</id>
+      <name>Ian Roughley</name>
+      <email>roughley at apache.org</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id></id>
+      <name>Paul Benedict</name>
+      <email></email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>mikus</id>
+      <name>Michael Jouravlev</name>
+      <email>mikus at apache.org</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>crazybob</id>
+      <name>Bob Lee</name>
+      <email>crazybob at apache.org</email>
+      <roles>
+        <role>Committer</role>
+      </roles>
+    </developer>
+  </developers>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+      <comments></comments>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:svn:http://svn.apache.org/repos/asf/struts/struts1/trunk/struts-mailreader-dao</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/struts/struts1/trunk/struts-mailreader-dao</developerConnection>
+    <url>http://svn.apache.org/viewcvs.cgi/struts/struts1/trunk/struts-mailreader-dao</url>
+  </scm>
+  <organization>
+    <name>Apache Software Foundation</name>
+    <url>http://www.apache.org/</url>
+  </organization>
+  <build>
+    <sourceDirectory>e:\svn\struts\STRUTS_1_3_5\mailreader-dao\src\main\java</sourceDirectory>
+    <scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
+    <testSourceDirectory>e:\svn\struts\STRUTS_1_3_5\mailreader-dao\src\test\java</testSourceDirectory>
+    <outputDirectory>e:\svn\struts\STRUTS_1_3_5\mailreader-dao\target\classes</outputDirectory>
+    <testOutputDirectory>e:\svn\struts\STRUTS_1_3_5\mailreader-dao\target\test-classes</testOutputDirectory>
+    <defaultGoal>install</defaultGoal>
+    <resources>
+      <resource>
+        <directory>e:\svn\struts\STRUTS_1_3_5\mailreader-dao\src\main\resources</directory>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>e:\svn\struts\STRUTS_1_3_5\mailreader-dao\src\test\resources</directory>
+      </testResource>
+    </testResources>
+    <directory>e:\svn\struts\STRUTS_1_3_5\mailreader-dao\target</directory>
+    <finalName>struts-mailreader-dao-1.3.5</finalName>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.4</source>
+            <target>1.4</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>2.0-beta-4</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.1-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <id>attach-javadoc</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.0</version>
+        <executions>
+          <execution>
+            <id>attach-source</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.2</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.1-20060630.030817-1</version>
+        <configuration>
+          <source>1.4</source>
+          <target>1.4</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.3-20060702.182529-3</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.0</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.1</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.2-SNAPSHOT</version>
+      </plugin>
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <id>pre-assembly</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-javadoc</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-source</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+  <repositories>
+    <repository>
+      <releases />
+      <snapshots />
+      <id>apache.snapshots</id>
+      <url>http://people.apache.org/repo/m2-snapshot-repository</url>
+    </repository>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Maven Repository Switchboard</name>
+      <url>http://repo1.maven.org/maven2</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots />
+      <id>Apache Snapshot Repository</id>
+      <url>http://people.apache.org/repo/m2-snapshot-repository</url>
+    </pluginRepository>
+    <pluginRepository>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Maven Plugin Repository</name>
+      <url>http://repo1.maven.org/maven2</url>
+    </pluginRepository>
+  </pluginRepositories>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.0.4</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-digester</groupId>
+      <artifactId>commons-digester</artifactId>
+      <version>1.6</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+  <reporting>
+    <outputDirectory>target/site</outputDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <configuration>
+          <configLocation>http://svn.apache.org/repos/asf/struts/maven/trunk/build/struts_checks.xml</configLocation>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-pmd-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jxr-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+  <distributionManagement>
+    <repository>
+      <id>apache.snapshots</id>
+      <name>Apache Development Snapshot (and Test Build) Repository</name>
+      <url>scp://people.apache.org/www/cvs.apache.org/maven-snapshot-repository</url>
+    </repository>
+    <snapshotRepository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>apache.snapshots</id>
+      <name>Apache Development Snapshot Repository</name>
+      <url>scp://people.apache.org/www/cvs.apache.org/maven-snapshot-repository</url>
+    </snapshotRepository>
+    <site>
+      <id>apache-site</id>
+      <url>scp://people.apache.org/www/struts.apache.org/1.x/struts-mailreader-dao</url>
+    </site>
+  </distributionManagement>
+  <properties>
+    <cargo.tomcat5x.home>c:/java/jakarta-tomcat-5.0.30</cargo.tomcat5x.home>
+    <ip.address>192.168.15.3</ip.address>
+    <cargo.tomcat4x.home>c:/java/jakarta-tomcat-4.1.31</cargo.tomcat4x.home>
+    <username>wsmoak</username>
+  </properties>
+</project>

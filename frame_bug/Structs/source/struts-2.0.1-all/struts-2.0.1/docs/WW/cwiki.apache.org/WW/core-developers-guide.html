@@ -1,0 +1,274 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  
+<!-- Mirrored from cwiki.apache.org/WW/core-developers-guide.html by HTTrack Website Copier/3.x [XR&CO'2005], Tue, 10 Oct 2006 21:20:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('../confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Core Developers Guide</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="#" title="Core Developers Guide">Core Developers Guide</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Core Developers Guide</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13945">
+            <IMG src="../confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13945">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="../confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;fromPageId=13945">
+            <IMG src="../confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;fromPageId=13945">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&amp;fromPageId=13945">
+            <IMG src="../confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&amp;fromPageId=13945">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=tm_jee">tm_jee</A> on Oct 10, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=13945&amp;originalId=27307">view change</A>)
+                      <SPAN id="show" class="inline-control-link"><A href="#" onclick="showComment(); return false;">show comment</A></SPAN>
+        <SPAN id="hide" class="inline-control-link" style="display:none;"><A href="#" onclick="hideComment(); return false;">hide comment</A></SPAN>
+          <DIV id="versionComment" class="noteMacro" style="display:none; padding: 5px;">
+      <B>Comment:</B>
+      added Profiling section<BR>
+      <SPAN class="smalltext"><A href="http://cwiki.apache.org/confluence/pages/viewpreviouspageversions.action?pageId=13945">View page history</A></SPAN>
+  </DIV>
+
+    <SCRIPT>
+      var show = document.getElementById('show');
+      var hide = document.getElementById('hide');
+      var versionComment = document.getElementById('versionComment');
+
+      function showComment(){
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+        versionComment.style.display = 'block';
+      }
+
+      function hideComment(){
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+        versionComment.style.display = 'none';
+      }
+
+    </SCRIPT>
+    
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+<P>In processing a request, the framework utilizes three key class types: Actions, Interceptors, and Results, which are configured using one or more XML documents (or Java 5 annotations).</P>
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd"><UL>
+	<LI>Essentials
+	<UL>
+		<LI><A href="application-servers.html" title="Application Servers">Application Servers</A></LI>
+		<LI><A href="architecture.html" title="Architecture">Architecture</A></LI>
+		<LI><A href="configuration-files.html" title="Configuration Files">Configuration Files</A>
+		<UL>
+			<LI><A href="webxml.html" title="web.xml">web.xml</A></LI>
+			<LI><A href="strutsxml.html" title="struts.xml">struts.xml</A></LI>
+			<LI><A href="strutsproperties.html" title="struts.properties">struts.properties</A></LI>
+			<LI><A href="struts-defaultxml.html" title="struts-default.xml">struts&#45;default.xml</A></LI>
+			<LI><A href="velocityproperties.html" title="velocity.properties">velocity.properties</A></LI>
+			<LI><A href="struts-defaultvm.html" title="struts-default.vm">struts&#45;default.vm</A></LI>
+		</UL>
+		</LI>
+		<LI><A href="struts-configuration-elements.html" title="Struts Configuration Elements">Struts Configuration Elements</A></LI>
+		<LI><A href="interceptors.html" title="Interceptors">Interceptors</A></LI>
+		<LI><A href="result-types.html" title="Result Types">Result Types</A></LI>
+	</UL>
+	</LI>
+	<LI><SPAN class="nobr"><A href="http://struts.apache.org/struts-action2/apidocs/index.html" title="Visit page outside Confluence" rel="nofollow">Javadoc<SUP><IMG class="rendericon" src="../confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> (API)</LI>
+</UL>
+</TD>
+<TD class="confluenceTd"><UL>
+	<LI>Advanced
+	<UL>
+		<LI><A href="type-conversion.html" title="Type Conversion">Type Conversion</A></LI>
+		<LI><A href="validation.html" title="Validation">Validation</A></LI>
+		<LI><A href="localization.html" title="Localization">Localization</A></LI>
+		<LI><A href="action-chaining.html" title="Action Chaining">Action Chaining</A></LI>
+		<LI><A href="actionmapper.html" title="ActionMapper">ActionMapper</A></LI>
+		<LI><A href="profiling.html" title="Profiling">Profiling</A></LI>
+	</UL>
+	</LI>
+	<LI><A href="dependency-injection.html" title="Dependency Injection">Dependency Injection</A>
+	<UL>
+		<LI><A href="spring.html" title="Spring">Spring</A></LI>
+	</UL>
+	</LI>
+	<LI>Portlets
+	<UL>
+		<LI><A href="portlet-tutorial.html" title="Portlet Tutorial">tutorial</A></LI>
+		<LI><A href="portlet-configuration.html" title="Portlet Configuration">configuration</A></LI>
+	</UL>
+	</LI>
+	<LI><A href="annotations.html" title="Annotations">Java 5 Support (Annotations)</A></LI>
+</UL>
+</TD>
+</TR>
+</TBODY></TABLE>
+
+
+<H2><A name="CoreDevelopersGuide-Next%3ATagDevelopersGuide"></A>Next: <A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A></H2>
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="architecture.html" title="Architecture">Architecture</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="dependency-injection.html" title="Dependency Injection">Dependency Injection</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="interceptors.html" title="Interceptors">Interceptors</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="related-tools.html" title="Related Tools">Related Tools</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="struts-maven-archetype.html" title="Struts Maven Archetype">Struts Maven Archetype</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="annotations.html" title="Annotations">Annotations</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="result-types.html" title="Result Types">Result Types</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="localization.html" title="Localization">Localization</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="struts-configuration-elements.html" title="Struts Configuration Elements">Struts Configuration Elements</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="type-conversion.html" title="Type Conversion">Type Conversion</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="actionmapper.html" title="ActionMapper">ActionMapper</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="configuration-files.html" title="Configuration Files">Configuration Files</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="application-servers.html" title="Application Servers">Application Servers</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="action-chaining.html" title="Action Chaining">Action Chaining</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="accessing-application-session-request-objects.html" title="Accessing application, session, request objects">Accessing application, session, request objects</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="spring.html" title="Spring">Spring</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="validation.html" title="Validation">Validation</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="portlet-configuration.html" title="Portlet Configuration">Portlet Configuration</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                          <A href="profiling.html" title="Profiling">Profiling</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+
+<!-- Mirrored from cwiki.apache.org/WW/core-developers-guide.html by HTTrack Website Copier/3.x [XR&CO'2005], Tue, 10 Oct 2006 21:20:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</HTML>

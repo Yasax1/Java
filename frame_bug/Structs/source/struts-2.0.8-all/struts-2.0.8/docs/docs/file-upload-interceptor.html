@@ -1,0 +1,248 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>File Upload Interceptor</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="interceptors.html" title="Interceptors">Interceptors</A>&nbsp;&gt;&nbsp;<A href="" title="File Upload Interceptor">File Upload Interceptor</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">File Upload Interceptor</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14299">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14299">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14299">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14299">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14299">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14299">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=neuro">neuro</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 03, 2006
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14299&originalId=23172">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<P>Interceptor that is based off of MultiPartRequestWrapper, which is automatically applied for any request that
+includes a file. It adds the following parameters, where [File Name] is the name given to the file uploaded by the
+HTML form:</P>
+
+<P><UL></P>
+
+<P><LI>[File Name] : File - the actual File</LI></P>
+
+<P><LI>[File Name]ContentType : String - the content type of the file</LI></P>
+
+<P><LI>[File Name]FileName : String - the actual name of the file uploaded (not the HTML name)</LI></P>
+
+<P></UL></P>
+
+<P><P> You can get access to these files by merely providing setters in your action that correspond to any of the three
+patterns above, such as setDocument(File document), setDocumentContentType(String contentType), etc.
+<BR>See the example code section.</P>
+
+<P><P> This interceptor will add several field errors, assuming that the action implements ValidationAware.
+These error messages are based on several i18n values stored in struts-messages.properties, a default i18n file
+processed for all i18n requests. You can override the text of these messages by providing text for the following
+keys:</P>
+
+<P><UL></P>
+
+<P><LI>struts.messages.error.uploading - a general error that occurs when the file could not be uploaded</LI></P>
+
+<P><LI>struts.messages.error.file.too.large - occurs when the uploaded file is too large</LI></P>
+
+<P><LI>struts.messages.error.content.type.not.allowed - occurs when the uploaded file does not match the expected
+content types specified</LI></P>
+
+<P></UL></P>
+
+
+<H2><A name="FileUploadInterceptor-Parameters"></A>Parameters</H2>
+
+
+<P><UL></P>
+
+<P><LI>maximumSize (optional) - the maximum size (in bytes) that the interceptor will allow a file reference to be set
+on the action. Note, this is <B>not</B> related to the various properties found in struts.properties.
+Default to approximately 2MB.</LI></P>
+
+<P><LI>allowedTypes (optional) - a comma separated list of content types (ie: text/html) that the interceptor will allow
+a file reference to be set on the action. If none is specified allow all types to be uploaded.</LI></P>
+
+<P></UL></P>
+
+
+<H2><A name="FileUploadInterceptor-ExtendingtheInterceptor"></A>Extending the Interceptor</H2>
+
+
+<P>You can extend this interceptor and override the #acceptFile method to provide more control over which files
+are supported and which are not.</P>
+
+
+<H2><A name="FileUploadInterceptor-Examples"></A>Examples</H2>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;doUpload&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.examples.UploadAction&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;fileUpload&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;basicStack&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>good_result.ftl<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+<SPAN class="code-tag">&lt;/pre&gt;</SPAN>
+
+And then you need to set encoding <SPAN class="code-tag">&lt;code&gt;</SPAN>multipart/form-data<SPAN class="code-tag">&lt;/code&gt;</SPAN> in the form where the user selects the file to upload.
+<SPAN class="code-tag">&lt;pre&gt;</SPAN>
+  <SPAN class="code-tag">&lt;a:form action=<SPAN class="code-quote">&quot;doUpload&quot;</SPAN> method=<SPAN class="code-quote">&quot;post&quot;</SPAN> enctype=<SPAN class="code-quote">&quot;multipart/form-data&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;a:file name=<SPAN class="code-quote">&quot;upload&quot;</SPAN> label=<SPAN class="code-quote">&quot;File&quot;</SPAN>/&gt;</SPAN>
+      <SPAN class="code-tag">&lt;a:submit/&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/a:form&gt;</SPAN>
+<SPAN class="code-tag">&lt;/pre&gt;</SPAN>
+
+And then in your action code you'll have access to the File object if you provide setters according to the
+naming convention documented in the start.
+
+<SPAN class="code-tag">&lt;pre&gt;</SPAN>
+   public com.examples.UploadAction implemements Action {
+      private File file;
+      private String contentType;
+      private String filename;
+
+      public void setUpload(File file) {
+         this.file = file;
+      }
+
+      public void setUploadContentType(String contentType) {
+         this.contentType = contentType;
+      }
+
+      public void setUploadFileName(String filename) {
+         this.filename = filename;
+      }
+
+      ...
+ }
+<SPAN class="code-tag">&lt;/pre&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>Setting parameters example:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;fileUpload&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;allowedTypes&quot;</SPAN>&gt;</SPAN>
+     image/png,image/gif,image/jpeg
+  <SPAN class="code-tag">&lt;/param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN></PRE>
+</DIV></DIV> 
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

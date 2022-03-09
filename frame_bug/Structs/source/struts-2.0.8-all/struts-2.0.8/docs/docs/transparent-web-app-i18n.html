@@ -1,0 +1,276 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Transparent web-app I18N</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Transparent%20web-app%20I18N" title="Transparent web-app I18N">Transparent web-app I18N</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Transparent web-app I18N</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14060">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14060">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14060">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14060">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14060">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14060">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=neuro">neuro</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 03, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14060&originalId=23132">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>As of WebWork 2.2, this interceptor is included with the normal distribution as the <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=I18n%20Interceptor&linkCreation=true&fromPageId=14060" title="Create Page: I18n Interceptor" class="createlink">I18n Interceptor<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></TD></TR></TABLE>
+
+<P>Consider adding transparent i18 with simple on-the-fly locale switching to your appliction via I18NInterceptor.</P>
+
+<P>The main idea:<BR>
+Interceptor could track locale switch requests, persist selection in current session and set locale for all (or appropriate) actions invoked.</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> neuro.util.xwork;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionInvocation;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.interceptor.Interceptor;
+
+<SPAN class="code-keyword">import</SPAN> java.util.Locale;
+
+<SPAN class="code-keyword">import</SPAN> org.apache.commons.logging.Log;
+<SPAN class="code-keyword">import</SPAN> org.apache.commons.logging.LogFactory;
+
+/**
+ * I18nInterceptor
+ * @author Aleksei Gopachenko
+ */
+<SPAN class="code-keyword">public</SPAN> class I18nInterceptor <SPAN class="code-keyword">implements</SPAN> Interceptor
+{
+    <SPAN class="code-keyword">protected</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-keyword">final</SPAN> Log log = LogFactory.getLog(I18nInterceptor.class);
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-keyword">final</SPAN> <SPAN class="code-object">String</SPAN> DEFAULT_SESSION_ATTRIBUTE = <SPAN class="code-quote">&quot;WW_TRANS_I18N_LOCALE&quot;</SPAN>;
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-keyword">final</SPAN> <SPAN class="code-object">String</SPAN> DEFAULT_PARAMETER = <SPAN class="code-quote">&quot;request_locale&quot;</SPAN>;
+
+    <SPAN class="code-keyword">protected</SPAN> <SPAN class="code-object">String</SPAN> parameterName = DEFAULT_PARAMETER;
+    <SPAN class="code-keyword">protected</SPAN> <SPAN class="code-object">String</SPAN> attributeName = DEFAULT_SESSION_ATTRIBUTE;
+
+    /**
+     */
+    <SPAN class="code-keyword">public</SPAN> I18nInterceptor()
+    {
+        <SPAN class="code-keyword">if</SPAN>(log.isDebugEnabled()) log.debug(<SPAN class="code-quote">&quot;<SPAN class="code-keyword">new</SPAN> I18nInterceptor()&quot;</SPAN>);
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setParameterName(<SPAN class="code-object">String</SPAN> parameterName) {
+        <SPAN class="code-keyword">this</SPAN>.parameterName = parameterName;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setAttributeName(<SPAN class="code-object">String</SPAN> attributeName) {
+        <SPAN class="code-keyword">this</SPAN>.attributeName = attributeName;
+    }
+
+    /**
+     */
+    <SPAN class="code-keyword">public</SPAN> void init() {
+        <SPAN class="code-keyword">if</SPAN>(log.isDebugEnabled()) log.debug(<SPAN class="code-quote">&quot;init()&quot;</SPAN>);
+    }
+
+    /**
+     */
+    <SPAN class="code-keyword">public</SPAN> void destroy() {
+        <SPAN class="code-keyword">if</SPAN>(log.isDebugEnabled()) log.debug(<SPAN class="code-quote">&quot;destroy()&quot;</SPAN>);
+    }
+
+    /**
+     */
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> intercept(ActionInvocation invocation) <SPAN class="code-keyword">throws</SPAN> Exception {
+        <SPAN class="code-keyword">if</SPAN>(log.isDebugEnabled()) log.debug(<SPAN class="code-quote">&quot;intercept &apos;&quot;</SPAN>
+            +invocation.getProxy().getNamespace()+<SPAN class="code-quote">&quot;/&quot;</SPAN>
+            +invocation.getProxy().getActionName()+<SPAN class="code-quote">&quot;&apos; { &quot;</SPAN>);
+
+        <SPAN class="code-comment">//get requested locale
+</SPAN>        <SPAN class="code-object">Object</SPAN> requested_locale = invocation.getInvocationContext().getParameters().get(parameterName);
+        <SPAN class="code-keyword">if</SPAN>(requested_locale!=<SPAN class="code-keyword">null</SPAN> &amp;&amp; requested_locale.getClass().isArray() &amp;&amp; ((<SPAN class="code-object">Object</SPAN>[])requested_locale).length==1) {
+            requested_locale=((<SPAN class="code-object">Object</SPAN>[])requested_locale)[0];
+        }
+        <SPAN class="code-keyword">if</SPAN>(log.isDebugEnabled()) log.debug(<SPAN class="code-quote">&quot;requested_locale=&quot;</SPAN>+requested_locale);
+        <SPAN class="code-comment">//save it in session
+</SPAN>        <SPAN class="code-keyword">if</SPAN> (requested_locale!=<SPAN class="code-keyword">null</SPAN>) {
+            Locale locale = (requested_locale <SPAN class="code-keyword">instanceof</SPAN> Locale)? 
+              (Locale) requested_locale : localeFromString(requested_locale.toString());
+            <SPAN class="code-keyword">if</SPAN>(log.isDebugEnabled()) log.debug(<SPAN class="code-quote">&quot;store locale=&quot;</SPAN>+locale);
+            <SPAN class="code-keyword">if</SPAN>(locale!=<SPAN class="code-keyword">null</SPAN>)invocation.getInvocationContext().getSession().put(attributeName,locale);
+        }
+        <SPAN class="code-comment">//set locale <SPAN class="code-keyword">for</SPAN> action
+</SPAN>        <SPAN class="code-object">Object</SPAN> locale = invocation.getInvocationContext().getSession().get(attributeName);
+        <SPAN class="code-keyword">if</SPAN> (locale!=<SPAN class="code-keyword">null</SPAN> &amp;&amp; locale <SPAN class="code-keyword">instanceof</SPAN> Locale) {
+            <SPAN class="code-keyword">if</SPAN>(log.isDebugEnabled()) log.debug(<SPAN class="code-quote">&quot;apply locale=&quot;</SPAN>+locale);
+            invocation.getInvocationContext().setLocale((Locale)locale);
+        }
+
+        <SPAN class="code-keyword">if</SPAN>(log.isDebugEnabled()) log.debug(<SPAN class="code-quote">&quot;before Locale=&quot;</SPAN>+((ActionSupport)invocation.getAction()).getLocale());
+        <SPAN class="code-keyword">final</SPAN> <SPAN class="code-object">String</SPAN> result = invocation.invoke();
+        <SPAN class="code-keyword">if</SPAN>(log.isDebugEnabled()) log.debug(<SPAN class="code-quote">&quot;after Locale=&quot;</SPAN>+((ActionSupport)invocation.getAction()).getLocale());
+
+        <SPAN class="code-keyword">if</SPAN>(log.isDebugEnabled()) log.debug(<SPAN class="code-quote">&quot;intercept } &quot;</SPAN>);
+        <SPAN class="code-keyword">return</SPAN> result;
+    }
+
+    Locale localeFromString(<SPAN class="code-object">String</SPAN> localeStr) {
+        <SPAN class="code-keyword">if</SPAN> ((localeStr == <SPAN class="code-keyword">null</SPAN>) || (localeStr.trim().length() == 0) || (localeStr.equals(<SPAN class="code-quote">&quot;_&quot;</SPAN>))) {
+            <SPAN class="code-keyword">return</SPAN> Locale.getDefault();
+        }
+        <SPAN class="code-object">int</SPAN> index = localeStr.indexOf(&apos;_&apos;);
+        <SPAN class="code-keyword">if</SPAN> (index &lt; 0) {
+            <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">new</SPAN> Locale(localeStr);
+        }
+        <SPAN class="code-object">String</SPAN> language = localeStr.substring(0,index);
+        <SPAN class="code-keyword">if</SPAN> (index == localeStr.length()) {
+            <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">new</SPAN> Locale(language);
+        }
+        localeStr = localeStr.substring(index +1);
+        index = localeStr.indexOf(&apos;_&apos;);
+        <SPAN class="code-keyword">if</SPAN> (index &lt; 0) {
+            <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">new</SPAN> Locale(language,localeStr);
+        }
+        <SPAN class="code-object">String</SPAN> country = localeStr.substring(0,index);
+        <SPAN class="code-keyword">if</SPAN> (index == localeStr.length()) {
+            <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">new</SPAN> Locale(language,country);
+        }
+        localeStr = localeStr.substring(index +1);
+        <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">new</SPAN> Locale(language,country,localeStr);
+    }
+
+}</PRE>
+</DIV></DIV>
+<P>Can be enabled for whole package via something like:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;interceptor name=<SPAN class="code-quote">&quot;i18n&quot;</SPAN> class=<SPAN class="code-quote">&quot;neuro.util.xwork.I18nInterceptor&quot;</SPAN>&gt;
+    &lt;!-- on which request parameter we should react, optional, defaults to <SPAN class="code-quote">&quot;request_locale&quot;</SPAN> -&gt;
+    &lt;param name=<SPAN class="code-quote">&quot;parameterName&quot;</SPAN>&gt;set_locale&lt;/param&gt;
+    &lt;!- under which session attribute locale should be stored, optional, defaults to <SPAN class="code-quote">&quot;WW_TRANS_I18N_LOCALE&quot;</SPAN> -&gt;
+    &lt;param name=<SPAN class="code-quote">&quot;attributeName&quot;</SPAN>&gt;ww_locale&lt;/param&gt;
+&lt;/interceptor&gt;
+
+&lt;interceptor-stack name=<SPAN class="code-quote">&quot;i18nStack&quot;</SPAN>&gt;
+    &lt;interceptor-ref name=<SPAN class="code-quote">&quot;i18n&quot;</SPAN>/&gt;
+    &lt;interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN>/&gt;
+&lt;/interceptor-stack&gt;
+
+&lt;<SPAN class="code-keyword">default</SPAN>-interceptor-ref name=<SPAN class="code-quote">&quot;i18nStack&quot;</SPAN>/&gt;</PRE>
+</DIV></DIV>
+<P>...and invoked in web-app just by adding few links to menu:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;a href=<SPAN class="code-quote">&quot;?set_locale=en&quot;</SPAN>&gt;EN&lt;/a&gt;
+&lt;a href=<SPAN class="code-quote">&quot;?set_locale=ru&quot;</SPAN>&gt;RU&lt;/a&gt;
+&lt;!- etc --&gt;</PRE>
+</DIV></DIV>
+<P>Of course you still need to move all explisitly defined messages or labels to appropriate ResourceBundles and make translations. Be sure to check out your</P>
+<UL>
+	<LI>Actions - to use getText(...)</LI>
+	<LI>*-validation.xml files - to use &lt;message <EM>key</EM>=...&gt;</LI>
+	<LI>results/views - to use WW i18n services by &lt;webwork:text ...&gt; tag, or directly by evaluating getText(...) OGNL expression on current stack.</LI>
+</UL>
+
+
+
+<P><EM>If this Interceptor is generally useful, may be it should go into codebase?</EM></P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

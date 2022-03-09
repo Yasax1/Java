@@ -1,0 +1,177 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Understanding Results</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="step-by-step.html" title="Step by Step">Step by Step</A>&nbsp;&gt;&nbsp;<A href="" title="Understanding Results">Understanding Results</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Understanding Results</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13886">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13886">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13886">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13886">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13886">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13886">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=victorsosa">victorsosa</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 04, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=13886&originalId=23345">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+<P>After the Action processes the request, a result is selected to provide the response. A result may simply forward to a HTML page, or a JavaServer page, a FreeMaker or Velocity template, or the result might construct a PDF or some other complex report. There may be multiple results available to an action mapping. To indicate which one to select, the Action class returns a name corresponding to the appropriate result.</P>
+<DIV class="code"><DIV class="codeHeader"><B>struts.xml</B></DIV><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;helloName2&quot;</SPAN> class=<SPAN class="code-quote">&quot;tutorial.HelloName2&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>HelloName2-success.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN>&gt;</SPAN>HelloName-error.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>So far, our results have used the default type, <TT>Dispatcher</TT>. The <TT>Dispatcher</TT> forwards to another web resource. Other kinds of views can be used by specifying a different result type.</P>
+
+<H2><A name="UnderstandingResults-ConfiguringResultTypes"></A>Configuring Result Types</H2>
+
+<P>The <TT>struts-default</TT> package defines result types for the Result classes provided with the framework. If your package uses a custom result type, you can add it to your package.</P>
+
+<DIV class="code"><DIV class="codeHeader"><B>struts.xml</B></DIV><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;xwork&gt;</SPAN>
+   <SPAN class="code-tag">&lt;include name=<SPAN class="code-quote">&quot;struts-default.xml&quot;</SPAN>/&gt;</SPAN>
+   <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+
+      <SPAN class="code-tag">&lt;result-types&gt;</SPAN>
+        <SPAN class="code-tag">&lt;result-type name=<SPAN class="code-quote">&quot;Image&quot;</SPAN> class=<SPAN class="code-quote">&quot;tutorial.ImageResult&quot;</SPAN> /&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/result-types&gt;</SPAN>
+
+      <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;Image&quot;</SPAN> class=<SPAN class="code-quote">&quot;tutorial.Image&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;Image&quot;</SPAN>/&gt;</SPAN>
+     <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+   <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/xwork&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H2><A name="UnderstandingResults-ConfiguringGlobalResults"></A>Configuring Global Results</H2>
+
+<P>It&apos;s not unusual for mappings to share a need for the same result. For example, if your application is secure, then many mappings might need to return &quot;login&quot; if the security check fails. Rather than define a common result in every action mapping, the framework lets you define global results.</P>
+<DIV class="code"><DIV class="codeHeader"><B>struts.xml</B></DIV><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+   <SPAN class="code-tag">&lt;global-results&gt;</SPAN>
+      <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;login&quot;</SPAN> type=<SPAN class="code-quote">&quot;redirect-action&quot;</SPAN>&gt;</SPAN>login<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+      <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;unauthorized&quot;</SPAN>&gt;</SPAN>Unauthorized.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+   <SPAN class="code-tag">&lt;/global-results&gt;</SPAN>
+   <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- other package declarations --&gt;</SPAN></SPAN>
+<SPAN class="code-tag">&lt;/package&gt;</SPAN></PRE>
+</DIV></DIV>
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">Global Absolutes</B><BR>
+<P>Because global results are searched after local results, you can override any global result mapping by creating a local result mapping. Results can indicate resources using relative or absolute URIs. Because you may not know the context in which a result is being invoked, it&apos;s best to use absolute paths for global results.</P></TD></TR></TABLE>
+
+<H2><A name="UnderstandingResults-Summary"></A>Summary</H2>
+
+<P>The framework offers a variety of result types. An Action can select the appropriate result by name, without actually knowing what result type will be rendered. If a result is needed by multiple action mappings, it can be defined once as a global result.</P>
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Next </TH>
+<TD class="confluenceTd"> Onward to <A href="understanding-interceptors.html" title="Understanding Interceptors">Understanding Interceptors</A> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Prev </TH>
+<TD class="confluenceTd"> Return to <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Coding%20Actions&linkCreation=true&fromPageId=13886" title="Create Page: Coding Actions" class="createlink">Coding Actions<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> </TD>
+</TR>
+</TBODY></TABLE>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

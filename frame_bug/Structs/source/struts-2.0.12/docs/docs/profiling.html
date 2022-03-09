@@ -1,0 +1,319 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Profiling</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Profiling">Profiling</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Profiling</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=27308">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=27308">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27308">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=27308">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27308">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=27308">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=tm_jee">tm_jee</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=newton.dave@yahoo.com">Dave Newton</A> on Feb 16, 2008
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=27308&originalId=76761">view change</A>)
+                      <SPAN id="show" class="inline-control-link"><A href="" onclick="showComment(); return false;">show comment</A></SPAN>
+        <SPAN id="hide" class="inline-control-link" style="display:none;"><A href="" onclick="hideComment(); return false;">hide comment</A></SPAN>
+          <DIV id="versionComment" class="noteMacro" style="display:none; padding: 5px;">
+      <B>Comment:</B>
+      Minor (XWork JavaDoc change)<BR>
+      <SPAN class="smalltext"><A href="http://cwiki.apache.org/confluence/pages/viewpreviouspageversions.action?pageId=27308">View page history</A></SPAN>
+  </DIV>
+
+    <SCRIPT>
+      var show = document.getElementById('show');
+      var hide = document.getElementById('hide');
+      var versionComment = document.getElementById('versionComment');
+
+      function showComment(){
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+        versionComment.style.display = 'block';
+      }
+
+      function hideComment(){
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+        versionComment.style.display = 'none';
+      }
+
+    </SCRIPT>
+    
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>Profiling software looks for bottlenecks in program execution. In addition to the profiling services provided by IDEs and standalone profilers, the framework provides its own internal support for profiling. </P>
+
+<H2><A name="Profiling-Profilingaspects"></A>Profiling aspects </H2>
+
+<P>Struts2 profiling aspects involves the following :-
+<UL>
+  <LI>ActionContextCleanUp</LI>
+  <LI>FreemarkerPageFilter</LI>
+  <LI>DispatcherFilter</LI>
+  <UL>
+     <LI>Dispatcher</LI>
+     <UL>
+         <LI>creation of DefaultActionProxy</LI>
+         <UL>
+             <LI>creation of DefaultActionInvocation</LI>
+             <UL>
+  	          <LI>creation of Action</LI>
+             </UL>
+         </UL>
+         <LI>execution of DefaultActionProxy</LI>
+         <UL>
+             <LI>invocation of DefaultActionInvocation</LI>
+             <UL>
+                 <LI>invocation of Interceptors</LI>
+                 <LI>invocation of Action</LI>
+                 <LI>invocation of PreResultListener</LI>
+                 <LI>invocation of Result</LI>
+             </UL>
+         </UL>
+     </UL>
+  </UL>
+</UL></P>
+
+
+<H2><A name="Profiling-Activating%2FDeactivatingProfiling"></A>Activating / Deactivating Profiling</H2>
+
+<P>Activating / Deactivating of the profiling feature could be done through:- </P>
+
+
+<H3><A name="Profiling-ThroughSystemproperty"></A>Through System property</H3>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">-Dxwork.profile.activate=true</PRE>
+</DIV></DIV>
+
+<P>This could be done in the container startup script eg. CATALINA_OPTS in catalina.sh 
+(tomcat) or using &quot;java -Dxwork.profile.activate=true -jar start.jar&quot; (jetty) </P>
+
+
+<H3><A name="Profiling-Throughcode"></A>Through code</H3>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">UtilTimerStack.setActivate(true);
+
+// or 
+
+System.setProperty(<SPAN class="code-quote">&quot;xwork.profile.activate&quot;</SPAN>, <SPAN class="code-quote">&quot;true&quot;</SPAN>);
+ 
+// or
+
+System.setProperty(UtilTimerStack.ACTIVATE_PROPERTY, <SPAN class="code-quote">&quot;true&quot;</SPAN>);</PRE>
+</DIV></DIV>
+
+<P>This could be done in a static block, in a Spring bean with lazy-init=&quot;false&quot;, 
+in a Servlet with init-on-startup as some numeric value, in a Filter or 
+Listener's init method etc.</P>
+
+
+<H3><A name="Profiling-Throughparameter"></A>Through parameter</H3>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action ... &gt;</SPAN>  
+ ...
+ <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;profiling&quot;</SPAN>&gt;</SPAN>
+     <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;profilingKey&quot;</SPAN>&gt;</SPAN>profiling<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+ <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+ ...
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+or 
+
+<SPAN class="code-tag">&lt;action .... &gt;</SPAN>
+...
+ <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;profiling&quot;</SPAN> /&gt;</SPAN>
+...
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+through url
+
+http://host:port/context/namespace/someAction.action?profiling=true
+
+through code
+
+ActionContext.getContext().getParameters().put(<SPAN class="code-quote">&quot;profiling&quot;</SPAN>, &quot;true);</PRE>
+</DIV></DIV>
+
+<P>To use profiling activation through parameter, one will need to pass in through 
+the 'profiling' parameter (which is the default) and could be changed through 
+the param tag in the interceptor-ref. </P>
+
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="warningMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">Profiling activation through parameter will need the followings:-
+<SPAN class="code-tag">&lt;ul&gt;</SPAN>
+ <SPAN class="code-tag">&lt;li&gt;</SPAN>Profiling interceptor<SPAN class="code-tag">&lt;/li&gt;</SPAN>
+ <SPAN class="code-tag">&lt;li&gt;</SPAN>dev mode on (struts.devMode=true in struts.properties)
+<SPAN class="code-tag">&lt;/ul&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+
+<H2><A name="Profiling-Filteringprofileinformation"></A>Filtering profile information</H2>
+
+<P>One could filter out the profile logging by having a System property as follows. With this
+'xwork.profile.mintime' property, one could only log profile information when its execution time 
+exceed those specified in 'xwork.profile.mintime' system property. If no such property is specified, 
+it will be assumed to be 0, hence all profile information will be logged.</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">-Dxwork.profile.mintime=10000</PRE>
+</DIV></DIV>
+
+<H2><A name="Profiling-Writeprofilingcode"></A>Write profiling code</H2>
+
+<P>One could extends the profiling feature provided by Struts2 in their web application as well. </P>
+
+
+<H3><A name="Profiling-UsingUtilTimerStack%27spushandpop"></A>Using UtilTimerStack's push and pop</H3>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">String logMessage = <SPAN class="code-quote">&quot;Log message&quot;</SPAN>;
+   UtilTimerStack.push(logMessage);
+   try {
+     // do some code
+   }
+   finally {
+     UtilTimerStack.pop(logMessage); //this needs to be the same text as above
+   }</PRE>
+</DIV></DIV>
+
+<H3><A name="Profiling-UsingaUtilTimerStack%27sProfileBlocktemplate"></A>Using a UtilTimerStack's ProfileBlock template</H3>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">String result = UtilTimerStack.profile(<SPAN class="code-quote">&quot;purchaseItem: &quot;</SPAN>, 
+      new UtilTimerStack.ProfilingBlock<SPAN class="code-tag">&lt;String&gt;</SPAN>() {
+           public String doProfiling() {
+              // do some code
+              return <SPAN class="code-quote">&quot;Ok&quot;</SPAN>;
+           }
+      });</PRE>
+</DIV></DIV>
+
+<H2><A name="Profiling-ProfilingLogfiles"></A>Profiling Log files</H2>
+
+<P>Profiled result is logged using commons-logging under the logger named 
+'com.opensymphony.xwork2.util.profiling.UtilTimerStack'. Depending on the underlying logging implementation
+say if it is Log4j, one could direct the log to appear in a different file, being emailed to someone or have 
+it stored in the db.</P>
+
+
+<H2><A name="Profiling-Next%3ADebugging"></A>Next: <A href="debugging.html" title="Debugging">Debugging</A></H2>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,616 @@
+<html>
+<head>
+    <base href="http://cwiki.apache.org/confluence" />
+    <link rel="stylesheet" type="text/css" href="/confluence/styles/main-action.css" />
+    <title>Page Not Found</title>
+</head>
+
+<body>
+   <content tag="hideme">
+   <div id="PageContent">
+   </content>
+   <div style="padding: 20px;">
+    <div class="errorBox" align="center">
+        <p>The page you were trying to reach does not exist. You may want to try a search, or browse the site to find the page you were looking for.</p>
+    </div>
+
+				<table width="100%" border="0" cellspacing="5" cellpadding="0">
+			<tr>
+                <td valign="top">
+                    <div class="tabletitle">Site Search</div>
+                    <form method="GET" action="/confluence/dosearchsite.action" name="searchForm">
+                    <input type="text" accessKey="s" name="searchQuery.queryString" size="40"/><input type="submit" value="Go"/>
+                    <input type="hidden" name="quickSearch" value="true"/>
+                    </form><br />
+                    <div class="tabletitle">Go to...</div>
+                    <ul>
+                       <li><a href="/confluence/">Site Homepage</a></li>
+                       <li><a href="/confluence/dashboard.action">Your Dashboard</a></li>
+                </td>
+				<td width="50%" valign="top">
+                    
+
+<script type="text/javascript" language="JavaScript" src="/confluence/includes/js/ajax.js"></script>
+<script type="text/javascript">
+    var operationInProgressArray = new Array(); // use this array to prevent the user from triggering off another labelling operation when one is in progress
+
+    function toggleStar(imgElement)
+    {
+        var imagePath = imgElement.src;
+        if (imgElement.src.indexOf("star_grey.gif") != -1)
+            imgElement.src = '/confluence/images/icons/star_yellow.gif';
+        else
+            imgElement.src = '/confluence/images/icons/star_grey.gif';
+    }
+
+    function addOrRemoveFromFavourites(spaceKey, imgElement)
+    {
+        if (operationInProgressArray[imgElement.id] == null)
+        {
+            operationInProgressArray[imgElement.id] = true;
+
+            var xmlhttp = getXmlHttp();
+            if (imgElement.src.indexOf("star_yellow.gif") != -1) // if on
+                var url = "/confluence/labels/removespacefromfavourites.action?key=" + spaceKey;
+            else
+                var url = "/confluence/labels/addspacetofavourites.action?key=" + spaceKey
+            xmlhttp.open("GET", url);
+            xmlhttp.onreadystatechange = function()
+            {
+                if (xmlhttp.readyState == 4)
+                {
+                    try
+                    {
+                        if (xmlhttp.status == 200)
+                        {
+                            toggleStar(imgElement);
+                            operationInProgressArray[imgElement.id] = null;
+                        }
+                        else
+                        {
+                            alert("An error occurred adding space to favourites. " + xmlhttp.responseText);
+                        }
+                    }
+                    catch(e)
+                    {
+                        alert("Exception thrown: " + e);
+                    }
+                }
+            }
+            xmlhttp.send(null);
+        }
+    }
+
+    // if the user switches tabs while spaces are still being labelled, this function will prevent this from happening.
+    // allowing a location change in the middle of xmlhttp requests causes exceptions to be thrown in firefox (although, they seem to be ignored by ie).
+    // this is important in high latency environments where users may get impatient.
+    function gotoUrl(url)
+    {
+        for (var elementId in operationInProgressArray)
+        {
+            if (operationInProgressArray[elementId] == true)
+                return;
+        }
+        window.location = url;
+    }
+</script>
+
+
+<table width="100%" cellspacing="0" class="tableview" style="margin-bottom: 8px;">
+
+        <tr><td colspan="2" style="padding: 0px; border: 0px;">
+
+        <ul id="foldertab">
+            Spaces:
+                                    <li><a href="#" onClick="gotoUrl('/confluence/fourohfour.action?spacesSelectedTab=new'); return false;">New (1)</a></li>
+                        <li><a href="#" onClick="gotoUrl('/confluence/fourohfour.action?spacesSelectedTab=all'); return false;"class="current">All</a></li>
+        </ul>
+
+    </td></tr>
+    
+    
+                
+<tr     > <td width="80%">
+    <a href="/confluence/display/CWIKI">0 ABOUT THE CWIKI SITE</a>
+    <span class="smalltext">(CWIKI)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=CWIKI" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/CAY">Apache Cayenne</a>
+    <span class="smalltext">(CAY)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=CAY" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/CAYDOC">Apache Cayenne Documentation</a>
+    <span class="smalltext">(CAYDOC)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=CAYDOC" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/CAYDOC12">Apache Cayenne Documentation v1.2</a>
+    <span class="smalltext">(CAYDOC12)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=CAYDOC12" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/CAYDOC20">Apache Cayenne Documentation v2.0</a>
+    <span class="smalltext">(CAYDOC20)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=CAYDOC20" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/CXF20DOC">Apache CXF 2.0 Documentation</a>
+    <span class="smalltext">(CXF20DOC)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=CXF20DOC" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/DIRxASN1">Apache Directory ASN.1 Documentation</a>
+    <span class="smalltext">(DIRxASN1)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=DIRxASN1" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/DIRxDEV">Apache Directory Development</a>
+    <span class="smalltext">(DIRxDEV)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=DIRxDEV" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/directory">Apache Directory Documentation</a>
+    <span class="smalltext">(directory)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=directory" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/DIRxPMGT">Apache Directory Project Management</a>
+    <span class="smalltext">(DIRxPMGT)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=DIRxPMGT" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/DIRxSBOX">Apache Directory SandBox</a>
+    <span class="smalltext">(DIRxSBOX)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=DIRxSBOX" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/DIRxSRVx10">Apache Directory Server v1.0 Documentation</a>
+    <span class="smalltext">(DIRxSRVx10)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=DIRxSRVx10" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/DIRxSRVx11">Apache Directory Server v1.1 Documentation</a>
+    <span class="smalltext">(DIRxSRVx11)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=DIRxSRVx11" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/DIRxSITE">Apache Directory Website</a>
+    <span class="smalltext">(DIRxSITE)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=DIRxSITE" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/GMOxDEV">Apache Geronimo Development</a>
+    <span class="smalltext">(GMOxDEV)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=GMOxDEV" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/geronimo">Apache Geronimo Documentation</a>
+    <span class="smalltext">(geronimo)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=geronimo" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/GMOxKB">Apache Geronimo Knowledge Base</a>
+    <span class="smalltext">(GMOxKB)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=GMOxKB" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/GMOxPMGT">Apache Geronimo Project Management</a>
+    <span class="smalltext">(GMOxPMGT)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=GMOxPMGT" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/GMOxSBOX">Apache Geronimo SandBox</a>
+    <span class="smalltext">(GMOxSBOX)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=GMOxSBOX" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/GMOxDOC10">Apache Geronimo v1.0</a>
+    <span class="smalltext">(GMOxDOC10)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=GMOxDOC10" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/GMOxDOC11">Apache Geronimo v1.1</a>
+    <span class="smalltext">(GMOxDOC11)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=GMOxDOC11" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/GMOxSITE">Apache Geronimo Website</a>
+    <span class="smalltext">(GMOxSITE)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=GMOxSITE" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/MINA">Apache MINA</a>
+    <span class="smalltext">(MINA)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=MINA" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/ODExSITE">Apache Ode</a>
+    <span class="smalltext">(ODExSITE)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=ODExSITE" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/qpid">Apache QPid</a>
+    <span class="smalltext">(qpid)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=qpid" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/WW">Apache Struts 2 Documentation</a>
+    <span class="smalltext">(WW)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=WW" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/S2WIKI">Apache Struts 2 Wiki</a>
+    <span class="smalltext">(S2WIKI)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=S2WIKI" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/TAPESTRY">Apache Tapestry</a>
+    <span class="smalltext">(TAPESTRY)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=TAPESTRY" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/CXF">CeltiXfire</a>
+    <span class="smalltext">(CXF)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=CXF" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/FELIX">Felix</a>
+    <span class="smalltext">(FELIX)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=FELIX" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/gbuild">GBuild</a>
+    <span class="smalltext">(gbuild)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=gbuild" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/GMOxMoinMoin">Geronimo_MoinMoin_wiki</a>
+    <span class="smalltext">(GMOxMoinMoin)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=GMOxMoinMoin" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/OPENEJB">OpenEJB</a>
+    <span class="smalltext">(OPENEJB)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=OPENEJB" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr             class="rowAlternate"
+    > <td width="80%">
+    <a href="/confluence/display/openjpa">OpenJPA</a>
+    <span class="smalltext">(openjpa)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=openjpa" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+<tr     > <td width="80%">
+    <a href="/confluence/display/vmbuild">VMBuild</a>
+    <span class="smalltext">(vmbuild)</span>
+</td>
+<td nowrap>
+    <div align="right">
+        <a href="/confluence/spaces/browsespace.action?key=vmbuild" id="spaceSummaryLink"><img src="/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+
+                <img src="/confluence/images/icons/add_page_faded_16.gif" height="16" width="16" border="0" align="absmiddle" title="$textSpaceNoAddPermission"/>
+        
+            </div>
+</td>
+</tr>
+
+
+    
+</table>
+
+                </td>
+			</tr>
+		</table>
+	       </div>
+    <content tag="hidemetoo">
+	</div>
+      	                                                    <div class="license-nonprofit">
+                    Site powered by a free <b>Open Source Project / Non-profit License</b> (<a href="http://www.atlassian.com/c/conf/10138">more</a>) of <b><a href="http://www.atlassian.com/c/conf/10137">Confluence - the Enterprise wiki</a>.<br/>
+                    <a href="http://www.atlassian.com/c/conf/10137">Learn more</a> or <a href="http://www.atlassian.com/c/conf/10137">evaluate Confluence for your organisation</a>.
+                    </div>
+                                            <div class="bottomshadow"></div>
+      	<div id="poweredby" class="smalltext">
+		Powered by
+		<a href="http://www.atlassian.com/wiki/?clicked=footer" class="smalltext">Atlassian Confluence</a>, the
+		<a href="http://www.atlassian.com/wiki/?clicked=footer" class="smalltext">Enterprise Wiki</a>.
+
+		(Version: 2.1.5a Build:#411
+		Mar 16, 2006)
+		-
+		<a href="http://jira.atlassian.com/browse/CONF" class="smalltext">Bug/feature request</a>
+		-
+		<a href="/confluence/administrators.action">Contact Administrators</a>
+		<br/>
+	</div>
+	</content>
+</body>
+</html>

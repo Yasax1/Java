@@ -1,0 +1,164 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  
+<!-- Mirrored from cwiki.apache.org/WW/scoped-model-driven-interceptor.html by HTTrack Website Copier/3.x [XR&CO'2005], Tue, 10 Oct 2006 21:21:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('../confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Scoped Model Driven Interceptor</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="interceptors.html" title="Interceptors">Interceptors</A>&nbsp;&gt;&nbsp;<A href="#" title="Scoped Model Driven Interceptor">Scoped Model Driven Interceptor</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Scoped Model Driven Interceptor</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=26355">
+            <IMG src="../confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=26355">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="../confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;fromPageId=26355">
+            <IMG src="../confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;fromPageId=26355">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&amp;fromPageId=26355">
+            <IMG src="../confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&amp;fromPageId=26355">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=mrdon">Don Brown</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=mrdon">Don Brown</A> on Sep 23, 2006
+                  
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=description&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Ftrunk%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork2%2Finterceptor%2FScopedModelDrivenInterceptor.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD>
+<P>An interceptor that enables scoped model-driven actions.</P>
+
+<P><P>This interceptor only activates on actions that implement the ScopedModelDriven interface.  If
+detected, it will retrieve the model class from the configured scope, then provide it to the Action.</P>
+</TD></TR></TABLE>
+
+<H2><A name="ScopedModelDrivenInterceptor-Parameters"></A>Parameters</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=parameters&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Ftrunk%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork2%2Finterceptor%2FScopedModelDrivenInterceptor.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD>
+<P> <UL></P>
+
+<P> <LI>className - The model class name.  Defaults to the class name of the object returned by the getModel() method.</LI></P>
+
+<P> <LI>name - The key to use when storing or retrieving the instance in a scope.  Defaults to the model
+            class name.</LI></P>
+
+<P> <LI>scope - The scope to store and retrieve the model.  Defaults to &apos;request&apos; but can also be &apos;session&apos;.</LI>
+ </UL></P>
+</TD></TR></TABLE>
+
+<H2><A name="ScopedModelDrivenInterceptor-ExtendingtheInterceptor"></A>Extending the Interceptor</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=extending&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Ftrunk%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork2%2Finterceptor%2FScopedModelDrivenInterceptor.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD>
+<P> There are no known extension points for this interceptor.</P>
+</TD></TR></TABLE>
+
+<H2><A name="ScopedModelDrivenInterceptor-Examples"></A>Examples</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=example&amp;url=http:%2F%2Fsvn.opensymphony.com%2Fsvn%2Fxwork%2Ftrunk%2Fsrc%2Fjava%2Fcom%2Fopensymphony%2Fxwork2%2Finterceptor%2FScopedModelDrivenInterceptor.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;-- Basic usage --&gt;</SPAN>
+<SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;scoped-model-driven&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.interceptor.ScopedModelDrivenInterceptor&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;-- Using all available parameters --&gt;</SPAN>
+<SPAN class="code-tag">&lt;interceptor name=<SPAN class="code-quote">&quot;gangsterForm&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.opensymphony.interceptor.ScopedModelDrivenInterceptor&quot;</SPAN>&gt;</SPAN>
+     <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;scope&quot;</SPAN>gt;sessionlt;/param&gt;</SPAN>
+     <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;name&quot;</SPAN>gt;gangsterFormlt;/param&gt;</SPAN>
+     <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;className&quot;</SPAN>gt;com.opensymphony.example.GangsterFormlt;/param&gt;</SPAN>
+ <SPAN class="code-tag">&lt;/interceptor&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+
+<!-- Mirrored from cwiki.apache.org/WW/scoped-model-driven-interceptor.html by HTTrack Website Copier/3.x [XR&CO'2005], Tue, 10 Oct 2006 21:21:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</HTML>

@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: ted
+Build-Jdk: 1.5.0_06
+Extension-Name: xwork
+Specification-Title: XWork is an command-pattern framework that is use
+ d to power WebWork
+        as well as other applications. XWork provi
+ des an Inversion of Control
+        container, a powerful expression 
+ language, data type conversion,
+        validation, and pluggable con
+ figuration.
+Specification-Vendor: OpenSymphony
+Implementation-Vendor: OpenSymphony
+Implementation-Title: xwork
+Implementation-Version: 2.0-beta-1
+

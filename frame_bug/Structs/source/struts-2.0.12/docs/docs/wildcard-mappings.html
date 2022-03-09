@@ -1,0 +1,199 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Wildcard Mappings</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="configuration-elements.html" title="Configuration Elements">Configuration Elements</A>&nbsp;&gt;&nbsp;<A href="" title="Wildcard Mappings">Wildcard Mappings</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Wildcard Mappings</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=44247">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=44247">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=44247">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=44247">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=44247">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=44247">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="../~husted/index.html">Ted Husted</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=mrdon">Don Brown</A> on Apr 19, 2008
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=44247&originalId=83445">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>As an application grows in size, so will the number of action mappings. Wildcards can be used to combine similar mappings into one more generic mapping.</P>
+
+<P>The best way to explain wildcards is to show an example and walk through how it works. This example modifies a conventional mapping to use wildcards to match all pages that start with /edit:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;!-- Generic edit* mapping --&gt;
+&lt;action
+    name=<SPAN class="code-quote">&quot;/edit*&quot;</SPAN>
+    class=<SPAN class="code-quote">&quot;org.apache.struts.webapp.example.Edit{1}Action&quot;</SPAN>&gt;
+    &lt;result
+        name=<SPAN class="code-quote">&quot;failure&quot;</SPAN>
+        path=<SPAN class="code-quote">&quot;/mainMenu.jsp&quot;</SPAN>/&gt;
+    &lt;result
+        path=<SPAN class="code-quote">&quot;/{1}.jsp&quot;</SPAN>/&gt;
+&lt;/action&gt;</PRE>
+</DIV></DIV>
+
+<P>The &quot;&#42;&quot; in the path attribute allows the mapping to match the request URIs /editSubscription, editRegistration, or any other URI that starts with /edit, however /editSubscription/add would not be matched. The part of the URI matched by the wildcard will then be substituted into various attributes of the action mapping and its action results replacing {1}. For the rest of the request, the framework will see the action mapping and its action results containing the new values.</P>
+
+<P>Mappings are matched against the request in the order they appear in the framework's configuration file. If more than one pattern matches the last one wins, so less specific patterns must appear before more specific ones. However, if the request URL can be matched against a path without any wildcards in it, no wildcard matching is performed and order is not important. Also, note that wildcards are not greedy, meaning they only match until the first occurrence of the following string pattern.  For example, consider the following mapping:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;List*s&quot;</SPAN> class=<SPAN class="code-quote">&quot;actions.List{1}s&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result&gt;</SPAN>list{1}s.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>This mapping would work correctly for the URI <TT>ListAccounts</TT> but not <TT>ListSponsors</TT>, because the latter would turn into this configuration:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;ListSpons&quot;</SPAN> class=<SPAN class="code-quote">&quot;actions.ListSpons&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;result&gt;</SPAN>listSpons.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>Wildcard patterns can contain one or more of the following special tokens:</P>
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd">&#42;</TD>
+<TD class="confluenceTd">Matches zero or more characters excluding the slash ('/') character.</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&#42;&#42;</TD>
+<TD class="confluenceTd">Matches zero or more characters including the slash ('/') character.</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">\character</TD>
+<TD class="confluenceTd">The backslash character is used as an escape sequence. Thus <DIV class="preformatted"><DIV class="preformattedContent">
+<PRE>'\*'</PRE>
+</DIV></DIV> matches the character asterisk ('*'), and <DIV class="preformatted"><DIV class="preformattedContent">
+<PRE>'\\'</PRE>
+</DIV></DIV> matches the character backslash ('\').</TD>
+</TR>
+</TBODY></TABLE>
+
+<P>In the action mapping and action results, the wildcard-matched values can be accessed with the token {N} where N is a number from 1 to 9 indicating which wildcard-matched value to substitute. The whole request URI can be accessed with the {0} token.</P>
+
+<P>Also, the action mapping and action result properties (set using the &lt;set-property key=&quot;foo&quot; value=&quot;bar&quot;&gt; syntax) will accept wildcard-matched strings in their value attribute.</P>
+
+<P><IMG class="emoticon" src="http://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"> See also <A href="action-configuration.html#ActionConfiguration-WildcardMethod" title="Wildcard Method on Action Configuration">Wildcard Method</A></P>
+
+<H2><A name="WildcardMappings-Next%3AApplicationServers"></A>Next: <A href="application-servers.html" title="Application Servers">Application Servers</A></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

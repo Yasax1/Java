@@ -1,0 +1,237 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Quickstart Using Maven 2</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Quickstart Using Maven 2">Quickstart Using Maven 2</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Quickstart Using Maven 2</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13990">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13990">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13990">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13990">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13990">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13990">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=tm_jee">tm_jee</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Jul 23, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=13990&originalId=15590">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<H1><A name="QuickstartUsingMaven2-Information"></A>Information</H1>
+<P>This is basically a Struts&apos; maven archetype plugin. It is used to create a working web application template for Struts 2 where the user work build on top of. It is to serve as a little tool for rapid prototyping.</P>
+
+<H1><A name="QuickstartUsingMaven2-Features"></A>Features</H1>
+<P>The created template contains :-</P>
+<UL>
+	<LI>Sitemesh integration build in</LI>
+	<LI>A simple Struts action example (both instantiated through Spring and Struts itself)</LI>
+	<LI>A simple Struts validation example (action and action-alias level)</LI>
+	<LI>A Simple Struts conversion example (global and action level)</LI>
+	<LI>A simple Struts resource bundle (both global, action and package level)</LI>
+</UL>
+
+
+<H2><A name="QuickstartUsingMaven2-InstallingMavenarchetypeforStruts2"></A>Installing Maven archetype for Struts 2</H2>
+<OL>
+	<LI>Change directory to the maven archetype directory eg. from Struts&apos; root directory (You will need the Struts 2 source from SVN)
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">cd ./struts2-archetype-starter &lt;press enter&gt;</PRE>
+</DIV></DIV></LI>
+</OL>
+
+
+<OL>
+	<LI>Run the following command to install Struts2 maven archetype into one&apos;s local maven repository (typically at ~/.m2/repository where ~ is the user directory)
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">mvn install</PRE>
+</DIV></DIV></LI>
+</OL>
+
+
+<OL>
+	<LI>If &quot;build successful&quot; is shown at the console after execution of the above command, the Struts2 Maven archetype plugin is successfully installed.</LI>
+</OL>
+
+
+<H2><A name="QuickstartUsingMaven2-CreateStrutsWebApplicationTemplate"></A>Create Struts Web Application Template</H2>
+<P>To create a workable template:-</P>
+<OL>
+	<LI>Change directory to where the web application template is to be created eg. assuming the directory to be myWebApp.
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">mkdir /home/tmjee/myWebApp
+    cd /home/tmjee/myWebApp</PRE>
+</DIV></DIV></LI>
+</OL>
+
+
+<OL>
+	<LI>Run the following command to generate the sample template, assuming:-
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TD class="confluenceTd">Root Java package</TD>
+<TD class="confluenceTd">com.myCompany.mySystem</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">The WAR name</TD>
+<TD class="confluenceTd">myWebApp</TD>
+</TR>
+</TBODY></TABLE>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">mvn archetype:create -DgroupId=com.myComp.mySystem -DartifactId=myWebApp 
+  -DarchetypeGroupId=org.apache.struts -DarchetypeArtifactId=struts2-archetype-starter</PRE>
+</DIV></DIV></LI>
+</OL>
+
+
+<H2><A name="QuickstartUsingMaven2-Usingthecreatedtemplate"></A>Using the created template</H2>
+<P>Following are some Maven command that might be handy when using the generated template :-</P>
+<UL>
+	<LI>To compile
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">mvn compile</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<UL>
+	<LI>To run test cases
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">mvn test</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<UL>
+	<LI>To clean up
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">mvn clean</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<UL>
+	<LI>To package
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">mvn <SPAN class="code-keyword">package</SPAN></PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<UL>
+	<LI>To grab necessary JAR files etc.
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">mvn initialize</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<UL>
+	<LI>To run it with Jetty6
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">mvn jetty6:run</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

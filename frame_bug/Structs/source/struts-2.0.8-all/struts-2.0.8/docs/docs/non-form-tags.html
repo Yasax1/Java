@@ -1,0 +1,182 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Non Form Tags</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="" title="Non Form Tags">Non Form Tags</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Non Form Tags</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13838">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13838">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13838">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13838">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13838">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13838">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=plightbo">plightbo</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 01, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=13838&originalId=19765">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+<OL>
+	<LI><A href="a.html" title="a">a</A> &#45; renders an anchor (link)</LI>
+	<LI><A href="actionerror.html" title="actionerror">WW:actionerror</A> &#45; renders the error messages if they exists</LI>
+	<LI><A href="actionmessage.html" title="actionmessage">WW:actionmessage</A> &#45; renders the action messages if they exists</LI>
+	<LI><A href="component.html" title="component">WW:component</A> &#45; render a very customizable component allowing its template to be specified at the spot through theme, template attribute</LI>
+	<LI><A href="date.html" title="date">WW:date</A> &#45; render a date</LI>
+	<LI><A href="div.html" title="div">WW:div</A> &#45; render a div section</LI>
+	<LI><A href="fielderror.html" title="fielderror">WW:fielderror</A> &#45; render the field error message if they exists</LI>
+	<LI><A href="panel.html" title="panel">WW:panel</A> &#45; render a panel for tabbed panel</LI>
+	<LI><A href="table.html" title="table">WW:table</A> &#45; render a table</LI>
+	<LI><A href="tabbedpanel.html" title="tabbedPanel">WW:tabbedPanel</A> &#45; render a tabbed panel</LI>
+	<LI><A href="tree.html" title="tree">WW:tree</A> &#45; render a tree widget</LI>
+	<LI><A href="treenode.html" title="treenode">WW:treenode</A> &#45; render a tree node within a <A href="tree.html" title="tree">WW:tree</A> widget</LI>
+</OL>
+
+
+<H2><A name="NonFormTags-BacktoWW%3ATagDevelopersGuide"></A>Back to <A href="tag-developers-guide.html" title="Tag Developers Guide">WW:Tag Developers Guide</A></H2>
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="date.html" title="date">date</A>
+              <SPAN class="smalltext">(Struts 2)</SPAN>
+              <BR>
+                          <A href="div.html" title="div">div</A>
+              <SPAN class="smalltext">(Struts 2)</SPAN>
+              <BR>
+                          <A href="actionmessage.html" title="actionmessage">actionmessage</A>
+              <SPAN class="smalltext">(Struts 2)</SPAN>
+              <BR>
+                          <A href="a.html" title="a">a</A>
+              <SPAN class="smalltext">(Struts 2)</SPAN>
+              <BR>
+                          <A href="component.html" title="component">component</A>
+              <SPAN class="smalltext">(Struts 2)</SPAN>
+              <BR>
+                          <A href="actionerror.html" title="actionerror">actionerror</A>
+              <SPAN class="smalltext">(Struts 2)</SPAN>
+              <BR>
+                          <A href="fielderror.html" title="fielderror">fielderror</A>
+              <SPAN class="smalltext">(Struts 2)</SPAN>
+              <BR>
+                          <A href="tree.html" title="tree">tree</A>
+              <SPAN class="smalltext">(Struts 2)</SPAN>
+              <BR>
+                          <A href="table.html" title="table">table</A>
+              <SPAN class="smalltext">(Struts 2)</SPAN>
+              <BR>
+                          <A href="panel.html" title="panel">panel</A>
+              <SPAN class="smalltext">(Struts 2)</SPAN>
+              <BR>
+                          <A href="tabbedpanel.html" title="tabbedPanel">tabbedPanel</A>
+              <SPAN class="smalltext">(Struts 2)</SPAN>
+              <BR>
+                          <A href="treenode.html" title="treenode">treenode</A>
+              <SPAN class="smalltext">(Struts 2)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

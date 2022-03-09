@@ -1,0 +1,222 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Zero Configuration</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="" title="Zero Configuration">Zero Configuration</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Zero Configuration</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=29352">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=29352">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=29352">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=29352">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=29352">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=29352">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=musachy">Musachy Barroso</A> on Feb 13, 2007
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=29352&originalId=45553">view change</A>)
+                      <SPAN id="show" class="inline-control-link"><A href="" onclick="showComment(); return false;">show comment</A></SPAN>
+        <SPAN id="hide" class="inline-control-link" style="display:none;"><A href="" onclick="hideComment(); return false;">hide comment</A></SPAN>
+          <DIV id="versionComment" class="noteMacro" style="display:none; padding: 5px;">
+      <B>Comment:</B>
+      fix layout a little bit<BR>
+      <SPAN class="smalltext"><A href="http://cwiki.apache.org/confluence/pages/viewpreviouspageversions.action?pageId=29352">View page history</A></SPAN>
+  </DIV>
+
+    <SCRIPT>
+      var show = document.getElementById('show');
+      var hide = document.getElementById('hide');
+      var versionComment = document.getElementById('versionComment');
+
+      function showComment(){
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+        versionComment.style.display = 'block';
+      }
+
+      function hideComment(){
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+        versionComment.style.display = 'none';
+      }
+
+    </SCRIPT>
+    
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>This feature is experimental. Feedback appreciated!</TD></TR></TABLE>
+
+<P>A &quot;Zero Configuration&quot; Struts application or plugin uses no additional XML or properties files. Metadata is expressed through convention and annotation.  </P>
+
+<P>As this is a new feature, and still being field-tested, the documentation is sketchy. But, here's what we have so far:</P>
+
+
+<H3><A name="ZeroConfiguration-FindingActions"></A>Finding Actions</H3>
+
+<P>Set the &quot;actionPackages&quot; filter init param to a comma-separated list of packages containing Action classes in web.xml. The packages and their subpackages will be scanned. All classes in the designated packages that implement Action or end in &quot;Action&quot; are examined.  The latter is to allow for POJO Actions that don't implement the Action interface.</P>
+
+<DIV class="code"><DIV class="codeHeader"><B>Annotation Initialization actionPackages Filter Parameter in web.xml</B></DIV><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;filter&gt;</SPAN>
+  <SPAN class="code-tag">&lt;filter-name&gt;</SPAN>struts2<SPAN class="code-tag">&lt;/filter-name&gt;</SPAN>
+  <SPAN class="code-tag">&lt;filter-class&gt;</SPAN>org.apache.struts2.dispatcher.FilterDispatcher<SPAN class="code-tag">&lt;/filter-class&gt;</SPAN>
+  <SPAN class="code-tag">&lt;init-param&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param-name&gt;</SPAN>actionPackages<SPAN class="code-tag">&lt;/param-name&gt;</SPAN>
+    <SPAN class="code-tag">&lt;param-value&gt;</SPAN>com.foo.bar,com.baz.quux<SPAN class="code-tag">&lt;/param-value&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/init-param&gt;</SPAN>
+<SPAN class="code-tag">&lt;/filter&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>We should probably add an action annotation, so that POJOs can itall with annotations.</P>
+
+<H3><A name="ZeroConfiguration-Examples"></A>Examples</H3>
+
+<P>The only example right now is in the showcase, where the person package uses the classpath scanning configuration. </P>
+
+
+<H3><A name="ZeroConfiguration-ActionandPackagename"></A>Action and Package name</H3>
+
+<P>The subpackage name makes the namespace, and the action class name makes the action name.  If there is an &quot;Action&quot; suffix, it is dropped before creating the action name. Therefore, if the configured package is <EM>com.myapp.actions</EM> and the Action is <EM>com.myapp.actions.</EM><B>member</B>.EditAction, you can access it via <SPAN class="nobr"><A href="http://server/myapp/member/edit.action" title="Visit page outside Confluence" rel="nofollow">http://server/myapp/member/edit.action<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>.</P>
+
+
+<H3><A name="ZeroConfiguration-Results"></A>Results</H3>
+
+<P><A href="result-annotation.html" title="Result Annotation">Results</A> are defined with the Result and Results annotations at the <B>class level</B>. </P>
+
+
+<H3><A name="ZeroConfiguration-Namespaces"></A>Namespaces</H3>
+<P>The <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Namespace%20Annotation&linkCreation=true&fromPageId=29352" title="Create Page: Namespace Annotation" class="createlink">Namespace Annotation<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> overrides the namespace.</P>
+
+
+<H3><A name="ZeroConfiguration-ParentPackage"></A>Parent Package</H3>
+
+<P>The <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=ParentPackage%20Annotation&linkCreation=true&fromPageId=29352" title="Create Page: ParentPackage Annotation" class="createlink">ParentPackage Annotation<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> has the XWork package (an XWork package is created per Java package) to extend the defined package. Multiple packages can be specified through annotations on multiple Actions in the package.</P>
+
+<H3><A name="ZeroConfiguration-Feedback"></A>Feedback</H3>
+
+<P>Stay tuned to this page for additional details and documentation. If you have a chance to  try the zero configuration feature, please share any experiences on dev@ and here.</P>
+
+<H3><A name="ZeroConfiguration-Seealso"></A>See also </H3>
+<UL>
+	<LI><A href="zero-configuration-scanning.html" title="Zero Configuration Scanning">Zero Configuration Scanning</A> Use Case</LI>
+	<LI><A href="restfulactionmapper.html" title="RestfulActionMapper">RESTfulActionMapper</A></LI>
+</UL>
+
+
+<H2><A name="ZeroConfiguration-Next%3AAnnotations"></A>Next: <A href="annotations.html" title="Annotations">Annotations</A></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

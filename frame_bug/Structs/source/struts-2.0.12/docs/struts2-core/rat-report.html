@@ -1,0 +1,1076 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>Struts 2 - RAT (Release Audit Tool) results</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="http://www.apache.org" id="bannerLeft">
+    
+                                    <img src="http://www.apache.org/images/asf-logo.gif" alt="" />
+    
+            </a>
+                        <a href="../../" id="bannerRight">
+    
+                                            <img src="images/struts2.png" alt="" />
+    
+            </a>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+            <div class="xleft">
+        Last Published: 10/16/2008
+                      </div>
+            <div class="xright">      <a href="http://www.apache.org">Apache</a>
+          |
+          <a href="http://struts.apache.org/2.x">Struts 2</a>
+          |
+          <a href="http://struts.apache.org/1.x">Struts 1</a>
+          
+  
+
+  
+    
+  
+  
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+                   <h5>Struts 2</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="index.html">Welcome</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://struts.apache.org/downloads.html">Releases</a>
+        </li>
+          </ul>
+          <h5>Documentation</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="docs/home.html">Getting Started</a>
+        </li>
+              
+    <li class="none">
+              <a href="docs/tutorials.html">Tutorials</a>
+        </li>
+              
+    <li class="none">
+              <a href="docs/faqs.html">FAQs</a>
+        </li>
+              
+    <li class="none">
+              <a href="docs/guides.html">Guides</a>
+        </li>
+              
+    <li class="none">
+              <a href="docs/release-notes-2012.html">Release Notes</a>
+        </li>
+          </ul>
+          <h5>Support</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://struts.apache.org/mail.html">User Mailing List</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://issues.apache.org/struts/">Issue Tracker (JIRA)</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://cwiki.apache.org/S2WIKI/home.html">Wiki Pages</a>
+        </li>
+          </ul>
+          <h5>Reference</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="struts2-core/apidocs/index.html">Struts Core / XWork APIs</a>
+        </li>
+              
+    <li class="none">
+              <a href="docs/tag-reference.html">Tag Reference</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://cwiki.apache.org/S2PLUGINS/home.html">Plugin Registry</a>
+        </li>
+          </ul>
+          <h5>Plugin API's</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="struts2-plugins/struts2-config-browser-plugin/apidocs/index.html">Config Browser</a>
+        </li>
+              
+    <li class="none">
+              <a href="struts2-plugins/struts2-jasperreports-plugin/apidocs/index.html">JasperReports</a>
+        </li>
+              
+    <li class="none">
+              <a href="struts2-plugins/struts2-jfreechart-plugin/apidocs/index.html">JFreeChart</a>
+        </li>
+              
+    <li class="none">
+              <a href="struts2-plugins/struts2-jsf-plugin/apidocs/index.html">JavaServer Faces</a>
+        </li>
+              
+    <li class="none">
+              <a href="struts2-plugins/struts2-pell-multipart-plugin/apidocs/index.html">Pell Multipart</a>
+        </li>
+              
+    <li class="none">
+              <a href="struts2-plugins/struts2-plexus-plugin/apidocs/index.html">Plexus</a>
+        </li>
+              
+    <li class="none">
+              <a href="struts2-plugins/struts2-sitegraph-plugin/apidocs/index.html">Sitegraph</a>
+        </li>
+              
+    <li class="none">
+              <a href="struts2-plugins/struts2-sitemesh-plugin/apidocs/index.html">Sitemesh</a>
+        </li>
+              
+    <li class="none">
+              <a href="struts2-plugins/struts2-struts1-plugin/apidocs/index.html">Struts 1</a>
+        </li>
+              
+    <li class="none">
+              <a href="struts2-plugins/struts2-tiles-plugin/apidocs/index.html">Tiles</a>
+        </li>
+          </ul>
+                                       <a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>RAT (Release Audit Tool) results</h2><p>The following document contains the results of <a href="${project.url}">RAT (Release Audit Tool)</a>.</p><p><div class="source"><pre>
+*****************************************************
+Summary
+-------
+Notes: 3
+Binaries: 3
+Archives: 0
+Standards: 818
+
+Apache Licensed: 818
+Generated Documents: 0
+
+JavaDocs are generated and so license header is optional
+Generated files do not required license headers
+
+0 Unknown Licenses
+
+*******************************
+
+Archives (+ indicates readable, $ unreadable): 
+
+ 
+*****************************************************
+  Files with AL headers will be marked L
+  Binary files (which do not require AL headers) will be marked B
+  Compressed archives will be marked A
+  Notices, licenses etc will be marked N
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/pom.xml
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/XSLTResultTest.xsl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/testmessages2.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/log4j.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/testmessages.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/XSLTResultTest4.xsl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/XSLTResultTest2.xsl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/struts.xml
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/org/apache/struts2/othertest.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/org/apache/struts2/TestAction-validation.xml
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/org/apache/struts2/interceptor/FileUploadInterceptor.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/org/apache/struts2/TestAction.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/org/apache/struts2/dispatcher/someJspFile.jsp
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/org/apache/struts2/components/tempo.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/org/apache/struts2/components/template/theme1/themeThroughClassPath.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/org/apache/struts2/components/template/theme1/themeThroughFileSystem.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/org/apache/struts2/components/template/dummy.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/XSLTResultTest3.xsl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/struts.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/test.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/template/test/Component.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/template/test/checkbox.jsp
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/resources/validators.xml
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/TestConfigurationProvider.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/interceptor/FileUploadInterceptorTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/interceptor/RolesInterceptorTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/interceptor/validation/AnnotationValidationInterceptorTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/interceptor/MessageStoreInterceptorTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/interceptor/TokenSessionStoreInterceptorTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/interceptor/CreateSessionInterceptorTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/interceptor/CookieInterceptorTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/interceptor/ExecuteAndWaitInterceptorTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/interceptor/StrutsConversionErrorInterceptorTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/interceptor/ServletConfigInterceptorTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/interceptor/ExecuteAndWaitDelayAction.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/interceptor/TokenInterceptorTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/TestNGStrutsTestCaseTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/TestResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/StrutsMockHttpSession.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/StrutsMockBodyContent.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/StrutsMockHttpServletRequest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ElseTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/IteratorGeneratorTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/IncludeTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/StrutsMockServletContext.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/SubsetIteratorTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/MergeIteratorTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ElseIfTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/AppendIteratorTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/StrutsMockPageContext.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/StrutsMockJspWriter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/TextTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/PortletUrlTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/AbstractUITagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/BeanTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/SetTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/AnchorTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/StrutsMockHttpServletResponse.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/PushTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/AbstractTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/IteratorTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ActionTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/IfTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/SortIteratorTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/SubmitTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/FieldErrorTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/OptionTransferSelectTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/InputTransferSelectTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/User.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/HiddenTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/TabbedPanelTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/ComponentTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/FileTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/OptGroupTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/CheckboxListTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/TooltipTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/SubmitAjaxTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/LabelTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/AutocompleterTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/TextareaTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/TokenTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/SelectTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/DoubleSelectTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/PasswordTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/TextfieldTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/JspTemplateTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/ActionErrorTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/AnchorTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/HeadTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/ComboBoxTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/DivTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/TreeTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/DateTimePickerTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/ResetTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/UpDownSelectTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/StrutsBodyContent.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/FormTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/MockTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/TestAction1.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/CheckboxTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/RadioTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/ActionMessageTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/DateTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/ui/Category.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/PropertyTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/jsp/URLTagTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/xslt/XSLTResultTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/freemarker/tags/TagModelTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/freemarker/TestBean.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/freemarker/FreemarkerTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/freemarker/TestAction.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/freemarker/FreemarkerManagerTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/util/TextUtilTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/util/ResourceUtilTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/util/ContextUtilTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/util/UrlHelperTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/views/TemplateEngineManagerTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/TestActionTagResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/util/InvocationSessionStoreTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/util/TokenHelperTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/util/PrefixTrieTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/util/ContainUtilTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/util/CounterTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/util/StrutsTypeConverterTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/ServletActionContextTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/config/TestSettings.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/config/CustomParentPackageAction.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/config/cltest/TwoResultAction.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/config/cltest/ActionImpl.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/config/cltest/OneResultAction.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/config/SettingsTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/config/MethodConfigurationProviderTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/config/CustomNamespaceAction.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/config/ClasspathConfigurationProviderTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/config/BeanSelectionProviderTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/portlet/PortletApplicationMapTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/portlet/PortletRequestMapTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/portlet/context/PortletActionContextTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/portlet/interceptor/PortletAwareInterceptorTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/portlet/result/PortletResultTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/portlet/PortletSessionMapTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/portlet/util/StrutsUtilTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/portlet/util/PortletUrlHelperTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/portlet/dispatcher/Jsr168DispatcherTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/TestAction.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/DispatcherTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/ServletActionRedirectResultTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/NullActionMapper.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/HttpHeaderResultTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/ServletDispatchedTestAssertInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/FilterDispatcherTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/StrutsResultSupportTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/ServletRedirectResultTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/ServletDispatcherResultTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/mapper/Restful2ActionMapperTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/mapper/CompositeActionMapperTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/mapper/RestfulActionMapperTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapperTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/PlainTextResultTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/StreamResultTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/FilterTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/ActionContextCleanUpTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/VelocityResultTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/dispatcher/SessionMapTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/RequestUtilsTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/ExecutionCountTestAction.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/components/ComponentTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/components/UIComponentTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/components/FormTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/components/FormButtonTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/components/URLTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/components/UIBeanTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/components/PropertyTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/components/template/BaseTemplateEngineTest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/test/java/org/apache/struts2/SomeEnum.java
+  N     /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/LICENSE.txt
+  N     /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/NOTICE.txt
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/struts.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/overview.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/struts-2.0.dtd
+  N     /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/META-INF/README.txt
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/struts-portlet-default.xml
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/struts-messages_pl.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/tree.css
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/dojo/struts/ComboBox.css
+  B     /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/dojo/struts/tooltip.gif
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/dojo/struts/widget/ComboBox.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/dojo/struts/widget/StrutsTimePicker.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/dojo/struts/widget/BindDiv.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/dojo/struts/widget/BindAnchor.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/dojo/struts/widget/Bind.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/dojo/struts/widget/__package__.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/dojo/struts/widgets/dropdowncontainer.css
+  B     /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/dojo/struts/widgets/dateIcon.gif
+  B     /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/dojo/struts/widgets/timeIcon.gif
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/dojo/struts/Util.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/optiontransferselect.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/tabs.css
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/validationClient.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/CommonFunctions.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/static/inputtransferselect.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/struts-messages_de.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/struts-messages_da.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/interceptor/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/interceptor/debugging/webconsole.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/interceptor/debugging/console.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/interceptor/debugging/webconsole.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/interceptor/debugging/webconsole.css
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/interceptor/wait.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/views/jsp/ui/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/views/jsp/ui/table/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/views/jsp/iterator/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/views/freemarker/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/util/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/default.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/dispatcher/error.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/struts-messages_pt.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/org/apache/struts2/struts-messages.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/struts-default.xml
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/datetimepicker.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/form-close.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/tabbedpanel-close.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/tabbedpanel.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/controlfooter.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/doubleselect.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/tab.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/debug.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/controlheader.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/div-close.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/a-close.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/scripting-events.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/autocompleter.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/actionmessage.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/actionerror.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/reset.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/common-attributes.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/fielderror.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/dojoRequire.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/inputtransferselect.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/hidden.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/text.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/optgroup.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/div.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/table.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/optiontransferselect.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/submit.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/label.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/combobox.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/empty.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/file.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/updownselect.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/checkboxlist.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/form.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/textarea.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/select.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/tab-close.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/radiomap.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/token.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/checkbox.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/head.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/a.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/simple/password.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/form-close.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/ajax-common.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/tab.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/controlheader.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/treenode-include.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/div-close.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/autocompleter.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/treenode.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/dojoRequire.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/validation.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/theme.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/div.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/treenode-close.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/submit.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/tree.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/form.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/textarea.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/tab-close.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/head.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/a.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/ajax/tree-close.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/textarea.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/token.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/submit.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/checkbox.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/checkboxlist.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/form.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/combobox.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/file.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/form-close.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/label.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/scripting-events.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/debug.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/doubleselect.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/table.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/password.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/hidden.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/text.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/empty.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/radiomap.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/simple/select.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/ajax/submit.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/ajax/a-close.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/ajax/form.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/ajax/tab-close.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/ajax/div-close.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/ajax/form-close.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/ajax/div.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/ajax/a.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/ajax/tab.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/textarea.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/token.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/submit.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/checkbox.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/checkboxlist.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/form.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/controlheader.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/combobox.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/file.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/form-close.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/label.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/debug.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/doubleselect.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/table.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/password.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/controlfooter.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/hidden.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/text.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/empty.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/radiomap.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/archive/xhtml/select.vm
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/datetimepicker.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/form-close.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/controlfooter.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/tooltip.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/timepicker.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/doubleselect.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/debug.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/controlheader.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/autocompleter.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/datepicker.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/reset.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/control-close.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/inputtransferselect.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/text.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/validation.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/theme.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/optiontransferselect.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/submit.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/label.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/combobox.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/file.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/controlheader-core.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/updownselect.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/styles.css
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/checkboxlist.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/form.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/textarea.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/select.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/radiomap.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/checkbox.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/head.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/control.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/password.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/form-close-validate.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/xhtml/form-validate.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/datetimepicker.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/form-close.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/controlfooter.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/doubleselect.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/debug.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/controlheader.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/reset.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/control-close.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/inputtransferselect.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/text.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/validation.js
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/theme.properties
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/optiontransferselect.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/submit.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/label.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/combobox.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/file.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/controlheader-core.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/updownselect.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/styles.css
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/checkboxlist.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/form.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/textarea.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/select.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/radiomap.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/checkbox.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/head.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/control.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/password.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/resources/template/css_xhtml/form-validate.ftl
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/validators/DWRValidator.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/StrutsTestCase.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/servlet/interceptor/ServletPrincipalProxy.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/StrutsConstants.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/SessionAware.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/TokenSessionStoreInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/ServletRequestAware.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/ServletResponseAware.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/FileUploadInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/ServletConfigInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/CheckboxInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/validation/SkipValidation.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/validation/AnnotationValidationInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/ParameterAware.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/PrincipalProxy.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/ApplicationAware.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/BackgroundProcess.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/PrincipalAware.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/RequestAware.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/MessageStoreInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/CookieInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/ScopeInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/ProfilingActivationInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/CreateSessionInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/TokenInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/StrutsConversionErrorInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/NoParameters.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/debugging/PrettyPrintWriter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/CookiesAware.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/ExecuteAndWaitInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/interceptor/RolesInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/StrutsException.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/StrutsStatics.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/IfTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/BeanTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ActionTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/DateTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/TagUtils.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/URLTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/SetTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/IteratorTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ElseTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/IncludeTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/TextTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/IteratorStatus.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/PushTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/PropertyTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/I18nTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/RadioTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/AbstractRemoteCallUITag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/TreeNodeTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/AbstractUITag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/InputTransferSelectTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/UpDownSelectTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/DebugTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/TokenTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/AbstractListTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/FormTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/TabbedPanelTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/DoubleSelectTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/OptionTransferSelectTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/AbstractDoubleListTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/AnchorTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/ActionErrorTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/FieldErrorTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/ComboBoxTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/SubmitTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/AutocompleterTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/HeadTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/OptGroupTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/PasswordTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/HiddenTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/table/WebTableTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/SelectTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/TextFieldTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/ActionMessageTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/AbstractClosingTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/CheckboxListTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/FileTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/LabelTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/ResetTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/AbstractRequiredListTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/DivTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/ComponentTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/CheckboxTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/TreeTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/TextareaTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/DateTimePickerTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ui/OgnlTool.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/StrutsBodyTagSupport.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/iterator/SubsetIteratorTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/iterator/SortIteratorTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/iterator/MergeIteratorTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/iterator/IteratorGeneratorTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/iterator/AppendIteratorTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ComponentTagSupport.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ElseIfTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/jsp/ParamTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/DefaultTagLibrary.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/SimpleAdapterDocument.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/AdapterFactory.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/BeanAdapter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/ProxyNodeAdapter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/AbstractAdapterElement.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/ProxyElementAdapter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/MapAdapter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/ProxyTextNodeAdapter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/CollectionAdapter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/ProxyNamedNodeMap.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/AdapterNode.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/ArrayAdapter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/StringAdapter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/SimpleNodeList.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/SimpleTextNode.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/XSLTResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/ProxyAttrAdapter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/ServletURIResolver.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/xslt/AbstractAdapterNode.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/TagLibrary.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/annotations/StrutsTag.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/annotations/StrutsTagAttribute.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/FormModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/ActionErrorModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/ComponentModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/IteratorModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/OptGroupModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/FieldErrorModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/HeadModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/FileModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/CheckboxModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/UpDownSelectModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/IncludeModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/WebTableModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/PushModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/InputTransferSelectModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/ParamModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/TextAreaModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/CallbackWriter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/TokenModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/TreeModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/PasswordModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/ActionMessageModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/OptionTransferSelectModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/AutocompleterModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/BeanModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/SetModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/URLModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/TextFieldModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/AnchorModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/IfModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/DoubleSelectModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/PropertyModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/DivModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/DateModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/LabelModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/ActionModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/ElseIfModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/DateTimePickerModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/TextModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/TabbedPanelModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/RadioModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/HiddenModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/TreeNodeModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/CheckboxListModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/ComboBoxModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/StrutsModels.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/ResetModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/ElseModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/I18nModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/SubmitModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/TagModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/tags/SelectModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/ScopesHashModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/StrutsClassTemplateLoader.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/FreemarkerResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/FreemarkerManager.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/StrutsBeanWrapper.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/freemarker/PortletFreemarkerResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/util/TextUtil.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/util/ContextUtil.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/util/ResourceUtil.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/util/UrlHelper.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/util/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/VelocityManager.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/StrutsVelocityContext.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/StrutsResourceLoader.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/TokenDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/AbstractDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/HeadDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/ActionMessageDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/AnchorDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/FormDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/DateDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/UpDownSelectDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/RadioDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/WebTableDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/ComboBoxDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/FileDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/I18nDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/DateTimePickerDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/TextDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/ResetDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/PropertyDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/TabbedPanelDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/LabelDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/TextFieldDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/FieldErrorDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/ParamDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/AutocompleterDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/ComponentDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/DivDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/SubmitDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/IncludeDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/OptGroupDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/CheckBoxListDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/ActionDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/CheckBoxDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/PushDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/URLDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/BeanDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/SetDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/PasswordDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/TreeNodeDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/HiddenDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/InputTransferSelectDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/DoubleSelectDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/TextAreaDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/TreeDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/SelectDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/ActionErrorDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/velocity/components/OptionTransferSelectDirective.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/views/JspSupportServlet.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/RequestUtils.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/FastByteArrayOutputStream.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/AttributeMap.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/PrefixTrie.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/URLBean.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/TokenHelper.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/VelocityStrutsUtil.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/StrutsTypeConverter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/Sorter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/ListEntry.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/InvocationSessionStore.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/MergeIteratorFilter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/StrutsUtil.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/Timer.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/StrutsTestCaseHelper.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/IteratorFilterSupport.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/DateFormatter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/SortIteratorFilter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/TabbedPane.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/ContainUtil.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/ObjectFactoryDestroyable.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/MakeIterator.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/SubsetIteratorFilter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/ServletContextAware.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/Counter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/IteratorGenerator.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/ClassLoaderUtils.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/util/AppendIteratorFilter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/TestNGStrutsTestCase.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/DelegatingSettings.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/ServletContextSingleton.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/ParentPackage.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/DefaultPropertiesProvider.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/StrutsXmlConfigurationProvider.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/Results.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/ClasspathConfigurationProvider.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/LegacyPropertiesConfigurationProvider.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/Namespace.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/PropertiesSettings.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/DefaultSettings.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/Settings.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/MethodConfigurationProvider.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/Result.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/BeanSelectionProvider.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/config/NullResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/PortletSessionMap.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/servlet/PortletServletRequestDispatcher.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/servlet/PortletServletConfig.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/servlet/PortletServletContext.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/servlet/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/servlet/PortletServletOutputStream.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/servlet/PortletServletInputStream.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/servlet/PortletServletResponse.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/servlet/PortletHttpSession.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/servlet/PortletServletRequest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/PortletRequestMap.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/context/PortletActionContext.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/interceptor/PortletAwareInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/interceptor/PortletPrincipalProxy.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/interceptor/PortletPreferencesAware.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/interceptor/PortletResponseAware.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/interceptor/PortletStateInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/interceptor/PortletPreferencesInterceptor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/interceptor/PortletRequestAware.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/interceptor/ServletPortletPreferences.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/interceptor/PortletContextAware.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/result/PortletResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/result/PortletActionRedirectResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/result/PortletVelocityResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/util/PortletUrlHelper.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/dispatcher/DirectRenderFromEventAction.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/dispatcher/Jsr168Dispatcher.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/PortletApplicationMap.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/portlet/PortletActionConstants.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/FilterDispatcherCompatWeblogic61.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/SessionMap.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/ActionContextCleanUp.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/multipart/JakartaMultiPartRequest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequest.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/multipart/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/multipart/MultiPartRequestWrapper.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/Dispatcher.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/StrutsRequestWrapper.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/ServletDispatcherResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/StreamResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/ServletRedirectResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/HttpHeaderResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/FilterDispatcher.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/mapper/ActionMapper.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/mapper/DefaultActionMapper.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/mapper/ActionMapping.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/mapper/RestfulActionMapper.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/mapper/Restful2ActionMapper.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/mapper/CompositeActionMapper.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/ServletActionRedirectResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/DispatcherListener.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/StrutsResultSupport.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/PlainTextResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/ApplicationMap.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/RequestMap.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/VelocityResult.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/dispatcher/DefaultActionSupport.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/ServletActionContext.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/OptGroup.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/ListUIBean.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Anchor.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Else.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Include.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Autocompleter.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Head.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/TabbedPanel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Submit.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/InputTransferSelect.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/DateTimePicker.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Hidden.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Set.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Param.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/File.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Text.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/ClosingUIBean.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/TextArea.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/CheckboxList.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/MergeIterator.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Property.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/AppendIterator.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/OptionTransferSelect.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Form.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Tree.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Reset.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/IteratorComponent.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Select.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/TreeNode.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Bean.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Password.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/DoubleListUIBean.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/TextField.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/renderer/NumericCellRenderer.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/renderer/AbstractCellRenderer.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/renderer/DateCellRenderer.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/renderer/BooleanCellRenderer.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/renderer/package.html
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/renderer/DefaultCellRenderer.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/renderer/LinkCellRenderer.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/renderer/CellRenderer.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/renderer/FixedTextCellRenderer.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/AbstractFilterModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/SortFilterModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/SortableTableModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/WebTableColumn.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/RenderFilterModel.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/table/WebTable.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/ComboBox.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/UIBean.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/ActionError.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/GenericUIBean.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Date.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/ElseIf.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/ActionComponent.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/FieldError.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/UpDownSelect.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/FormButton.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/RemoteUICallBean.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/AbstractRemoteCallUIBean.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/ActionMessage.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Component.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/template/TemplateRenderingContext.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/template/Template.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/template/VelocityTemplateEngine.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/template/TemplateEngine.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/template/JspTemplateEngine.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/template/FreemarkerTemplateEngine.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/template/TemplateEngineManager.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/template/BaseTemplateEngine.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/If.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Token.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Div.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/URL.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/I18n.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Push.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Debug.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Radio.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Label.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/DoubleSelect.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/components/Checkbox.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/impl/StrutsObjectFactory.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/impl/StrutsActionProxyFactory.java
+  AL    /home/rene/sandbox/release/struts_2.0.12/core/src/main/java/org/apache/struts2/impl/StrutsActionProxy.java
+ 
+ *****************************************************
+ Printing headers for files without AL header...
+ 
+ </pre></div></p>
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2000-2008
+    
+          Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

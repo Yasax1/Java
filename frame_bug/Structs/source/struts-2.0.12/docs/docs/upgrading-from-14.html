@@ -1,0 +1,353 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Upgrading from 1.4</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Upgrading%20from%201.4" title="Upgrading from 1.4">Upgrading from 1.4</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Upgrading from 1.4</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13938">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13938">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13938">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13938">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13938">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13938">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=mgreer">mgreer</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Feb 12, 2007
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=13938&originalId=45390">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+
+<H3><A name="Upgradingfrom1.4-Packagechanges"></A>Package changes</H3>
+<P>Webwork1.x was seperated into two projects, XWork and Webwork.  From this, several classes have been moved to different package names.</P>
+<UL>
+	<LI>ActionSupport has moved from <B>webwork.ActionSupport</B> to <B>com.opensymphony.xwork.ActionSupport</B>
+	<UL>
+		<LI>doExecute() no longer exists, override execute()</LI>
+		<LI>the methods addError and addErrorMessage are now addFieldError and addActionError respectively</LI>
+	</UL>
+	</LI>
+</UL>
+
+
+<H3><A name="Upgradingfrom1.4-Configurationchanges"></A>Configuration changes</H3>
+
+<UL>
+	<LI><B>actions.xml/views.properties needs to be converted to xwork.xml</B><BR>
+If you're using an actions.xml file to configure your webwork 1, you can use the attached XSLT to convert the actions.xml file to a vanilla xwork.xml file.<BR>
+To apply this XSLT, you'll need to do the following: <BR>
+Get a copy of the XSLT. You can find the latest version in CVS in webwork/src/etc/actions.xsl . Next, find yourself an XSLT rendering engine. Xalan is a good choice and can be found at <SPAN class="nobr"><A href="http://xml.apache.org/xalan-j/index.html" title="Visit page outside Confluence" rel="nofollow">http://xml.apache.org/xalan-j/index.html<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> <BR>
+Finally, do the conversion. </LI>
+</UL>
+
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">java org.apache.xalan.xslt.<SPAN class="code-object">Process</SPAN> -IN actions.xml -XSL actions.xsl -OUT xwork.xml</PRE>
+</DIV></DIV>
+
+<P>Remember that you'll need to Xalan libraries in your classpath to run the above command. <BR>
+If you want to look at these pages directly in your browser, I recommend user Internet Explorer as it automagically formats XML documents reasonably. There one caveat though. WW1 had a way to shorten the declaration of actions by allowing you to specify a package prefix in webwork.properties file. Since this information is outside the actions.xml file, the XSLT is unable to take advantage of it. Consequently, you might need to edit the xwork.xml file to update the class names. </P>
+
+
+<P>WebWork 1.x configuration used a pull paradigm to load action configurations when they are asked for, whereas WebWork2 builds the configuration up-front to make the configuration queryable. The webwork.MigrationConfiguration must therefore act as an adapter between these two paradigms. It does this by returning a custom RuntimeConfiguration which first tries the default XWork Configuration (which, by default, loads configuration information from a file named &quot;xwork.xml&quot; in the root of the classpath) and then attempts to load action configuration using the Configuration classes from WebWork 1.x. In this way, an application can be slowly converted over to WebWork2 while reusing the configuration and Actions from a WebWork 1.x application.  One caveat in this is that your migrated application MUST be rebuilt against the WebWork2 and migration jar files, as the classloader will rightly recognize that the webwork.Action and webwork.ActionSupport in WebWork 1.x are not the same as those provided by the migration jar files. Other than that, it should be seamless (and let us know if it isn't).</P>
+
+<P>If the webwork.MigrationRuntimeConfiguration does not find the action configuration using the RuntimeConfiguration from the supplied RuntimeConfiguration (which is acquried from the Xwork DefaultConfiguration and will load configurations from all of the sources configured for XWork / WebWork2), it will build an ActionConfiguration by instantiating an Action using the ActionFactories from WebWork 1.x. The ActionFactory stack used is a subset of the default ActionFactory stack used in WebWork 1.x:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">factory = new JavaActionFactory();
+        factory = new ScriptActionFactoryProxy(factory);
+        factory = new XMLActionFactoryProxy(factory);
+        factory = new PrefixActionFactoryProxy(factory);
+        factory = new JspActionFactoryProxy(factory);
+        factory = new CommandActionFactoryProxy(factory);
+        factory = new AliasingActionFactoryProxy(factory);
+        factory = new CommandActionFactoryProxy(factory);
+        factory = new ContextActionFactoryProxy(factory);</PRE>
+</DIV></DIV>
+
+<P>Some of the ActionFactory classes have been left out as they are handled by Interceptors in WebWork2. If the Action instance is created (meaning that the configuration has been found in the webwork.properties or actions.xml files used by the WebWork 1.x configuration classes) a parameter Map is created by introspecting the Action instance. A Map is needed for results and, again, WebWork 1.x used a pull paradigm to find results when they were needed, so a LazyResultMap is created which extends HashMap and overrides get() to look up the Result configuration if it has not previously been loaded. If the result ends in the Action suffix (defaulting to &quot;.action&quot;), then a ChainingResult is created, otherwise a ServletDispatcherResult is created. Using the Action class of the instantiated Action, the Map of parameters introspected from the Action instance, and the LazyResultMap, a new ActionConfig is created. The ActionConfig is saved into a special Package, &quot;webwork-migration&quot;, so that it will pick up the default Interceptor stack defined for that package. The &quot;webwork-migration&quot; package is defined in a webwork-migration.xml file which is included in the migration jar file and which is automatically added to the Xwork configuration providers when the MigrationConfiguration is used:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;!DOCTYPE xwork PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork 1.0//EN&quot;</SPAN> <SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-1.0.dtd&quot;</SPAN>&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;xwork&gt;</SPAN>
+    <SPAN class="code-tag">&lt;include file=<SPAN class="code-quote">&quot;webwork-default.xml&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;webwork-migration&quot;</SPAN> abstract=<SPAN class="code-quote">&quot;true&quot;</SPAN> extends=<SPAN class="code-quote">&quot;webwork-default&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;interceptors&gt;</SPAN>
+            <SPAN class="code-tag">&lt;interceptor-stack name=<SPAN class="code-quote">&quot;migrationStack&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;timer&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;logger&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;chain&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;static-params&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;prepare&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;params&quot;</SPAN>/&gt;</SPAN>
+                <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;workflow&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/interceptor-stack&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/interceptors&gt;</SPAN>
+        <SPAN class="code-tag">&lt;default-interceptor-ref name=<SPAN class="code-quote">&quot;migrationStack&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/xwork&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>Here we can see that a number of the functions previously performed by ActionFactories in WebWork 1.x are now replaced by Interceptors in WebWork2, including the parameters, the chaining, calling prepare(), and the workflow (which was formerly implemented in ActionSupport in WebWork 1.x).</P>
+
+<P>By creating and saving the ActionConfig in the PackageConfig for the &quot;webwork-migration&quot; package, the ActionConfig for the migrated Action is available for future calls, obviating the need to re-parse the old configuration files and making the configuration for the Action available for querying via the configuration API for tools such as the configuration browser.</P>
+
+
+<H3><A name="Upgradingfrom1.4-TagChanges"></A>Tag Changes</H3>
+<P>The biggest change is the use of OGNL for accessing object properties.  Properties are no longer accessed with a forward slash &quot;<B>/</B>&quot; but with a dot &quot;<B>.</B>&quot; Also, rather than using &quot;<B>..</B>&quot; to traverse down the stack, we now use &quot;[n]&quot; where n is some positive number. Lastly, in WebWork 1.x one could access special named objects (the request scope attributes to be exact) by using &quot;@foo&quot;, but now special variables are accessed using &quot;#foo&quot;.  However, it is important to note that &quot;#foo&quot; does NOT access the request attributes. &quot;#foo&quot; is merely a request to another object in the OgnlContext other than the root.  See <A href="ognl.html" title="OGNL">OGNL</A> reference for more details.</P>
+
+<P>Also see <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=JSP%20Expression%20Language%20Comparison%20with%20WebWork%201.x&linkCreation=true&fromPageId=13938" title="Create Page: JSP Expression Language Comparison with WebWork 1.x" class="createlink">JSP Expression Language Comparison with WebWork 1.x<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> for a table of the expression language changes.</P>
+
+<H4><A name="Upgradingfrom1.4-propertytag"></A>property tag</H4>
+
+<P>The <A href="property.html" title="property">property</A> tag is now only used to print out values from the stack. In WW1, it was also used to set a variable in the scope, and to push properties to the top of the stack. These functions are now performed by the <A href="set.html" title="set">set</A> and <A href="push.html" title="push">push</A> tags.</P>
+
+<H4><A name="Upgradingfrom1.4-actiontag"></A>action tag</H4>
+
+<P>The <A href="action.html" title="action">action</A> tag does not evaluate the body section any more and does not push the executed action onto the ValueStack.  Instead, use the &quot;<B>id</B>&quot; attribute to assign a name to the action and reference it as &quot;<B>#id</B>&quot;.</P>
+
+<H4><A name="Upgradingfrom1.4-Examples"></A>Examples</H4>
+
+<P>Lets enumerate some examples of differences between code snips using <A href="home.html" title="Home">Home</A> and <A href="home.html" title="Home">Home</A>.</P>
+
+<UL>
+	<LI><EM>New JSP syntax</EM></LI>
+</UL>
+
+
+<P>There are numerous changes in syntax. First of all there are new tags and secondly there is a new expression language. Here's a small example:</P>
+
+<P><B>Webwork 1</B></P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;ww:property value=<SPAN class="code-quote">&quot;a/b&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;ww:property value=<SPAN class="code-quote">&quot;foo&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ww:property&gt;</SPAN></PRE>
+</DIV></DIV>
+<P><B>Webwork 2</B></P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;ww:push value=<SPAN class="code-quote">&quot;a.b&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;ww:property value=<SPAN class="code-quote">&quot;foo&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ww:push&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>One can note that the &quot;push&quot; tag doesn't just push it pops too at the end of the tag. Surprise! Also note the &quot;.&quot; instead of the &quot;/&quot; for traversing object properties.</P>
+
+<UL>
+	<LI><EM>List errors posted by an Action</EM><BR>
+<B>Webwork 1</B>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;webwork:if test=<SPAN class="code-quote">&quot;hasErrorMessages == true&quot;</SPAN>&gt;</SPAN>
+  ERROR:<SPAN class="code-tag">&lt;br /&gt;</SPAN>
+  <SPAN class="code-tag">&lt;font color=<SPAN class="code-quote">&quot;red&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;webwork:iterator value=<SPAN class="code-quote">&quot;errorMessages&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;webwork:property/&gt;</SPAN><SPAN class="code-tag">&lt;br /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/webwork:iterator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/font&gt;</SPAN>
+<SPAN class="code-tag">&lt;/webwork:if&gt;</SPAN></PRE>
+</DIV></DIV>
+<P><B>Webwork 2</B></P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;webwork:if test=<SPAN class="code-quote">&quot;hasErrors()&quot;</SPAN>&gt;</SPAN>
+  ERROR:<SPAN class="code-tag">&lt;br /&gt;</SPAN>
+  <SPAN class="code-tag">&lt;font color=<SPAN class="code-quote">&quot;red&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;webwork:iterator value=<SPAN class="code-quote">&quot;actionErrors&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;webwork:property/&gt;</SPAN><SPAN class="code-tag">&lt;br /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/webwork:iterator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/font&gt;</SPAN>
+<SPAN class="code-tag">&lt;/webwork:if&gt;</SPAN></PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+
+<H2><A name="Upgradingfrom1.4-Updateyourweb.xmlfile"></A>Update your web.xml file</H2>
+<UL>
+	<LI>If you're using Velocity for views, you'll need to make sure you have the following snippet. Specifically note that the &lt;load-on-startup&gt; tag is now required so that the servlet can initialize some important Velocity properties.
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;servlet&gt;
+    &lt;servlet-name&gt;velocity&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;com.opensymphony.webwork.views.velocity.WebWorkVelocityServlet&lt;/servlet-class&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<UL>
+	<LI>Set the property <B>webwork.velocity.configfile</B> in your _<EM>webwork.properties</EM>_. For example:
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">webwork.velocity.configfile=velocity.properties</PRE>
+</DIV></DIV></LI>
+</UL>
+
+
+<P>WebWork will use this file to initialize the Velocity engine. The search path for the file is:</P>
+<OL>
+	<LI>context root (web root)</LI>
+	<LI>WEB-INF/</LI>
+	<LI>classpath</LI>
+</OL>
+
+
+
+<UL>
+	<LI>Additional Steps:</LI>
+</UL>
+<OL>
+	<LI>If you used the &lt;ww:action taglib in 1.3... you used to refernece the java Action classname. In 2.x this reference is now the action name not the class. you will need to change all your old references in your view.</LI>
+</OL>
+
+
+<H3><A name="Upgradingfrom1.4-ResultExceptiondoesn%27texistanymore"></A>ResultException doesn't exist anymore</H3>
+
+<P>It might be possible to copy WW1's ResultException, and write an Interceptor that catches the ResultExceptions and add the result of getMessage() to the actionErrors of the<BR>
+executed Action and return ResultException.getResult(). </P>
+
+<P>Maybe it would be possible to include ResultException in WW2 too to make migration easier?!</P>
+<H3><A name="Upgradingfrom1.4-DateFormatterdoesn%27texistanymore"></A>DateFormatter doesn't exist anymore</H3>
+<P>It can be replaced by directly using <B>java.text.DateFormat</B></P>
+<H3><A name="Upgradingfrom1.4-addError%28String%2CString%29inwebwork.action.ActionSupporthasbeenremoved"></A>addError(String, String) in webwork.action.ActionSupport has been removed</H3>
+
+<P>The new method to use is <B>addFieldError(String, String)</B>.</P>
+<H3><A name="Upgradingfrom1.4-addErrorMessage%28String%29inwebwork.action.ActionSupporthasbeenremoved"></A>addErrorMessage(String) in webwork.action.ActionSupport has been removed</H3>
+
+<P>The new method is now <B>addActionError(String)</B>.</P>
+<H3><A name="Upgradingfrom1.4-webwork.util.ValueStackhasbeenremoved"></A>webwork.util.ValueStack has been removed</H3>
+
+<P>The ValueStack is <B>com.opensymphony.xwork.util.OgnlValueStack</B></P>
+
+<P>The old methods <B>pushValue</B> and <B>popValue</B> are renamed to simply <B>push</B> and<BR>
+<B>pop</B>.</P>
+
+<P>An instance of the ValueStack can be obtained by using <B>ActionContext.getContext().getValueStack</B> instead of the old <B>ValueStack.getStack()</B>.</P>
+<H3><A name="Upgradingfrom1.4-AwareInterfaceshavebeenremoved"></A>*Aware-Interfaces have been removed</H3>
+
+<P>Instead of implementing <B>ServletRequestAware</B> etc the <BR>
+<B>[Servlet]ActionContext.getXXX</B>-methods can be used to obtain application-map, request, response etc.</P>
+<H3><A name="Upgradingfrom1.4-CommandDriveninterfaceremoved"></A>CommandDriven interface removed</H3>
+
+<P>The <B>CommandDriven</B> interface is removed. It is not neccesary to implement a special interface when working with commands anymore. Use the <B>method</B> attribute in your <B>action</B>-Element in xwork.xml to tell xwork which method to invoke on your action.</P>
+<H3><A name="Upgradingfrom1.4-isCommand%28String%29methodhasbeenremoved"></A>isCommand(String) method has been removed</H3>
+
+<P>You can see which alias you're accessing by doing this: ActionContext.getContext().getActionInvocation().getProxy().getActionName()</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

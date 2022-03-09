@@ -1,0 +1,215 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  
+<!-- Mirrored from cwiki.apache.org/WW/message-store-interceptor.html by HTTrack Website Copier/3.x [XR&CO'2005], Tue, 10 Oct 2006 21:21:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('../confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Message Store Interceptor</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="interceptors.html" title="Interceptors">Interceptors</A>&nbsp;&gt;&nbsp;<A href="#" title="Message Store Interceptor">Message Store Interceptor</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Message Store Interceptor</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=19580">
+            <IMG src="../confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=19580">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="../confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;fromPageId=19580">
+            <IMG src="../confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;fromPageId=19580">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&amp;fromPageId=19580">
+            <IMG src="../confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&amp;fromPageId=19580">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=tm_jee">tm_jee</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 10, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=19580&amp;originalId=23719">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=description&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Finterceptor%2FMessageStoreInterceptor.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD>
+<P>An interceptor to store ValidationAware action&apos;s messages / errors and field errors into 
+Http Session, such that it will be retrieveable at a later stage. This allows the action&apos;s message /
+errors and field errors to be available longer that just the particular http request.</P>
+
+<P><P></P>
+
+<P>In the &apos;STORE&apos; mode, the interceptor will store the ValidationAware action&apos;s message / errors 
+and field errors into Http session.</P>
+
+<P><P></P>
+
+<P>In the &apos;RETRIEVE&apos; mode, the interceptor will retrieve the stored action&apos;s message / errors  and field
+errors and put them back into the ValidationAware action.</P>
+
+<P><P></P>
+
+<P>The interceptor does nothing in the &apos;NONE&apos; mode, which is the default.</P>
+
+<P><P></P>
+
+<P>The operation mode could be switched using :- <P>
+1] Setting the iterceptor parameter eg.
+<PRE>
+  &lt;action name=&quot;submitApplication&quot; ...&gt;
+     &lt;interceptor-ref name=&quot;store&quot;&gt;
+        &lt;param name=&quot;operationMode&quot;&amp;gtl;STORE&lt;/param&gt;
+     &lt;/interceptor-ref&gt;
+     &lt;interceptor-ref name=&quot;defaultStack&quot; /&gt;
+     ....
+  &lt;/action&gt;
+</PRE></P>
+
+<P>2] Through request parameter (allowRequestParameterSwitch must be &apos;true&apos; which is the default)
+<PRE>
+  // the request will have the operation mode in &apos;STORE&apos;
+  http://localhost:8080/context/submitApplication.action?operationMode=STORE
+</PRE></P>
+</TD></TR></TABLE>
+
+<H2><A name="MessageStoreInterceptor-Parameters"></A>Parameters</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=parameters&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Finterceptor%2FMessageStoreInterceptor.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD>
+<P><UL>
+		<LI>allowRequestParameterSwitch - To enable request parameter that could switch the operation mode 
+										  of this interceptor. </LI>
+		<LI>requestParameterSwitch - The request parameter that will indicate what mode this 
+									 interceptor is in. </LI>
+		<LI>operationMode - The operation mode this interceptor should be in 
+							(either &apos;STORE&apos;, &apos;RETRIEVE&apos; or &apos;NONE&apos;). &apos;NONE&apos; being the default.</LI>
+</UL></P>
+</TD></TR></TABLE>
+
+<H2><A name="MessageStoreInterceptor-ExtendingtheInterceptor"></A>Extending the Interceptor</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=extending&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Finterceptor%2FMessageStoreInterceptor.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD>
+<P>The following method could be overriden :-
+<UL>
+	<LI>getRequestOperationMode - get the operation mode of this interceptor based on the request parameters</LI>
+ <LI>mergeCollection - merge two collections</LI>
+ <LI>mergeMap - merge two map</LI>
+</UL></P>
+</TD></TR></TABLE>
+
+<H2><A name="MessageStoreInterceptor-Examples"></A>Examples</H2>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=example&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Finterceptor%2FMessageStoreInterceptor.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;submitApplication&quot;</SPAN> ....&gt;</SPAN>
+   <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;store&quot;</SPAN>&gt;</SPAN>
+   	<SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;operationMode&quot;</SPAN>&gt;</SPAN>STORE<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+   <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+   <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN> /&gt;</SPAN>
+   <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;input&quot;</SPAN> type=<SPAN class="code-quote">&quot;redirect&quot;</SPAN>&gt;</SPAN>applicationFailed.action<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+   <SPAN class="code-tag">&lt;result type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>applicationSuccess.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;applicationFailed&quot;</SPAN> ....&gt;</SPAN>
+   <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;store&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;param name=<SPAN class="code-quote">&quot;operationMode&quot;</SPAN>&gt;</SPAN>RETRIEVE<SPAN class="code-tag">&lt;/param&gt;</SPAN>
+   <SPAN class="code-tag">&lt;/interceptor-ref&gt;</SPAN>
+   <SPAN class="code-tag">&lt;result&gt;</SPAN>applicationFailed.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+<SPAN class="code-tag">&lt;/action&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=exampleDescription&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Finterceptor%2FMessageStoreInterceptor.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">With the example above, &apos;submitApplication.action&apos; will have the action messages / errors / field errors stored
+in the Http Session. Later when needed, (in this case, when &apos;applicationFailed.action&apos; is fired, it
+will get the action messages / errors / field errors stored in the Http Session and put them back into 
+the action.</PRE>
+</DIV></DIV></TD></TR></TABLE>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+
+<!-- Mirrored from cwiki.apache.org/WW/message-store-interceptor.html by HTTrack Website Copier/3.x [XR&CO'2005], Tue, 10 Oct 2006 21:21:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</HTML>

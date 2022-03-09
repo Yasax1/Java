@@ -1,0 +1,4 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+cwiki.apache.org	TRUE	/confluence	FALSE	1999999999	JSESSIONID	zrj7yjbqc5ns
+

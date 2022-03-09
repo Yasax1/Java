@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="00ff7d90-b737-4e09-b1dd-7a7faa6f894a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\env\maven\address" />
+        <option name="mavenHome" value="D:/env/maven" />
+        <option name="userSettingsFile" value="D:\env\maven\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="vmOptions" value="-DarchetypeCatalog=local" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1z7dtf7F4YIiR7AuJmQl9yvGIjc" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15332031" />
+    <property name="project.structure.side.proportion" value="0.32988507" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java_bug\Yaml\SPI演示\src\resources" />
+      <recent name="D:\Java_bug\Yaml\SPI演示\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="TestCase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestCase" />
+      <module name="SPI演示" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestCase" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="00ff7d90-b737-4e09-b1dd-7a7faa6f894a" name="Default Changelist" comment="" />
+      <created>1633503275172</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633503275172</updated>
+      <workItem from="1633503278797" duration="3434000" />
+      <workItem from="1633506937661" duration="1576000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="424" height="646" key="DebuggerActiveHint" timestamp="1633506143096">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="424" height="646" key="DebuggerActiveHint/0.0.1458.864/1920.0.1920.1050@1920.0.1920.1050" timestamp="1633506143096" />
+    <state width="1877" height="334" key="GridCell.Tab.0.bottom" timestamp="1633508514411">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="334" key="GridCell.Tab.0.bottom/0.0.1458.864/1920.0.1920.1050@1920.0.1920.1050" timestamp="1633508514411" />
+    <state width="1877" height="334" key="GridCell.Tab.0.center" timestamp="1633508514411">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="334" key="GridCell.Tab.0.center/0.0.1458.864/1920.0.1920.1050@1920.0.1920.1050" timestamp="1633508514411" />
+    <state width="1877" height="334" key="GridCell.Tab.0.left" timestamp="1633508514411">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="334" key="GridCell.Tab.0.left/0.0.1458.864/1920.0.1920.1050@1920.0.1920.1050" timestamp="1633508514411" />
+    <state width="1877" height="334" key="GridCell.Tab.0.right" timestamp="1633508514411">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="334" key="GridCell.Tab.0.right/0.0.1458.864/1920.0.1920.1050@1920.0.1920.1050" timestamp="1633508514411" />
+    <state width="1877" height="334" key="GridCell.Tab.1.bottom" timestamp="1633508514411">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="334" key="GridCell.Tab.1.bottom/0.0.1458.864/1920.0.1920.1050@1920.0.1920.1050" timestamp="1633508514411" />
+    <state width="1877" height="334" key="GridCell.Tab.1.center" timestamp="1633508514411">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="334" key="GridCell.Tab.1.center/0.0.1458.864/1920.0.1920.1050@1920.0.1920.1050" timestamp="1633508514411" />
+    <state width="1877" height="334" key="GridCell.Tab.1.left" timestamp="1633508514411">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="334" key="GridCell.Tab.1.left/0.0.1458.864/1920.0.1920.1050@1920.0.1920.1050" timestamp="1633508514411" />
+    <state width="1877" height="334" key="GridCell.Tab.1.right" timestamp="1633508514411">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="334" key="GridCell.Tab.1.right/0.0.1458.864/1920.0.1920.1050@1920.0.1920.1050" timestamp="1633508514411" />
+    <state x="2360" y="99" key="SettingsEditor" timestamp="1633503826272">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2360" y="99" key="SettingsEditor/0.0.1458.864/1920.0.1920.1050@1920.0.1920.1050" timestamp="1633503826272" />
+    <state x="2658" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1633506511718">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2658" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1458.864/1920.0.1920.1050@1920.0.1920.1050" timestamp="1633506511718" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://D:/env/jdk1.8/src.zip!/java/util/ServiceLoader.java</url>
+          <line>537</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://D:/env/jdk1.8/src.zip!/java/util/ServiceLoader.java</url>
+          <line>369</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://D:/env/jdk1.8/src.zip!/java/util/ServiceLoader.java</url>
+          <line>380</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://D:/env/jdk1.8/src.zip!/java/util/ServiceLoader.java</url>
+          <line>334</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://D:/env/jdk1.8/src.zip!/java/util/ServiceLoader.java</url>
+          <line>363</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="pending" language="JAVA" />
+        <watch expression="configs.nextElement()" language="JAVA" />
+        <watch expression="providers" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

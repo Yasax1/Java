@@ -1,0 +1,217 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Projects Using WebWork</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="" title="Projects Using WebWork">Projects Using WebWork</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Projects Using WebWork</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14176">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14176">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14176">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14176">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14176">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14176">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=botah">botah</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Jul 22, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14176&originalId=16350">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.atlassian.com/software/confluence/default.jsp" title="Visit page outside Confluence" rel="nofollow"> Atlassian Confluence<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45; Commercial Wiki and knowledge management system using WebWork 2.0, Hibernate, Spring, and Velocity</LI>
+	<LI><SPAN class="nobr"><A href="http://www.jivesoftware.com/" title="Visit page outside Confluence" rel="nofollow">Jive Software<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45; With over 1100 customers, Jive Software&apos;s Forums and Knowledge Base products both use WebWork 2.1&#43; and are some of the largest deployments of WebWork</LI>
+	<LI><SPAN class="nobr"><A href="http://www.inwiss.com/midwinter" title="Visit page outside Confluence" rel="nofollow"> Midwinter<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45; an open source rapid  web application develop system using WebWork 2.0, Hibernate, Spring, and Velocity</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.chemistaustralia.com.au/" title="Visit page outside Confluence" rel="nofollow"> Chemist Australia<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45;  Online Pharmacy</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.drivenow.com.au/" title="Visit page outside Confluence" rel="nofollow"> DriveNow<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45;  last minute Autralian car rentals</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.opensourcesoft.net/" title="Visit page outside Confluence" rel="nofollow"> OpenReports<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45;  an open source web based reporting application that uses WebWork 2.0, Velocity, and Hibernate</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.esagegroup.com/" title="Visit page outside Confluence" rel="nofollow">eSage Group<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> is a consulting company that uses it for all their client engagements. Additionally, its used for their internal systems</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://filmweb.pl/" title="Visit page outside Confluence" rel="nofollow"> Filmweb<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45;  Polish Film Portal</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.teramedica.com/" title="Visit page outside Confluence" rel="nofollow"> TeraMEDICA<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45;  WebWork is used in TeraMEDICA&apos;s commercial TI2m product, which performs intelligent image management for the healthcare enterprise.  Specifically, WebWork is a key component of the system&apos;s management interface.</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.ebia.com/" title="Visit page outside Confluence" rel="nofollow">EBIA COBRA and 401K Benefits Site<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> provides law reviews for employee benefits like COBRA and 401K.  The site moved from all struts to a current architecture of about 50% WebWork and 50% Struts. We are trying to move it all over to WebWork.  This site is also a great example of porting from Tiles to SiteMesh.</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://rolecall.valtira.com/" title="Visit page outside Confluence" rel="nofollow"> Valtira Rolecall<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45; Identity Management Framework that provides single sign-on for J2EE and .NET web applications.</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.orange-blossom.com/" title="Visit page outside Confluence" rel="nofollow"> Orange Blossom Indian River Citrus<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>&#45; Retail site of shipper of fresh Florida (USA) citrus.</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://sourceforge.net/projects/jert" title="Visit page outside Confluence" rel="nofollow">JavaEye Reporting Tool <SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45; An open-source, web-based database reporting tool. It allows you to create reports without any programming (though you&apos;ll need SQL knowledge). It&apos;s a lightweight reporting environment, the report can be created to quickly share information via web.</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.liefde-voor-het-leven.com/" title="Visit page outside Confluence" rel="nofollow">Dating-site<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45; Commercial dating site (BE, dutch) ww2.1.7, hibernate</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.nofluffjuststuff.com/" title="Visit page outside Confluence" rel="nofollow">No Fluff, Just Stuff<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45; Java/Open Source Conferences delivered locally.</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.agileedge.com/" title="Visit page outside Confluence" rel="nofollow">Agility Issue and Bug Tracker<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45; Bug tracking software that makes heavy use of WW&apos;s Ajax Framework. Take a look at the dashboard for great examples of what can be done with WW.</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="https://javabb.dev.java.net/" title="Visit page outside Confluence" rel="nofollow">JavaBB<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45; phpBB like forum system. Written and used at <SPAN class="nobr"><A href="http://www.javafree.org/" title="Visit page outside Confluence" rel="nofollow">Javafree<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> brazillian community.</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.collabreports.com/" title="Visit page outside Confluence" rel="nofollow">CRI<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45; A pharmecutical marketing compliance application.</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.logicd.com/" title="Visit page outside Confluence" rel="nofollow">Logicd.com<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45; A logistics, shipping management, tracking, supply-chain management application.</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.greenarray.com/" title="Visit page outside Confluence" rel="nofollow"> Green Array<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45; Green Array empowers managers at every level, in every organization.  Green Array&apos;s web-hosted software solution is a simple, fast, scalable way to improve visibility, collaboration and to accelerate team performance. Integrated SWT client and WebWork 2.2 html dashboard with Hibernate persistence.</LI>
+</UL>
+
+
+<UL>
+	<LI><SPAN class="nobr"><A href="http://www.medihomejournal.be/" title="Visit page outside Confluence" rel="nofollow">Medihome Journal<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45; A dutch/french site with free medical streaming videos.</LI>
+</UL>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

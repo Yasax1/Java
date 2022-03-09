@@ -1,0 +1,246 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Resources Available to Velocity Views</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Resources%20Available%20to%20Velocity%20Views" title="Resources Available to Velocity Views">Resources Available to Velocity Views</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Resources Available to Velocity Views</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14177">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14177">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14177">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14177">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14177">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14177">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=gaffonso">gaffonso</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 02, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14177&originalId=21879">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+
+<H3><A name="ResourcesAvailabletoVelocityViews-Summary"></A>Summary</H3>
+<P>Here&apos;s the quick summary of the references available to Velocity templates that are kicked-off from WebWork:</P>
+
+<UL>
+	<LI>$actionInstanceVariable</LI>
+	<LI>$req - the current HttpServletRequest</LI>
+	<LI>$res - the current HttpServletResponse</LI>
+	<LI>$stack - the current OgnlValueStack</LI>
+	<LI>$ognl - an OgnlTool</LI>
+	<LI>$webwork - an instance of WebWorkUtil</LI>
+	<LI>$action - the current WebWork action</LI>
+	<LI>$taglib (or something like that) - access to the JSP tag library via Velocity macros (!!)</LI>
+</UL>
+
+
+<H3><A name="ResourcesAvailabletoVelocityViews-Detail"></A>Detail</H3>
+<P><BR clear="all">
+<B>$actionInstanceVariable</B><BR>
+Each of your action class instance variables (for which you&apos;ve written a getter method) are available in your Velocity template as $actionInstanceVariableName.</P>
+
+<P>In other words, if you have an instance variable in your Action class:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">public</SPAN> class ProcessEditTableRowAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+  <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> fooString;</PRE>
+</DIV></DIV>
+
+<P>And you have a getter method for that string (in that same ActionClass):</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getFooString() { <SPAN class="code-keyword">return</SPAN> fooString; }</PRE>
+</DIV></DIV>
+
+<P>Then in your Velocity template you can retrieve the value of that String by simply refering to:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">$fooString</PRE>
+</DIV></DIV>
+
+<P>Note: For the most part you don&apos;t have to worry about lettercase.  If your Velocity reference is $fooString (note the lowercase &quot;f&quot; in foo) and your getter method is called getFooString (note uppercase &quot;F&quot; in foo) then WebWork does the &quot;right thing&quot; and uses getFooString() to retrieve the value of $fooString.</P>
+
+<P>But things can get weird is some circumstances.  <EM>TODO:</EM> At least I think they can get weird.  At one point, I remember having a problem with the lettercase of Velocity variable names and the corresponding getter methods that was being used to lookup the value.  But I can&apos;t remember exactly how the problem manifested so can&apos;t provide an example.  Need to do that.</P>
+
+<P><EM>TODO:</EM> I&apos;m curious what takes care of translating the $variableName references to method calls on the Action object&apos;s getters.  Where does that happen?</P>
+
+<P><BR clear="all">
+<B>$req</B><BR>
+The current HttpServletRequest created and managed by your Servlet environment (Tomcat, Resin, etc.). </P>
+
+<P><BR clear="all">
+<B>$res</B><BR>
+The current HttpServletResponse created and managed by your Servlet environment (Tomcat, Resin, etc.). </P>
+
+<P><BR clear="all">
+<B>$stack</B><BR>
+The OGNL value stack. (<SPAN class="nobr"><A href="http://www.opensymphony.com/xwork/api/com/opensymphony/xwork/util/OgnlValueStack.html" title="Visit page outside Confluence" rel="nofollow">API Docs<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>)</P>
+
+<P><EM>TODO:</EM> Talk about what&apos;s actually <B>on</B> the stack.  Doesn&apos;t do a whole lot of good to know it&apos;s there without knowing what&apos;s on it.</P>
+
+<P><BR clear="all">
+<B>$ognl</B><BR>
+A reference to an OGNL tool. (<SPAN class="nobr"><A href="http://www.opensymphony.com/webwork/api/com/opensymphony/webwork/views/jsp/ui/OgnlTool.html" title="Visit page outside Confluence" rel="nofollow">API Docs<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>)<BR>
+([See OGNL Basics|<BR>
+<SPAN class="nobr"><A href="http://wiki.opensymphony.com/display/XW/Ognl" title="Visit page outside Confluence" rel="nofollow">http://wiki.opensymphony.com/display/XW/Ognl<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>])</P>
+
+
+<P>At the time of this writing, there are no docs for that object, so if you really want to know how it works, be a <SPAN class="nobr"><A href="http://en.wikipedia.org/wiki/Jedi" title="Visit page outside Confluence" rel="nofollow">Jedi<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> and &quot;use the source&quot;.  (The CVS repository is browsable here: <SPAN class="nobr"><A href="https://webwork.dev.java.net/source/browse/webwork/src/java" title="Visit page outside Confluence" rel="nofollow">https://webwork.dev.java.net/source/browse/webwork/src/java<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>)</P>
+
+<P><BR clear="all">
+<EM>Tip:</EM><BR>
+Jason/Patrick note that one nifty thing you can do with this tool is to call static class methods. That&apos;s rather handy since Velocity doesn&apos;t offer access to class variables or methods, but only to instantiate objects that have been placed in the Velocity Context.  So you can&apos;t normally do things like Math.random().</P>
+
+<P>To call a class method, from within Velocity template, using the OGNL tool, you do this:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">$ognl.findValue(<SPAN class="code-quote">&quot;@com.acme.FooClass@FOO&quot;</SPAN>)</PRE>
+</DIV></DIV>
+
+<P><EM>TODO:</EM> the original email detailing the above example used $value to refer to the OGNL tool, not $ognl.  But the source indicates it&apos;s &quot;$ognl&quot; that&apos;s shared with the context.  Which is right?</P>
+
+<P><BR clear="all">
+<B>$webwork</B><BR>
+A reference to the VelocityWebWorkUtil class. (<SPAN class="nobr"><A href="http://www.opensymphony.com/webwork/api/com/opensymphony/webwork/util/WebWorkUtil.html" title="Visit page outside Confluence" rel="nofollow">API Docs<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>)</P>
+
+<P>At the time of this writing, the API docs for this object are effectively blank, so if you really want to know how it works, be a <SPAN class="nobr"><A href="http://en.wikipedia.org/wiki/Jedi" title="Visit page outside Confluence" rel="nofollow">Jedi<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> and &quot;use the source&quot;.  (The CVS repository is browsable here: <SPAN class="nobr"><A href="https://webwork.dev.java.net/source/browse/webwork/src/java" title="Visit page outside Confluence" rel="nofollow">https://webwork.dev.java.net/source/browse/webwork/src/java<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>)</P>
+
+<P><BR clear="all">
+<EM>Tip:</EM><BR>
+Mathew notes that the VelocityWebWorkUtil class can instantiate other objects for you.  This, too, is very handy since Velocity is normally constrained to only the objects that have been explicitely shared with it&apos;s context (and not something you have control over when using Velocity templates kicked off by WebWork).</P>
+
+<P>To instantiate an object from a Velocity page (that&apos;s been kicked off by WebWork, of course) do this:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">#set($object = $webwork.bean(<SPAN class="code-quote">&quot;com.foo.ClassName&quot;</SPAN>))</PRE>
+</DIV></DIV>
+
+<P>This technique can be particularly handy for grabbing a reference to one of the <SPAN class="nobr"><A href="http://jakarta.apache.org/velocity/tools/" title="Visit page outside Confluence" rel="nofollow">VelocityTools<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> objects. (The VelocityTools are not included with WebWork, you&apos;ll need to go grab the lib and put it in your classpath if you want to use $webwork.bean() to grab references to the tool objects.)</P>
+
+<P>(Note: If you&apos;re rumaging through the source, the source-code for the $webwork.bean() method above is really in VelocityWebWorkUtil&apos;s parent class WebWorkUtil.)</P>
+
+<P><BR clear="all">
+<B>$action</B><BR>
+A reference to the action context that called this template.  <EM>TODO:</EM> Not really sure what&apos;s in there or what it&apos;s good for.  Should probably note that.</P>
+
+<P><BR clear="all">
+<B>#tag</B> and <B>#bodytag</B>#</P>
+
+<P>Provides a way of using a JSP taglib from velocity.<BR>
+Many, but not all taglibs can be used. </P>
+
+<P>ex:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">#tag( Text <SPAN class="code-quote">&quot;name=&apos;title.edit&apos;&quot;</SPAN> )</PRE>
+</DIV></DIV>
+<P>provides a way to uses the &lt;ww:text name=&quot;title.edit&quot; /&gt; tag from velocity.</P>
+
+<P>Note the &lt;ww:text /&gt; is probably not that useful from velocity since <BR>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">$action.getText(&apos;title.edit&apos;)</PRE>
+</DIV></DIV> would perform the same thing.</P>
+
+<P>see <A href="ui-tags.html#UITags-WW%252FUITags" title="WW/UI+Tags on UI Tags">UI tags#WW/UI&#43;Tags</A> for more information about webworks tags.  Many provide equivalent velocity examples.  Usage with other tags could be infered based on examples given. </P>
+
+
+
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

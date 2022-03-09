@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: ted
+Build-Jdk: 1.5.0_06
+Extension-Name: struts2-blank
+Specification-Title: Apache Struts Framework 2
+Specification-Vendor: Apache Software Foundation
+Implementation-Vendor: Apache Software Foundation
+Implementation-Title: struts2-blank
+Implementation-Version: 2.0.1
+

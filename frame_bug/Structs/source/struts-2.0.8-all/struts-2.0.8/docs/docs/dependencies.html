@@ -1,0 +1,248 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Dependencies</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Dependencies" title="Dependencies">Dependencies</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Dependencies</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13881">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13881">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13881">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13881">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13881">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13881">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=plightbo">Patrick Lightbody</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Feb 12, 2007
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=13881&originalId=45411">view change</A>)
+                      <SPAN id="show" class="inline-control-link"><A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Dependencies" onclick="showComment(); return false;">show comment</A></SPAN>
+        <SPAN id="hide" class="inline-control-link" style="display:none;"><A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Dependencies" onclick="hideComment(); return false;">hide comment</A></SPAN>
+          <DIV id="versionComment" class="noteMacro" style="display:none; padding: 5px;">
+      <B>Comment:</B>
+      <BR>
+<BR>
+Update nomenclature<BR>
+      <SPAN class="smalltext"><A href="http://cwiki.apache.org/confluence/pages/viewpreviouspageversions.action?pageId=13881">View page history</A></SPAN>
+  </DIV>
+
+    <SCRIPT>
+      var show = document.getElementById('show');
+      var hide = document.getElementById('hide');
+      var versionComment = document.getElementById('versionComment');
+
+      function showComment(){
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+        versionComment.style.display = 'block';
+      }
+
+      function hideComment(){
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+        versionComment.style.display = 'none';
+      }
+
+    </SCRIPT>
+    
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<H2><A name="Dependencies-GeneralInformationonDependencies"></A>General Information on Dependencies</H2>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>SAF 2 is in the process of the migrating from the Incubator. The library distribution and dependency report may not yet be available.</TD></TR></TABLE>
+<P>As with most modern and robust frameworks, Struts Action Framework 2 has a number of <SPAN class="nobr"><A href="http://struts.apache.org/struts-action2/dependencies.html" title="Visit page outside Confluence" rel="nofollow">external dependencies<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>. For your convenience, all of the JARs used by the framework are available in a library distribution. You can <SPAN class="nobr"><A href="http://struts.apache.org/downloads.html" title="Visit page outside Confluence" rel="nofollow">download the distribution<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> and add the JARs to your SAF-based application.</P>
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="infoMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Depending on which of the framework's features your application uses, some of the JARs may be optional. However, if a JAR is not used, its code is not loaded into main memory, and no additional resources are consumed.</TD></TR></TABLE>
+
+<H2><A name="Dependencies-DependencyManagement"></A>Dependency Management</H2>
+
+<P>We use <SPAN class="nobr"><A href="http://maven.apache.org/" title="Visit page outside Confluence" rel="nofollow">Apache Maven<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> to track and maintain the framework's dependencies. Another popular product is Ivy. You may want to consider using Maven or Ivy to manage your own application's dependencies.</P>
+
+<H3><A name="Dependencies-UsingIvytoresolvedependencies"></A>Using Ivy to resolve dependencies</H3>
+
+<P>The much easier way for dependency resolving is to integrate <SPAN class="nobr"><A href="http://jayasoft.org/ivy" title="Visit page outside Confluence" rel="nofollow">Ivy<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> into your project. See <A href="building-the-framework-from-source.html" title="Building the Framework from Source">Building the Framework from Source</A> for a introduction to Ivy and installation instructions.</P>
+
+<P>Here is a sample <EM>ivy.xml</EM> for a SAF-based project, requiring the latest release of SAF 2 with FreeMarker, SiteMesh and JasperReports functionality:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;ISO-8859-1&quot;</SPAN>?&gt;</SPAN>
+<SPAN class="code-tag">&lt;?xml-stylesheet type=<SPAN class="code-quote">&quot;text/xsl&quot;</SPAN> xhref=<SPAN class="code-quote">&quot;http://www.jayasoft.fr/org/ivyrep/ivy-doc.xsl&quot;</SPAN>?&gt;</SPAN>
+<SPAN class="code-tag">&lt;ivy-module version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN>&gt;</SPAN>
+    &lt;info organisation=<SPAN class="code-quote">&quot;my.organisation.net&quot;</SPAN> module=<SPAN class="code-quote">&quot;myproject&quot;</SPAN>
+          revision=<SPAN class="code-quote">&quot;1.0-alpha-1&quot;</SPAN>
+          status=<SPAN class="code-quote">&quot;integration&quot;</SPAN>
+          publication=<SPAN class="code-quote">&quot;20051022053520&quot;</SPAN>&gt;
+        <SPAN class="code-tag">&lt;license name=<SPAN class="code-quote">&quot;Apache&quot;</SPAN> url=<SPAN class="code-quote">&quot;http://www.apache.org/licenses/LICENSE-2.0.txt&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;ivyauthor name=<SPAN class="code-quote">&quot;Me&quot;</SPAN> url=<SPAN class="code-quote">&quot;http://my.organisation.net/&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;description homepage=<SPAN class="code-quote">&quot;http://my.organisation.net/myproject&quot;</SPAN>&gt;</SPAN>
+            My first Webwork2 based project.
+            <SPAN class="code-tag">&lt;br/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/description&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/info&gt;</SPAN>
+    <SPAN class="code-tag">&lt;configurations&gt;</SPAN>
+        <SPAN class="code-tag">&lt;conf name=<SPAN class="code-quote">&quot;build&quot;</SPAN> visibility=<SPAN class="code-quote">&quot;private&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;conf name=<SPAN class="code-quote">&quot;default&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/configurations&gt;</SPAN>
+    <SPAN class="code-tag">&lt;publications&gt;</SPAN>
+        <SPAN class="code-tag">&lt;artifact name=<SPAN class="code-quote">&quot;myproject&quot;</SPAN> type=<SPAN class="code-quote">&quot;jar&quot;</SPAN> conf=<SPAN class="code-quote">&quot;default&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/publications&gt;</SPAN>
+    <SPAN class="code-tag">&lt;dependencies&gt;</SPAN>
+        <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- build only dependencies --&gt;</SPAN></SPAN>
+        <SPAN class="code-tag">&lt;dependency org=<SPAN class="code-quote">&quot;junit&quot;</SPAN> name=<SPAN class="code-quote">&quot;junit&quot;</SPAN> rev=<SPAN class="code-quote">&quot;3.8.1&quot;</SPAN> conf=<SPAN class="code-quote">&quot;build-&gt;</SPAN>*&quot;</SPAN>/&gt;
+        <SPAN class="code-tag">&lt;dependency org=<SPAN class="code-quote">&quot;servletapi&quot;</SPAN> name=<SPAN class="code-quote">&quot;servletapi&quot;</SPAN> rev=<SPAN class="code-quote">&quot;2.4&quot;</SPAN> conf=<SPAN class="code-quote">&quot;build-&gt;</SPAN>*&quot;</SPAN>/&gt;
+
+        <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- runtime (and build) dependencies --&gt;</SPAN></SPAN>
+        <SPAN class="code-tag">&lt;dependency org=<SPAN class="code-quote">&quot;log4j&quot;</SPAN> name=<SPAN class="code-quote">&quot;log4j&quot;</SPAN> rev=<SPAN class="code-quote">&quot;1.2.9&quot;</SPAN> conf=<SPAN class="code-quote">&quot;default-&gt;</SPAN>default&quot;</SPAN>/&gt;
+        &lt;dependency org=<SPAN class="code-quote">&quot;apache-struts&quot;</SPAN> name=<SPAN class="code-quote">&quot;action&quot;</SPAN> rev=<SPAN class="code-quote">&quot;2.0+&quot;</SPAN>
+           conf=<SPAN class="code-quote">&quot;default-&gt;default,freemarker,sitemesh,jasperreports&quot;</SPAN>/&gt;
+    <SPAN class="code-tag">&lt;/dependencies&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ivy-module&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>The following is a sample repository resolver configuration <EM>ivyconf.xml</EM></P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;ivyconf&gt;</SPAN>
+    <SPAN class="code-tag">&lt;properties file=<SPAN class="code-quote">&quot;ivyconf.properties&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;conf defaultResolver=<SPAN class="code-quote">&quot;default&quot;</SPAN> checkUpToDate=<SPAN class="code-quote">&quot;true&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;resolvers&gt;</SPAN>
+        <SPAN class="code-tag">&lt;ivyrep name=<SPAN class="code-quote">&quot;libraries&quot;</SPAN>/&gt;</SPAN>
+        <SPAN class="code-tag">&lt;chain name=<SPAN class="code-quote">&quot;default&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;url name=<SPAN class="code-quote">&quot;apache-struts&quot;</SPAN> checkmodified=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+                <SPAN class="code-tag">&lt;ivy pattern=<SPAN class="code-quote">&quot;http://struts.apache.org/[organisation]/[module]/ivy-[revision].xml&quot;</SPAN>/&gt;</SPAN>
+                &lt;artifact
+pattern=<SPAN class="code-quote">&quot;http://struts.apache.org/[organisation]/[module]/[artifact]-[revision].[type]&quot;</SPAN>/&gt;
+            <SPAN class="code-tag">&lt;/url&gt;</SPAN>
+            <SPAN class="code-tag">&lt;url name=<SPAN class="code-quote">&quot;contegix&quot;</SPAN>&gt;</SPAN>
+               &lt;ivy
+pattern=<SPAN class="code-quote">&quot;http://repository.contegix.com/ivyrep/[organisation]/[module]/ivy-[revision].xml&quot;</SPAN>/&gt;
+                &lt;artifact
+pattern=<SPAN class="code-quote">&quot;http://repository.contegix.com/ivyrep/[organisation]/[module]/[artifact]-[revision].[type]&quot;</SPAN>/&gt;
+            <SPAN class="code-tag">&lt;/url&gt;</SPAN>
+            <SPAN class="code-tag">&lt;ivyrep name=<SPAN class="code-quote">&quot;ivyrep&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;ibiblio name=<SPAN class="code-quote">&quot;contegix-maven&quot;</SPAN> root=<SPAN class="code-quote">&quot;http://repository.contegix.com/maven&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;url name=<SPAN class="code-quote">&quot;maven&quot;</SPAN>&gt;</SPAN>
+                &lt;artifact
+pattern=<SPAN class="code-quote">&quot;http://www.ibiblio.org/maven/[organisation]/jars/[module]-[revision].[type]&quot;</SPAN>/&gt;
+            <SPAN class="code-tag">&lt;/url&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/chain&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/resolvers&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ivyconf&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>After integrating an appropriate Ivy init task into your project build file, Ivy will resolve <B>all</B> dependencies required by your project and download the needed JARs. See <SPAN class="nobr"><A href="http://jayasoft.org/ivy/doc" title="Visit page outside Confluence" rel="nofollow">Ivy documentation<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> for more information on how to integrate Ivy in your own project, or just have a quick look at our build process.</P>
+
+<H2><A name="Dependencies-Next%3ABigPicture"></A>Next: <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Big%20Picture&linkCreation=true&fromPageId=13881" title="Create Page: Big Picture" class="createlink">Big Picture<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

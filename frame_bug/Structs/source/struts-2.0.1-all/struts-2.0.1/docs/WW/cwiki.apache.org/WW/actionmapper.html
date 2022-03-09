@@ -1,0 +1,248 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  
+<!-- Mirrored from cwiki.apache.org/WW/actionmapper.html by HTTrack Website Copier/3.x [XR&CO'2005], Tue, 10 Oct 2006 21:20:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('../confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>ActionMapper</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="core-developers-guide.html" title="Core Developers Guide">Core Developers Guide</A>&nbsp;&gt;&nbsp;<A href="#" title="ActionMapper">ActionMapper</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">ActionMapper</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14128">
+            <IMG src="../confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14128">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="../confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;fromPageId=14128">
+            <IMG src="../confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;fromPageId=14128">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&amp;fromPageId=14128">
+            <IMG src="../confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&amp;fromPageId=14128">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=plightbo">plightbo</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 03, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14128&amp;originalId=23036">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=javadoc&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fdispatcher%2Fmapper%2FActionMapper.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD>
+<P> The ActionMapper is responsible for providing a mapping between HTTP requests and action invocation requests and
+ vice-versa. When given an HttpServletRequest, the ActionMapper may return null if no action invocation request maps,
+ or it may return an ActionMapping that describes an action invocation that Struts should attempt to try. The
+ ActionMapper is not required to guarantee that the ActionMapping returned be a real action or otherwise
+ ensure a valid request. This means that most ActionMappers do not need to consult the Struts configuration to
+ determine if a request should be mapped.</P>
+
+<P> <P> Just as requests can be mapped from HTTP to an action invocation, the opposite is true as well. However, because
+ HTTP requests (when shown in HTTP responses) must be in String form, a String is returned rather than an actual
+ request object.</P>
+</TD></TR></TABLE>
+
+<H2><A name="ActionMapper-DefaultActionMapper"></A>DefaultActionMapper</H2>
+
+<P>By default, the DefaultActionMapper is used:</P>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=javadoc&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fdispatcher%2Fmapper%2FDefaultActionMapper.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD>
+<P>Default action mapper implementation, using the standard *.[ext] (where ext
+usually &quot;action&quot;) pattern. The extension is looked up from the Struts
+configuration key <B>struts.action.exection</B>.</P>
+
+<P><P> To help with dealing with buttons and other related requirements, this
+mapper (and other ActionMappers, we hope) has the ability to name a
+button with some predefined prefix and have that button name alter the
+execution behaviour. The four prefixes are:</P>
+
+<P><UL></P>
+
+<P><LI>Method prefix - <I>method:default</I></LI></P>
+
+<P><LI>Action prefix - <I>action:dashboard</I></LI></P>
+
+<P><LI>Redirect prefix - <I>redirect:cancel.jsp</I></LI></P>
+
+<P><LI>Redirect-action prefix - <I>redirect-action:cancel</I></LI></P>
+
+<P></UL></P>
+
+<P><P> In addition to these four prefixes, this mapper also understands the
+action naming pattern of <I>foo!bar</I> in either the extension form (eg:
+foo!bar.action) or in the prefix form (eg: action:foo!bar). This syntax tells
+this mapper to map to the action named <I>foo</I> and the method <I>bar</I>.</P>
+</TD></TR></TABLE>
+
+<H3><A name="ActionMapper-Methodprefix"></A>Method prefix</H3>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=method&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fdispatcher%2Fmapper%2FDefaultActionMapper.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD>
+<P>With method-prefix, instead of calling baz action&apos;s execute() method (by
+default if it isn&apos;t overriden in struts.xml to be something else), the baz
+action&apos;s anotherMethod() will be called. A very elegant way determine which
+button is clicked. Alternatively, one would have submit button set a
+particular value on the action when clicked, and the execute() method decides
+on what to do with the setted value depending on which button is clicked.</P>
+</TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=method-example&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fdispatcher%2Fmapper%2FDefaultActionMapper.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;a:form action=&amp;quot;baz&amp;quot;&gt;</SPAN>
+    <SPAN class="code-tag">&lt;a:textfield label=&amp;quot;Enter your name&amp;quot; name=&amp;quot;person.name&amp;quot;/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;a:submit value=&amp;quot;Create person&amp;quot;/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;a:submit name=&amp;quot;method:anotherMethod&amp;quot; value=&amp;quot;Cancel&amp;quot;/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/a:form&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+
+<H3><A name="ActionMapper-Actionprefix"></A>Action prefix</H3>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=action&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fdispatcher%2Fmapper%2FDefaultActionMapper.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD>
+<P>With action-prefix, instead of executing baz action&apos;s execute() method (by
+default if it isn&apos;t overriden in struts.xml to be something else), the
+anotherAction action&apos;s execute() method (assuming again if it isn&apos;t overriden
+with something else in struts.xml) will be executed.</P>
+</TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=action-example&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fdispatcher%2Fmapper%2FDefaultActionMapper.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;a:form action=&amp;quot;baz&amp;quot;&gt;</SPAN>
+    <SPAN class="code-tag">&lt;a:textfield label=&amp;quot;Enter your name&amp;quot; name=&amp;quot;person.name&amp;quot;/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;a:submit value=&amp;quot;Create person&amp;quot;/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;a:submit name=&amp;quot;action:anotherAction&amp;quot; value=&amp;quot;Cancel&amp;quot;/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/a:form&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+
+<H3><A name="ActionMapper-Redirectprefix"></A>Redirect prefix</H3>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=redirect&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fdispatcher%2Fmapper%2FDefaultActionMapper.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD>
+<P>With redirect-prefix, instead of executing baz action&apos;s execute() method (by
+default it isn&apos;t overriden in struts.xml to be something else), it will get
+redirected to, in this case to www.google.com. Internally it uses
+ServletRedirectResult to do the task.</P>
+</TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=redirect-example&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fdispatcher%2Fmapper%2FDefaultActionMapper.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;a:form action=&amp;quot;baz&amp;quot;&gt;</SPAN>
+    <SPAN class="code-tag">&lt;a:textfield label=&amp;quot;Enter your name&amp;quot; name=&amp;quot;person.name&amp;quot;/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;a:submit value=&amp;quot;Create person&amp;quot;/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;a:submit name=&amp;quot;redirect:www.google.com&amp;quot; value=&amp;quot;Cancel&amp;quot;/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/a:form&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+
+<H3><A name="ActionMapper-Redirectactionprefix"></A>Redirect-action prefix</H3>
+
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=redirect-action&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fdispatcher%2Fmapper%2FDefaultActionMapper.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD>
+<P>With redirect-action-prefix, instead of executing baz action&apos;s execute()
+method (by default it isn&apos;t overriden in struts.xml to be something else), it
+will get redirected to, in this case &apos;dashboard.action&apos;. Internally it uses
+ServletRedirectResult to do the task and read off the extension from the
+struts.properties.</P>
+</TD></TR></TABLE>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=redirect-action-example&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fdispatcher%2Fmapper%2FDefaultActionMapper.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD><DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;a:form action=&amp;quot;baz&amp;quot;&gt;</SPAN>
+    <SPAN class="code-tag">&lt;a:textfield label=&amp;quot;Enter your name&amp;quot; name=&amp;quot;person.name&amp;quot;/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;a:submit value=&amp;quot;Create person&amp;quot;/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;a:submit name=&amp;quot;redirect-action:dashboard&amp;quot; value=&amp;quot;Cancel&amp;quot;/&gt;</SPAN>
+<SPAN class="code-tag">&lt;/a:form&gt;</SPAN></PRE>
+</DIV></DIV></TD></TR></TABLE>
+
+<H2><A name="ActionMapper-ActionMapperFactory"></A>ActionMapperFactory</H2>
+
+<P>You can define your own ActionMapper by configuring the ActionMapperFactory:</P>
+<TABLE bgcolor="#ffffe0" cellpadding="0" cellspacing="0" width="100%" border="0"><TR><TD><DIV stlye="font-size:8px; text-align:center;"><CENTER>Content pulled from external source. Click <A href="http://cwiki.apache.org/plugins/snippet/clearCache.action?id=javadoc&amp;url=https:%2F%2Fsvn.apache.org%2Frepos%2Fasf%2Fstruts%2Fstruts2%2Ftrunk%2Fcore%2Fsrc%2Fmain%2Fjava%2Forg%2Fapache%2Fstruts2%2Fdispatcher%2Fmapper%2FActionMapperFactory.java">here</A> to refresh.</CENTER></DIV></TD></TR><TR><TD>
+<P> Factory that creates ActionMappers. This factory looks up the class name of the ActionMapper from
+ Struts&apos;s configuration using the key <B>struts.mapper.class</B>.</P>
+</TD></TR></TABLE>
+<P>Possible uses of the ActionMapper include defining your own, cleaner namespaces, such as URLs like <B>/person/1</B>, which would be similar to a request to <B>/getPerson.action?personID=1</B> using the DefaultActionMapper.</P>
+
+<H2><A name="ActionMapper-Next%3Atest%3ADependencyInjection"></A>Next: <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=test&amp;title=Dependency%20Injection" title="Create Page in space test: Dependency Injection" class="createlink">test:Dependency Injection<SUP><IMG class="rendericon" src="../confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+
+<!-- Mirrored from cwiki.apache.org/WW/actionmapper.html by HTTrack Website Copier/3.x [XR&CO'2005], Tue, 10 Oct 2006 21:20:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</HTML>

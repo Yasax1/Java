@@ -1,0 +1,278 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Lesson 4 - An html form with data, without getters or setters</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="step-by-step.html" title="Step by Step">Step by Step</A>&nbsp;&gt;&nbsp;<A href="" title="Lesson 4 - An html form with data, without getters or setters">Lesson 4 - An html form with data, without getters or setters</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Lesson 4 - An html form with data, without getters or setters</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14287">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14287">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14287">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14287">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14287">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14287">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=richardbondi">richardbondi</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on May 15, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14287&originalId=17886">view change</A>)
+                      <SPAN id="show" class="inline-control-link"><A href="" onclick="showComment(); return false;">show comment</A></SPAN>
+        <SPAN id="hide" class="inline-control-link" style="display:none;"><A href="" onclick="hideComment(); return false;">hide comment</A></SPAN>
+          <DIV id="versionComment" class="noteMacro" style="display:none; padding: 5px;">
+      <B>Comment:</B>
+      <BR>
+<BR>
+Update parent page<BR>
+      <SPAN class="smalltext"><A href="http://cwiki.apache.org/confluence/pages/viewpreviouspageversions.action?pageId=14287">View page history</A></SPAN>
+  </DIV>
+
+    <SCRIPT>
+      var show = document.getElementById('show');
+      var hide = document.getElementById('hide');
+      var versionComment = document.getElementById('versionComment');
+
+      function showComment(){
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+        versionComment.style.display = 'block';
+      }
+
+      function hideComment(){
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+        versionComment.style.display = 'none';
+      }
+
+    </SCRIPT>
+    
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<H1><A name="Lesson4-Anhtmlformwithdata%2Cwithoutgettersorsetters-Lesson4%3AAnhtmlformwithdata%2Cwithoutgettersorsetters"></A>Lesson 4: An html form with data, without getters or setters</H1>
+
+<P>For the form field named &quot;yourName&quot; in the previous lesson, we also had to create the getters and setters getYourName() and setYourName() in the action, as well as the private variable yourName. With dozens of forms and hundreds of form fields, you&apos;ll be typing thousands of getters and setters. That can get old fast. In this lesson, we&apos;ll repeat the last lesson, but without any of that extra typing.</P>
+
+<H3><A name="Lesson4-Anhtmlformwithdata%2Cwithoutgettersorsetters-1.Createthehtmlform"></A>1. Create the html form</H3>
+
+<P>Use the same JSP form from the previous lesson, but change the form action to <TT>page04.action</TT>:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+	<SPAN class="code-tag">&lt;title&gt;</SPAN>A simple form with data<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+	<SPAN class="code-tag">&lt;p&gt;</SPAN>What is your name?<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+	<SPAN class="code-tag">&lt;form action=<SPAN class="code-quote">&quot;form04.action&quot;</SPAN> method=<SPAN class="code-quote">&quot;post&quot;</SPAN>&gt;</SPAN>
+		<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;yourName&quot;</SPAN>&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+		<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Submit your name.&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+	<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="Lesson4-Anhtmlformwithdata%2Cwithoutgettersorsetters-2.Createtheformaction"></A>2. Create the form action</H3>
+
+<P>Paste this code into [src]/lessons/Form04Action.java:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> lessons;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.webwork.interceptor.ParameterAware;
+
+<SPAN class="code-keyword">import</SPAN> java.util.Map;
+
+<SPAN class="code-keyword">public</SPAN> class Form04Action <SPAN class="code-keyword">extends</SPAN> ActionSupport <SPAN class="code-keyword">implements</SPAN> ParameterAware {
+
+  Map parameters;
+
+  <SPAN class="code-keyword">public</SPAN> Map getParameters() {
+    <SPAN class="code-keyword">return</SPAN> parameters;
+  }
+
+  <SPAN class="code-keyword">public</SPAN> void setParameters(Map parameters) {
+    <SPAN class="code-keyword">this</SPAN>.parameters = parameters;
+  }
+
+  <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+    <SPAN class="code-object">String</SPAN>[] yourName = (<SPAN class="code-object">String</SPAN>[]) parameters.get(<SPAN class="code-quote">&quot;yourName&quot;</SPAN>);
+    <SPAN class="code-keyword">if</SPAN>(yourName == <SPAN class="code-keyword">null</SPAN> || yourName[0] == <SPAN class="code-keyword">null</SPAN> || yourName[0].length() == 0)
+      <SPAN class="code-keyword">return</SPAN> ERROR;
+    <SPAN class="code-keyword">else</SPAN>
+      <SPAN class="code-keyword">return</SPAN> SUCCESS;
+  }
+}</PRE>
+</DIV></DIV>
+
+<H3><A name="Lesson4-Anhtmlformwithdata%2Cwithoutgettersorsetters-Registertheactioninxwork.xml%3A"></A>Register the action in xwork.xml:</H3>
+
+<P>Edit [webapp]/WEB-INF/classes/xwork.xml:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">&lt;!DOCTYPE xwork PUBLIC <SPAN class="code-quote">&quot;-//OpenSymphony Group//XWork 1.0//EN&quot;</SPAN>
+<SPAN class="code-quote">&quot;http://www.opensymphony.com/xwork/xwork-1.0.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;xwork&gt;</SPAN>
+  <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Include webwork defaults (from WebWork JAR). --&gt;</SPAN></SPAN>
+  <SPAN class="code-tag">&lt;include file=<SPAN class="code-quote">&quot;webwork-default.xml&quot;</SPAN> /&gt;</SPAN>
+
+  <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Configuration for the default package. --&gt;</SPAN></SPAN>
+  <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;default&quot;</SPAN> extends=<SPAN class="code-quote">&quot;webwork-default&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- Default interceptor stack. --&gt;</SPAN></SPAN>
+    <SPAN class="code-tag">&lt;default-interceptor-ref name=<SPAN class="code-quote">&quot;defaultStack&quot;</SPAN> /&gt;</SPAN>
+
+    <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- 02 --&gt;</SPAN></SPAN>
+    <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;form02&quot;</SPAN> class=<SPAN class="code-quote">&quot;lessons.Form02Action&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>page02-success.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+    <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- 03 --&gt;</SPAN></SPAN>
+    <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;form03&quot;</SPAN> class=<SPAN class="code-quote">&quot;lessons.Form03Action&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>page03-success.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+      <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>page03-error.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+    <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- 04 --&gt;</SPAN></SPAN>
+    <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;form04&quot;</SPAN> class=<SPAN class="code-quote">&quot;lessons.Form04Action&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>page04-success.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+      <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN> type=<SPAN class="code-quote">&quot;dispatcher&quot;</SPAN>&gt;</SPAN>page03-error.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+      <SPAN class="code-tag">&lt;interceptor-ref name=<SPAN class="code-quote">&quot;servlet-config&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+  <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/xwork&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="Lesson4-Anhtmlformwithdata%2Cwithoutgettersorsetters-Createthesuccessanderrorpages"></A>Create the success and error pages</H3>
+
+<P>We&apos;ll use the same error page, but create a slightly different success page <TT>page04-success.jsp</TT>. The only difference is the &lt;ww:property&gt; tag.</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;%@ taglib uri=<SPAN class="code-quote">&quot;webwork&quot;</SPAN> prefix=<SPAN class="code-quote">&quot;ww&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+	<SPAN class="code-tag">&lt;title&gt;</SPAN>Success page for form with data<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+
+Hello, <SPAN class="code-tag">&lt;ww:property value=<SPAN class="code-quote">&quot;parameters.yourName&quot;</SPAN> /&gt;</SPAN>!
+
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="Lesson4-Anhtmlformwithdata%2Cwithoutgettersorsetters-Tryit"></A>Try it</H3>
+
+<P>Don&apos;t forget to compile your action to [webapp]/WEB-INF/classes, and to restart your web application if necessary.</P>
+
+<P>Go ahead and try it now. Load <TT>page04.jsp</TT>, enter &quot;Bob&quot; in the text field, and click the form submit button. You should see <TT>page04-success.jsp</TT> saying &quot;Hello, Bob&#33;&quot;</P>
+
+<H2><A name="Lesson4-Anhtmlformwithdata%2Cwithoutgettersorsetters-Howthecodeworks"></A>How the code works</H2>
+
+<P>You&apos;ve probably figured out what is going on just from looking at the code.</P>
+
+<P>Instead of a setter <TT>setYourName()</TT> setting a private variable <TT>yourName</TT> in the action, <TT>setParameters()</TT> magically extracts everything from the JSP <TT>request</TT> object and puts into a private local Map <TT>parameters</TT>. Then <TT>execute()</TT>, instead of looking for a <TT>yourName</TT> variable, is able to get the value of the &quot;yourName&quot; field from <TT>parameters</TT>. So far so good .</P>
+
+<P>Back on the <TT>page04-success.jsp</TT> page, <TT>&lt;ww:property value=&quot;yourName&quot; /&gt;</TT> isn&apos;t going to work any more, because there is no <TT>getYourName()</TT> getter in the action. Instead, <TT>&lt;ww:property value=&quot;parameters.yourName&quot; /&gt;</TT> calls the <TT>getParameters()</TT> getter, and is able to get the value of the &quot;yourName&quot; field. Pretty neat&#33;</P>
+
+<P>We haven&apos;t covered how to handle radio buttons, checkboxes, and other strange html form fields. That involves dealing with the fact that every entry in the <TT>parameters</TT> Map is a String[]. We&apos;ll cover this in a later lesson.</P>
+
+<P><A href="lesson-3-an-html-form-with-data.html" title="Lesson 3 - An html form with data">Previous Lesson</A> &#124; <A href="tutoriallesson05.html" title="TutorialLesson05">Next Lesson</A></P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

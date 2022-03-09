@@ -1,0 +1,342 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>The Vault</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2 Documentation">Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="" title="The Vault">The Vault</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">The Vault</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14079">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14079">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14079">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14079">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14079">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14079">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=phil">phil</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 12, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14079&originalId=23905">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="infoMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">About the Vault</B><BR>
+<P>The Vault contains lots of unsorted problems, snippets, remarks and ideas, mostly found in posts in the <SPAN class="nobr"><A href="http://forums.opensymphony.com/category.jspa?categoryID=5" title="Visit page outside Confluence" rel="nofollow">WebWork Forum<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>. You can think of this page as a place to store content before it is analyzed and put in the FAQ, Cookbook, Examples, or Reference.&nbsp; Material in the Vault is raw, unpolished, and can contain typos. If you can&apos;t find it elsewhere, be sure to rummage through the Vault and search the forum.<BR>
+<IMG class="emoticon" src="http://cwiki.apache.org/confluence/images/icons/emoticons/lightbulb_on.gif" height="16" width="16" align="absmiddle" alt="" border="0"> Feel free to redraft material from this page and move it to a better location. (That&apos;s why it&apos;s here&#33;)</P></TD></TR></TABLE>
+
+<HR>
+
+<H2><A name="TheVault-Migrationto2.2"></A>Migration to 2.2</H2>
+
+<H3><A name="TheVault-NoteaboutupgradingyourWWtagsto2.2"></A>Note about upgrading your WW tags to 2.2</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?threadID=13870&tstart=0" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=13870&amp;tstart=0<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>Just a quick fyi that caused issues for us... In 2.2 when extending UIBean evaluateExtraParams() no longer takes parameters. (Our parameters were not working until we realized that evaluateExtraParams was not being invoked due to the change.) In 2.1 evaluateExtraParams was passed the stack IIRC.</P>
+
+<P>Not sure if this is documented anywhere but it caused us quite a headache when migrating from 2.1 to 2.2.</P>
+
+<H3><A name="TheVault-Wheredidthevelocitytemplatesgo%3F"></A>Where did the velocity templates go ?</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?threadID=13108&tstart=0" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=13108&amp;tstart=0<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>checking cvs log, it seems that Pat has removed it with comment as follows:</P>
+
+<P>removing velocity macro implementations - they are so old and out of date now it will cause more harm than good keeping them around</P>
+
+<H2><A name="TheVault-Bestpractices"></A>Best practices</H2>
+
+<H3><A name="TheVault-ShouldImakeanactionorratherlinktoa.jsppage%3F"></A>Should I make an action or rather link to a .jsp page ?</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?threadID=14424&tstart=0" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=14424&amp;tstart=0<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>If you put an action configuration in your xwork.xml but don&apos;t put an action class attribute, it will default to using the ActionSupport class, which just returns SUCCESS.</P>
+
+<H2><A name="TheVault-Typeconversion"></A>Type conversion</H2>
+
+<H3><A name="TheVault-Typeconversionforastaticinnerclass%3F"></A>Type conversion for a static inner class ?</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?threadID=15060&tstart=0" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=15060&amp;tstart=0<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>Collection&#95;<EM>inner property name</EM> = <EM>your.package.ClassName</EM><B>$</B><EM>StaticInnerClassName</EM> (notice the dollar sign between the fully qualified Class name and the static inner class)</P>
+
+<H2><A name="TheVault-MigrationtoSpringIoC"></A>Migration to Spring IoC</H2>
+
+<H3><A name="TheVault-HowcanwemigrateServletRequestAware%2CServletResponseAwareandValidationAwaretoSpringbeandefinitions%3F"></A>How can we migrate ServletRequestAware, ServletResponseAware and ValidationAware to Spring bean definitions?</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?threadID=13551&tstart=0" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=13551&amp;tstart=0<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>I tink just the normal way would work. The action will now be created by spring, and if the ServletConfigInterceptor is in the stack and the action implementation implement those interface, webwork should set the appropriate methods.</P>
+
+<H2><A name="TheVault-Freemarker%2CVelocity%2CJSP"></A>Freemarker, Velocity, JSP</H2>
+
+<H3><A name="TheVault-HowtodisableVelocitytemplatecaching"></A>How to disable Velocity template caching</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?threadID=15405&tstart=0" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=15405&amp;tstart=0<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>The &quot;wwclass&quot; was the resource loader I need to change.<BR>
+Here&apos;s the lines from Velocity.props:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">wwfile.resource.loader.cache=<SPAN class="code-keyword">false</SPAN>
+wwclass.resource.loader.cache=<SPAN class="code-keyword">false</SPAN></PRE>
+</DIV></DIV>
+<P>(<SPAN class="nobr"><A href="http://jroller.com/page/gigix?entry=velocity_performance_issue_solved" title="Visit page outside Confluence" rel="nofollow">http://jroller.com/page/gigix?entry=velocity_performance_issue_solved<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>)</P>
+
+<H3><A name="TheVault-HowtocatchFreemarkerexceptions%28theuglybigyellowpages%29"></A>How to catch Freemarker exceptions (the ugly big yellow pages)</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?threadID=13829&tstart=0" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=13829&amp;tstart=0<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>FreeMarker delegates exception handling to so-called TemplateExceptionHandlers. By default the HTML_DEBUG_HANDLER is used (this one generates the yellow error page), but you can easily specify a different exception handler by using the setTemplateExceptionHandler method of your configuration object. FM provides some simple handlers you can use, in your case I recommend the RETHROW_HANDLER (<BR>
+<SPAN class="nobr"><A href="http://freemarker.org/docs/api/freemarker/template/TemplateExceptionHandler.html" title="Visit page outside Confluence" rel="nofollow">http://freemarker.org/docs/api/freemarker/template/TemplateExceptionHandler.html<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>).</P>
+
+<H3><A name="TheVault-Myww%3Aincludeactionsaren%27tprocessed"></A>My ww:include actions aren&apos;t processed</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?threadID=13479&tstart=0" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=13479&amp;tstart=0<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>Did you declare the ww tag library in your includes ? If I&apos;m not mistaken, jsp includes work different from ww includes (ww process the pages before including them).</P>
+
+<H3><A name="TheVault-I%27musingww%3AurlHelperincombinationwiththec%3Aouttag%2Cbutitwon%27twork%5C%21"></A>I&apos;m using ww:urlHelper in combination with the c:out tag, but it won&apos;t work &#33;</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?threadID=14312&tstart=0" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=14312&amp;tstart=0<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>if the url with &amp;amp is used in the value attribute it will not work properly unless the escapeXml is set to false.</P>
+
+<H2><A name="TheVault-Validation"></A>Validation</H2>
+
+<H3><A name="TheVault-Howtodisablevalidationonthefirstpageload%28toshowaininputform%29%3F"></A>How to disable validation on the first page load (to show a in input form)?</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?threadID=14634&tstart=0" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=14634&amp;tstart=0<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>If you define your own stack you can exclude methods from validation by adding the excludeMethods param to both Validation and Workflow. Assuming you are using the defaultStack the the methods input, back and cancel will be ignored. Change default to action&#33;input and declare the input method to return INPUT.</P>
+
+<H3><A name="TheVault-Whenusingclientsidevalidation%2CDWRstatesitgetsNoDataFromServer"></A>When using clientside validation, DWR states it gets No Data From Server</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?threadID=14135&tstart=0" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=14135&amp;tstart=0<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>When using firefox if a user has focus on an input control and then clicks the submit button i get a DWR error stating that there was no data from the server.<BR>
+I searched around on this group and did not see a solution. Via the DWR mailing list I found a post fromi Joe Walker stating that a workaround was to register a custom DWR error handler ..<BR>
+<SPAN class="nobr"><A href="http://getahead.ltd.uk/dwr/browser/engine/errors" title="Visit page outside Confluence" rel="nofollow">http://getahead.ltd.uk/dwr/browser/engine/errors<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></P>
+
+<H3><A name="TheVault-Whycan%27tIuse%26%26%28%3Dand%29inmyvalidationrules%3F%5C%5C%28%3Dor%29doeswork%5C%21"></A>Why can&apos;t I use &amp;&amp; (=and) in my validation rules ? &#124;&#124; (=or) does work &#33;</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?threadID=15576&tstart=0" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=15576&amp;tstart=0<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>You can&apos;t use &amp;&amp; directly since the validation files have to be wellformed xml. The correct syntax would be &amp;amp ;&amp;amp ; (without the spaces)</P>
+
+<H2><A name="TheVault-Ajax%2CJavascript"></A>Ajax, Javascript</H2>
+
+<H3><A name="TheVault-Datepickeri18nproblems"></A>Datepicker i18n problems</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?threadID=14132&tstart=0" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=14132&amp;tstart=0<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>DatePicker might have some problems in certain localised enviroments, because some of the language files included in DHTML / JavaScript Calendar are not valid (don&apos;t have some variables, for example WEEKEND definition).</P>
+
+<P>Is simple solution to overide files like:<BR>
+<SPAN class="nobr"><A href="http://localhost:8080/showcase/webwork/jscalendar/lang/calendar-" title="Visit page outside Confluence" rel="nofollow">http://localhost:8080/showcase/webwork/jscalendar/lang/calendar-<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>(your language).js</P>
+
+<P>The only way to fix that, is correct calendar-(your language).js...</P>
+
+<P>Already fixed for 2.2.1, available via CVS HEAD:</P>
+<UL class="alternate" type="square">
+	<LI>sv</LI>
+	<LI>pl</LI>
+	<LI>cn</LI>
+</UL>
+
+
+<H3><A name="TheVault-Datepickerdoesnotallowtimeediting%2Corworkswithwrongdateformat"></A>Datepicker does not allow time editing, or works with wrong date format</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?essageID=48644#48644" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?messageID=48644&amp;#48644<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>The trick is to format the date correctly before sending it to the datepicker, AND telling the datepicker what format you are using.</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;ww:date name=<SPAN class="code-quote">&quot;%{new java.util.Date()}&quot;</SPAN> format=<SPAN class="code-quote">&quot;dd-MM-yyyy hh:mm&quot;</SPAN> id=<SPAN class="code-quote">&quot;date&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;ww:datepicker value=<SPAN class="code-quote">&quot;%{#date}&quot;</SPAN> showstime=<SPAN class="code-quote">&quot;%{true}&quot;</SPAN> format=<SPAN class="code-quote">&quot;%d-%m-%Y %H:%M&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>Note: of course you should use property keys here, but you&apos;ll have to specify different keys, since the formatting expression for java and javascript are different (but should result in the same format &#33;):</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">my.java.datetime.format=dd-MM-yyyy hh:mm
+my.javascript.datetime.format=%d-%m-%Y %H:%M</PRE>
+</DIV></DIV>
+<P>And the use the following snippet instead:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;ww:date name=<SPAN class="code-quote">&quot;%{new java.util.Date()}&quot;</SPAN> format=<SPAN class="code-quote">&quot;%{getText(&apos;my.java.datetime.format&apos;)}&quot;</SPAN> id=<SPAN class="code-quote">&quot;date&quot;</SPAN>/&gt;</SPAN>
+<SPAN class="code-tag">&lt;ww:datepicker value=<SPAN class="code-quote">&quot;%{#date}&quot;</SPAN> showstime=<SPAN class="code-quote">&quot;%{true}&quot;</SPAN> format=<SPAN class="code-quote">&quot;%{getText(&apos;my.javascript.datetime.format&apos;)}&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H2><A name="TheVault-Applicationservers"></A>Application servers</H2>
+
+<H3><A name="TheVault-WebWorkhotredeploymentproblemwithTomcat5.5"></A>WebWork hot-redeployment problem with Tomcat 5.5</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?threadID=14553&tstart=0" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=14553&amp;tstart=0<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>Try to adjust your Tomcat context settings...</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml">&lt;Context docBase=<SPAN class="code-quote">&quot;${catalina.home}/webapps/YOURWEBAPP&quot;</SPAN>
+         antiResourceLocking=<SPAN class="code-quote">&quot;true&quot;</SPAN> antiJARLocking=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;
+...
+<SPAN class="code-tag">&lt;/Context&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="TheVault-DeployingWebWorkonGlassfish"></A>Deploying WebWork on Glassfish</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://forums.opensymphony.com/thread.jspa?hreadID=17532&messageID=34365#34365" title="Visit page outside Confluence" rel="nofollow">http://forums.opensymphony.com/thread.jspa?threadID=17532&amp;messageID=34365#34365<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<P>One of my co-workers was deploying a forum application that uses WebWork code. He ran into some deployment and execution issues, related to the sercurity policy. If you want to deploy WebWork apps on GlassFish, you may want to read <SPAN class="nobr"><A href="http://blogs.sun.com/roller/page/paulsen?entry=configuring_the_security_manager_in" title="Visit page outside Confluence" rel="nofollow">http://blogs.sun.com/roller/page/paulsen?entry=configuring_the_security_manager_in<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></P>
+
+<H2><A name="TheVault-Browser"></A>Browser</H2>
+
+<H3><A name="TheVault-Differentversionofabrowsercoexistingtogether"></A>Different version of a browser co-existing together</H3>
+
+<UL class="alternate" type="square">
+	<LI><SPAN class="nobr"><A href="http://blog.dojotoolkit.org/2005/12/01/running-multiple-versions-of-firefox-side-by-side" title="Visit page outside Confluence" rel="nofollow">http://blog.dojotoolkit.org/2005/12/01/running-multiple-versions-of-firefox-side-by-side<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="http://labs.insert-title.com/labs/Multiple-IEs-in-Windows_article795.aspx" title="Visit page outside Confluence" rel="nofollow">http://labs.insert-title.com/labs/Multiple-IEs-in-Windows_article795.aspx<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="http://www.skyzyx.com/archives/000094.php" title="Visit page outside Confluence" rel="nofollow">http://www.skyzyx.com/archives/000094.php<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

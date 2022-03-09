@@ -1,0 +1,373 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Understanding Actions</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="step-by-step.html" title="Step by Step">Step by Step</A>&nbsp;&gt;&nbsp;<A href="" title="Understanding Actions">Understanding Actions</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Understanding Actions</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13986">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13986">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13986">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13986">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13986">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13986">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=victorsosa">victorsosa</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Aug 25, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=13986&originalId=20040">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>In the <A href="hello-world.html" title="Hello World">Hello World</A> lesson, we implemented a use case that displayed a message with a dynamic timestamp. In this lesson, we create a workflow that displays input from a data-entry form.</P>
+
+<P>The form will ask for your name. If you enter &quot;Zaphod&quot; and click the submit button, the page will display &quot;Hello, Zaphod&#33;&quot;. If you don&apos;t enter a name, the page will display: &quot;Hmmm, you did not enter a name. Please try again&#33;&quot;</P>
+
+<H2><A name="UnderstandingActions-HTMLFormWithData%2CUsingGettersandSetters"></A>HTML Form With Data, Using Getters and Setters</H2>
+
+<P>In the <A href="hello-world.html" title="Hello World">Hello World</A> lesson, there were three components: the Action class, the result page, and the action mapping. In this lesson, we will add a fourth component: an input form.</P>
+
+<H3><A name="UnderstandingActions-CreateaHTMLinputform"></A>Create a HTML input form</H3>
+
+<P>The framework includes a library of special tags that you can use to write dynamic forms, but &quot;plain old HTML&quot; forms work just fine too.</P>
+<DIV class="code"><DIV class="codeHeader"><B>HelloName.html</B></DIV><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+    <SPAN class="code-tag">&lt;title&gt;</SPAN>A simple HTML form with data<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+    <SPAN class="code-tag">&lt;p&gt;</SPAN>What is your name?<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;form action=<SPAN class="code-quote">&quot;HelloName.action&quot;</SPAN> method=<SPAN class="code-quote">&quot;post&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;name&quot;</SPAN>&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+        <SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Submit your name.&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/form&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="UnderstandingActions-CreatetheActionclass"></A>Create the Action class</H3>
+
+<P>The HTML form submits an attribute called &quot;name&quot;, and the Action class provides a corresponding JavaBean property.</P>
+
+<DIV class="code"><DIV class="codeHeader"><B>HelloName.java</B></DIV><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> tutorial;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+
+<SPAN class="code-keyword">public</SPAN> class HelloName <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+        <SPAN class="code-keyword">if</SPAN> (getName() == <SPAN class="code-keyword">null</SPAN> || getName().length() == 0)
+            <SPAN class="code-keyword">return</SPAN> ERROR;
+        <SPAN class="code-keyword">else</SPAN>
+            <SPAN class="code-keyword">return</SPAN> SUCCESS;
+    }
+
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> name;
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getName() {
+        <SPAN class="code-keyword">return</SPAN> name;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setName(<SPAN class="code-object">String</SPAN> name) {
+        <SPAN class="code-keyword">this</SPAN>.name = name;
+    }
+}</PRE>
+</DIV></DIV>
+
+<H3><A name="UnderstandingActions-Createtheactionmapping"></A>Create the action mapping</H3>
+
+<P>We can just add a new action mapping to the file we started in the <A href="hello-world.html" title="Hello World">Hello World</A> lesson.</P>
+<DIV class="code"><DIV class="codeHeader"><B>struts.xml</B></DIV><DIV class="codeContent">
+<PRE class="code-xml">&lt;!DOCTYPE struts PUBLIC
+    <SPAN class="code-quote">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</SPAN>
+    <SPAN class="code-quote">&quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;</SPAN>&gt;
+
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+  <SPAN class="code-tag">&lt;include file=<SPAN class="code-quote">&quot;struts-default.xml&quot;</SPAN> /&gt;</SPAN>
+    <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;actions&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;HelloName&quot;</SPAN> class=<SPAN class="code-quote">&quot;tutorial.HelloName&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>HelloName-success.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN>&gt;</SPAN>HelloName-error.html<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="UnderstandingActions-Createthesuccessanderrorpages"></A>Create the success and error pages</H3>
+
+<P>The Action can select between two outcomes, &quot;success&quot; and &quot;failure&quot;.</P>
+
+<DIV class="code"><DIV class="codeHeader"><B>HelloName-success.jsp</B></DIV><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/struts-tags&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+    <SPAN class="code-tag">&lt;title&gt;</SPAN>Success Page<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+    <SPAN class="code-tag">&lt;p&gt;</SPAN>
+      Hello, <SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;name&quot;</SPAN> /&gt;</SPAN>!
+    <SPAN class="code-tag">&lt;/p&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<DIV class="code"><DIV class="codeHeader"><B>HelloName-error.html</B></DIV><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+    <SPAN class="code-tag">&lt;title&gt;</SPAN>Error Page<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+    <SPAN class="code-tag">&lt;p&gt;</SPAN>
+        Hmmm, you did not enter a name. Please try again!
+    <SPAN class="code-tag">&lt;/p&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="UnderstandingActions-Tryit%5C%21"></A>Try it&#33;</H3>
+
+<P>If you are coding along, go ahead and try your form now. Open the input page (<SPAN class="nobr"><A href="http://localhost:8080/tutorial/HelloName.html" title="Visit page outside Confluence" rel="nofollow">http://localhost:8080/tutorial/HelloName.html<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>), and click the submit button to see what happens. Try it with and without entering a name.</P>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="warningMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">Don&apos;t forget!</B><BR>
+<P>    Compile your Action to <TT>WEB-INF/classes</TT> and restart your container if necessary.</P></TD></TR></TABLE>
+
+<H3><A name="UnderstandingActions-Howthecodeworks"></A>How the code works</H3>
+
+<P>There are two differences between this example and the previous <A href="hello-world.html" title="Hello World">Hello World</A> lesson.</P>
+<OL>
+	<LI>When the Action is called, <TT>setName</TT> is passed the contents of the <TT>name</TT> form field.</LI>
+	<LI>When the Action&apos;s <TT>execute</TT> method returns, the framework has two options. If the string &quot;error&quot; returns, the framework will select <TT>HelloName-error.html</TT> as the result. If the string &quot;success&quot;  returns, then <TT>HelloName-success.jsp</TT> is selected.</LI>
+</OL>
+
+
+<P>Let&apos;s try a slightly different approach to solve the same use case.</P>
+
+<H2><A name="UnderstandingActions-HTMLFormWithData%2CWithoutUsingGettersandSetters"></A>HTML Form With Data, Without Using Getters and Setters</H2>
+
+<P>In our first form, we needed to capture the field <TT>name</TT>. To do that, we added the getters and setters <TT>getName</TT> and <TT>setName</TT> to the Action class, as well as the private variable <TT>name</TT>. A larger application with dozens of forms and hundreds of form fields could need several hundred getters and setters. Let&apos;s try that same use case again, but without the JavaBean methods.</P>
+
+<H3><A name="UnderstandingActions-CreatetheHTMLform"></A>Create the HTML form</H3>
+
+<P>Let&apos;s use the same HTML form, but change the form Action to <TT>HelloName2.action</TT>:</P>
+<DIV class="code"><DIV class="codeHeader"><B>HelloName2.html</B></DIV><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+  <SPAN class="code-tag">&lt;title&gt;</SPAN>A simple form with data<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+    <SPAN class="code-tag">&lt;p&gt;</SPAN>What is your name?<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;form action=<SPAN class="code-quote">&quot;HelloName2.action&quot;</SPAN> method=<SPAN class="code-quote">&quot;post&quot;</SPAN>&gt;</SPAN>
+        <SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;name&quot;</SPAN>&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+        <SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Submit your name.&quot;</SPAN> /&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/form&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="UnderstandingActions-CreatetheActionclass"></A>Create the Action class</H3>
+
+<DIV class="code"><DIV class="codeHeader"><B>HelloName2.java</B></DIV><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> tutorial;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork2.ActionSupport;
+<SPAN class="code-keyword">import</SPAN> org.apache.struts2.interceptor.ParameterAware;
+<SPAN class="code-keyword">import</SPAN> java.util.Map;
+
+<SPAN class="code-keyword">public</SPAN> class HelloName2 <SPAN class="code-keyword">extends</SPAN> ActionSupport <SPAN class="code-keyword">implements</SPAN> ParameterAware {
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-keyword">static</SPAN> <SPAN class="code-object">String</SPAN> NAME = <SPAN class="code-quote">&quot;name&quot;</SPAN>;
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+        <SPAN class="code-object">String</SPAN>[] name = (<SPAN class="code-object">String</SPAN>[]) parameters.get(NAME);
+        <SPAN class="code-keyword">if</SPAN> (name == <SPAN class="code-keyword">null</SPAN> || name[0] == <SPAN class="code-keyword">null</SPAN> || name[0].length() == 0)
+            <SPAN class="code-keyword">return</SPAN> ERROR;
+        <SPAN class="code-keyword">else</SPAN>
+            <SPAN class="code-keyword">return</SPAN> SUCCESS;
+    }
+
+    Map parameters;
+
+    <SPAN class="code-keyword">public</SPAN> Map getParameters() {
+        <SPAN class="code-keyword">return</SPAN> parameters;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setParameters(Map parameters) {
+        <SPAN class="code-keyword">this</SPAN>.parameters = parameters;
+    }
+}</PRE>
+</DIV></DIV>
+
+<H3><A name="UnderstandingActions-Createtheactionmapping"></A>Create the action mapping</H3>
+
+<DIV class="code"><DIV class="codeHeader"><B>struts.xml</B></DIV><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN> encoding=<SPAN class="code-quote">&quot;UTF-8&quot;</SPAN> ?&gt;</SPAN>
+&lt;!DOCTYPE struts PUBLIC
+        <SPAN class="code-quote">&quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</SPAN>
+        <SPAN class="code-quote">&quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;</SPAN>&gt;
+<SPAN class="code-tag">&lt;struts&gt;</SPAN>
+    <SPAN class="code-tag">&lt;include file=<SPAN class="code-quote">&quot;struts-default.xml&quot;</SPAN>/&gt;</SPAN>
+    <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;actions&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;HelloName&quot;</SPAN> class=<SPAN class="code-quote">&quot;tutorial.HelloName&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>/HelloName-success.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN>&gt;</SPAN>HelloName-error.html<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+        <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;HelloName2&quot;</SPAN> class=<SPAN class="code-quote">&quot;tutorial.HelloName2&quot;</SPAN>&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN>&gt;</SPAN>HelloName2-success.jsp<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+            <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;error&quot;</SPAN>&gt;</SPAN>HelloName-error.html<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+    <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="UnderstandingActions-Createthesuccessanderrorpages"></A>Create the success and error pages</H3>
+
+<P>We can use the same error page, but we&apos;ll need a slightly different success page <TT>HelloName2-success.jsp</TT>. The only difference is the <TT>&lt;s:property&gt;</TT> tag.</P>
+
+<DIV class="code"><DIV class="codeHeader"><B>HelloName2-success.jspl</B></DIV><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;%@ taglib prefix=<SPAN class="code-quote">&quot;s&quot;</SPAN> uri=<SPAN class="code-quote">&quot;/tags&quot;</SPAN> %&gt;</SPAN>
+<SPAN class="code-tag">&lt;html&gt;</SPAN>
+<SPAN class="code-tag">&lt;head&gt;</SPAN>
+    <SPAN class="code-tag">&lt;title&gt;</SPAN>Success Page - Without Using Getters and Setters<SPAN class="code-tag">&lt;/title&gt;</SPAN>
+<SPAN class="code-tag">&lt;/head&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;body&gt;</SPAN>
+<SPAN class="code-tag">&lt;p&gt;</SPAN>
+    Hello, <SPAN class="code-tag">&lt;s:property value=<SPAN class="code-quote">&quot;parameters.name&quot;</SPAN>/&gt;</SPAN>!
+<SPAN class="code-tag">&lt;/p&gt;</SPAN>
+<SPAN class="code-tag">&lt;/body&gt;</SPAN>
+<SPAN class="code-tag">&lt;/html&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<H3><A name="UnderstandingActions-Tryit%5C%21"></A>Try it&#33;</H3>
+
+<P>Go ahead and try it now. Load (<SPAN class="nobr"><A href="http://localhost:8080/tutorial/HelloName2.html" title="Visit page outside Confluence" rel="nofollow">http://localhost:8080/tutorial/HelloName2.html<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>), enter &quot;Zaphod&quot; in the text field, and click the form <TT>submit</TT> button. You should see <TT>HelloName2-success.jsp</TT> saying &quot;Hello, Zaphod&#33;&quot;</P>
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="warningMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">Don&apos;t forget!</B><BR>
+<P>Compile your Action to <TT>WEB-INF/classes</TT> and restart your container if necessary.</P></TD></TR></TABLE>
+
+<H2><A name="UnderstandingActions-Howthecodeworks"></A>How the code works</H2>
+
+<P>Instead of a setter <TT>setName</TT> accessing a private variable <TT>name</TT> in the Action class, <TT>setParameters</TT> magically extracts everything from the <TT>request</TT> object and puts the attributes into a private local Map, <TT>parameters</TT>. In the <TT>execute</TT> method, we can get the value from the <TT>parameters</TT> Map instead of looking for a <TT>name</TT> property. So far so good.</P>
+
+<P>Back on the <TT>HelloName2-success.jsp</TT> page, <TT>&lt;s:property value=&quot;name&quot; /&gt;</TT> isn&apos;t going to work any more, because there is no <TT>getName()</TT> method in the Action. Instead, <TT>&lt;s:property value=&quot;parameters.name&quot; /&gt;</TT> calls the <TT>getParameters</TT> method, and is able to get the value of the &quot;name&quot; field. Pretty neat&#33;</P>
+
+<H2><A name="UnderstandingActions-Summary"></A>Summary</H2>
+
+<P>Before processing an Action, the framework matches any Action properties with request attributes. If a match is found, the attribute value is set to the Action property. The Action can process the value, and the Struts tags can present the value too. Rather than define a separate property for each attribute, you can define a single Map property instead. In that case, all the request attributes will be set to the Map automatically.</P>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Next </TH>
+<TD class="confluenceTd"> Onward to <A href="understanding-results.html" title="Understanding Results">Understanding Results</A> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh"> Prev </TH>
+<TD class="confluenceTd"> Return to <A href="hello-world.html" title="Hello World">Hello World</A> </TD>
+</TR>
+</TBODY></TABLE>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

@@ -1,0 +1,430 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  
+<!-- Mirrored from cwiki.apache.org/WW/creating-and-signing-a-distribution.html by HTTrack Website Copier/3.x [XR&CO'2005], Tue, 10 Oct 2006 21:20:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+<HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('../confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Creating and Signing a Distribution</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="contributors-guide.html" title="Contributors Guide">Contributors Guide</A>&nbsp;&gt;&nbsp;<A href="#" title="Creating and Signing a Distribution">Creating and Signing a Distribution</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Creating and Signing a Distribution</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=26375">
+            <IMG src="../confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=26375">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="../confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;fromPageId=26375">
+            <IMG src="../confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&amp;fromPageId=26375">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&amp;fromPageId=26375">
+            <IMG src="../confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&amp;fromPageId=26375">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Oct 10, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=26375&amp;originalId=27314">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <TABLE cellpadding="5" width="85%" cellspacing="8px" class="tipMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="../confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Developers using Linux workstations can skip over the references to PuTTY and Cygwin</TD></TR></TABLE>
+
+<H2><A name="CreatingandSigningaDistribution-Eachtime"></A>Each time </H2>
+
+<P>(There are also <A href="#CreatingandSigningaDistribution-OneTime" title="One Time on Creating and Signing a Distribution">one-time</A> setup instructions)</P>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">1</TH>
+<TD class="confluenceTd"> Update the POMs to remove &quot;-SNAPSHOT&quot; from the version  </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">2</TH>
+<TD class="confluenceTd"> Commit the POM changes </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">3</TH>
+<TD class="confluenceTd"> Tag the release by making a SVN copy of the head or designated revision </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> <DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">svn copy -r ###### 
+  https:<SPAN class="code-comment">//svn.apache.org/repos/asf/struts/struts2/trunk 
+</SPAN>  https:<SPAN class="code-comment">//svn.apache.org/repos/asf/struts/struts2/tags/STRUTS_#_#_# 
+</SPAN>  -m Tag r447072 as Struts #.#.#</PRE>
+</DIV></DIV> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">4</TH>
+<TD class="confluenceTd"> Assemble the release </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> <DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">mvn clean install site -P xwork,plugins,apps,all,pre-assembly
+cd assembly 
+mvn assembly:assembly</PRE>
+</DIV></DIV> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">5</TH>
+<TD class="confluenceTd"> Sign the release artifacts (in <TT>assembly/target/assembly/out</TT>) </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> <DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">gpg --armor --detach-sig struts-#.#.#-all.zip --output struts-#.#.#-all.zip.asc 
+openssl md5 &lt; struts-#.#.#-all.zip &gt; struts-#.#.#-all.zip.mdr</PRE>
+</DIV></DIV> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">6</TH>
+<TD class="confluenceTd"> <TT>pscp</TT> the artifacts and signatures to people.apache.org:/www/builds/struts/#.#.# </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">7</TH>
+<TD class="confluenceTd"> Deploy the artifacts to our Maven repository </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> <DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">mvn deploy -P apps,plugins,pre-assembly</PRE>
+</DIV></DIV> </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> Prune any obsolete snapshots from <TT>p.a.o://www/people.apache.org/repos</TT> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">8</TH>
+<TD class="confluenceTd"> Update the POMs to next version number and add the &quot;-SNAPSHOT&quot; suffix </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">9</TH>
+<TD class="confluenceTd"> Commit the POM changes </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">10</TH>
+<TD class="confluenceTd"> Add the next version to our issue tracker for scheduling new features and fixes </TD>
+</TR>
+</TBODY></TABLE>
+
+
+<H2><A name="CreatingandSigningaDistribution-Onetime"></A>One time </H2>
+
+<H3><A name="CreatingandSigningaDistribution-CreateandinstallaSSHkey"></A>Create and install a SSH key</H3>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">1</TH>
+<TD class="confluenceTd"> Install PuTTY </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">2</TH>
+<TD class="confluenceTd"> Use PuttyGen to create a SSH key (see Putty help for details) </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">3</TH>
+<TD class="confluenceTd"> Use PuTTY to ssh to people.apache.org </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">4</TH>
+<TD class="confluenceTd"> Create a ~/.ssh folder </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">5</TH>
+<TD class="confluenceTd"> <TT>pscp</TT> your SSH public key to <TT>~/authorized_keys</TT> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">6</TH>
+<TD class="confluenceTd"> ssh to p.a.o </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">7</TH>
+<TD class="confluenceTd"> Create a <TT>~\.ssh</TT> folder and move authorized_keys there</TD>
+</TR>
+<TR>
+<TH class="confluenceTh">8</TH>
+<TD class="confluenceTd"> Configure putty to use your private key and save the session </TD>
+</TR>
+</TBODY></TABLE>
+
+<H3><A name="CreatingandSigningaDistribution-CreateaPGPkey"></A>Create a PGP key</H3>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">1</TH>
+<TD class="confluenceTd"> Install cgywin, including utils/gpg </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">2</TH>
+<TD class="confluenceTd"> Generate a key with <TT>$ gpg --gen-key</TT> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">3</TH>
+<TD class="confluenceTd"> Backup your cygwin home directory to another media </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">4</TH>
+<TD class="confluenceTd"> Add your key to <TT>people.apache.org/www.apache.org/dist/struts/KEYS</TT> </TD>
+</TR>
+</TBODY></TABLE>
+
+<H3><A name="CreatingandSigningaDistribution-UpdateMavensettingsforourservers"></A>Update Maven settings for our servers</H3>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">1</TH>
+<TD class="confluenceTd"> Create a settings.xml under .m2 (in your Document and Settings folder) </TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"><DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;settings xmlns=<SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//maven.apache.org/POM/4.0.0&quot;</SPAN>
+</SPAN>          xmlns:xsi=<SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//www.w3.org/2001/XMLSchema-instance&quot;</SPAN>
+</SPAN>          xsi:schemaLocation=<SPAN class="code-quote">&quot;http:<SPAN class="code-comment">//maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;</SPAN>&gt;
+</SPAN>    &lt;!-- Uncomment <SPAN class="code-keyword">this</SPAN> when the &apos;central&apos; repo on ibiblio is down 
+         See: http:<SPAN class="code-comment">//maven.apache.org/guides/mini/guide-mirror-settings.html --&gt;
+</SPAN>    &lt;!-- mirrors&gt;
+      &lt;mirror&gt;
+        &lt;id&gt;ggi-project.org&lt;/id&gt;
+        &lt;url&gt;http:<SPAN class="code-comment">//ftp.ggi-project.org/pub/packages/maven2&lt;/url&gt;
+</SPAN>        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+      &lt;/mirror&gt;
+    &lt;/mirrors --&gt;
+    &lt;servers&gt;
+       &lt;server&gt;
+          &lt;id&gt;apache.snapshots&lt;/id&gt;
+          &lt;username&gt;$USERNAME&lt;/username&gt;
+          &lt;privateKey&gt;$PATH_TO_PRIVATE_KEY&lt;/privateKey&gt;
+          &lt;directoryPermissions&gt;775&lt;/directoryPermissions&gt;
+          &lt;filePermissions&gt;644&lt;/filePermissions&gt;
+       &lt;/server&gt;
+       &lt;server&gt;
+          &lt;id&gt;apache.releases&lt;/id&gt;
+          &lt;username&gt;$USERNAME&lt;/username&gt;
+          &lt;privateKey&gt;$PATH_TO_PRIVATE_KEY&lt;/privateKey&gt;
+          &lt;directoryPermissions&gt;775&lt;/directoryPermissions&gt;
+          &lt;filePermissions&gt;644&lt;/filePermissions&gt;
+       &lt;/server&gt;
+    &lt;/servers&gt;
+   &lt;profiles&gt;
+     &lt;profile&gt;
+        &lt;id&gt;cargo-config&lt;/id&gt;
+         &lt;properties&gt;
+            &lt;cargo.tomcat5x.home&gt;$PATH_TO_TOMCAT_5&lt;/cargo.tomcat5x.home&gt;
+         &lt;/properties&gt;
+      &lt;/profile&gt;
+   &lt;/profiles&gt;
+   &lt;activeProfiles&gt;
+      &lt;activeProfile&gt;cargo-config&lt;/activeProfile&gt;
+   &lt;/activeProfiles&gt;
+&lt;/settings&gt;</PRE>
+</DIV></DIV></TD>
+</TR>
+</TBODY></TABLE>
+
+<H3><A name="CreatingandSigningaDistribution-ExposeacopyofknownhoststoMaven"></A>Expose a copy of known hosts to Maven</H3>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">1</TH>
+<TD class="confluenceTd"> From cygwin, ssh to people.apache.org, save the public key if prompted, and exit</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">&nbsp;</TD>
+<TD class="confluenceTd"> cygwin will save the known hosts to your <TT>~/.ssh</TT> folder, but the script cannot access it there (from Windows) </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">2</TH>
+<TD class="confluenceTd"> From cygwin (not Windows) create another <TT>.ssh</TT> folder at <IMG class="emoticon" src="../confluence/images/icons/emoticons/help_16.gif" height="16" width="16" align="absmiddle" alt="" border="0"> </TD>
+</TR>
+<TR>
+<TH class="confluenceTh">3</TH>
+<TD class="confluenceTd"> Copy the <TT>known_hosts</TT> file to the new <TT>.ssh</TT> folder </TD>
+</TR>
+</TBODY></TABLE>
+
+<H2><A name="CreatingandSigningaDistribution-Resources"></A>Resources</H2>
+
+<UL>
+	<LI>Apache Struts <SPAN class="nobr"><A href="http://struts.apache.org/releases.html#Releases" title="Visit page outside Confluence" rel="nofollow">Release Guidelines<SUP><IMG class="rendericon" src="../confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="http://wiki.apache.org/struts/StrutsMaintenanceMaven" title="Visit page outside Confluence" rel="nofollow">Struts Maintenance Guide for Maven <SUP><IMG class="rendericon" src="../confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="http://apache.org/dev/release-signing.html" title="Visit page outside Confluence" rel="nofollow">Signing Releases<SUP><IMG class="rendericon" src="../confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI><SPAN class="nobr"><A href="http://wiki.wsmoak.net/cgi-bin/wiki.pl?ReleaseSigning" title="Visit page outside Confluence" rel="nofollow">Wendy&apos;s notes on Release Signing<SUP><IMG class="rendericon" src="../confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI>Apache <SPAN class="nobr"><A href="http://apache.org/dev/mirrors.html" title="Visit page outside Confluence" rel="nofollow">Mirroring Guidelines<SUP><IMG class="rendericon" src="../confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+</UL>
+
+
+<H2><A name="CreatingandSigningaDistribution-InterimNotesonCobblingaDistribution"></A>Interim Notes on Cobbling a Distribution </H2>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">---------- Forwarded message ----------
+From: Ted Husted &lt;husted@apache.org&gt;
+Date: Sep 17, 2006 5:33 PM
+Subject: Re: Struts 2.0.0 - STATUS
+To: Struts Developers List &lt;dev@struts.apache.org&gt;
+
+I&apos;ve updated the Struts 2.0.0 snapshot distribution based on revision
+r447072 (thanks Toby!).
+
+I would have tagged it, but I still don&apos;t understand everything that&apos;s
+involved in signing and deploying the distribution once it is tagged,
+and I didn&apos;t have time to review it all again today.
+
+As it stands, the docs part of the distribution requires surgery
+before we can post it. There are three complications
+
+1) We don&apos;t have a s2 site subproject, and the struts-current
+subproject is doing <SPAN class="code-object">double</SPAN> duty.
+2) The documentation is not under subversion but being autoexported to
+HTML from a wiki
+3) We need to translate the JARs <SPAN class="code-keyword">for</SPAN> Java 4.
+
+As to 1, I promoted the struts-core to be the root docs subdirectory
+and moved over the various apidocs. That involves something like
+
+* Extract assembly to a root drive (\struts-2.0.0)
+* rename docs as temp
+* create a <SPAN class="code-keyword">new</SPAN> docs folder
+* move temp/struts-api/apidocs to docs/api-apidoc
+* move temp/struts-core/apidocs to docs/core-apidocs
+* move temp/struts-extra/apidocs to docs/extras-apidocs
+* move xwork-apidocs from temp to docs
+* move temp/struts-core/ to docs/
+* delete temp
+
+To obtain the documention, the simplest solution I have found is to
+use the FireFox Spiderzilla plugin to create a local copy of the
+website and include that in the distribution
+
+* Use SpiderZilla, httrack, or equivalent to create a copy of the
+website at /struts-2.0.0/docs/WW starting from
+http:<SPAN class="code-comment">//cwiki.apache.org/WW/home.html
+</SPAN>* Using TextEdit or equivalent, search and replace any references in
+any HTML files under docs to http:<SPAN class="code-comment">//cwiki.apache.org/WW/home.html to
+</SPAN>the local equivalent (WW\cwiki.apache.org\WW)
+
+Another approach would be to setup a cron job on brutus to ZIP up the
+autoexport files. Then a script could download and extract the
+archive. Unfortunatley, right now, old copies of autoexported pages
+are not being removed from the export after they are deleted or
+renamed. I believe the plugin is suppose to clear the target directory
+<SPAN class="code-keyword">if</SPAN> we force an export, but that that is not happening right now.
+
+As to the Java 4 translation, nothing in the assembly is building it
+right now. To update it, we need to
+
+* Copy the <SPAN class="code-quote">&quot;backport&quot;</SPAN> folder that is under SVN.
+* If needed, update the translator JARs and translate batch file
+* If needed, update the translate batch file as to the Struts version
+* run the translate batch file
+
+Then, to mop up, we need to create <SPAN class="code-keyword">new</SPAN> or updated archives <SPAN class="code-keyword">for</SPAN>
+
+* struts-2.0.0-all.zip
+* struts-2.0.0-docs.zip
+* struts-2.0.0-j4.zip
+
+Obviously, we&apos;d prefer that the entire build process was automatic, as
+it has been before. But <SPAN class="code-keyword">this</SPAN> is how things stand right now.
+
+-Ted.</PRE>
+</DIV></DIV>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+
+<!-- Mirrored from cwiki.apache.org/WW/creating-and-signing-a-distribution.html by HTTrack Website Copier/3.x [XR&CO'2005], Tue, 10 Oct 2006 21:20:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=ISO-8859-1"><!-- /Added by HTTrack -->
+</HTML>

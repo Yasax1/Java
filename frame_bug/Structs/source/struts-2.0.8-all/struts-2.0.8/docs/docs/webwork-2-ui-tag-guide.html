@@ -1,0 +1,571 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>WebWork 2 UI Tag Guide</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=WebWork%202%20UI%20Tag%20Guide" title="WebWork 2 UI Tag Guide">WebWork 2 UI Tag Guide</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">WebWork 2 UI Tag Guide</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14136">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14136">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14136">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14136">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14136">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14136">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=mike">mike</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 03, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14136&originalId=23072">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+
+<H2><A name="WebWork2UITagGuide-Overview"></A>Overview</H2>
+
+<P>In WebWork 2, the UI tags wrap generic HTML controls while providing tight integration with the core framework. The tags have been designed to minimize the amount of logic in compiled code and delegate the actual rendering of HTML to a template system. The UI tags attempt to cover the most common scenarios, while providing a Component Tag for creating custom components. The UI tags also provide built-in support for displaying inline error messages.</P>
+<H2><A name="WebWork2UITagGuide-TemplateSystem"></A>Template System</H2>
+
+<P>WebWork 2 uses the Velocity template system to render the actual HTML output for all UI tags. A default implementation of all templates has been included with the core distribution allowing users to use WebWork&apos;s UI tags &quot;out of the box&quot;. Templates can be edited individually or replaced entirely allowing for complete customization of the resulting HTML output. In addition, the default template can be overridden on a per tag basis allowing for a very fine level of control. The default templates are located in the webwork-2.0.jar file under /decorators/xhtml.</P>
+
+<P>Update (2003-11-13): It is now found in /template/xhtml</P>
+
+<P>Note: This is going to change with the theme support that was added.</P>
+
+
+<P>The AbstractUI class is the base class that other UI tags extend. It provides a set of attributes that are common across UI components.  There are 3 attributes that determine which template is rendered:</P>
+
+<UL>
+	<LI>templateDir (defaults to <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=struts.properties&linkCreation=true&fromPageId=14136" title="Create Page: struts.properties" class="createlink">webwork.ui.templateDir<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - /template/)</LI>
+	<LI>theme (defaults to <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=struts.properties&linkCreation=true&fromPageId=14136" title="Create Page: struts.properties" class="createlink">webwork.ui.theme<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> - xhtml)</LI>
+	<LI>templateName (default is tag dependent, subclasses must implement getDefaultTemplate() to provide this)</LI>
+</UL>
+
+
+<P>These 3 attributes combine to determine the location of the template:  templateDir + theme + templateName.  For example, the default template for the select tag is &quot;/template/xhtml/select.vm&quot;.  Any one of these attributes can be overridden by the user at run time.  </P>
+
+<P>The AbstractUI class is responsible for loading the correct template.  As part of the doStartTag() method, a VelocityContext object is created with the following items:</P>
+
+<UL>
+	<LI>tag - a reference to the tag object</LI>
+	<LI>stack - the ValueStack</LI>
+	<LI>ognl - a reference to the utility class OgnlTool</LI>
+	<LI>req - a reference to the HttpServletRequest object</LI>
+</UL>
+
+
+<P>These variables can be accessed in the template by using $TAG_NAME where TAG_NAME is one of tag, stack, ognl or req. The template file is then processed.</P>
+
+
+<H2><A name="WebWork2UITagGuide-TemplatesupportforCSS"></A>Template support for CSS</H2>
+
+<P>The default templates provided with WebWork define two properties for use with CSS. The first property, &apos;label&apos;, is applied to text specified in a label attribute in a JspTag. The second property, &apos;errorMessage&apos;, is applied when displaying inline error messages. Many developers need to highlight error messages more prominently by using an alternative color. The code block below can be used in an external stylesheet or in a style element to display error messages in red.</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">.errorMessage {
+    color: red;
+}</PRE>
+</DIV></DIV>
+
+<P>Note: A default stylesheet is not provided with the core distribution. Users are encouraged to define their own stylesheet using the properties WebWork exposes or modify the supplied templates to work with an existing stylesheet.</P>
+
+
+<H2><A name="WebWork2UITagGuide-Validation"></A>Validation</H2>
+
+<P>Validation and error handling are an integrated part of the core framework. The UI tags extend this by providing built-in support for displaying inline error messages. To use this functionality, just have your actions implement the ValidationAware interface or extend the ActionSupport class. The ActionSupport class provides a default implementation of ValidationAware and also provides support for internationalization. UI tags that support displaying error messages include: Component Tag, Password Tag, Radio Tag, Select Tag, Textarea Tag and Textfield Tag.</P>
+
+<P>A very simple example of validation is included below. The key point to understand is how to add an error message to a specific control. WebWork will display the specified message inline with the form element.</P>
+
+<P>Users are encouraged to take a closer look at the validation framework in XWork. It provides a number of benefits including separating validation code from your action class, declaring rules based on field type, and providing different validation rules for each action alias. The XWork validation framework is based on an interceptor allowing validation to be added or removed from an action with a quick configuration file change. For more information see the <SPAN class="error">&#91;XW:Validation Framework&#93;</SPAN>.</P>
+
+
+<H3><A name="WebWork2UITagGuide-Example%3ADisplayingfielderrors"></A>Example: Displaying field errors</H3>
+
+<P>Action class:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionSupport;
+
+<SPAN class="code-keyword">public</SPAN> class RegisterEmail <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> email;
+
+    <SPAN class="code-keyword">public</SPAN> void setEmail(<SPAN class="code-object">String</SPAN> email) {
+        <SPAN class="code-keyword">this</SPAN>.email = email;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getEmail() {
+        <SPAN class="code-keyword">return</SPAN> email;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+        <SPAN class="code-keyword">if</SPAN> (email == <SPAN class="code-keyword">null</SPAN> || email.equals(&quot;&quot;)) {
+            <SPAN class="code-comment">// the first parameter is the name attribute
+</SPAN>            <SPAN class="code-comment">//   specified in &lt;ui:textfield&gt;
+</SPAN>            <SPAN class="code-comment">// the second parameter is the error message
+</SPAN>            <SPAN class="code-comment">//   to display
+</SPAN>            addFieldError(<SPAN class="code-quote">&quot;email&quot;</SPAN>, <SPAN class="code-quote">&quot;Email address is required.&quot;</SPAN>);
+        }
+
+        <SPAN class="code-keyword">if</SPAN> (hasErrors()) {
+            <SPAN class="code-keyword">return</SPAN> ERROR;
+        } <SPAN class="code-keyword">else</SPAN> {
+            <SPAN class="code-keyword">return</SPAN> SUCCESS;
+        }
+    }
+
+}</PRE>
+</DIV></DIV>
+
+<P>Jsp page:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;%@ taglib uri=<SPAN class="code-quote">&quot;webwork&quot;</SPAN> prefix=<SPAN class="code-quote">&quot;ui&quot;</SPAN> %&gt;
+
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;validation example&lt;/title&gt;&lt;/head&gt;
+&lt;style type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN>&gt;
+.errorMessage {
+    color: red;
+}
+&lt;/style&gt;
+&lt;body&gt;
+
+&lt;form name=<SPAN class="code-quote">&quot;frmRegister&quot;</SPAN> action=<SPAN class="code-quote">&quot;RegisterEmail.action&quot;</SPAN> method=<SPAN class="code-quote">&quot;POST&quot;</SPAN>&gt;
+    &lt;table&gt;
+        &lt;ui:textfield label=<SPAN class="code-quote">&quot;Email&quot;</SPAN> name=<SPAN class="code-quote">&quot;email&quot;</SPAN> value=<SPAN class="code-quote">&quot;&quot; size=&quot;</SPAN>50&quot; /&gt;
+        &lt;tr&gt;
+            &lt;td colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;
+                &lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> name=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Register&quot;</SPAN> /&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</PRE>
+</DIV></DIV>
+
+<P>HTML output (before submitting):</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;html&gt;
+&lt;head&gt;&lt;title&gt;validation example&lt;/title&gt;&lt;/head&gt;
+&lt;style type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN>&gt;
+.errorMessage {
+    color: red;
+}
+&lt;/style&gt;
+&lt;body&gt;
+
+&lt;form name=<SPAN class="code-quote">&quot;frmRegister&quot;</SPAN> method=<SPAN class="code-quote">&quot;POST&quot;</SPAN> action=<SPAN class="code-quote">&quot;RegisterEmail.action&quot;</SPAN>&gt;
+    &lt;table&gt;
+        &lt;tr&gt;
+  &lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;&lt;span class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;Email:&lt;/span&gt;&lt;/td&gt;
+  &lt;td&gt;
+&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;email&quot;</SPAN> value=<SPAN class="code-quote">&quot;&quot; size=&quot;</SPAN>50&quot;/&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;
+                &lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> name=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Register&quot;</SPAN> /&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</PRE>
+</DIV></DIV>
+
+<P>HTML output (after submitting):</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;html&gt;
+&lt;head&gt;&lt;title&gt;validation example&lt;/title&gt;&lt;/head&gt;
+&lt;style type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN>&gt;
+.errorMessage {
+    color: red;
+}
+&lt;/style&gt;
+&lt;body&gt;
+
+&lt;form name=<SPAN class="code-quote">&quot;frmRegister&quot;</SPAN> method=<SPAN class="code-quote">&quot;POST&quot;</SPAN> action=<SPAN class="code-quote">&quot;RegisterEmail.action&quot;</SPAN>&gt;
+    &lt;table&gt;
+            &lt;tr&gt;
+    &lt;td colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;&lt;span class=<SPAN class="code-quote">&quot;errorMessage&quot;</SPAN>&gt;
+              Email address is required.
+        &lt;/span&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;&lt;span class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;Email:&lt;/span&gt;&lt;/td&gt;
+  &lt;td&gt;
+&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;email&quot;</SPAN> value=<SPAN class="code-quote">&quot;&quot; size=&quot;</SPAN>50&quot;/&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;
+                &lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> name=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Register&quot;</SPAN> /&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</PRE>
+</DIV></DIV>
+
+
+<H3><A name="WebWork2UITagGuide-Example%3ADisplayingactionerrors"></A>Example:  Displaying action errors</H3>
+
+
+<P>Add the following to the JSP file above the form tag:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;ww:if test=<SPAN class="code-quote">&quot;hasErrors()&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;p&gt;</SPAN><SPAN class="code-tag">&lt;span class=<SPAN class="code-quote">&quot;errorMessage&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;ww:if test=<SPAN class="code-quote">&quot;hasActionErrors()&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;b&gt;</SPAN>Errors:<SPAN class="code-tag">&lt;/b&gt;</SPAN><SPAN class="code-tag">&lt;br&gt;</SPAN>
+  <SPAN class="code-tag">&lt;ul&gt;</SPAN>
+  <SPAN class="code-tag">&lt;ww:iterator value=<SPAN class="code-quote">&quot;actionErrors&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;li&gt;</SPAN><SPAN class="code-tag">&lt;ww:property/&gt;</SPAN><SPAN class="code-tag">&lt;/li&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/ww:iterator&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/ul&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ww:if&gt;</SPAN><SPAN class="code-tag">&lt;ww:else&gt;</SPAN>
+  <SPAN class="code-tag">&lt;b&gt;</SPAN>Please fix the errors marked in red to continue<SPAN class="code-tag">&lt;/b&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ww:else&gt;</SPAN>
+<SPAN class="code-tag">&lt;/span&gt;</SPAN><SPAN class="code-tag">&lt;/p&gt;</SPAN>
+<SPAN class="code-tag">&lt;/ww:if&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>This will display any action errors that may have occured.</P>
+
+
+
+<H2><A name="WebWork2UITagGuide-CreatingCustomComponents"></A>Creating Custom Components</H2>
+
+<P>At first glance the component tag doesn&apos;t look that impressive. The ability to specify a single template and use a number of predetermined attributes looks rather lacking. But the supplied tag offers a number of benefits to developers.</P>
+
+<P>Before diving right into the custom component, first I will identify some advantages to using the component tag to create your components. Then I will detail the two types of error messages in WebWork 2 and how our custom component (for displaying one of these types) fits into the equation. Finally, I will present a sample Action class, Jsp file and template file for our component. When we are finished, you will be able to incorporate the new component into your application.</P>
+
+<P>Why use the component tag?</P>
+<UL>
+	<LI>removes the need to develop your own Jsp tag library</LI>
+	<LI>provides integrated support for accessing the ValueStack</LI>
+	<LI>leverages XWork&apos;s support for internationalization, localization and error handling</LI>
+	<LI>faster prototyping using templates (editable text files) instead of compiled code</LI>
+	<LI>re-use and combine existing templates</LI>
+</UL>
+
+
+<P>More on error message support:</P>
+
+<P>In WebWork 2, there are two types of error messages: field error messages and action error messages. Field error messages are used to indicate a problem with a specific control and are displayed inline with the control. A number of tags provide built-in support for displaying these types of messages. Action error messages on the other hand, indicate a problem with executing an action. Many things can go wrong in a web application, especially an application that relies on external resources such as a database, remote web service, or other resource that might not be accessible during the execution of an action. Handling an error gracefully and presenting the user with a useful message can often be the difference in a positive user/customer experience and a bad one. </P>
+
+<P>When these types of errors occur, it is more appropriate to display these messages separate from individual controls on the form. In the example below, we will create a custom component that can be used to display action error messages in a bulletted list. This component can then be used on all your forms to display these error messages.</P>
+
+<P>The action class below was created to handle a promotion on the website: a free e-certificate. It will try to email the certificate, but an exception will be thrown.</P>
+
+<P>Action class:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> example;
+
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionSupport;
+
+<SPAN class="code-keyword">public</SPAN> class AddUser <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> fullname;
+    <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> email;
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+        <SPAN class="code-comment">// we are ignoring field validation in <SPAN class="code-keyword">this</SPAN> example
+</SPAN>
+        <SPAN class="code-keyword">try</SPAN> {
+            MailUtil.sendCertificate(email, fullname);
+        } <SPAN class="code-keyword">catch</SPAN> (Exception ex) {
+            <SPAN class="code-comment">// there was a problem sending the email
+</SPAN>            <SPAN class="code-comment">// in a real application, we would also
+</SPAN>            <SPAN class="code-comment">// log the exception
+</SPAN>            addActionError(<SPAN class="code-quote">&quot;We are experiencing a technical problem and have contacted our support staff. &quot;</SPAN> +
+                           <SPAN class="code-quote">&quot;Please <SPAN class="code-keyword">try</SPAN> again later.&quot;</SPAN>);
+        }
+
+        <SPAN class="code-keyword">if</SPAN> (hasErrors()) {
+            <SPAN class="code-keyword">return</SPAN> ERROR;
+        } <SPAN class="code-keyword">else</SPAN> {
+            <SPAN class="code-keyword">return</SPAN> SUCCESS;
+        }
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getFullname() {
+        <SPAN class="code-keyword">return</SPAN> fullname;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setFullname(<SPAN class="code-object">String</SPAN> fullname) {
+        <SPAN class="code-keyword">this</SPAN>.fullname = fullname;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getEmail() {
+        <SPAN class="code-keyword">return</SPAN> email;
+    }
+
+    <SPAN class="code-keyword">public</SPAN> void setEmail(<SPAN class="code-object">String</SPAN> email) {
+        <SPAN class="code-keyword">this</SPAN>.email = email;
+    }
+
+}</PRE>
+</DIV></DIV>
+
+<P>Jsp page:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;%@ taglib uri=<SPAN class="code-quote">&quot;webwork&quot;</SPAN> prefix=<SPAN class="code-quote">&quot;ui&quot;</SPAN> %&gt;
+
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;custom component example&lt;/title&gt;&lt;/head&gt;
+&lt;style type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN>&gt;
+.errorMessage {
+    color: red;
+}
+&lt;/style&gt;
+&lt;body&gt;
+
+&lt;ui:form action=<SPAN class="code-quote">&quot;AddUser.action&quot;</SPAN> method=<SPAN class="code-quote">&quot;POST&quot;</SPAN>&gt;
+&lt;table&gt;
+    &lt;ui:component template=<SPAN class="code-quote">&quot;action-errors.vm&quot;</SPAN> /&gt;
+    &lt;ui:textfield label=<SPAN class="code-quote">&quot;Full Name&quot;</SPAN> name=<SPAN class="code-quote">&quot;fullname&quot;</SPAN> /&gt;
+    &lt;ui:textfield label=<SPAN class="code-quote">&quot;Email&quot;</SPAN> name=<SPAN class="code-quote">&quot;email&quot;</SPAN> /&gt;
+    &lt;ui:submit name=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Send me a free E-Certificate!&quot;</SPAN> /&gt;
+&lt;/table&gt;
+&lt;/ui:form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</PRE>
+</DIV></DIV>
+
+<P>HTML output (before submitting):</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;html&gt;
+&lt;head&gt;&lt;title&gt;custom component example&lt;/title&gt;&lt;/head&gt;
+&lt;style type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN>&gt;
+.errorMessage {
+    color: red;
+}
+&lt;/style&gt;
+&lt;body&gt;
+
+&lt;form  action=<SPAN class="code-quote">&quot;AddUser.action&quot;</SPAN> method=<SPAN class="code-quote">&quot;POST&quot;</SPAN> /&gt;
+
+&lt;table&gt;
+    
+
+    &lt;tr&gt;
+  &lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;&lt;span class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;Full Name:&lt;/span&gt;&lt;/td&gt;
+  &lt;td&gt;
+&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;fullname&quot;</SPAN> value=&quot;&quot; /&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+    &lt;tr&gt;
+  &lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;&lt;span class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;Email:&lt;/span&gt;&lt;/td&gt;
+  &lt;td&gt;
+&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;email&quot;</SPAN> value=&quot;&quot; /&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+    
+&lt;tr&gt;
+  &lt;td colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;
+    &lt;div align=<SPAN class="code-quote">&quot;right&quot;</SPAN>&gt;
+      &lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> name=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Send me a free E-Certificate!&quot;</SPAN>/&gt;
+    &lt;/div&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;/table&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</PRE>
+</DIV></DIV>
+
+<P>The template below will loop through any action errors and display them to the user in a bulletted list.</P>
+
+<P>Template (action-errors.vm)</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">#set ($actionErrors = $stack.findValue(<SPAN class="code-quote">&quot;actionErrors&quot;</SPAN>))
+
+#<SPAN class="code-keyword">if</SPAN> ($actionErrors)
+&lt;tr&gt;
+    &lt;td colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;
+        &lt;span class=<SPAN class="code-quote">&quot;errorMessage&quot;</SPAN>&gt;The following errors occurred:&lt;/span&gt;
+        &lt;ul&gt;
+            #foreach ($actionError in $actionErrors)
+            &lt;li&gt;&lt;span class=<SPAN class="code-quote">&quot;errorMessage&quot;</SPAN>&gt;$actionError&lt;/span&gt;&lt;/li&gt;
+            #end
+        &lt;/ul&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+#end</PRE>
+</DIV></DIV>
+
+<P>HTML output (after submitting):</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;html&gt;
+&lt;head&gt;&lt;title&gt;custom component example&lt;/title&gt;&lt;/head&gt;
+&lt;style type=<SPAN class="code-quote">&quot;text/css&quot;</SPAN>&gt;
+.errorMessage {
+    color: red;
+}
+&lt;/style&gt;
+&lt;body&gt;
+
+&lt;form  action=<SPAN class="code-quote">&quot;AddUser.action&quot;</SPAN> method=<SPAN class="code-quote">&quot;POST&quot;</SPAN> /&gt;
+
+&lt;table&gt;
+    
+&lt;tr&gt;
+    &lt;td colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;
+        &lt;span class=<SPAN class="code-quote">&quot;errorMessage&quot;</SPAN>&gt;The following errors occurred:&lt;/span&gt;
+        &lt;ul&gt;
+            &lt;li class=<SPAN class="code-quote">&quot;errorMessage&quot;</SPAN>&gt;
+                We are experiencing a technical problem and have contacted our 
+                support staff. Please <SPAN class="code-keyword">try</SPAN> again later.
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+
+    &lt;tr&gt;
+  &lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;&lt;span class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;Full Name:&lt;/span&gt;&lt;/td&gt;
+  &lt;td&gt;
+&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;fullname&quot;</SPAN> value=<SPAN class="code-quote">&quot;Sample User&quot;</SPAN> /&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+    &lt;tr&gt;
+  &lt;td align=<SPAN class="code-quote">&quot;right&quot;</SPAN> valign=<SPAN class="code-quote">&quot;top&quot;</SPAN>&gt;&lt;span class=<SPAN class="code-quote">&quot;label&quot;</SPAN>&gt;Email:&lt;/span&gt;&lt;/td&gt;
+  &lt;td&gt;
+&lt;input type=<SPAN class="code-quote">&quot;text&quot;</SPAN> name=<SPAN class="code-quote">&quot;email&quot;</SPAN> value=<SPAN class="code-quote">&quot;user@example.com&quot;</SPAN> /&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+    
+&lt;tr&gt;
+  &lt;td colspan=<SPAN class="code-quote">&quot;2&quot;</SPAN>&gt;
+    &lt;div align=<SPAN class="code-quote">&quot;right&quot;</SPAN>&gt;
+      &lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> name=<SPAN class="code-quote">&quot;submit&quot;</SPAN> value=<SPAN class="code-quote">&quot;Send me a free E-Certificate!&quot;</SPAN>/&gt;
+    &lt;/div&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;/table&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</PRE>
+</DIV></DIV>
+<H2><A name="WebWork2UITagGuide-ChangesfromWebWork1"></A>Changes from WebWork 1</H2>
+
+<P>TODO</P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

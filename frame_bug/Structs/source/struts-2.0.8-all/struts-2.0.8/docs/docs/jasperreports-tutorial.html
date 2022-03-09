@@ -1,0 +1,474 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>JasperReports Tutorial</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="tutorials.html" title="Tutorials">Tutorials</A>&nbsp;&gt;&nbsp;<A href="" title="JasperReports Tutorial">JasperReports Tutorial</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">JasperReports Tutorial</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13906">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=13906">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13906">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=13906">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13906">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=13906">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=plightbo">Patrick Lightbody</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Jun 10, 2006
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=13906&originalId=18392">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="infoMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The support for JasperReports is an optional download. This product is distributed under the LGPL and cannot be bundled with Apache Licensed products.</TD></TR></TABLE>
+<P><SPAN class="nobr"><A href="http://jasperreports.sourceforge.net/" title="Visit page outside Confluence" rel="nofollow">JasperReports<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> is one of the leading open-source Java reporting libraries. It compiles <TT>.jrxml</TT> (XML source) to <TT>.jasper</TT> (=compiled version) files, which in turn can be transformed to several output types (PDF, CSV, XLS and HTML).</P>
+
+<P>In the following example, we will use the framework to dynamically create a PDF with a list of persons. Our action will be used to create a List with objects, and our JasperReport Result will use this list to fill our template, and return the PDF.</P>
+
+<P>I assume you already have a SAF webapp working.</P>
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Note: although this is a very simple example, I suggest you read the fine documentation of both SAF and JR.</TD></TR></TABLE>
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="infoMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">Used versions</B><BR>
+<P>Webwork 2.2 beta 3 (but should apply to previous versions)<BR>
+JasperReports 1.1.0<BR>
+JDK 1.4.2</P></TD></TR></TABLE>
+<P>Right, let's begin.</P>
+
+<H2><A name="JasperReportsTutorial-OurPersonclass"></A>Our Person class</H2>
+
+<P>We start by defining a simple POJO class: Person.java</P>
+<DIV class="code"><DIV class="codeHeader"><B>com.mevipro.test.Person.java</B></DIV><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.mevipro.test;
+
+<SPAN class="code-keyword">public</SPAN> class Person {
+
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">Long</SPAN> id;
+
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> name;
+
+	<SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> lastName;
+
+	<SPAN class="code-keyword">public</SPAN> Person() {
+		<SPAN class="code-keyword">super</SPAN>();
+	}
+
+	<SPAN class="code-keyword">public</SPAN> Person(<SPAN class="code-object">String</SPAN> name, <SPAN class="code-object">String</SPAN> lastName) {
+		<SPAN class="code-keyword">super</SPAN>();
+		<SPAN class="code-keyword">this</SPAN>.name = name;
+		<SPAN class="code-keyword">this</SPAN>.lastName = lastName;
+	}
+
+
+
+	<SPAN class="code-keyword">public</SPAN> Person(<SPAN class="code-object">Long</SPAN> id, <SPAN class="code-object">String</SPAN> name, <SPAN class="code-object">String</SPAN> lastName) {
+		<SPAN class="code-keyword">super</SPAN>();
+		<SPAN class="code-keyword">this</SPAN>.id = id;
+		<SPAN class="code-keyword">this</SPAN>.name = name;
+		<SPAN class="code-keyword">this</SPAN>.lastName = lastName;
+	}
+
+	/**
+	 * @<SPAN class="code-keyword">return</SPAN> Returns the id.
+	 */
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">Long</SPAN> getId() {
+		<SPAN class="code-keyword">return</SPAN> id;
+	}
+
+	/**
+	 * @param id The id to set.
+	 */
+	<SPAN class="code-keyword">public</SPAN> void setId(<SPAN class="code-object">Long</SPAN> id) {
+		<SPAN class="code-keyword">this</SPAN>.id = id;
+	}
+
+	/**
+	 * @<SPAN class="code-keyword">return</SPAN> Returns the lastName.
+	 */
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getLastName() {
+		<SPAN class="code-keyword">return</SPAN> lastName;
+	}
+
+	/**
+	 * @param lastName The lastName to set.
+	 */
+	<SPAN class="code-keyword">public</SPAN> void setLastName(<SPAN class="code-object">String</SPAN> lastName) {
+		<SPAN class="code-keyword">this</SPAN>.lastName = lastName;
+	}
+
+	/**
+	 * @<SPAN class="code-keyword">return</SPAN> Returns the name.
+	 */
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getName() {
+		<SPAN class="code-keyword">return</SPAN> name;
+	}
+
+	/**
+	 * @param name The name to set.
+	 */
+	<SPAN class="code-keyword">public</SPAN> void setName(<SPAN class="code-object">String</SPAN> name) {
+		<SPAN class="code-keyword">this</SPAN>.name = name;
+	}
+
+
+}</PRE>
+</DIV></DIV>
+<P>Nothing special. Just your basic properties, constructor, getters and setters.</P>
+
+<H2><A name="JasperReportsTutorial-JasperReportslibraries"></A>JasperReports libraries</H2>
+
+<P>Before we can continue, we need to add the JR libraries to our classpath. You can download the JR project here: <SPAN class="nobr"><A href="http://www.sourceforge.net/projects/jasperreports" title="Visit page outside Confluence" rel="nofollow">http://www.sourceforge.net/projects/jasperreports<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN><BR>
+Save the jasperreports-X-project.zip to your harddisk, and extract the files.</P>
+
+<P>We need the following files:</P>
+<UL class="alternate" type="square">
+	<LI>dist/jasperreports-X.jar</LI>
+	<LI>lib/commons-*.jar (all the commons - except maybe for commons-logging)</LI>
+	<LI>lib/itext-X.jar</LI>
+	<LI>lib/jdt-compiler.jar</LI>
+</UL>
+
+
+<P>Copy these jars over to your WW_WEBAPP/WEB-INF/lib directory, and add them to your classpath.</P>
+
+<H2><A name="JasperReportsTutorial-ShowmetheAction"></A>Show me the Action</H2>
+
+<DIV class="code"><DIV class="codeHeader"><B>com.mevipro.test.action.JasperAction</B></DIV><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">package</SPAN> com.mevipro.test.action;
+
+<SPAN class="code-keyword">import</SPAN> java.util.ArrayList;
+<SPAN class="code-keyword">import</SPAN> java.util.List;
+
+<SPAN class="code-keyword">import</SPAN> net.sf.jasperreports.engine.JasperCompileManager;
+
+<SPAN class="code-keyword">import</SPAN> com.mevipro.test.Person;
+<SPAN class="code-keyword">import</SPAN> com.opensymphony.xwork.ActionSupport;
+
+<SPAN class="code-keyword">public</SPAN> class JasperAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+
+	<SPAN class="code-comment">//basic List - it will serve as our dataSource later on
+</SPAN>	<SPAN class="code-keyword">private</SPAN> List myList;
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see com.opensymphony.xwork.ActionSupport#execute()
+	 */
+	<SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() <SPAN class="code-keyword">throws</SPAN> Exception {
+
+		<SPAN class="code-comment">// create some imaginary persons
+</SPAN>		Person p1 = <SPAN class="code-keyword">new</SPAN> Person(<SPAN class="code-keyword">new</SPAN> <SPAN class="code-object">Long</SPAN>(1), <SPAN class="code-quote">&quot;Patrick&quot;</SPAN>, <SPAN class="code-quote">&quot;Lightbuddie&quot;</SPAN>);
+		Person p2 = <SPAN class="code-keyword">new</SPAN> Person(<SPAN class="code-keyword">new</SPAN> <SPAN class="code-object">Long</SPAN>(2), <SPAN class="code-quote">&quot;Jason&quot;</SPAN>, <SPAN class="code-quote">&quot;Carrora&quot;</SPAN>);
+		Person p3 = <SPAN class="code-keyword">new</SPAN> Person(<SPAN class="code-keyword">new</SPAN> <SPAN class="code-object">Long</SPAN>(3), <SPAN class="code-quote">&quot;Alexandru&quot;</SPAN>, <SPAN class="code-quote">&quot;Papesco&quot;</SPAN>);
+		Person p4 = <SPAN class="code-keyword">new</SPAN> Person(<SPAN class="code-keyword">new</SPAN> <SPAN class="code-object">Long</SPAN>(4), <SPAN class="code-quote">&quot;Jay&quot;</SPAN>, <SPAN class="code-quote">&quot;Boss&quot;</SPAN>);
+
+		/*
+		 * store everything in a list - normally, <SPAN class="code-keyword">this</SPAN> should be coming from a
+		 * database but <SPAN class="code-keyword">for</SPAN> the sake of simplicity, I left that out
+		 */
+		myList = <SPAN class="code-keyword">new</SPAN> ArrayList();
+		myList.add(p1);
+		myList.add(p2);
+		myList.add(p3);
+		myList.add(p4);
+
+		/*
+		 * Here we compile our xml jasper template to a jasper file.
+		 * Note: <SPAN class="code-keyword">this</SPAN> isn't exactly considered 'good practice'.
+		 * You should either use precompiled jasper files (.jasper) or provide some kind of check
+		 * to make sure you're not compiling the file on every request.
+		 * If you don't have to compile the report, you just setup your data source (eg. a List)
+		 */
+		<SPAN class="code-keyword">try</SPAN> {
+			JasperCompileManager.compileReportToFile(
+					<SPAN class="code-quote">&quot;WW_WEBAPP/jasper/our_jasper_template.jrxml&quot;</SPAN>,
+					<SPAN class="code-quote">&quot;WW_WEBAPP/jasper/our_compiled_template.jasper&quot;</SPAN>);
+		} <SPAN class="code-keyword">catch</SPAN> (Exception e) {
+			e.printStackTrace();
+			<SPAN class="code-keyword">return</SPAN> ERROR;
+		}
+		<SPAN class="code-comment">//<SPAN class="code-keyword">if</SPAN> all goes well ..
+</SPAN>		<SPAN class="code-keyword">return</SPAN> SUCCESS;
+	}
+
+	/**
+	 * @<SPAN class="code-keyword">return</SPAN> Returns the myList.
+	 */
+	<SPAN class="code-keyword">public</SPAN> List getMyList() {
+		<SPAN class="code-keyword">return</SPAN> myList;
+	}
+
+}</PRE>
+</DIV></DIV>
+<P>Once again - I guess everything is pretty clear. Our JasperAction will create a list of several People. The JasperCompileManager will then compile the jrxml template to a .jasper file.</P>
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="warningMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Again, don't use this in production code. You should of course either provide compiled templates, or do some sort of checking to avoid compiling the template on every request. But for our demonstration, or development, this suits our needs just fine.</TD></TR></TABLE>
+
+<H2><A name="JasperReportsTutorial-OurJaspertemplate"></A>Our Jasper template</H2>
+
+<P>JR uses a special XML page to define templates which will be compiled to .jasper files. These templates will be used to design the resulting report. It's pretty straightforward.<BR>
+This is a handwritten version - for more complex versions I seriously suggest taking a look a the various GUI designers.</P>
+<DIV class="code"><DIV class="codeHeader"><B>our_jasper_template.jrxml</B></DIV><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;?xml version=<SPAN class="code-quote">&quot;1.0&quot;</SPAN>?&gt;</SPAN>
+    &lt;!DOCTYPE jasperReport
+  PUBLIC <SPAN class="code-quote">&quot;-//JasperReports//DTD Report Design//EN&quot;</SPAN>
+  <SPAN class="code-quote">&quot;http://jasperreports.sourceforge.net/dtds/jasperreport.dtd&quot;</SPAN>&gt;
+    <SPAN class="code-tag">&lt;jasperReport name=<SPAN class="code-quote">&quot;jasper_test&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag"><SPAN class="code-comment">&lt;!-- our fields --&gt;</SPAN></SPAN>
+      <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;name&quot;</SPAN> class=<SPAN class="code-quote">&quot;java.lang.String&quot;</SPAN>/&gt;</SPAN>
+      <SPAN class="code-tag">&lt;field name=<SPAN class="code-quote">&quot;lastName&quot;</SPAN> class=<SPAN class="code-quote">&quot;java.lang.String&quot;</SPAN>/&gt;</SPAN>
+      <SPAN class="code-tag">&lt;title&gt;</SPAN>
+        <SPAN class="code-tag">&lt;band height=<SPAN class="code-quote">&quot;50&quot;</SPAN>&gt;</SPAN>
+          <SPAN class="code-tag">&lt;staticText&gt;</SPAN>
+            <SPAN class="code-tag">&lt;reportElement x=<SPAN class="code-quote">&quot;0&quot;</SPAN> y=<SPAN class="code-quote">&quot;0&quot;</SPAN> width=<SPAN class="code-quote">&quot;180&quot;</SPAN> height=<SPAN class="code-quote">&quot;15&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;textElement/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;text&gt;</SPAN>
+              <SPAN class="code-tag">&lt;![CDATA[Webwork JasperReports Sample]]&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/text&gt;</SPAN>
+          <SPAN class="code-tag">&lt;/staticText&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/band&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/title&gt;</SPAN>
+      <SPAN class="code-tag">&lt;pageHeader&gt;</SPAN>
+        <SPAN class="code-tag">&lt;band&gt;</SPAN><SPAN class="code-tag">&lt;/band&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/pageHeader&gt;</SPAN>
+      <SPAN class="code-tag">&lt;columnHeader&gt;</SPAN>
+        <SPAN class="code-tag">&lt;band height=<SPAN class="code-quote">&quot;20&quot;</SPAN>&gt;</SPAN>
+          <SPAN class="code-tag">&lt;staticText&gt;</SPAN>
+            <SPAN class="code-tag">&lt;reportElement x=<SPAN class="code-quote">&quot;180&quot;</SPAN> y=<SPAN class="code-quote">&quot;0&quot;</SPAN> width=<SPAN class="code-quote">&quot;180&quot;</SPAN> height=<SPAN class="code-quote">&quot;20&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;textElement&gt;</SPAN>
+              <SPAN class="code-tag">&lt;font isUnderline=<SPAN class="code-quote">&quot;true&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/textElement&gt;</SPAN>
+            <SPAN class="code-tag">&lt;text&gt;</SPAN>
+              <SPAN class="code-tag">&lt;![CDATA[NAME]]&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/text&gt;</SPAN>
+          <SPAN class="code-tag">&lt;/staticText&gt;</SPAN>
+          <SPAN class="code-tag">&lt;staticText&gt;</SPAN>
+            <SPAN class="code-tag">&lt;reportElement x=<SPAN class="code-quote">&quot;360&quot;</SPAN> y=<SPAN class="code-quote">&quot;0&quot;</SPAN> width=<SPAN class="code-quote">&quot;180&quot;</SPAN> height=<SPAN class="code-quote">&quot;20&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;textElement&gt;</SPAN>
+              <SPAN class="code-tag">&lt;font isUnderline=<SPAN class="code-quote">&quot;true&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/textElement&gt;</SPAN>
+            <SPAN class="code-tag">&lt;text&gt;</SPAN>
+              <SPAN class="code-tag">&lt;![CDATA[LASTNAME]]&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/text&gt;</SPAN>
+          <SPAN class="code-tag">&lt;/staticText&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/band&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/columnHeader&gt;</SPAN>
+      <SPAN class="code-tag">&lt;detail&gt;</SPAN>
+        <SPAN class="code-tag">&lt;band height=<SPAN class="code-quote">&quot;20&quot;</SPAN>&gt;</SPAN>
+          <SPAN class="code-tag">&lt;textField&gt;</SPAN>
+            <SPAN class="code-tag">&lt;reportElement x=<SPAN class="code-quote">&quot;180&quot;</SPAN> y=<SPAN class="code-quote">&quot;0&quot;</SPAN> width=<SPAN class="code-quote">&quot;180&quot;</SPAN> height=<SPAN class="code-quote">&quot;15&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;textElement/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;textFieldExpression&gt;</SPAN>
+              <SPAN class="code-tag">&lt;![CDATA[$F{name}]]&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/textFieldExpression&gt;</SPAN>
+          <SPAN class="code-tag">&lt;/textField&gt;</SPAN>
+          <SPAN class="code-tag">&lt;textField&gt;</SPAN>
+            <SPAN class="code-tag">&lt;reportElement x=<SPAN class="code-quote">&quot;360&quot;</SPAN> y=<SPAN class="code-quote">&quot;0&quot;</SPAN> width=<SPAN class="code-quote">&quot;180&quot;</SPAN> height=<SPAN class="code-quote">&quot;15&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;textElement/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;textFieldExpression&gt;</SPAN>
+              <SPAN class="code-tag">&lt;![CDATA[$F{lastName}]]&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/textFieldExpression&gt;</SPAN>
+          <SPAN class="code-tag">&lt;/textField&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/band&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/detail&gt;</SPAN>
+      <SPAN class="code-tag">&lt;columnFooter&gt;</SPAN>
+        <SPAN class="code-tag">&lt;band&gt;</SPAN><SPAN class="code-tag">&lt;/band&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/columnFooter&gt;</SPAN>
+      <SPAN class="code-tag">&lt;pageFooter&gt;</SPAN>
+        <SPAN class="code-tag">&lt;band height=<SPAN class="code-quote">&quot;15&quot;</SPAN>&gt;</SPAN>
+          <SPAN class="code-tag">&lt;staticText&gt;</SPAN>
+            <SPAN class="code-tag">&lt;reportElement x=<SPAN class="code-quote">&quot;0&quot;</SPAN> y=<SPAN class="code-quote">&quot;0&quot;</SPAN> width=<SPAN class="code-quote">&quot;40&quot;</SPAN> height=<SPAN class="code-quote">&quot;15&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;textElement/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;text&gt;</SPAN>
+              <SPAN class="code-tag">&lt;![CDATA[Page:]]&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/text&gt;</SPAN>
+          <SPAN class="code-tag">&lt;/staticText&gt;</SPAN>
+          <SPAN class="code-tag">&lt;textField&gt;</SPAN>
+            <SPAN class="code-tag">&lt;reportElement x=<SPAN class="code-quote">&quot;40&quot;</SPAN> y=<SPAN class="code-quote">&quot;0&quot;</SPAN> width=<SPAN class="code-quote">&quot;100&quot;</SPAN> height=<SPAN class="code-quote">&quot;15&quot;</SPAN>/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;textElement/&gt;</SPAN>
+            <SPAN class="code-tag">&lt;textFieldExpression class=<SPAN class="code-quote">&quot;java.lang.Integer&quot;</SPAN>&gt;</SPAN>
+              <SPAN class="code-tag">&lt;![CDATA[$V{PAGE_NUMBER}]]&gt;</SPAN>
+            <SPAN class="code-tag">&lt;/textFieldExpression&gt;</SPAN>
+          <SPAN class="code-tag">&lt;/textField&gt;</SPAN>
+        <SPAN class="code-tag">&lt;/band&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/pageFooter&gt;</SPAN>
+      <SPAN class="code-tag">&lt;summary&gt;</SPAN>
+        <SPAN class="code-tag">&lt;band&gt;</SPAN><SPAN class="code-tag">&lt;/band&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/summary&gt;</SPAN>
+    <SPAN class="code-tag">&lt;/jasperReport&gt;</SPAN></PRE>
+</DIV></DIV>
+<P>Save this file in WW_WEBAPP/jasper/ as 'our_jasper_template.jrxml'.</P>
+
+<P>Most important: we declared the fields name and lastName (not surprisingly, two properties from our Person.class). This means we will now be able to use these fields in our Jasper template.</P>
+
+<P>We define two columnheaders (NAME and LASTNAME), and then add our fields to the detail band (for a better explanation, look at the JR tutorial). This 'detail' band will iterate over our List of People. This is the default behaviour of JR - so if you want to display more information from the Person, add them to this band.</P>
+
+<P>In the detail band we use the</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">$F{name}</PRE>
+</DIV></DIV>
+<P> expression. This means JR will ask WW how to retrieve the field value. WW will happily look up this value in the stack (find the person, and invoke the getName() getter), and return it. Similar for the</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">$F{lastName}</PRE>
+</DIV></DIV>
+<P>The rest is mostly markup to define the layout.</P>
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="tipMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Use a logger (commons-logging, log4j, ..) to watch com.opensymphony.webwork.views.jasperreports in debug mode, if you have any troubles</TD></TR></TABLE>
+
+<H2><A name="JasperReportsTutorial-RegistertheAction"></A>Register the Action</H2>
+
+<P>Alright, time to add the action to our xwork.xml file:</P>
+<DIV class="code"><DIV class="codeHeader"><B>xwork.xml</B></DIV><DIV class="codeContent">
+<PRE class="code-java">&lt;action name=<SPAN class="code-quote">&quot;myJasperTest&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.mevipro.test.action.JasperAction&quot;</SPAN>&gt;
+	&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;jasper&quot;</SPAN>&gt;
+		&lt;param name=<SPAN class="code-quote">&quot;location&quot;</SPAN>&gt;/jasper/our_compiled_template.jasper&lt;/param&gt;
+		&lt;param name=<SPAN class="code-quote">&quot;dataSource&quot;</SPAN>&gt;myList&lt;/param&gt;
+		&lt;param name=<SPAN class="code-quote">&quot;format&quot;</SPAN>&gt;PDF&lt;/param&gt;
+	&lt;/result&gt;
+&lt;/action&gt;</PRE>
+</DIV></DIV>
+<P>Let's explore this a bit further. I assume you are familiar with the xwork notation &amp; schema, if not, check the documentation.</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;action name=<SPAN class="code-quote">&quot;myJasperTest&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.mevipro.test.action.JasperAction&quot;</SPAN>&gt;</PRE>
+</DIV></DIV>
+<P>We simply register our JasperAction with the name 'myJasperTest' - this means that we can execute this Action by sending a request to myJasperTest.action in our browser.</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;jasper&quot;</SPAN>&gt;</PRE>
+</DIV></DIV>
+<P>When our JasperAction executes correctly, we will use the Result type registered with the name 'jasper'. This is already done when you include the webwork-default (</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;include file=<SPAN class="code-quote">&quot;webwork-<SPAN class="code-keyword">default</SPAN>.xml&quot;</SPAN>/&gt;</PRE>
+</DIV></DIV>
+<P>). This result type will be configured by our params, which we'll specify below:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;param name=<SPAN class="code-quote">&quot;location&quot;</SPAN>&gt;/jasper/our_compiled_template.jasper&lt;/param&gt;</PRE>
+</DIV></DIV>
+<P>This parameter defines the location of our compiled jasper file, which will be filled by WW with our dataSource:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;param name=<SPAN class="code-quote">&quot;dataSource&quot;</SPAN>&gt;myList&lt;/param&gt;</PRE>
+</DIV></DIV>
+<P>The name of the dataSource - this is the name of the getter you want to call (this will result in a getMyList() call to your JasperAction). It will be used to fill the template with data.</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java">&lt;param name=<SPAN class="code-quote">&quot;format&quot;</SPAN>&gt;PDF&lt;/param&gt;</PRE>
+</DIV></DIV>
+<P>This specifies the format to which the jasper file will be transformed. Possible values are: PDF, CSV, XLS and HTML.</P>
+
+<H2><A name="JasperReportsTutorial-Conclusion"></A>Conclusion</H2>
+
+<P>You should now be able to execute <SPAN class="nobr"><A href="http://localhost:8080/YOUR_WEBAPP/myJasperTest.action" title="Visit page outside Confluence" rel="nofollow">http://localhost:8080/YOUR_WEBAPP/myJasperTest.action<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> &#45; and you should see a nice list of names.<BR>
+WW provides probably the most elegant way to deal with JasperReport files; specify the location of the .jasper file, specify what dataSource you want to use, and there you go.</P>
+
+<H2><A name="JasperReportsTutorial-BacktoTutorials"></A>Back to <A href="tutorials.html" title="Tutorials">Tutorials</A></H2>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

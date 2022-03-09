@@ -1,0 +1,275 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>WebWork 2.2 Migration Notes</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Struts 2">Struts 2</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=WebWork%202.2%20Migration%20Notes" title="WebWork 2.2 Migration Notes">WebWork 2.2 Migration Notes</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Struts 2</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">WebWork 2.2 Migration Notes</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14067">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14067">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14067">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14067">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14067">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14067">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+            Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=plightbo">plightbo</A>,
+    last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Sep 03, 2006
+                  &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14067&originalId=23163">view change</A>)
+                      <SPAN id="show" class="inline-control-link"><A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=WebWork%202.2%20Migration%20Notes" onclick="showComment(); return false;">show comment</A></SPAN>
+        <SPAN id="hide" class="inline-control-link" style="display:none;"><A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=WebWork%202.2%20Migration%20Notes" onclick="hideComment(); return false;">hide comment</A></SPAN>
+          <DIV id="versionComment" class="noteMacro" style="display:none; padding: 5px;">
+      <B>Comment:</B>
+      <BR>
+<BR>
+Remove alt syntax link<BR>
+      <SPAN class="smalltext"><A href="http://cwiki.apache.org/confluence/pages/viewpreviouspageversions.action?pageId=14067">View page history</A></SPAN>
+  </DIV>
+
+    <SCRIPT>
+      var show = document.getElementById('show');
+      var hide = document.getElementById('hide');
+      var versionComment = document.getElementById('versionComment');
+
+      function showComment(){
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+        versionComment.style.display = 'block';
+      }
+
+      function hideComment(){
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+        versionComment.style.display = 'none';
+      }
+
+    </SCRIPT>
+    
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          
+
+<P>This document covers a step-by-step guide for upgrading to WebWork 2.2 from 2.1.x, as well as a list of the key individual changes for reference.</P>
+
+<H1><A name="WebWork2.2MigrationNotes-UpgradeGuide"></A>Upgrade Guide</H1>
+
+<OL>
+	<LI>Get the <SPAN class="nobr"><A href="https://webwork.dev.java.net/servlets/ProjectDocumentList?folderID=4007&expandFolder=4007&folderID=0" title="Visit page outside Confluence" rel="nofollow">latest 2.2 release<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN></LI>
+	<LI>Check out the <SPAN class="nobr"><A href="http://www.opensymphony.com/webwork/dependencies/opensymphony-webwork-default.html" title="Visit page outside Confluence" rel="nofollow">dependencies<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> to see what the required libraries are. One change of note is the dependency on Rife-Continuations. Click through the tabs for the dependencies for different usage profiles. If you use FreeMarker for instance, click on that tab to see those dependencies. Note that if you use the JSP tags you are now using FreeMarker by default for the UI component templates.</LI>
+	<LI>Check the <B>Individual Changes</B> section below to see if any of those changes affect your code</LI>
+	<LI>Update to use the <B>FilterDispatcher</B> instead of the <B>ServletDispatcher</B>. Check out the <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=web.xml%202.1.x%20compatibility&linkCreation=true&fromPageId=14067" title="Create Page: web.xml 2.1.x compatibility" class="createlink">web.xml 2.1.x compatibility<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> page for some compatibility discussions, and see <A href="webxml.html" title="web.xml">web.xml</A> for what needs to go in the <EM>web.xml</EM> file.</LI>
+</OL>
+
+
+<H1><A name="WebWork2.2MigrationNotes-DeprecatedItems"></A>Deprecated Items</H1>
+
+<UL>
+	<LI>The ServletDispatcher is now deprecated, please use the FilterDispatcher if possible. See <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=web.xml%202.1.x%20compatibility&linkCreation=true&fromPageId=14067" title="Create Page: web.xml 2.1.x compatibility" class="createlink">web.xml 2.1.x compatibility<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> for more information about potential problems you might have when switching to FilterDispatcher.</LI>
+	<LI>The Velocity and FreeMarker servlets are no longer supported. We highly recommend you don&apos;t use these  servlets but rather the <A href="freemarker-result.html" title="FreeMarker Result">FreeMarker Result</A> or <A href="velocity-result.html" title="Velocity Result">Velocity Result</A> directly.</LI>
+	<LI>If you were using JSP tags within Velocity, this is no longer supported and will soon be removed. You can use the instructions explained in <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=web.xml%202.1.x%20compatibility&linkCreation=true&fromPageId=14067" title="Create Page: web.xml 2.1.x compatibility" class="createlink">web.xml 2.1.x compatibility<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> to get along for now, but we highly recommend using the new native Velocity tag support provided by WebWork.</LI>
+	<LI>The table tag is now considered deprecated. We may undeprecate it in the future if more time can be invested, but we recommend that you look at alternative options such as <SPAN class="nobr"><A href="http://displaytag.sourceforge.net/" title="Visit page outside Confluence" rel="nofollow">Display Tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>.</LI>
+	<LI>All support for including actions (using the <A href="include.html" title="include">include</A> tag or jsp:include) is no longer available when using the FilterDispatcher. We recommend you use the <A href="action.html" title="action">action</A> tag instead.</LI>
+	<LI>The cos and pell file upload parsers are no longer actively maintained and will be deleted soon. We highly recommend you use the Jakarta file upload parser, which is now the default parser.</LI>
+</UL>
+
+
+<H1><A name="WebWork2.2MigrationNotes-DeletedItems"></A>Deleted Items</H1>
+
+<UL>
+	<LI>All VoiceXML tags have been removed from WebWork.</LI>
+	<LI>The Velocity-based <A href="struts-tags.html" title="Struts Tags">Struts Tags</A> have been removed. If you were using or extending these tags (advanced users typically),  you can copy them from the /template/archive directory in the webwork jar.</LI>
+</UL>
+
+
+<H1><A name="WebWork2.2MigrationNotes-IndividualChanges"></A>Individual Changes</H1>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Version </TH>
+<TH class="confluenceTh"> Description </TH>
+<TH class="confluenceTh"> Old Code </TH>
+<TH class="confluenceTh"> New Code </TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> 2.1.x </TD>
+<TD class="confluenceTd"> If you implemented your own <B>ObjectFactory</B> or <B>ActionInvocation</B> classes, you will notice that there have been some minor changes to make an &quot;extraContext&quot; Map available for the build&#42; methods. This allows, for instance, access to the Session map during object creation, even before the <B>ActionContext ThreadLocal</B> has been set. </TD>
+<TD class="confluenceTd"> ObjectFactory.getObjectFactory().buildBean(clazz); </TD>
+<TD class="confluenceTd"> ObjectFactory.getObjectFactory().buildBean(clazz, extraContext); </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> 2.0&#43; </TD>
+<TD class="confluenceTd"> If you&apos;ve used the WebWork base classes for building templated tags, you&apos;ll run into the refactoring of the UI tags to use common <B>Component</B> classes as the templated back-end. The tags now use these <B>Component</B> classes, as do Velocity and FreeMarker. This allows Velocity and FreeMarker to use the same UI components directly, without pretending to be a JSP page, but it also means you need to refactor your custom tags to use the new API&apos;s </TD>
+<TD class="confluenceTd"> ...your code.. </TD>
+<TD class="confluenceTd"> See the existing UI tags in the 2.2 source </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> 2.1.x </TD>
+<TD class="confluenceTd"> If you were <EM>not</EM> using the Alt Syntax, it is now enabled by default. You can either upgrade or change the <A href="tag-syntax.html" title="Tag Syntax">Tag Syntax</A> </TD>
+<TD class="confluenceTd"> &lt;ww:url value=&quot;&apos;http://www.yahoo.com&apos;&quot;/&gt; </TD>
+<TD class="confluenceTd"> &lt;ww:url value=&quot;http://www.yahoo.com&quot;/&gt; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> 2.1.x </TD>
+<TD class="confluenceTd"> If you are using FreeMarker and your code uses psuedo properties on collections and maps, you need to modify the code to call methods instead. </TD>
+<TD class="confluenceTd"> ${parameters?size} / ${parameters.size?html} </TD>
+<TD class="confluenceTd"> ${parameters.size()} / ${parameters.get(&quot;size&quot;)?html} </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> 2.1.x </TD>
+<TD class="confluenceTd"> The defaultStack has been renamed to the basicStack. </TD>
+<TD class="confluenceTd"> &lt;interceptor-ref name=&quot;defaultStack&quot;/&gt; </TD>
+<TD class="confluenceTd"> &lt;interceptor-ref name=&quot;basicStack&quot;/&gt; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> 2.1.x </TD>
+<TD class="confluenceTd"> The completeStack has been renamed to the defaultStack. </TD>
+<TD class="confluenceTd"> &lt;interceptor-ref name=&quot;completeStack&quot;/&gt; </TD>
+<TD class="confluenceTd"> &lt;interceptor-ref name=&quot;defaultStack&quot;/&gt; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> 2.1.x </TD>
+<TD class="confluenceTd"> The defaultStack (previously the completeStack) is now the default interceptor stack in webwork-default.xml. In addition, this stack now configures the <A href="workflow-interceptor.html" title="Workflow Interceptor">Workflow Interceptor</A> and the <SPAN class="nobr"><A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&title=Validation%20Interceptor&linkCreation=true&fromPageId=14067" title="Create Page: Validation Interceptor" class="createlink">Validation Interceptor<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/plus.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> to not run if the method names are <EM>input</EM>, <EM>back</EM>, or <EM>cancel</EM> </TD>
+<TD class="confluenceTd"> N/A </TD>
+<TD class="confluenceTd"> N/A </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> 2.1.x </TD>
+<TD class="confluenceTd"> The component interceptor has been deprecated (along with all WebWork IOC features) and has been removed from the basicStack and completeStack. You&apos;ll need to add it back by hand if you wish to use this deprecated feature. </TD>
+<TD class="confluenceTd"> N/A </TD>
+<TD class="confluenceTd"> N/A </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> 2.0&#43; </TD>
+<TD class="confluenceTd"> The include tag&apos;s page attribute has been deprecated since 1.x and is now removed from 2.2. Please use the value attribute. </TD>
+<TD class="confluenceTd"> &lt;ww:include page=&quot;...&quot;/&gt; </TD>
+<TD class="confluenceTd"> &lt;ww:include value=&quot;...&quot;/&gt; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> 2.0&#43; </TD>
+<TD class="confluenceTd"> The text tag&apos;s value0, value1, value2, and value 3attributes have been deprecated since 1.x and are now removed from 2.2. Please use the param tag instead. </TD>
+<TD class="confluenceTd"> &lt;ww:text value0=&quot;...&quot;&quot;/&gt; </TD>
+<TD class="confluenceTd"> &lt;ww:text&gt;&lt;ww:param value=&quot;someValue&quot;&gt;...&lt;/ww:param&gt;&lt;/ww:text&gt; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> 2.0&#43; </TD>
+<TD class="confluenceTd"> The session map wrapper (found in ActionContext) has been changed to no longer create sessions for every request. If your application depends on sessions being automatically created, WebWork 2.2 no longer does that. Instead, you must create the session yourself or the session will be created as soon as a value is put in the session Map. </TD>
+<TD class="confluenceTd"> N/A </TD>
+<TD class="confluenceTd"> N/A </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> 2.0&#43; </TD>
+<TD class="confluenceTd"> The VUI tags have been removed from WebWork. They haven&apos;t been actively worked on in over 4 years and are not used in the community. </TD>
+<TD class="confluenceTd"> N/A </TD>
+<TD class="confluenceTd"> N/A </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> 2.0&#43; </TD>
+<TD class="confluenceTd"> The URI of the WebWork TLD was change from <EM>webwork</EM> to <EM>/webwork</EM>. If you were already using the packaged TLD from webwork.jar, you will have to adjust URI in your JSPs </TD>
+<TD class="confluenceTd"> &lt;%@ taglib uri=&quot;webwork&quot; prefix=&quot;ww&quot; %&gt; </TD>
+<TD class="confluenceTd"> &lt;%@ taglib uri=&quot;/webwork&quot; prefix=&quot;ww&quot; %&gt; </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> 2.0&#43; </TD>
+<TD class="confluenceTd"> The default encoding has changed from <B>ISO-8859-1</B> to <B>UTF-8</B>. If you wish to continue to use ISO-8859-1, you must change your <A href="strutsproperties.html" title="struts.properties">struts.properties</A>. </TD>
+<TD class="confluenceTd"> N/A </TD>
+<TD class="confluenceTd"> webwork.i18n.encoding=ISO-8859-1 </TD>
+</TR>
+</TBODY></TABLE>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.1.5a Build: 411 Mar 16, 2006)
+      <A href="http://could.it/">Auto Export Plugin</A> (Version: 0.13)
+    </DIV>
+  </BODY>
+</HTML>

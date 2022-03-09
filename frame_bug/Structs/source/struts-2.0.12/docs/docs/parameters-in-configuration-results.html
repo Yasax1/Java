@@ -1,0 +1,217 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Parameters in configuration results</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="faqs.html" title="FAQs">FAQs</A>&nbsp;&gt;&nbsp;<A href="" title="Parameters in configuration results">Parameters in configuration results</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Parameters in configuration results</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=44097">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=44097">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=44097">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=44097">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=44097">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=44097">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=dwojtas@gmail.com">Dariusz Wojtas</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=jeromyevans">Jeromy Evans</A> on Feb 19, 2008
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=44097&originalId=44098">view change</A>)
+                      <SPAN id="show" class="inline-control-link"><A href="" onclick="showComment(); return false;">show comment</A></SPAN>
+        <SPAN id="hide" class="inline-control-link" style="display:none;"><A href="" onclick="hideComment(); return false;">hide comment</A></SPAN>
+          <DIV id="versionComment" class="noteMacro" style="display:none; padding: 5px;">
+      <B>Comment:</B>
+      redirectAction for 2.1<BR>
+      <SPAN class="smalltext"><A href="http://cwiki.apache.org/confluence/pages/viewpreviouspageversions.action?pageId=44097">View page history</A></SPAN>
+  </DIV>
+
+    <SCRIPT>
+      var show = document.getElementById('show');
+      var hide = document.getElementById('hide');
+      var versionComment = document.getElementById('versionComment');
+
+      function showComment(){
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+        versionComment.style.display = 'block';
+      }
+
+      function hideComment(){
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+        versionComment.style.display = 'none';
+      }
+
+    </SCRIPT>
+    
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <P>Sometimes there is a need to redirect from one action to another, but you do not know the exact url or the destination url requires parameters that are only known in runtime. </P>
+
+<P>Struts 2 gives you easy to use solution for that problem.</P>
+
+<H2><A name="Parametersinconfigurationresults-Parametersinactionresultdefinitions"></A>Parameters in action result definitions</H2>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;struts&gt;</SPAN>
+....
+   <SPAN class="code-tag">&lt;package name=<SPAN class="code-quote">&quot;somePackage&quot;</SPAN> namespace=<SPAN class="code-quote">&quot;/myNamespace&quot;</SPAN> extends=<SPAN class="code-quote">&quot;struts-default&quot;</SPAN>&gt;</SPAN>
+      <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;myAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.project.MyAction&quot;</SPAN>&gt;</SPAN>
+         <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;success&quot;</SPAN> type=<SPAN class="code-quote">&quot;redirectAction&quot;</SPAN>&gt;</SPAN>otherAction?id=${id}<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+         <SPAN class="code-tag">&lt;result name=<SPAN class="code-quote">&quot;back&quot;</SPAN> type=<SPAN class="code-quote">&quot;redirect&quot;</SPAN>&gt;</SPAN>${redirectURL}<SPAN class="code-tag">&lt;/result&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/action&gt;</SPAN>
+
+      <SPAN class="code-tag">&lt;action name=<SPAN class="code-quote">&quot;otherAction&quot;</SPAN> class=<SPAN class="code-quote">&quot;com.project.MyOtherAction&quot;</SPAN>&gt;</SPAN>
+         ...
+      <SPAN class="code-tag">&lt;/action&gt;</SPAN>      
+   <SPAN class="code-tag">&lt;/package&gt;</SPAN>
+....
+<SPAN class="code-tag">&lt;/struts&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>The only requirement is to declare the necessary properties in your action, in this case <TT>com.project.MyAction</TT> should define properties <TT>id</TT> and <TT>redirectURL</TT> with standard accessor methods.</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-java"><SPAN class="code-keyword">public</SPAN> class MyAction <SPAN class="code-keyword">extends</SPAN> ActionSupport {
+   <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">int</SPAN> id;
+   <SPAN class="code-keyword">private</SPAN> <SPAN class="code-object">String</SPAN> redirectURL;
+   ...
+
+
+   <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> execute() {
+       ...
+      <SPAN class="code-keyword">if</SPAN> (someCondition) {
+         <SPAN class="code-keyword">this</SPAN>.redirectURL = <SPAN class="code-quote">&quot;/the/target/page.action&quot;</SPAN>;
+         <SPAN class="code-keyword">return</SPAN> <SPAN class="code-quote">&quot;back&quot;</SPAN>;
+      }
+
+      <SPAN class="code-keyword">this</SPAN>.id = 123;
+      <SPAN class="code-keyword">return</SPAN> SUCCESS; 
+   }
+
+   <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">int</SPAN> getId() { <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">this</SPAN>.id; }
+   <SPAN class="code-keyword">public</SPAN> void setId(<SPAN class="code-object">int</SPAN> id) { <SPAN class="code-keyword">this</SPAN>.id = id; }
+   <SPAN class="code-keyword">public</SPAN> <SPAN class="code-object">String</SPAN> getRedirectURL() { <SPAN class="code-keyword">return</SPAN> <SPAN class="code-keyword">this</SPAN>.redirectURL; }
+   <SPAN class="code-keyword">public</SPAN> void setRedirectURL(<SPAN class="code-object">String</SPAN> redirectURL) { <SPAN class="code-keyword">this</SPAN>.redirectURL= redirectURL; }
+   ...
+}</PRE>
+</DIV></DIV>
+
+
+<P>In the above code if it returns <TT>SUCCESS</TT> then the browser will be forwarded to<BR>
+   <B><TT>/&lt;app-prefix&gt;/myNamespace/otherAction.action?id=123</TT></B></P>
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

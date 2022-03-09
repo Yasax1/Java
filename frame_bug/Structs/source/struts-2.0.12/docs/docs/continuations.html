@@ -1,0 +1,188 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Continuations</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="http://cwiki.apache.org/confluence/pages/viewpage.action?spaceKey=WW&title=Continuations" title="Continuations">Continuations</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Continuations</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14208">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=14208">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14208">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14208">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14208">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14208">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=plightbo">Patrick Lightbody</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=husted">Ted Husted</A> on Feb 05, 2007
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=14208&originalId=44351">view change</A>)
+              
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <TABLE cellpadding="5" width="85%" cellspacing="8px" class="warningMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>Continuations are currently expiremental, and as such, we cannot recommend they be used for heavy-use production deployments at this time. We will continue to work with the community to stabilize and enhance this feature until we are confidant it can be used in the most extreme site traffic and use-cases.</TD></TR></TABLE>
+
+<P>Continuations are a feature borrowed from the <SPAN class="nobr"><A href="http://rifers.org/wiki/display/RIFECNT/Home" title="Visit page outside Confluence" rel="nofollow">RIFE project<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>, that allow for extremely simple state management and wizard-like functionality.</P>
+
+<H2><A name="Continuations-SettingitUp"></A>Setting it Up</H2>
+
+<P>Setting up continuation support requires identifying the base package that your classes are in. This is done in <A href="strutsproperties.html" title="struts.properties">struts.properties</A> using the key <B>struts.continuations.package</B>. Typically, this can be the root package that your classes are found in, such as <B>com.acme</B>.</P>
+
+<P>Once you've done this, the fraemework will analyze your classes and automatically apply continuation support for any class that uses the continuation features - specifically a class that extends ActionSupport that has an <B>execute()</B> method that calls a <B>pause()</B> method.</P>
+
+<H2><A name="Continuations-URLConcerns"></A>URL Concerns</H2>
+
+<P>Because continuations require the state of your flow be managed by the framework, it is up to you to make sure your application inform the framework what the flow's ID is. This is done via a <B>continue</B> parameter that provides a unique ID for every request in the flow. Assuming you are generating your URLs using the <A href="url.html" title="url">URL</A> tag or the <A href="form.html" title="form">Form</A> tag, this is handled for you automatically. If you are <EM>not</EM> using these tags, continuations will not work.</P>
+
+<H2><A name="Continuations-InterceptorConcerns"></A>Interceptor Concerns</H2>
+
+<P>Because continuations radically change the way your actions are invoked, it is important to understand how this affects interceptors. The most important think to know is that continuations kick in only when the execute() method is called. This means that on every request (regardless of whether it is a new request or a continuation), the interceptors will be called. This is what makes it possible to apply new request parameters to your action even though the rest of the call stack appears to look the same.</P>
+
+<P>This is generally exactly what you would want, except some interceptors, namely the <A href="execute-and-wait-interceptor.html" title="Execute and Wait Interceptor">Execute and Wait Interceptor</A> and possibly the <A href="token-session-interceptor.html" title="Token Session Interceptor">Token Session Interceptor</A>, have very different expectations about the workflow/lifecycle of the action invocation. In these cases, continuations should not be used.</P>
+
+<H3><A name="Continuations-Example"></A>Example</H3>
+
+<P>Getting started with continuations is extremely simple. The biggest thing to get used to is the very different conversational style with application workflow. Typically, you might have used session variables or hidden form fields to pass the state around. Using continuations, you use the Java language to handle that state. See the following body of a Guess class extending ActionSupport:</P>
+
+<DIV class="error"><SPAN class="error">Error formatting macro: snippet: java.lang.IllegalArgumentException: Invalid url: must begin with a configured prefix.</SPAN> </DIV>
+
+<P>Note how the class keeps the state (tries, in this example) as a local variable in the execute() method. The continuations will automatically pick up the invocation after the pause() method call and will restore all local variables, as if the logical loop is continuing &quot;magically&quot; (read on for more info on how it works).</P>
+
+<P>The view is nothing special, except for that fact that it adheres to the URL concerns and uses the <A href="form.html" title="form">Form</A> tag to render the URL. This makes sure that the <B>continue</B> parameter is included in all requests.</P>
+
+<DIV class="error"><SPAN class="error">Error formatting macro: snippet: java.lang.IllegalArgumentException: Invalid url: must begin with a configured prefix.</SPAN> </DIV>
+
+<H3><A name="Continuations-Advanced%3AHowitWorks"></A>Advanced: How it Works</H3>
+
+<P>Continuations are not magic, though sometimes they might seem like they are. In fact, they work by using some very intelligent byte-code manipulation. This means that <B>in order to use continuations, your deployment environment allow for custom class loaders to handle loading your actions</B>. Typically this is not a problem, but it should be called out.</P>
+
+<P>Once the class is requested to be loaded, the framework will hand off the request to the RIFE/Continuations module, which will then check a few conditions:</P>
+
+<OL>
+	<LI>Does the class extend ActionSupport?</LI>
+	<LI>Does the class have an execute() method?</LI>
+	<LI>In the execute() method, are there any calls to pause()?</LI>
+</OL>
+
+
+<P>If the answer is <EM>yes</EM> to all three conditions, the class is then instrumented and the execute() method is rewritten with try/catch code, goto statements, and intelligent &quot;state restoration&quot; code. All this happens transparently and does not affect the ability to debug the class or otherwise code it.</P>
+
+<P>See the pause() method JavaDocs in the ActionSupport class for more info:</P>
+
+<DIV class="error"><SPAN class="error">Error formatting macro: snippet: java.lang.IllegalArgumentException: Invalid url: must begin with a configured prefix.</SPAN> </DIV>
+
+        </DIV>
+
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>

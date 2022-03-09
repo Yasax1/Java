@@ -1,0 +1,1109 @@
+
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE- 2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <LINK type="text/css" rel="stylesheet" href="resources/space.css">
+    <STYLE type="text/css">
+      .footer {
+        background-image:      url('http://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </STYLE>
+    <SCRIPT type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </SCRIPT>
+    <TITLE>Ajax Tags</TITLE>
+  <META http-equiv="Content-Type" content="text/html;charset=UTF-8"></HEAD>
+  <BODY onload="init()">
+    <TABLE border="0" cellpadding="2" cellspacing="0" width="100%">
+      <TR class="topBar">
+        <TD align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<A href="home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</A>&nbsp;&gt;&nbsp;<A href="home.html" title="Home">Home</A>&nbsp;&gt;&nbsp;<A href="guides.html" title="Guides">Guides</A>&nbsp;&gt;&nbsp;<A href="tag-developers-guide.html" title="Tag Developers Guide">Tag Developers Guide</A>&nbsp;&gt;&nbsp;<A href="struts-tags.html" title="Struts Tags">Struts Tags</A>&nbsp;&gt;&nbsp;<A href="" title="Ajax Tags">Ajax Tags</A>
+        </TD>
+        <TD align="right" valign="middle" nowrap="">
+          <FORM name="search" action="http://www.google.com/search" method="get">
+            <INPUT type="hidden" name="ie" value="UTF-8">
+            <INPUT type="hidden" name="oe" value="UTF-8">
+            <INPUT type="hidden" name="domains" value="">
+            <INPUT type="hidden" name="sitesearch" value="">
+            <INPUT type="text" name="q" maxlength="255" value="">        
+            <INPUT type="submit" name="btnG" value="Google Search">
+          </FORM>
+        </TD>
+      </TR> 
+    </TABLE>
+
+    <DIV id="PageContent">
+      <DIV class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <DIV style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</DIV>
+        <DIV style="margin: 0px 10px 8px 10px" class="pagetitle">Ajax Tags</DIV>
+
+        <DIV class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=31510">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/editpage.action?pageId=31510">Edit Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></A>
+            <A href="http://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=31510">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=31510">Add Page</A>
+          &nbsp;
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=31510">
+            <IMG src="http://cwiki.apache.org/confluence/images/icons/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></A>
+          <A href="http://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=31510">Add News</A>
+        </DIV>
+      </DIV>
+      <DIV class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+                    Added by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=musachy">Musachy Barroso</A>, last edited by     <A href="http://cwiki.apache.org/confluence/users/viewuserprofile.action?username=newton.dave@yahoo.com">Dave Newton</A> on Apr 07, 2007
+                      &nbsp;(<A href="http://cwiki.apache.org/confluence/pages/diffpages.action?pageId=31510&originalId=51058">view change</A>)
+                      <SPAN id="show" class="inline-control-link"><A href="" onclick="showComment(); return false;">show comment</A></SPAN>
+        <SPAN id="hide" class="inline-control-link" style="display:none;"><A href="" onclick="hideComment(); return false;">hide comment</A></SPAN>
+          <DIV id="versionComment" class="noteMacro" style="display:none; padding: 5px;">
+      <B>Comment:</B>
+      Minor.<BR>
+      <SPAN class="smalltext"><A href="http://cwiki.apache.org/confluence/pages/viewpreviouspageversions.action?pageId=31510">View page history</A></SPAN>
+  </DIV>
+
+    <SCRIPT>
+      var show = document.getElementById('show');
+      var hide = document.getElementById('hide');
+      var versionComment = document.getElementById('versionComment');
+
+      function showComment(){
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+        versionComment.style.display = 'block';
+      }
+
+      function hideComment(){
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+        versionComment.style.display = 'none';
+      }
+
+    </SCRIPT>
+    
+      </DIV>
+
+      <DIV class="pagecontent">
+        <DIV class="wiki-content">
+          <TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>The <A href="ajax-theme.html" title="ajax theme">Ajax Theme</A> and Ajax Tags are experimental. Feedback is appreciated!</TD></TR></TABLE>
+
+<P>The framework provides a set of tags to help you ajaxify your applications, on <SPAN class="nobr"><A href="http://dojotoolkit.org/" title="Visit page outside Confluence" rel="nofollow">Dojo<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>. Dojo 0.4 is bundled with the distribution.</P>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="tipMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>To use the Ajax tags you need to set the <A href="ajax-theme.html" title="ajax theme">&quot;theme&quot; attribute to &quot;ajax&quot;</A>. <B>Use the <A href="head.html" title="head">head</A> tag to configure the page for the ajax theme.</B> Set the &quot;debug&quot; attribute of the head tag to &quot;true&quot; to display debug information on the bottom of the page.</TD></TR></TABLE>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> General Information </TH>
+<TH class="confluenceTh">&nbsp;</TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> <A href="#AjaxTags-commonAttributes" title="commonAttributes on Ajax Tags">Common AJAX Tag Attributes</A> </TD>
+<TD class="confluenceTd"> The Ajax tags share a set of common attributes. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <A href="#AjaxTags-preventingRequest" title="preventingRequest on Ajax Tags">Preventing/Canceling a Request</A> </TD>
+<TD class="confluenceTd"> How to prevent or cancel a request. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <A href="#AjaxTags-requestIndicators" title="requestIndicators on Ajax Tags">Request Indicators</A> </TD>
+<TD class="confluenceTd"> How to indicate an Ajax request is processing. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <A href="#AjaxTags-dojoTopics" title="dojoTopics on Ajax Tags">DOJO Topics</A> </TD>
+<TD class="confluenceTd"> Use JavaScript to publish or listen to Dojo topics (events). </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <A href="#AjaxTags-ajaxUrls" title="ajaxUrls on Ajax Tags">AJAX Urls</A> </TD>
+<TD class="confluenceTd"> The URLs of Ajax tags (&quot;href&quot; attribute) <B>must</B> be built with the &lt;s:url.../&gt; tag! </TD>
+</TR>
+</TBODY></TABLE>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh"> Basic Ajax Tags </TH>
+<TH class="confluenceTh">&nbsp;</TH>
+</TR>
+<TR>
+<TD class="confluenceTd"> <A href="#AjaxTags-divTag" title="divTag on Ajax Tags">&lt;s:div&gt;</A> </TD>
+<TD class="confluenceTd"> Creates a content area that can load its content via Ajax, optionally refreshing. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <A href="#AjaxTags-submitTag" title="submitTag on Ajax Tags">&lt;s:submit&gt;</A> </TD>
+<TD class="confluenceTd"> Updates element(s) or submits a form via Ajax. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <A href="#AjaxTags-anchorTag" title="anchorTag on Ajax Tags">&lt;s:a&gt; (Anchor)</A> </TD>
+<TD class="confluenceTd"> Updates element(s) via Ajax. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <A href="#AjaxTags-tabbedPanelTag" title="tabbedPanelTag on Ajax Tags">&lt;s:tabbedPanel&gt;</A> </TD>
+<TD class="confluenceTd"> Creates a tabbed panel containing static or dynamic &lt;s:div.../&gt; tab contents. </TD>
+</TR>
+<TR>
+<TD class="confluenceTd"> <A href="#AjaxTags-autocompleterTag" title="autocompleterTag on Ajax Tags">&lt;s:autocompleter&gt;</A> </TD>
+<TD class="confluenceTd"> Autocompleter tag providing suggestions or updating elements based on current value. </TD>
+</TR>
+</TBODY></TABLE>
+
+<HR>
+
+<P><A name="AjaxTags-commonAttributes"></A></P>
+<H3><A name="AjaxTags-CommonAttributes"></A>Common Attributes</H3>
+<P>These attributes are common to all the ajax tags:</P>
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">Attribute</TH>
+<TH class="confluenceTh">Description</TH>
+<TH class="confluenceTh">Type</TH>
+</TR>
+<TR>
+<TD class="confluenceTd">href</TD>
+<TD class="confluenceTd">url used to make the request</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">listenTopics</TD>
+<TD class="confluenceTd">A comma separated list of topics names, which will cause the tag to reload its content (Div, Autocompleter), or perform an action (Anchor, Submit)</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">notifyTopics</TD>
+<TD class="confluenceTd">A comma separated list of topics names, published by the tag, parameters &quot;data&quot;, &quot;type&quot; and &quot;request&quot; will be passed. See each tag for details.</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">showErrorTransportText</TD>
+<TD class="confluenceTd"> Sets whether or not error messages should be displayed (&quot;true&quot; by default)</TD>
+<TD class="confluenceTd">Boolean</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">indicator</TD>
+<TD class="confluenceTd">The id of an element that will be displayed while a request is in progress</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+</TBODY></TABLE>
+
+<P><A name="AjaxTags-preventingRequest"></A></P>
+<H3><A name="AjaxTags-Preventingarequest"></A>Preventing a request</H3>
+<P>The third parameter of &quot;notifyTopics&quot;, request, has a &quot;cancel&quot; property that can be used to prevent a request.</P>
+
+<P>Example:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN> language=<SPAN class="code-quote">&quot;javascript&quot;</SPAN>&gt;</SPAN>
+dojo.event.topic.subscribe(<SPAN class="code-quote">&quot;/request&quot;</SPAN>, function(data, type, request) {
+  //cancel request
+  request.cancel= true;
+});
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+
+&lt;s:url 
+  id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> 
+  value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;
+ 
+&lt;s:submit 
+  type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> 
+  theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> 
+  value=<SPAN class="code-quote">&quot;submit&quot;</SPAN> 
+  notifyTopics=<SPAN class="code-quote">&quot;/request&quot;</SPAN> 
+  href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN>/&gt;</PRE>
+</DIV></DIV>
+
+<P><A name="AjaxTags-requestIndicators"></A></P>
+<H3><A name="AjaxTags-Indicators"></A>Indicators</H3>
+<P>Use indicators to notify the user that a request is in progress. The indicator should be hidden when the page is loaded.</P>
+
+<P>This indicator is an image:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;img style=<SPAN class="code-quote">&quot;display:none&quot;</SPAN> src=<SPAN class="code-quote">&quot;${pageContext.request.contextPath}/images/indicator.gif&quot;</SPAN> alt=<SPAN class="code-quote">&quot;Loading...&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P><A name="AjaxTags-dojoTopics"></A></P>
+<H3><A name="AjaxTags-Topics"></A>Topics</H3>
+<P><SPAN class="nobr"><A href="http://dojo.jot.com/WikiHome/EventExamples" title="Visit page outside Confluence" rel="nofollow">Topics<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> provide an easy way to listen to and publish events.</P>
+
+<P>To listen to a topic:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html">dojo.event.topic.subscribe(<SPAN class="code-quote">&quot;/refresh&quot;</SPAN>, function(param1, param2) {
+  //this function will be called everytime <SPAN class="code-quote">&quot;/refresh&quot;</SPAN> is published
+});</PRE>
+</DIV></DIV>
+
+<P>To publish a topic:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html">dojo.event.topic.publish(<SPAN class="code-quote">&quot;/refresh&quot;</SPAN>, <SPAN class="code-quote">&quot;foo&quot;</SPAN>, <SPAN class="code-quote">&quot;bar&quot;</SPAN>);</PRE>
+</DIV></DIV>
+
+<P><A name="AjaxTags-ajaxUrls"></A></P>
+<H3><A name="AjaxTags-URL"></A>URL</H3>
+<P>The &quot;href&quot; attribute <B>must</B> contain a url built with the <SPAN class="nobr"><A href="http://struts.apache.org/WW/url.html" title="Visit page outside Confluence" rel="nofollow">url tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>.</P>
+
+<P>Example:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;s:div theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN>&gt;</SPAN>
+  Initial Content
+<SPAN class="code-tag">&lt;/s:div&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="warningMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>
+<P>  None of the ajax tags will work if their url (in the &quot;href&quot; attribute) is not built with the <SPAN class="nobr"><A href="http://struts.apache.org/WW/url.html" title="Visit page outside Confluence" rel="nofollow">url tag<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN>.</P></TD></TR></TABLE>
+
+<P><A name="AjaxTags-returningAjaxTags"></A></P>
+<H3><A name="AjaxTags-ReturningpageswithAJAXTags"></A>Returning pages with AJAX Tags</H3>
+<P>Ajax tags can be used inside content returned from an asynchronous request, just like in regular pages. </P>
+
+<P><A name="AjaxTags-divTag"></A></P>
+<H3><A name="AjaxTags-Div"></A>Div</H3>
+<P>The div tag is a content area that can load its content asynchronously. The div tag can be forced to reload its content using topics. To define the topics that will trigger the refresh of the panel, use the &quot;listenTopics&quot; attribute. This tag will load its content when the page is loaded, unless &quot;autoStart&quot; is set to &quot;false&quot;.</P>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD>
+<P>While Dojo supports crossdomain XHR using IFrames, the S2 Ajax tags do not (yet).</P></TD></TR></TABLE>
+
+<H4><A name="AjaxTags-Examples"></A>Examples</H4>
+
+<P>This div will refresh every time the topics &quot;/refresh0&quot; or &quot;/refresh1&quot; are published:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:div theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN> listenTopics=<SPAN class="code-quote">&quot;/refresh0,/refresh1&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>The div tag can be configured to update its content periodically, using a timer. Use the &quot;updateFreq&quot; attribute to set the interval for the timer; this value is expressed in milliseconds. If &quot;autoStart&quot; is set to true, &quot;delay&quot; can be used to cause the timer to wait for the delay period (in milliseconds also) before starting. </P>
+
+<P>This div will refresh periodically, every 2 seconds, starting 3 seconds after the page is loaded:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:div theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN> updateFreq=<SPAN class="code-quote">&quot;2000&quot;</SPAN> delay=<SPAN class="code-quote">&quot;3000&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>The &quot;autoStart&quot; attribute controls whether the timer will be started when the page is loaded; its value is &quot;true&quot; by default. The timer can be started and stopped using the topics &quot;startTimerListenTopics&quot; and &quot;stopTimerListenTopics&quot;.</P>
+
+<P>This div will not start the timer by default and will listen to the start/stop topics to control the timer:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+
+&lt;s:div 
+  theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> 
+  href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN> 
+  startTimerListenTopics=<SPAN class="code-quote">&quot;/startTimer&quot;</SPAN> 
+  stopTimerListenTopics=<SPAN class="code-quote">&quot;/stopTimer&quot;</SPAN> 
+  updateFreq=<SPAN class="code-quote">&quot;3000&quot;</SPAN> 
+  autoStart=<SPAN class="code-quote">&quot;false&quot;</SPAN>/&gt;</PRE>
+</DIV></DIV>
+
+<P>The div panel shows &quot;Loading...&quot; by default when the request is in process. To customize this text, use the &quot;loadingText&quot; attribute. If an error of any sort occurs, the error will be shown in the div area; to customize the error message, use the &quot;errorText&quot; attribute. If you don't want to display the erro, set &quot;showErrorTransportText&quot; to &quot;false&quot;.</P>
+
+<P>This div uses custom error/loading messages:</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-xml"><SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+
+&lt;s:div 
+  href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN> 
+  theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> 
+  errorText=<SPAN class="code-quote">&quot;There was an error&quot;</SPAN> 
+  loadingText=<SPAN class="code-quote">&quot;reloading&quot;</SPAN> 
+  updateFreq=<SPAN class="code-quote">&quot;5000&quot;</SPAN>/&gt;</PRE>
+</DIV></DIV>
+
+<P>If the loaded content contains Javascript code sections, these sections will be executed if the &quot;executeScripts&quot; attribute is set to true.</P>
+
+<P>If parameters need to be passed to the url, the &quot;formId&quot; attribute can be used to specify a form whose fields will be serialized and passed in the request as parameters. The attribute &quot;formFilter&quot; can bet set to the name of a Javascript function that will be used to filter the fields of &quot;formId&quot;. The &quot;formFilter&quot; function will be called for each field, passing the field's DOM node as a parameter, and must return true if the field is to be included, or false otherwise.</P>
+
+<P>This div will submit the field &quot;firstName&quot; of the form &quot;userData&quot; and ignore other fields:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+  function filter(field) {
+    return field.name == <SPAN class="code-quote">&quot;firstName&quot;</SPAN>;
+  }
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;form id=<SPAN class="code-quote">&quot;userData&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;label for=<SPAN class="code-quote">&quot;firstName&quot;</SPAN>&gt;</SPAN>First Name<SPAN class="code-tag">&lt;/label&gt;</SPAN>
+  <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;textbox&quot;</SPAN> id=<SPAN class="code-quote">&quot;firstName&quot;</SPAN> name=<SPAN class="code-quote">&quot;firstName&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;label for=<SPAN class="code-quote">&quot;lastName&quot;</SPAN>&gt;</SPAN>Last Name<SPAN class="code-tag">&lt;/label&gt;</SPAN>
+  <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;textbox&quot;</SPAN> id=<SPAN class="code-quote">&quot;lastName&quot;</SPAN> name=<SPAN class="code-quote">&quot;lastName&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:div href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> formId=<SPAN class="code-quote">&quot;userData&quot;</SPAN> formFilter=<SPAN class="code-quote">&quot;filter&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>If the attribute &quot;handler&quot; is set, the Javascript function specified by its value will be called, instead of making the request. Use the &quot;handler&quot; function when you want to handle the request yourself.</P>
+
+<P>This div will not make any request, and will just call the function &quot;handler&quot;. The first parameter of the function is the Dojo widget for the div, and the second the DOM node for the div.</P>
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;script type=<SPAN class="code-quote">&quot;text/javascript&quot;</SPAN>&gt;</SPAN>
+   function handler(widget, node) {
+     alert('I will handle this myself!');
+     node.innerHTML = <SPAN class="code-quote">&quot;Done&quot;</SPAN>;
+   }
+<SPAN class="code-tag">&lt;/script&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:div theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN> handler=<SPAN class="code-quote">&quot;handler&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>&quot;notifyTopics&quot; scenarios:</P>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">When</TH>
+<TH class="confluenceTh">data</TH>
+<TH class="confluenceTh">type</TH>
+<TH class="confluenceTh">request</TH>
+</TR>
+<TR>
+<TD class="confluenceTd">Before request</TD>
+<TD class="confluenceTd">div's id, or Dojo widget id for this element if the div's id was not provided</TD>
+<TD class="confluenceTd">&quot;before&quot;</TD>
+<TD class="confluenceTd">empty javascript object</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">After successful request</TD>
+<TD class="confluenceTd">html string</TD>
+<TD class="confluenceTd">&quot;load&quot;</TD>
+<TD class="confluenceTd">request javascript object</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">After unsuccessful request</TD>
+<TD class="confluenceTd">html string</TD>
+<TD class="confluenceTd">&quot;error&quot;</TD>
+<TD class="confluenceTd">request javascript object</TD>
+</TR>
+</TBODY></TABLE>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">Attribute</TH>
+<TH class="confluenceTh">Description</TH>
+<TH class="confluenceTh">Type</TH>
+</TR>
+<TR>
+<TD class="confluenceTd">handler</TD>
+<TD class="confluenceTd">Javascript function name that will make the request</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">formId</TD>
+<TD class="confluenceTd">Form id whose fields will be serialized and passed as parameters</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">formFilter</TD>
+<TD class="confluenceTd">Function name used to filter the fields of the form</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">loadingText</TD>
+<TD class="confluenceTd">The text to display in the div while content is loaded</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">errorText</TD>
+<TD class="confluenceTd">The text to display in the div when there is an error</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">refreshListenTopic</TD>
+<TD class="confluenceTd">Topic name that will cause the div content to be reloaded</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">startTimerListenTopics</TD>
+<TD class="confluenceTd">Topic names that will start the timer (comma separated)</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">stopTimerListenTopics</TD>
+<TD class="confluenceTd">Topic names that will stop the timer</TD>
+<TD class="confluenceTd">String (comma separated)</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">executeScripts</TD>
+<TD class="confluenceTd">Any Javascript code in the loaded content will be executed</TD>
+<TD class="confluenceTd">Boolean</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">updateFreq</TD>
+<TD class="confluenceTd">Time between requests (in milliseconds)</TD>
+<TD class="confluenceTd">Integer</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">delay</TD>
+<TD class="confluenceTd">Time to wait before making the first request (in milliseconds)</TD>
+<TD class="confluenceTd">Integer</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">autoStart</TD>
+<TD class="confluenceTd">Start timer automatically when page loads</TD>
+<TD class="confluenceTd">Boolean</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><DEL>afterLoading</DEL></TD>
+<TD class="confluenceTd">Deprecated. Use &quot;notifyTopics&quot; instead</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+</TBODY></TABLE>
+
+<P><A name="AjaxTags-submitTag"></A></P>
+<H3><A name="AjaxTags-Submit"></A>Submit </H3>
+<P>The submit tag can be used to update the content of its &quot;targets&quot; attribute with text returned from the asynchronous request. &quot;targets&quot; is a comma-delimited list of element ids. The &quot;targets&quot; attribute is optional.</P>
+
+
+<P>Regular submit button that will update the content of div1:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;div id=<SPAN class="code-quote">&quot;div1&quot;</SPAN>&gt;</SPAN>Div 1<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+ 
+&lt;s:submit 
+  type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> 
+  theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> 
+  value=<SPAN class="code-quote">&quot;submit&quot;</SPAN> 
+  targets=<SPAN class="code-quote">&quot;div1&quot;</SPAN> 
+  href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN>/&gt;</PRE>
+</DIV></DIV>
+
+<P>Submit button using an image:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;div id=<SPAN class="code-quote">&quot;div1&quot;</SPAN>&gt;</SPAN>Div 1<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+
+&lt;s:submit 
+  type=<SPAN class="code-quote">&quot;image&quot;</SPAN> 
+  theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> 
+  label=<SPAN class="code-quote">&quot;Alt Text&quot;</SPAN> 
+  targets=<SPAN class="code-quote">&quot;div1&quot;</SPAN> 
+  src=<SPAN class="code-quote">&quot;${pageContext.request.contextPath}/images/struts-rocks.gif&quot;</SPAN> 
+  href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN>/&gt;</PRE>
+</DIV></DIV>
+
+<P>If the submit button is used inside a form (href is not required on this case), the form will be submitted asynchronously:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:form id=<SPAN class="code-quote">&quot;form&quot;</SPAN> action=<SPAN class="code-quote">&quot;AjaxTest&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;textbox&quot;</SPAN> name=<SPAN class="code-quote">&quot;data&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;s:submit type=<SPAN class="code-quote">&quot;button&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> label=<SPAN class="code-quote">&quot;Update Content&quot;</SPAN>/&gt;</SPAN>		
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN></PRE>
+</DIV></DIV>
+
+
+<P>A submit button can be used to submit a form, even if it is outside the form, using &quot;formId&quot;, &quot;formFilter&quot; and &quot;href&quot;. Note that in this case &quot;href&quot; is required.</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:form id=<SPAN class="code-quote">&quot;form1&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;textbox&quot;</SPAN> name=<SPAN class="code-quote">&quot;data&quot;</SPAN>&gt;</SPAN>	
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:submit type=<SPAN class="code-quote">&quot;submit&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN> formId=<SPAN class="code-quote">&quot;form1&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>See the Div tag for examples on how to use &quot;handler&quot;, &quot;loadingText&quot; and &quot;errorText&quot;.</P>
+
+<P>&quot;notifyTopics&quot; scenarios:</P>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">When</TH>
+<TH class="confluenceTh">data</TH>
+<TH class="confluenceTh">type</TH>
+<TH class="confluenceTh">request</TH>
+</TR>
+<TR>
+<TD class="confluenceTd">Before request</TD>
+<TD class="confluenceTd">submit's id, or Dojo widget id for this element if the submit's id was not provided</TD>
+<TD class="confluenceTd">&quot;before&quot;</TD>
+<TD class="confluenceTd">empty javascript object</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">After successful request</TD>
+<TD class="confluenceTd">html string</TD>
+<TD class="confluenceTd">&quot;load&quot;</TD>
+<TD class="confluenceTd">request javascript object</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">After unsuccessful request</TD>
+<TD class="confluenceTd">html string</TD>
+<TD class="confluenceTd">&quot;error&quot;</TD>
+<TD class="confluenceTd">request javascript object</TD>
+</TR>
+</TBODY></TABLE>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">Attribute</TH>
+<TH class="confluenceTh">Description</TH>
+<TH class="confluenceTh">Type</TH>
+</TR>
+<TR>
+<TD class="confluenceTd">targets</TD>
+<TD class="confluenceTd">Comma delimited list of ids of the elements whose content will be updated</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">handler</TD>
+<TD class="confluenceTd">Javascript function name that will make the request</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">formId</TD>
+<TD class="confluenceTd">Form id whose fields will be serialized and passed as parameters</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">formFilter</TD>
+<TD class="confluenceTd">Function name used to filter the fields of the form</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">loadingText</TD>
+<TD class="confluenceTd">The text to display in the &quot;targets&quot; while content is loaded</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">errorText</TD>
+<TD class="confluenceTd">The text to display in the &quot;targets&quot; when there is an error</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">refreshListenTopic</TD>
+<TD class="confluenceTd">Topic name that will cause the &quot;targets&quot; content to be reloaded</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">executeScripts</TD>
+<TD class="confluenceTd">Any Javascript code in the loaded content will be executed</TD>
+<TD class="confluenceTd">Boolean</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">src</TD>
+<TD class="confluenceTd">Supply an image src for &quot;image&quot; type submit button. Will have no effect for types &quot;input&quot; and &quot;button&quot;</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><DEL>resultDivId</DEL></TD>
+<TD class="confluenceTd">Deprecated. Use &quot;targets&quot; instead</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><DEL>preInvokeJS</DEL></TD>
+<TD class="confluenceTd">Deprecated. Use &quot;notifyTopics&quot; instead</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><DEL>onLoadJS</DEL></TD>
+<TD class="confluenceTd">Deprecated. Use &quot;notifyTopics&quot; instead</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+</TBODY></TABLE>
+
+<P><A name="AjaxTags-anchorTag"></A></P>
+<H3><A name="AjaxTags-Anchor"></A>Anchor</H3>
+<P>The anchor tag, like the submit tag, can be used to update the content of its &quot;targets&quot; attribute with text returned from the asynchronous request. &quot;targets&quot; is a comma-delimited list of element ids. The &quot;targets&quot; attribute is optional.</P>
+
+<P>This anchor will update the content of div1 and div2 with text returned form &quot;/AjaxTest.action&quot;</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;div id=<SPAN class="code-quote">&quot;div1&quot;</SPAN>&gt;</SPAN>Div 1<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+<SPAN class="code-tag">&lt;div id=<SPAN class="code-quote">&quot;div2&quot;</SPAN>&gt;</SPAN>Div 2<SPAN class="code-tag">&lt;/div&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:a theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN> targets=<SPAN class="code-quote">&quot;dev1,dev2&quot;</SPAN>&gt;</SPAN>Update divs<SPAN class="code-tag">&lt;/s:a&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>If the anchor tag is used inside a form (href is not required on this case), the form will be submitted asynchronously:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:form id=<SPAN class="code-quote">&quot;form&quot;</SPAN> action=<SPAN class="code-quote">&quot;AjaxTest&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;textbox&quot;</SPAN> name=<SPAN class="code-quote">&quot;data&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;s:a theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN>&gt;</SPAN>Submit form<SPAN class="code-tag">&lt;/s:a&gt;</SPAN>		
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>Using the anchor tag to submit a form:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:form id=<SPAN class="code-quote">&quot;form1&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;textbox&quot;</SPAN> name=<SPAN class="code-quote">&quot;data&quot;</SPAN>&gt;</SPAN>	
+<SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:a theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN> formId=<SPAN class="code-quote">&quot;form1&quot;</SPAN>&gt;</SPAN>Submit form<SPAN class="code-tag">&lt;/s:a&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>See the Div tag for examples on how to use &quot;handler&quot;, &quot;loadingText&quot; and &quot;errorText&quot;</P>
+
+<P>&quot;notifyTopics&quot; scenarios:</P>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">When</TH>
+<TH class="confluenceTh">data</TH>
+<TH class="confluenceTh">type</TH>
+<TH class="confluenceTh">request</TH>
+</TR>
+<TR>
+<TD class="confluenceTd">Before request</TD>
+<TD class="confluenceTd">anchor's id, or Dojo widget id for this element if the anchor's id was not provided</TD>
+<TD class="confluenceTd">&quot;before&quot;</TD>
+<TD class="confluenceTd">empty javascript object</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">After successful request</TD>
+<TD class="confluenceTd">html string</TD>
+<TD class="confluenceTd">&quot;load&quot;</TD>
+<TD class="confluenceTd">request javascript object</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">After unsuccessful request</TD>
+<TD class="confluenceTd">html string</TD>
+<TD class="confluenceTd">&quot;error&quot;</TD>
+<TD class="confluenceTd">request javascript object</TD>
+</TR>
+</TBODY></TABLE>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">Attribute</TH>
+<TH class="confluenceTh">Description</TH>
+<TH class="confluenceTh">Type</TH>
+</TR>
+<TR>
+<TD class="confluenceTd">targets</TD>
+<TD class="confluenceTd">Comma delimited list of ids of the elements whose content will be updated</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">handler</TD>
+<TD class="confluenceTd">Javascript function name that will make the request</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">formId</TD>
+<TD class="confluenceTd">Form id whose fields will be serialized and passed as parameters</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">formFilter</TD>
+<TD class="confluenceTd">Function name used to filter the fields of the form</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">loadingText</TD>
+<TD class="confluenceTd">The text to display in the &quot;targets&quot; while content is loaded</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">errorText</TD>
+<TD class="confluenceTd">The text to display in the &quot;targets&quot; when there is an error</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">refreshListenTopic</TD>
+<TD class="confluenceTd">Topic name that will cause the &quot;targets&quot; content to be reloaded</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">executeScripts</TD>
+<TD class="confluenceTd">Any Javascript code in the loaded content will be executed</TD>
+<TD class="confluenceTd">Boolean</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><DEL>preInvokeJS</DEL></TD>
+<TD class="confluenceTd">Deprecated. Use &quot;notifyTopics&quot; instead</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd"><DEL>afterLoading</DEL></TD>
+<TD class="confluenceTd">Deprecated. Use &quot;notifyTopics&quot; instead</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+</TBODY></TABLE>
+
+<P><A name="AjaxTags-tabbedPanelTag"></A></P>
+<H3><A name="AjaxTags-TabbedPanel"></A>Tabbed Panel</H3>
+
+<P>The tabbedPanel tag can host static and dynamic (asynchronously loaded) tabs. Every div tag inside the tabbedPanel will be rendered as a tab. The &quot;label&quot; attribute is required for each tab, and will be used as its  caption. For more details on the dynamic tabs, see the &quot;div&quot; tag section. The tabbedPanel tag is in the &quot;simple&quot; theme bacause it does not contains any ajax functionality itself.</P>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">Themes</B><BR>
+<P>    Do not set the &quot;theme&quot; attribute to &quot;ajax&quot; for the tabbedPanel tag itself.</P>
+
+<P>    <B>Do</B>, however, set the &quot;theme&quot; attribute to &quot;ajax&quot; for each tab, and provide a valid &quot;href&quot; attribute for each dynamic tab (div).</P></TD></TR></TABLE>
+
+<P>This tabbedPanel has one static, and one dynamic tab:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:tabbedPanel&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:div label=<SPAN class="code-quote">&quot;static&quot;</SPAN>&gt;</SPAN>
+        This is an static content tab.
+    <SPAN class="code-tag">&lt;/s:div&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:div href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> label=<SPAN class="code-quote">&quot;dynamic&quot;</SPAN>&gt;</SPAN>
+        This is a dynamic content tab. 
+        The content of this div will be replaced with the text returned from <SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN>
+    <SPAN class="code-tag">&lt;/s:div&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:tabbedPanel&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>Use the &quot;labelposition&quot; attribute to specify the side where the tab labels must be placed, possible values are &quot;top&quot; (default), &quot;right&quot;, &quot;bottom&quot; and &quot;left&quot;. Tabs can have a &quot;close button&quot; which will remove the tab from its tabbedPanel parent. The &quot;close button&quot; is hidden by default, to make it visible set the &quot;closeButton&quot; attribute to either &quot;panel&quot; (it will be placed on the tabbedPanel), or &quot;tab&quot; (it will be placed on each tab). By default the first tab will be selected, using the &quot;selectedTab&quot; attribute, you can specify the id of the tab to be selected when the page loads.</P>
+
+<P>This tabbedPanel will place the tab labels on the left, with a &quot;close&quot; button on each tab, and will select the &quot;dynamic&quot; tab by default:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:tabbedPanel labelposition=<SPAN class="code-quote">&quot;left&quot;</SPAN> closeButton=<SPAN class="code-quote">&quot;tab&quot;</SPAN> selectedTab=<SPAN class="code-quote">&quot;dynamic&quot;</SPAN>&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:div label=<SPAN class="code-quote">&quot;static&quot;</SPAN> id=<SPAN class="code-quote">&quot;static&quot;</SPAN>&gt;</SPAN>
+        This is an static content tab.
+    <SPAN class="code-tag">&lt;/s:div&gt;</SPAN>
+    <SPAN class="code-tag">&lt;s:div href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN> theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> label=<SPAN class="code-quote">&quot;dynamic&quot;</SPAN> id=<SPAN class="code-quote">&quot;dynamic&quot;</SPAN>&gt;</SPAN>
+        This is a dynamic content tab. 
+        The content of this div will be replaced with the text returned from <SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN>
+    <SPAN class="code-tag">&lt;/s:div&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:tabbedPanel&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>TabbedPanel's height will be by default the same as the currently selected tab, use the &quot;doLayout&quot; attribute to force a fixed height.</P>
+
+<P>This tabbedPanel's height is 300 px:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;ajaxTest&quot;</SPAN> value=<SPAN class="code-quote">&quot;/AjaxTest.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:tabbedPanel id=<SPAN class="code-quote">&quot;test2&quot;</SPAN> theme=<SPAN class="code-quote">&quot;simple&quot;</SPAN> cssStyle=<SPAN class="code-quote">&quot;height: 300px;&quot;</SPAN> doLayout=<SPAN class="code-quote">&quot;true&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;s:div id=<SPAN class="code-quote">&quot;left&quot;</SPAN> label=<SPAN class="code-quote">&quot;left&quot;</SPAN>&gt;</SPAN>
+      This is the left pane<SPAN class="code-tag">&lt;br/&gt;</SPAN>
+      <SPAN class="code-tag">&lt;s:form &gt;</SPAN>
+          <SPAN class="code-tag">&lt;s:textfield name=<SPAN class="code-quote">&quot;tt&quot;</SPAN> label=<SPAN class="code-quote">&quot;Test Text&quot;</SPAN> /&gt;</SPAN> 
+          <SPAN class="code-tag">&lt;br/&gt;</SPAN>
+          <SPAN class="code-tag">&lt;s:textfield name=<SPAN class="code-quote">&quot;tt2&quot;</SPAN> label=<SPAN class="code-quote">&quot;Test Text2&quot;</SPAN> /&gt;</SPAN>
+      <SPAN class="code-tag">&lt;/s:form&gt;</SPAN>
+  <SPAN class="code-tag">&lt;/s:div&gt;</SPAN>
+  <SPAN class="code-tag">&lt;s:div theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN>  href=<SPAN class="code-quote">&quot;%{ajaxTest}&quot;</SPAN> id=<SPAN class="code-quote">&quot;ryh1&quot;</SPAN> label=<SPAN class="code-quote">&quot;remote one&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/s:tabbedPanel&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">Attribute</TH>
+<TH class="confluenceTh">Description</TH>
+<TH class="confluenceTh">Type</TH>
+</TR>
+<TR>
+<TD class="confluenceTd">closeButton</TD>
+<TD class="confluenceTd">Where the close button will be placed, possible values are &quot;tab&quot; and &quot;pane&quot;</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">selectedTab</TD>
+<TD class="confluenceTd">The id of the tab that will be selected by default</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">doLayout</TD>
+<TD class="confluenceTd">If doLayout is false (default), the tabbedPanel's height is the height of the currently selected tab</TD>
+<TD class="confluenceTd">Boolean</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">labelposition</TD>
+<TD class="confluenceTd">Where to place the tabs, possible vales are &quot;top&quot; (default), &quot;right&quot;, &quot;bottom&quot; and &quot;left&quot;</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+</TBODY></TABLE>
+
+<P><A name="AjaxTags-autocompleterTag"></A></P>
+<H3><A name="AjaxTags-Autocompleter"></A>Autocompleter</H3>
+<P>The autocompleter tag loads its options asynchronously when the page loads, and suggests options based on the text entered in the textbox. If the attribute &quot;autoComplete&quot; is set to &quot;true&quot; (defaults to false), the autocompleter will make suggestions in the textbox, as the user types. The autocompleter will always display a dropdown with the options that have at least a partial match with the text entered in the textbox. If the user clicks on the dropdown button, all the options will be shown in the dropdown. To force the value to be a valid option set the attribute &quot;forceValidOption&quot; to &quot;true&quot; (&quot;false&quot; by default).</P>
+
+<P>Every autocompleter tag will generate two input fields, one of type &quot;text&quot;, whose name is specified with the &quot;name&quot; attribute, and one of type &quot;hidden&quot; whose name is &quot;${name}Key&quot;, where ${name} is the value in the &quot;name&quot; attribute. Given the following form:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;json&quot;</SPAN> value=<SPAN class="code-quote">&quot;/JSONList.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;form action=<SPAN class="code-quote">&quot;/someurl&quot;</SPAN>&gt;</SPAN>
+  <SPAN class="code-tag">&lt;s:autocompleter theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{json}&quot;</SPAN> name=<SPAN class="code-quote">&quot;state&quot;</SPAN>/&gt;</SPAN>
+  <SPAN class="code-tag">&lt;input type=<SPAN class="code-quote">&quot;submit&quot;</SPAN>&gt;</SPAN>
+<SPAN class="code-tag">&lt;/form&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>When the form is submitted, the request will be something like: /someurl?state=Florida&amp;stateKey=FL. &quot;state&quot; and &quot;stateKey&quot; must be defined as properties of the target action for the url.</P>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="warningMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">Required properties</B><BR>
+<P>    Two properties must be defined on the target action for each autocompleter, one for the displayed text (its name is the value of the &quot;name&quot; attribute), and one for the key or value (its name is the value of the &quot;name&quot; attribute plus &quot;Key&quot;).</P></TD></TR></TABLE>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="noteMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">Autocompleter input format</B><BR>
+<P>    The text to be returned from your action must be a list in <SPAN class="nobr"><A href="http://json.org/" title="Visit page outside Confluence" rel="nofollow">JSON<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> (Javascript Object Notation).<BR>
+    Make sure your action returning the JSON list is not decorated adding any extra content.<BR>
+    Like:<BR>
+    [<BR>
+        [&quot;Display Text1&quot;, &quot;Value1&quot;],<BR>
+        [&quot;Display Text2&quot;, &quot;Value2&quot;]<BR>
+    ]</P></TD></TR></TABLE>
+
+<TABLE cellpadding="5" width="85%" cellspacing="8px" class="warningMacro" border="0" align="center"><COLGROUP><COL width="24"><COL></COLGROUP><TR><TD valign="top"><IMG src="http://cwiki.apache.org/confluence/images/icons/emoticons/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></TD><TD><B class="strong">Escape character on returned text</B><BR>
+<P>    Remember to escape characters like \ and ' on the text returned from the action used with the autocompleter tag. See <SPAN class="nobr"><A href="http://json.org/" title="Visit page outside Confluence" rel="nofollow">JSON<SUP><IMG class="rendericon" src="http://cwiki.apache.org/confluence/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></SUP></A></SPAN> documentation for more details.</P></TD></TR></TABLE>
+
+<P>This is a simple autocompleter without textbox autocomplete:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;json&quot;</SPAN> value=<SPAN class="code-quote">&quot;/JSONList.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:autocompleter theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{json}&quot;</SPAN> autoComplete=<SPAN class="code-quote">&quot;false&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>This tag can be used in the &quot;simple&quot; theme, without ajax functionality. When using this tag in the &quot;simple&quot; theme, the option to be selected by default can be specified using the &quot;value&quot; attribute. Use the &quot;list&quot; attribute to specify the available options:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:autocompleter theme=<SPAN class="code-quote">&quot;simple&quot;</SPAN> list=<SPAN class="code-quote">&quot;{'apple','banana','grape','pear'}&quot;</SPAN> value=<SPAN class="code-quote">&quot;grape&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>By default the dropdown's height is 120 px, if the list contains just a few items and is smaller than 120 px, the dropdown's height will be adjusted to the size of the list. To change the default value for the dropdown's height use the &quot;dropdownHeight&quot; attribute.</P>
+
+<P>This autocompleter dropdown's height is 180 px:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;json&quot;</SPAN> value=<SPAN class="code-quote">&quot;/JSONList.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:autocompleter theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{json}&quot;</SPAN> dropdownHeight=<SPAN class="code-quote">&quot;180&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>When the topic specified in the &quot;refreshListenTopic&quot; attribute is published, the options in the autocompleter will be reloaded. If the &quot;onValueChangedPublishTopic&quot; attribute is given a value, every time the selected value changes, a topic with that name will be published. This two attributes can be use to link two autocompleters. The &quot;formId&quot; and &quot;formFilter&quot; attributes  (see Div tag for examples) can be used to submit a form, when the request is made.  </P>
+
+<P>When the selected value in &quot;Autocompleter 1&quot; changes, the &quot;/Refresh&quot; is published, forcing &quot;Autocompleter 2&quot;, to reloads its options, submitting the form &quot;selectForm&quot;:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;json&quot;</SPAN> value=<SPAN class="code-quote">&quot;/JSONList.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;form id=<SPAN class="code-quote">&quot;selectForm&quot;</SPAN>&gt;</SPAN>
+  Autocompleter 1 <SPAN class="code-tag">&lt;s:autocompleter theme=<SPAN class="code-quote">&quot;simple&quot;</SPAN> name=<SPAN class="code-quote">&quot;select&quot;</SPAN> list=<SPAN class="code-quote">&quot;{'fruits','colors'}&quot;</SPAN>  notifyTopics=<SPAN class="code-quote">&quot;/Refresh&quot;</SPAN> /&gt;</SPAN>
+<SPAN class="code-tag">&lt;/form&gt;</SPAN>
+  Autocompleter 2 <SPAN class="code-tag">&lt;s:autocompleter theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{json}&quot;</SPAN> formId=<SPAN class="code-quote">&quot;selectForm&quot;</SPAN> listenTopics=<SPAN class="code-quote">&quot;/Refresh&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>By default the autocompleter tag loads its options once, and makes suggestions based on those options. This is not the best approach if the action returns many options. The autocompleter tag can reload its options every time the user types in the textbox, setting &quot;loadOnTextChange&quot; to &quot;true&quot; (&quot;false&quot; by default). If  &quot;loadOnTextChange&quot; is set to &quot;true&quot; the available options will be reloaded after the user types 3 characters (default), to specify the minimum number of characters, use &quot;loadMinimumCount&quot;. On this case, it is probably desired to hide the dropdown arrow, setting &quot;showDownArrow&quot; to &quot;false&quot;.</P>
+
+<P>This autocompleter reloads its content everytime the user types into the textbox, and the text length is greater than or equal to 4:</P>
+
+<DIV class="code"><DIV class="codeContent">
+<PRE class="code-html"><SPAN class="code-tag">&lt;s:url id=<SPAN class="code-quote">&quot;json&quot;</SPAN> value=<SPAN class="code-quote">&quot;/JSONList.action&quot;</SPAN> /&gt;</SPAN>
+
+<SPAN class="code-tag">&lt;s:autocompleter theme=<SPAN class="code-quote">&quot;ajax&quot;</SPAN> href=<SPAN class="code-quote">&quot;%{jsonList}&quot;</SPAN> loadOnTextChange=<SPAN class="code-quote">&quot;true&quot;</SPAN> loadMinimumCount=<SPAN class="code-quote">&quot;4&quot;</SPAN> showDownArrow=<SPAN class="code-quote">&quot;false&quot;</SPAN>/&gt;</SPAN></PRE>
+</DIV></DIV>
+
+<P>&quot;notifyTopics&quot; scenarios:</P>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">When</TH>
+<TH class="confluenceTh">data</TH>
+<TH class="confluenceTh">type</TH>
+<TH class="confluenceTh">request</TH>
+</TR>
+<TR>
+<TD class="confluenceTd">Before request</TD>
+<TD class="confluenceTd">autocompleter's id, or Dojo widget id for this element if the autocompleter's id was not provided</TD>
+<TD class="confluenceTd">&quot;before&quot;</TD>
+<TD class="confluenceTd">empty javascript object</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">After successful request</TD>
+<TD class="confluenceTd">html string</TD>
+<TD class="confluenceTd">&quot;load&quot;</TD>
+<TD class="confluenceTd">request javascript object</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">After unsuccessful request</TD>
+<TD class="confluenceTd">html string</TD>
+<TD class="confluenceTd">&quot;error&quot;</TD>
+<TD class="confluenceTd">request javascript object</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">Value changed</TD>
+<TD class="confluenceTd">new value</TD>
+<TD class="confluenceTd">&quot;valuechanged&quot;</TD>
+<TD class="confluenceTd">empty javascript object</TD>
+</TR>
+</TBODY></TABLE>
+
+<TABLE class="confluenceTable"><TBODY>
+<TR>
+<TH class="confluenceTh">Attribute</TH>
+<TH class="confluenceTh">Description</TH>
+<TH class="confluenceTh">Type</TH>
+</TR>
+<TR>
+<TD class="confluenceTd">autoComplete</TD>
+<TD class="confluenceTd">Whether to make suggestions on the textbox (suggestions in the dropdown will still be made, disregarding the value of this property)</TD>
+<TD class="confluenceTd">Boolean</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">forceValidOption</TD>
+<TD class="confluenceTd">The text entered has to match an option, otherwise the value will be cleared when autocompleter loses focus</TD>
+<TD class="confluenceTd">Boolean</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">delay</TD>
+<TD class="confluenceTd">Time to wait before making the search (in milliseconds)</TD>
+<TD class="confluenceTd">Integer</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">searchType</TD>
+<TD class="confluenceTd">How to match entered text agains the available options, &quot;startstring&quot; (default), &quot;startword&quot; and &quot;substring&quot;</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">dropdownHeight</TD>
+<TD class="confluenceTd">The height of the dropdown (in pixels), by default 120</TD>
+<TD class="confluenceTd">Integer</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">dropdownWidth</TD>
+<TD class="confluenceTd">The width of the dropdown (in pixels), by default same as autocompleter's width</TD>
+<TD class="confluenceTd">Integer</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">formId</TD>
+<TD class="confluenceTd">Form id whose fields will be serialized and passed as parameters</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">formFilter</TD>
+<TD class="confluenceTd">Function name used to filter the fields of the form</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">value</TD>
+<TD class="confluenceTd">Default value when &quot;theme&quot; is &quot;simple&quot;</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">list</TD>
+<TD class="confluenceTd">Iteratable source to populate options</TD>
+<TD class="confluenceTd">String</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">loadOnTextChange</TD>
+<TD class="confluenceTd">Reload options as user types</TD>
+<TD class="confluenceTd">Boolean</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">loadMinimumCount</TD>
+<TD class="confluenceTd">Text lenght that will trigger a reload of the options if &quot;loadOnTextChange&quot; is set to &quot;true&quot;, 3 by default</TD>
+<TD class="confluenceTd">Integer</TD>
+</TR>
+<TR>
+<TD class="confluenceTd">showDownArrow</TD>
+<TD class="confluenceTd">Show or hide the dropdown arrow, &quot;true&quot; by default</TD>
+<TD class="confluenceTd">Boolean</TD>
+</TR>
+</TBODY></TABLE>
+
+<H2><A name="AjaxTags-Next%3AOGNL"></A>Next: <A href="ognl.html" title="OGNL">OGNL</A></H2>
+        </DIV>
+
+                  <DIV class="tabletitle">
+            Children
+            <SPAN class="smalltext" id="show" style="display: inline;">
+              <A href="javascript:showChildren()">Show Children</A></SPAN>
+            <SPAN class="smalltext" id="hide" style="display: none;">
+              <A href="javascript:hideChildren()">Hide Children</A></SPAN>
+          </DIV>
+          <DIV class="greybox" id="children" style="display: none;">
+                                      <A href="ajax-and-javascript-recipes.html" title="Ajax and JavaScript Recipes">Ajax and JavaScript Recipes</A>
+              <SPAN class="smalltext">(Apache Struts 2 Documentation)</SPAN>
+              <BR>
+                      </DIV>
+        
+      </DIV>
+    </DIV>
+    <DIV class="footer">
+      Generated by
+      <A href="http://www.atlassian.com/confluence/">Atlassian Confluence</A> (Version: 2.2.9 Build: 527 Sep 07, 2006)
+      <A href="http://could.it/autoexport/">AutoExport Plugin</A> (Version: Unknown - PluginManager Error)
+    </DIV>
+  </BODY>
+</HTML>
